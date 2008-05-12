@@ -1,0 +1,42 @@
+#
+# Makefile.mingw
+#
+# Description: Makefile for win32 (mingw) version of Pidgin pixmaps
+#
+
+PIDGIN_TREE_TOP := ../..
+include $(PIDGIN_TREE_TOP)/libpurple/win32/global.mak
+
+datadir := $(PIDGIN_INSTALL_DIR)
+include ./Makefile.am
+
+.PHONY: install clean
+
+install:
+	if test '$(SUBDIRS)'; then \
+	  list='$(SUBDIRS)'; for subdir in $$list; do \
+	    $(MAKE) -C $$subdir -f $(MINGW_MAKEFILE) install || exit 1 ;\
+	  done; \
+	fi;
+	if test '$(nobase_dist_carrierpixmap_DATA)'; then \
+	  list='$(nobase_dist_carrierpixmap_DATA)'; for file in $$list; do \
+	    dir=`dirname $$file`; \
+	    mkdir -p $(carrierpixmapdir)/$$dir; \
+	    cp $$file $(carrierpixmapdir)/$$dir/; \
+	  done; \
+	fi;
+	if test '$(carrierbuttonpix_DATA)'; then \
+	  mkdir -p $(carrierbuttonpixdir); \
+	  cp $(carrierbuttonpix_DATA) $(carrierbuttonpixdir); \
+	fi;
+	if test '$(carrierdistpix_DATA)'; then \
+	  mkdir -p $(carrierdistpixdir); \
+	  cp $(carrierdistpix_DATA) $(carrierdistpixdir); \
+	fi;
+
+clean:
+	if test '$(SUBDIRS)'; then \
+		list='$(SUBDIRS)'; for subdir in $$list; do \
+		$(MAKE) -C $$subdir -f $(MINGW_MAKEFILE) clean;\
+		done; \
+	fi;
