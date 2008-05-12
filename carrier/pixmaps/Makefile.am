@@ -323,6 +323,9 @@ PROTOCOLS_16 = \
 		protocols/16/yahoo.png \
 		protocols/16/zephyr.png
 
+ICONS_SCALABLE = \
+		icons/hicolor/scalable/apps/carrier.svg
+
 ICONS_16_SCALABLE = \
 		icons/hicolor/16x16/apps/scalable/carrier.svg
 
@@ -704,6 +707,7 @@ nobase_dist_carrierpixmap_DATA = \
 		$(TRAY_48)
 
 nobase_dist_carriericons_DATA = \
+		$(ICONS_SCALABLE)	\
 		$(ICONS_16) \
 		$(ICONS_22) \
 		$(ICONS_24) \
