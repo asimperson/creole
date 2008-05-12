@@ -1,0 +1,120 @@
+/* main CSS file for tutorial AdiumMessageStyle */
+/* Mark Fickett [naib.webhop.org], 2004 */
+/* Find the tutorial at http://naib.webhop.org/~markfickett/adium/tutorial/AdiumMessageStyle.html */
+body {
+        background: #fff url(background.png);
+        font-family: Calibri, sans-serif;
+	line-height: 13pt;
+        color: #000;
+	padding: 0px; margin: 0px;
+}
+
+a:link { color: #000; text-decoration: underline; background: rgba(255,232,63,.75); }
+a:visited { color: #000; text-decoration: underline; background:  rgba(255,232,63,.75); }
+a:hover { color: #000; text-decoration: underline; background:  rgba(255,232,63,.75); }
+a:active { color: #000; text-decoration: underline; background:  rgba(255,232,63,.75); }
+
+.outgoing, .status { position: relative; 
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #000;}
+	
+.incoming { position: relative;
+	background: #fff6d2;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #000;	}
+
+.message { overflow: auto;
+	padding-left: 30px;	}
+
+.incoming, .outgoing { margin: 12px 10px 8px; }
+.status { margin: 8px 25px 8px 30px; }
+.incoming, .outgoing, .status, .sender, .time {
+	border: none
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	background: rgba(255,255,255,.65);
+}
+
+.sender, .time {
+	position: absolute;
+	top: -6px;
+	
+	color: #000;
+	background: rgba(167,234,195,.55);
+	padding: 0px 3px;
+}
+.sender { left: 40px; }
+.time { right: 14px; }
+
+.status .time {
+	top: -1px; right: -1px;
+	color: #000;
+	background: rgba(167,234,195,.55);
+	
+}
+
+.buddyicon {
+	position: absolute; top: 4px; left: 4px;
+	width: 32px; height: 32px;
+	background: rgba(255,255,255,.6);
+	z-index: -1;
+}
+
+.buddyicon img { width: 32px; height: 32px; }
+
+.message { display: block; 
+	}
+.status .message {
+	margin: 0px 5px;
+}
+.away_message .message {
+	margin: 0px 5px 3px;
+}
+
+.content .message, .context .message {
+	margin: -1px 4px 10px;
+}
+.nextcontent .message, .nextcontext .message {
+	margin: -25px 4px 10px 5px;
+}
+
+.nextcontent .time, .nextcontext .time, .away_message .time {
+	border: none;
+	background: none;
+	color: #000;
+	opacity: .55;
+	font-weight: bold;
+	font-size: 14px;
+	z-index: -1;
+}
+.nextcontent .time, .nextcontext .time {
+	position: relative;
+	float: right;
+	top: -24px; right: 20px;
+	height: 11px;
+}
+.away_message .time {
+	top: 15%; right: 8px;
+}
+
+.status .message {
+	color: #666;
+}
+.online .message { color: #686; }
+.offline .message { color: #866; }
+.away .message, .return_away .message { color: #886; }
+.away_message .message { color: #665; }
+.idle .message, .return_idle .message { color: #888; }
+.date_separator .message { color: #444; }
+
+.context .message {
+	color: #888;
+	
+}
+.context .buddyiconmask {
+        background: rgba(255,255,255,.30);
+}
