@@ -531,18 +531,16 @@ int main(int argc, char *argv[])
 			"%s %s has segfaulted and attempted to dump a core file.\n"
 			"This is a bug in the software and has happened through\n"
 			"no fault of your own.\n\n"
-			"If you can reproduce the crash, please notify the developers\n"
-			"by reporting a bug at:\n"
+			"If you can reproduce the crash in vanilla Pidgin, please notify\n"
+			"the Pidgin developers by reporting a bug at:\n"
 			"%ssimpleticket/\n\n"
+			"If the bug only happens in %s you can report it in the tracker\n"
+			"at https://sourceforge.net/projects/funpidgin\n\n"
 			"Please make sure to specify what you were doing at the time\n"
 			"and post the backtrace from the core file.  If you do not know\n"
 			"how to get the backtrace, please read the instructions at\n"
-			"%swiki/GetABacktrace\n\n"
-			"If you need further assistance, please IM either SeanEgn or \n"
-			"LSchiere (via AIM).  Contact information for Sean and Luke \n"
-			"on other protocols is at\n"
-			"%swiki/DeveloperPages\n"),
-			PIDGIN_NAME, DISPLAY_VERSION, PURPLE_DEVEL_WEBSITE, PURPLE_DEVEL_WEBSITE, PURPLE_DEVEL_WEBSITE
+			"%swiki/GetABacktrace\n\n"),
+			PIDGIN_NAME, DISPLAY_VERSION, PURPLE_DEVEL_WEBSITE, PIDGIN_NAME, PURPLE_DEVEL_WEBSITE
 		);
 
 		/* we have to convert the message (UTF-8 to console
@@ -722,7 +720,7 @@ int main(int argc, char *argv[])
 	}
 
 #if GLIB_CHECK_VERSION(2,2,0)
-	g_set_application_name(_("Pidgin"));
+	g_set_application_name(_("Carrier"));
 #endif /* glib-2.0 >= 2.2.0 */
 
 #ifdef _WIN32

@@ -238,6 +238,13 @@ close_conv_cb(GtkWidget *w, GdkEventButton *dontuse, PidginConversation *gtkconv
 	switch (purple_conversation_get_type(conv)) {
 		case PURPLE_CONV_TYPE_IM:
 		{
+			/* When using old-style input area sizing, save lower_hbox size on close */
+                        if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size"))) {
+				purple_prefs_set_int(
+					PIDGIN_PREFS_ROOT "/conversations/im/entry_height",
+					GTK_WIDGET(gtkconv->lower_hbox)->allocation.height
+				);
+			}
 			if (purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/im/close_immediately"))
 				close_this_sucker(gtkconv);
 			else
@@ -246,6 +253,12 @@ close_conv_cb(GtkWidget *w, GdkEventButton *dontuse, PidginConversation *gtkconv
 		}
 		case PURPLE_CONV_TYPE_CHAT:
 		{
+			/* When using old-style input area sizing, save lower_hbox size on close */
+                        if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size")))
+				purple_prefs_set_int(
+					PIDGIN_PREFS_ROOT "/conversations/im/entry_height",
+					GTK_WIDGET(gtkconv->lower_hbox)->allocation.height
+				);
 			PurpleChat *chat = purple_blist_find_chat(account, name);
 			if (!chat ||
 					!purple_blist_node_get_bool(&chat->node, "gtk-persistent"))
@@ -3514,6 +3527,10 @@ update_typing_icon(PidginConversation *gtkconv)
 	if (purple_conversation_get_type(conv) == PURPLE_CONV_TYPE_IM)
 		im = PURPLE_CONV_IM(conv);
 
+	if (gtkwin->menu.typing_icon) {
+		gtk_widget_hide(gtkwin->menu.typing_icon);
+	}
+
 	if (im == NULL)
 		return;
 
@@ -4474,6 +4491,23 @@ static gboolean resize_imhtml_cb(PidginConversation *gtkconv)
 	int pad_top, pad_inside, pad_bottom;
 	int max_height = gtkconv->tab_cont->allocation.height / 2;
 
+	/* We can prefer old-style input area sizing */
+	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size"))) {
+		/* Find stored height */
+		height = (gtkconv->active_conv->type == PURPLE_CONV_TYPE_CHAT) ?
+				purple_prefs_get_int(PIDGIN_PREFS_ROOT "/conversations/chat/entry_height")
+				:
+				purple_prefs_get_int(PIDGIN_PREFS_ROOT "/conversations/im/entry_height");
+
+		/* if there is no such value, use 128 */
+		if (height<1)
+			height = 128;
+
+		gtk_widget_set_size_request( gtkconv->lower_hbox, -1, height );
+
+		return FALSE;
+	}
+
 	buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(gtkconv->entry));
 
 	wrapped_lines = 1;
@@ -4704,6 +4738,7 @@ static GtkWidget *
 setup_common_pane(PidginConversation *gtkconv)
 {
 	GtkWidget *vbox, *frame, *imhtml_sw, *event_box;
+	GtkWidget *vpaned = NULL;
 	GtkCellRenderer *rend;
 	GtkTreePath *path;
 	PurpleConversation *conv = gtkconv->active_conv;
@@ -4715,7 +4750,13 @@ setup_common_pane(PidginConversation *gtkconv)
 	/* Setup the top part of the pane */
 	vbox = gtk_vbox_new(FALSE, PIDGIN_HIG_BOX_SPACE);
 	gtk_widget_show(vbox);
-
+	
+	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size"))) {
+		vpaned = gtk_vpaned_new();
+		gtk_widget_show(vpaned);
+		gtk_paned_pack1(GTK_PANED(vpaned), vbox, TRUE, TRUE);
+	}
+	
 	/* Setup the info pane */
 	event_box = gtk_event_box_new();
 #if GTK_CHECK_VERSION(2,4,0)
@@ -4814,7 +4855,13 @@ setup_common_pane(PidginConversation *gtkconv)
 	                 G_CALLBACK(refocus_entry_cb), gtkconv);
 
 	gtkconv->lower_hbox = gtk_hbox_new(FALSE, PIDGIN_HIG_BOX_SPACE);
-	gtk_box_pack_start(GTK_BOX(vbox), gtkconv->lower_hbox, FALSE, FALSE, 0);
+	
+	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size"))) {
+		gtk_paned_pack2(GTK_PANED(vpaned), gtkconv->lower_hbox, FALSE, TRUE);
+	} else {
+		gtk_box_pack_start(GTK_BOX(vbox), gtkconv->lower_hbox, FALSE, FALSE, 0);
+	}
+	
 	gtk_widget_show(gtkconv->lower_hbox);
 
 	/* Setup the toolbar, entry widget and all signals */
@@ -4858,7 +4905,12 @@ setup_common_pane(PidginConversation *gtkconv)
 	default_formatize(gtkconv);
 	g_signal_connect_after(G_OBJECT(gtkconv->entry), "format_function_clear",
 	                       G_CALLBACK(clear_formatting_cb), gtkconv);
-	return vbox;
+	
+	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size"))) {
+		return vpaned;
+	} else {
+		return vbox;
+	}
 }
 
 /* Funpidgin Send Button */

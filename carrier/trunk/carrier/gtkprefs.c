@@ -116,6 +116,12 @@ entry_set(GtkEntry *entry, gpointer data) {
 	purple_prefs_set_string(key, gtk_entry_get_text(entry));
 }
 
+void
+funpidgin_refresh_blist_cb(GtkWidget *widget, gpointer nul)
+{	
+	pidgin_blist_refresh(purple_get_blist());
+}
+
 GtkWidget *
 pidgin_prefs_labeled_entry(GtkWidget *page, const gchar *title,
 							 const char *key, GtkSizeGroup *sg)
@@ -2028,34 +2034,50 @@ funpidgin_page(void)
 	GtkWidget *select1;
 	GtkWidget *select2;
 	GtkWidget *select3;
-	GtkWidget *dependent_box;
+	GtkWidget *ind_box;
+	GtkWidget *dep_box;
+	GtkWidget *contrast;
 	GtkSizeGroup *sg;
 	
 	ret = gtk_vbox_new(FALSE, PIDGIN_HIG_CAT_SPACE);
 	gtk_container_set_border_width(GTK_CONTAINER(ret), PIDGIN_HIG_BORDER);
 	sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
 
-	vbox = pidgin_make_frame (ret, _("Funpidgin Options"));
+	vbox = pidgin_make_frame (ret, _("Carrier Options"));
 	
+	pidgin_prefs_checkbox(_("Automatically _resize the text input box"),
+				PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size", vbox);
 	pidgin_prefs_checkbox(_("_Place new conversation windows where the last one was"),
 				PIDGIN_PREFS_ROOT "/conversations/funpidgin_remember_window_placement", vbox);
 	pidgin_prefs_checkbox(_("Show inline typing _notifications"),
 				PIDGIN_PREFS_ROOT "/conversations/funpidgin_inline_typing_notification", vbox);
 	pidgin_prefs_checkbox(_("_Show send button in conversations"),
 				PIDGIN_PREFS_ROOT "/conversations/funpidgin_send_button", vbox);
-	pidgin_prefs_checkbox(_("_Contrast group titles with background color (requires restart)"),
+				
+	contrast = pidgin_prefs_checkbox(_("_Contrast group titles with background color"),
 				PIDGIN_PREFS_ROOT "/blist/funpidgin_group_title_contrast", vbox);
+	g_signal_connect(G_OBJECT(contrast), "clicked",
+					 G_CALLBACK(funpidgin_refresh_blist_cb), contrast);
+				
 	pidgin_prefs_checkbox(_("_Use native icons wherever possible"),
 				PIDGIN_PREFS_ROOT "/conversations/funpidgin_native_icons", vbox);
 	pidgin_prefs_checkbox(_("_Always show tabs"),
 				PIDGIN_PREFS_ROOT "/conversations/funpidgin_always_tab", vbox);
-	pidgin_prefs_checkbox(_("Use protocol _icons as status icons (requires restart)"),
+				
+	ind_box = pidgin_prefs_checkbox(_("Use protocol _icons as status icons"),
 				PIDGIN_PREFS_ROOT "/blist/funpidgin_protocol_as_status", vbox);
-	dependent_box = pidgin_prefs_checkbox(_("_Hide subscripted status if it is available (requires restart)"),
+				
+	dep_box = pidgin_prefs_checkbox(_("_Hide subscripted status if it is available"),
 				PIDGIN_PREFS_ROOT "/blist/funpidgin_hide_available", vbox);
 	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/funpidgin_protocol_as_status"))) {
-		gtk_widget_set_sensitive(dependent_box, FALSE);
+		gtk_widget_set_sensitive(dep_box, FALSE);
 	}
+	g_signal_connect(G_OBJECT(ind_box), "clicked",
+					 G_CALLBACK(pidgin_toggle_sensitive), dep_box);
+	g_signal_connect(G_OBJECT(ind_box), "clicked",
+					 G_CALLBACK(funpidgin_refresh_blist_cb), ind_box);
+	g_signal_connect(G_OBJECT(dep_box), "clicked",
+					 G_CALLBACK(funpidgin_refresh_blist_cb), dep_box);
 	
 	select1 = pidgin_prefs_labeled_spin_button(vbox,
 			_("_Tab width in characters (0 to always expand):"), PIDGIN_PREFS_ROOT "/conversations/funpidgin_tab_width",
@@ -2102,7 +2124,7 @@ static void prefs_notebook_init(void) {
 	prefs_notebook_add_page(_("Logging"), logging_page(), notebook_page++);
 	prefs_notebook_add_page(_("Status / Idle"), away_page(), notebook_page++);
 	/* Adds a page for Funpidgin options */
-	prefs_notebook_add_page(_("Funpidgin"), funpidgin_page(), notebook_page++);
+	prefs_notebook_add_page(_("Carrier"), funpidgin_page(), notebook_page++);
 }
 
 void pidgin_prefs_show(void)
@@ -2217,6 +2239,11 @@ pidgin_prefs_init(void)
 	/* Smiley Callbacks */
 	purple_prefs_connect_callback(prefs, PIDGIN_PREFS_ROOT "/smileys/theme",
 								smiley_theme_pref_cb, NULL);
+								
+	/* Funpidgin Prefs */
+	purple_prefs_add_int(PIDGIN_PREFS_ROOT "/conversations/funpidgin_tab_width", 12);
+	purple_prefs_add_int(PIDGIN_PREFS_ROOT "/conversations/im/funpidgin_icon_size", 32);
+	purple_prefs_add_int(PIDGIN_PREFS_ROOT "/conversations/blist/funpidgin_status_delay", 4000);
 
 	pidgin_prefs_update_old();
 }

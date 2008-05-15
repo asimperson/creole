@@ -579,14 +579,21 @@ purple_webkit_write_conv(PurpleConversation *conv, const char *name, const char 
 static GtkWidget*
 hack_and_get_widget(PidginConversation *gtkconv)
 {
-	GtkWidget *tab_cont, *pane, *vbox, *hpaned, *imhtml;
+	GtkWidget *tab_cont, *pane, *vbox, *vpaned, *hpaned, *imhtml;
 	GList *list;
 	
 	tab_cont = gtkconv->tab_cont;
 	purple_debug_info("adium-ims","Tab container %s hooked\n", G_OBJECT_TYPE_NAME(tab_cont));
 
 	list = gtk_container_get_children(GTK_CONTAINER(tab_cont));
-	vbox = list->data;
+	
+	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size"))) {
+		vpaned = list->data;
+		vbox = gtk_paned_get_child1(GTK_PANED(vpaned));
+	} else {	
+		vbox = list->data;
+	}
+	
 	g_list_free(list);
         purple_debug_info("adium-ims","Vbox %s hooked\n", G_OBJECT_TYPE_NAME(vbox));
 
