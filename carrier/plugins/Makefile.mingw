@@ -80,7 +80,6 @@ plugins: \
 		gtkbuddynote.dll \
 		history.dll \
 		iconaway.dll \
-		manualsize.dll \
 		markerline.dll \
 		notify.dll \
 		pidginrc.dll \
