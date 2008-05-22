@@ -128,7 +128,6 @@
 #define PIDGIN_STOCK_TOOLBAR_USER_INFO    "pidgin-info"
 #define PIDGIN_STOCK_TOOLBAR_UNBLOCK      "pidgin-unblock"
 #define PIDGIN_STOCK_TOOLBAR_SELECT_AVATAR "pidgin-select-avatar"
-#define PIDGIN_STOCK_TOOLBAR_FUNPIDGIN_SEND "pidgin-send"
 #define PIDGIN_STOCK_TOOLBAR_SEND_FILE    "pidgin-send-file"
 
 /* Tray icons */

@@ -7,7 +7,7 @@ datadir=@datadir@
 sysconfdir=@sysconfdir@
 
 Name: Carrier
-Description: Carrier is a GTK2-based instant messenger application.
+Description: carrier is a GTK2-based instant messenger application.
 Version: @VERSION@
 Requires: gtk+-2.0 purple
 Cflags: -I${includedir}/carrier

@@ -20,8 +20,6 @@ WINAPP := -mwindows
 
 LDFLAGS := $(WINAPP)
 
-#CFLAGS += -DWINPIDGIN_USE_GLIB_IO_CHANNEL=1
-
 ##
 ## INCLUDE PATHS
 ##
@@ -139,7 +137,7 @@ include $(PIDGIN_COMMON_RULES)
 all: $(EXE_TARGET).exe $(PIDGIN_TARGET).dll
 	$(MAKE) -C $(PIDGIN_PLUGINS_TOP) -f $(MINGW_MAKEFILE)
 
-win32/carrier_exe_rc.rc: win32/pidgin_exe_rc.rc.in $(PIDGIN_TREE_TOP)/VERSION
+win32/carrier_exe_rc.rc: win32/carrier_exe_rc.rc.in $(PIDGIN_TREE_TOP)/VERSION
 	sed -e 's/@PIDGIN_VERSION@/$(PIDGIN_VERSION)/g' \
 	    -e 's/@ORIGINAL_FILENAME@/$(EXE_NAME)/' \
 	    $@.in > $@

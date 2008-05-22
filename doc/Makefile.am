@@ -26,7 +26,7 @@ EXTRA_DIST = \
 	imgstore-signals.dox \
 	log-signals.dox \
 	notify-signals.dox \
-	pidgin.1.in \
+	carrier.1.in \
 	plugin-i18n.dox \
 	plugin-ids.dox \
 	plugin-signals.dox \

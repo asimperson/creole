@@ -23,7 +23,7 @@ Version:    %carrierver
 Release:    0%{?beta:.beta%{beta}}
 License:    GPL
 Group:      Applications/Internet
-URL:        http://carrier.im/
+URL:        http://pidgin.im/
 Source:     %{name}-@VERSION@.tar.bz2
 BuildRoot:  %{_tmppath}/%{name}-%{version}-root
 
@@ -40,6 +40,8 @@ BuildRequires: gtk2-devel
 %{!?_without_silc:BuildRequires: /usr/include/silc/silcclient.h}
 %{!?_without_tcl:BuildRequires: tcl, tk, /usr/include/tcl.h}
 %{!?_without_text:BuildRequires: ncurses-devel}
+%{!?_without_nm:BuildRequires: NetworkManager-devel}
+%{!?_without_gevolution:BuildRequires: evolution-data-server-devel}
 
 %if "%{_vendor}" == "suse"
 # For SuSE:
@@ -225,8 +227,11 @@ CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} \
                                     --sysconfdir=%{_sysconfdir} \
                                     --disable-schemas-install \
                                     %{!?_with_dbus:--disable-dbus} \
+                                    %{!?_with_avahi:--disable-avahi} \
                                     %{?_without_gstreamer:--disable-gstreamer} \
                                     %{?_without_gtkspell:--disable-gtkspell} \
+                                    %{?_without_nm:--disable-nm} \
+                                    %{!?_without_gevolution:--enable-gevolution} \
                                     %{?_with_mono:--enable-mono} \
                                     %{?_with_perlmakehack:--with-perl-lib=%{buildroot}%{_prefix}} \
                                     %{!?_with_perlmakehack:--with-perl-lib=%{_prefix}} \
@@ -297,7 +302,7 @@ find $RPM_BUILD_ROOT%{_libdir}/purple-2 -xtype f -print | \
         grep -v ".dll$" > %{name}-%{version}-purpleplugins
 
 find $RPM_BUILD_ROOT%{_libdir}/pidgin -xtype f -print | \
-        sed "s@^$RPM_BUILD_ROOT@@g" > %{name}-%{version}-carrierplugins
+        sed "s@^$RPM_BUILD_ROOT@@g" > %{name}-%{version}-pidginplugins
 
 find $RPM_BUILD_ROOT%{_libdir}/finch -xtype f -print | \
         sed "s@^$RPM_BUILD_ROOT@@g" > %{name}-%{version}-finchplugins
@@ -352,7 +357,7 @@ fi
 
 %postun -n finch -p /sbin/ldconfig
 
-%files -f %{name}-%{version}-carrierplugins
+%files -f %{name}-%{version}-pidginplugins
 %defattr(-, root, root)
 
 %doc AUTHORS
@@ -367,8 +372,8 @@ fi
 %doc %{_mandir}/man3*/*
 
 %dir %{_libdir}/pidgin
-%attr(755, root, root) %{perl_vendorarch}/Pidgin.pm
-%attr(755, root, root) %{perl_vendorarch}/auto/Pidgin
+%attr(755, root, root) %{perl_vendorarch}/Carrier.pm
+%attr(755, root, root) %{perl_vendorarch}/auto/Carrier
 
 %{_bindir}/carrier
 %{_datadir}/pixmaps/carrier
@@ -468,6 +473,9 @@ fi
 %endif
 
 %changelog
+* Fri May 16 2008 Stu Tomlinson <stu@nosnilmot.com>
+- Add "--without nm" support to build without NetworkManager
+
 * Thu Feb 28 2008 Stu Tomlinson <stu@nosnilmot.com>
 - Remove --with-howl options as we no longer support using howl for bonjour
 

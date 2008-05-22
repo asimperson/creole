@@ -1,11 +1,11 @@
 # -*-shell-script-*-
 
 [Meta]
-RootName: @carrier.im/carrier:$SOFTWAREVERSION
+RootName: @pidgin.im/pidgin:$SOFTWAREVERSION
 DisplayName: Carrier Internet Messenger
 ShortName: Carrier
-Maintainer: The Carrier Developers
-URL: http://carrier.im/
+Maintainer: The Pidgin Developers
+URL: http://pidgin.im/
 Packager: Tim Ringenbach <marv_sf@users.sourceforge.net>
 Summary: A GTK+ based multiprotocol instant messaging client
 SoftwareVersion: @VERSION@
@@ -52,7 +52,7 @@ require @gnutls.org/gnutls 11.0 || { require @mozilla.org/nspr 4 && require @moz
 installExe ./bin/*
 installLib ./lib/libpurple-remote.so.0.0.0
 # do the plugins
-copyFiles ./lib/pidgin "$PREFIX/lib"
+copyFiles ./lib/carrier "$PREFIX/lib"
 installMan 1 ./man/man1/carrier.1
 installDesktop "Networking/Instant Messaging" ./share/applications/carrier.desktop
 installLocale ./share/locale
