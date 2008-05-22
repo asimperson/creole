@@ -323,9 +323,6 @@ PROTOCOLS_16 = \
 		protocols/16/yahoo.png \
 		protocols/16/zephyr.png
 
-ICONS_SCALABLE = \
-		icons/hicolor/scalable/apps/carrier.svg
-
 ICONS_16_SCALABLE = \
 		icons/hicolor/16x16/apps/scalable/carrier.svg
 
@@ -541,7 +538,9 @@ STATUS_48 = \
 		status/48/person.png
 
 STATUS_48_RTL = \
-		status/48/rtl/extended-away.png
+		status/48/rtl/extended-away.png \
+		status/48/rtl/login.png \
+		status/48/rtl/logout.png
 
 TOOLBAR_11 = \
 		toolbar/11/message-new.png
@@ -560,7 +559,6 @@ TOOLBAR_16 = \
 		toolbar/16/font-face.png \
 		toolbar/16/font-size-down.png \
 		toolbar/16/font-size-up.png \
-		toolbar/16/funpidgin-send.png \
 		toolbar/16/insert.png \
 		toolbar/16/insert-image.png \
 		toolbar/16/insert-link.png \
@@ -707,7 +705,6 @@ nobase_dist_carrierpixmap_DATA = \
 		$(TRAY_48)
 
 nobase_dist_carriericons_DATA = \
-		$(ICONS_SCALABLE)	\
 		$(ICONS_16) \
 		$(ICONS_22) \
 		$(ICONS_24) \

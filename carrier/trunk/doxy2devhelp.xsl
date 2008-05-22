@@ -13,8 +13,8 @@
 <xsl:param name="reference_prefix"></xsl:param>
 
 <xsl:template match="/">
-  <book title="Pidgin Documentation"
-        name="pidgin"
+  <book title="Carrier Documentation"
+        name="carrier"
         link="{$reference_prefix}main.html">
   <chapters>
     <sub name="Modules" link="{$reference_prefix}modules.html">

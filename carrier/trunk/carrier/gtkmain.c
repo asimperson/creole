@@ -27,6 +27,7 @@
 #include "account.h"
 #include "conversation.h"
 #include "core.h"
+#include "dbus-maybe.h"
 #include "debug.h"
 #include "eventloop.h"
 #include "ft.h"
@@ -299,7 +300,7 @@ pidgin_ui_init(void)
 	purple_sound_set_ui_ops(pidgin_sound_get_ui_ops());
 	purple_connections_set_ui_ops(pidgin_connections_get_ui_ops());
 	purple_whiteboard_set_ui_ops(pidgin_whiteboard_get_ui_ops());
-#ifdef USE_SCREENSAVER
+#if defined(USE_SCREENSAVER) || defined(HAVE_IOKIT)
 	purple_idle_set_ui_ops(pidgin_idle_get_ui_ops());
 #endif
 
@@ -531,16 +532,18 @@ int main(int argc, char *argv[])
 			"%s %s has segfaulted and attempted to dump a core file.\n"
 			"This is a bug in the software and has happened through\n"
 			"no fault of your own.\n\n"
-			"If you can reproduce the crash in vanilla Pidgin, please notify\n"
-			"the Pidgin developers by reporting a bug at:\n"
+			"If you can reproduce the crash, please notify the developers\n"
+			"by reporting a bug at:\n"
 			"%ssimpleticket/\n\n"
-			"If the bug only happens in %s you can report it in the tracker\n"
-			"at https://sourceforge.net/projects/funpidgin\n\n"
 			"Please make sure to specify what you were doing at the time\n"
 			"and post the backtrace from the core file.  If you do not know\n"
 			"how to get the backtrace, please read the instructions at\n"
-			"%swiki/GetABacktrace\n\n"),
-			PIDGIN_NAME, DISPLAY_VERSION, PURPLE_DEVEL_WEBSITE, PIDGIN_NAME, PURPLE_DEVEL_WEBSITE
+			"%swiki/GetABacktrace\n\n"
+			"If you need further assistance, please IM either SeanEgn or \n"
+			"LSchiere (via AIM).  Contact information for Sean and Luke \n"
+			"on other protocols is at\n"
+			"%swiki/DeveloperPages\n"),
+			PIDGIN_NAME, DISPLAY_VERSION, PURPLE_DEVEL_WEBSITE, PURPLE_DEVEL_WEBSITE, PURPLE_DEVEL_WEBSITE
 		);
 
 		/* we have to convert the message (UTF-8 to console
@@ -781,6 +784,15 @@ int main(int argc, char *argv[])
 	}
 
 	if (opt_si && !purple_core_ensure_single_instance()) {
+#ifdef HAVE_DBUS
+		DBusConnection *conn = purple_dbus_get_connection();
+		DBusMessage *message = dbus_message_new_method_call(DBUS_SERVICE_PURPLE, DBUS_PATH_PURPLE,
+				DBUS_INTERFACE_PURPLE, "PurpleBlistSetVisible");
+		gboolean tr = TRUE;
+		dbus_message_append_args(message, DBUS_TYPE_UINT32, &tr, DBUS_TYPE_INVALID);
+		dbus_connection_send_with_reply_and_block(conn, message, -1, NULL);
+		dbus_message_unref(message);
+#endif
 		purple_debug_info("main", "exiting because another libpurple client is already running\n");
 		purple_core_quit();
 #ifdef HAVE_SIGNAL_H

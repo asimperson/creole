@@ -19,24 +19,24 @@
 .\" License along with this manual; if not, write to the Free
 .\" Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 .\" Boston, MA  02111-1301  USA.
-.TH pidgin 1
+.TH carrier 1
 .SH NAME
-Pidgin v@VERSION@ \- Instant Messaging client
+Carrier v@VERSION@ \- Instant Messaging client
 .SH SYNOPSIS
 .TP 5
-\fBpidgin \fI[options]\fR
+\fBcarrier \fI[options]\fR
 
 .SH DESCRIPTION
 .PP
-\fBpidgin\fR is a graphical modular messaging client based on libpurple
+\fBcarrier\fR is a graphical modular messaging client based on libpurple
 which is capable of connecting to AIM, MSN, Yahoo!, XMPP, ICQ, IRC, SILC,
 Novell GroupWise, Lotus Sametime, Zephyr, Gadu-Gadu, and QQ all at once. It has
 many common features found in other clients, as well as many unique features.
-Pidgin is not endorsed by or affiliated with America Online, ICQ, Microsoft, or
+Carrier is not endorsed by or affiliated with America Online, ICQ, Microsoft, or
 Yahoo.
 
 .SH OPTIONS
-The following options are provided by Pidgin using the standard GNU
+The following options are provided by Carrier using the standard GNU
 command line syntax:
 .TP
 .B \-c, \-\-config=\fIDIR\fB
@@ -50,10 +50,10 @@ that are displayed in the \fBDebug Window\fR.
 Print a summary of command line options and exit.
 .TP
 .B \-m, \-\-multiple
-Allow multiple instances of Pidgin to run.
+Allow multiple instances of Carrier to run.
 .TP
 .B \-n, \-\-nologin
-Don't automatically login when Pidgin starts.  Sets the global status to
+Don't automatically login when Carrier starts.  Sets the global status to
 \fBOffline\fR.
 .TP
 .B \-l, \-\-login[=\fINAME\fR,\fINAME\fR,...]
@@ -65,7 +65,7 @@ first account in accounts.xml will be enabled.
 Print the current version and exit.
 
 .SH BUDDY LIST
-The \fBBuddy List\fR window is Pidgin's main interface window.  Using
+The \fBBuddy List\fR window is Carrier's main interface window.  Using
 this window a user can see which of his/her buddies is online, away, idle,
 etc.  The user can also add buddies to and remove buddies from the buddy list.
 
@@ -92,10 +92,10 @@ buddy's state changes.  This will open the \fBBuddy Pounce\fR dialog, which
 will be discussed later.
 .TP
 .B View Log
-Pidgin is capable of automatically logging messages.  These logs are
+Carrier is capable of automatically logging messages.  These logs are
 either plain text files (with a .txt extension) or html files (with a
 \&.html extension) located under the \fI~/.purple/logs\fR directory.  This
-menu command will display Pidgin's log viewer with logs loaded for that
+menu command will display Carrier's log viewer with logs loaded for that
 buddy or chat.
 .TP
 .B Alias
@@ -126,7 +126,7 @@ a new account, the user will submit a screen name and password.  The user will
 also choose the protocol for the account.
 
 If \fIRemember Password\fR is chosen, the password will be saved in
-Pidgin's \fI~/.purple/accounts.xml\fR configuration file.
+Carrier's \fI~/.purple/accounts.xml\fR configuration file.
 
 If \fIEnabled\fR is checked in the accounts dialog, this account will
 follow the status currently selected in the status selector.  If it is
@@ -143,13 +143,13 @@ All options take effect immediately.
 
 .TP
 .B Show system tray icon
-Specifies when to show a Pidgin icon in the notification area of the user's
+Specifies when to show a Carrier icon in the notification area of the user's
 panel (commonly referred to as the System Tray).
 
 .TP
 .B Hide new IM conversations
 Specifies when to hide new IM messages.  Messages will queue under the
-specified condition until shown.  Clicking the Pidgin icon in the
+specified condition until shown.  Clicking the Carrier icon in the
 notification area or system tray will display the queued messages.  An
 icon also appears in the buddy list's menu bar; this icon may also be
 used to display queued messages.
@@ -235,13 +235,13 @@ protocols.
 .TP
 .B Autodetect IP address
 When checked, causes Pidign to attempt to determine the public IP address
-of the host on which Pidgin is running and disables the \fBPublic IP\fR
+of the host on which Carrier is running and disables the \fBPublic IP\fR
 text field listed below.
 
 .TP
 .B Public IP
 If \fBAutodetect IP address\fR is disabled, this field allows manually
-specifying the public IP address for the host on which Pidgin is running.
+specifying the public IP address for the host on which Carrier is running.
 This is mainly useful for users with multiple network interfaces or behind
 NATs.
 
@@ -252,14 +252,14 @@ sometimes useful for file transfers and Direct IM.
 
 .TP
 .B Proxy Server
-The configuration section to enable Pidgin to operate through a proxy
-server.  Pidgin currently supports SOCKS 4/5 and HTTP proxies.
+The configuration section to enable Carrier to operate through a proxy
+server.  Carrier currently supports SOCKS 4/5 and HTTP proxies.
 
 .SH Browser
 
 .TP
 .B Browser
-Allows the user to select Pidgin's default web browser.  Firefox, Galeon,
+Allows the user to select Carrier's default web browser.  Firefox, Galeon,
 Konqueror, Mozilla, Netscape and Opera are supported natively.  The user
 can also manually enter a command to be executed when a link is clicked
 (\fI%s\fR expands to the URL).  For example, \fIxterm -e lynx "%s"\fR will
@@ -276,7 +276,7 @@ browser is selected.
 
 .TP
 .B Log format
-Specifies how to log.  Pidgin supports HTML and plain text, but plugins can
+Specifies how to log.  Carrier supports HTML and plain text, but plugins can
 provide other logging methods.
 
 .TP
@@ -300,7 +300,7 @@ When enabled, status changes are logged.
 Determines under which conditions to report idle time.  \fBBased on keyboard
 and mouse use\fR uses keyboard and mouse activity to determine idle time.
 \fBFrom last sent message\fR uses the time at which the user last sent a
-message in Pidgin to determine idle.  \fBNever\fR disables idle reporting.
+message in Carrier to determine idle.  \fBNever\fR disables idle reporting.
 
 .TP
 .B Auto-reply
@@ -324,8 +324,8 @@ idle.
 
 .TP
 .B Use status from last exit at startup
-If this is checked, Pidgin will remember what status was active when the
-user closed Pidgin and restore it at the next run.  When disabled, Pidgin
+If this is checked, Carrier will remember what status was active when the
+user closed Carrier and restore it at the next run.  When disabled, Carrier
 will always set the status selected in \fBStatus to apply at startup\fR
 at startup.
 
@@ -418,7 +418,7 @@ has three accounts set to "Away" and another account set to "Available."
 .TP
 .B New Status Window
 When the user selects \fINew Status...\fR from the status selector menu,
-Pidgin presents the user with a dialog asking for status-related information.
+Carrier presents the user with a dialog asking for status-related information.
 That information is discussed below:
 
 \fITitle\fR - The name of the status that will appear in the status selctor's
@@ -436,14 +436,14 @@ where formatting is not supported it will be stripped to the bare text entered.
 complex statuses in which some accounts' status differs from that of other
 accounts.  To use this, the user will click the expander to the left of the
 text, then select individual accounts which will have a different status
-and/or status message.  When the user selects an account, Pidgin will present
+and/or status message.  When the user selects an account, Carrier will present
 another status dialog asking for a status and a message just for the selected
 account.
 
 .TP
 .B Saved Status Window
 When the user selects \fISaved Statuses...\fR from the status selector's menu,
-Pidgin presents a dialog that lists all saved statuses.  "Transient" statuses,
+Carrier presents a dialog that lists all saved statuses.  "Transient" statuses,
 discussed above, are \fB\fINOT\fR\fR shown here.  This window provides the
 ability to manage saved statuses by allowing the creation, modification, and
 deletion of saved statuses.  The \fIUse\fR, \fIModify\fR, and \fIDelete\fR
@@ -465,8 +465,8 @@ disturb, away, etc.  If \fIRecurring\fR is checked, the pounce will remain
 until removed by the \fBDelete\fR button.
 
 .SH PLUGINS
-Pidgin allows for dynamic loading of plugins to add extra functionality
-to Pidgin.  See \fIplugins/HOWTO\fR or
+Carrier allows for dynamic loading of plugins to add extra functionality
+to Carrier.  See \fIplugins/HOWTO\fR or
 \fIhttp://developer.pidgin.im/wiki/CHowTo\fR for information on writing
 plugins.
 
@@ -480,20 +480,20 @@ options, the \fIConfigure Plugin\fR button will present the plugin's
 preferences dialog.
 
 .SH PERL
-Pidgin allows for plugins to be written in the perl scripting language.  See
+Carrier allows for plugins to be written in the perl scripting language.  See
 \fIPerl Scripting HOWTO\fR in the Pidgin documentation for more information
 about perl scripting.
 
 .SH TCL
-Pidgin allows for plugins to be written in the Tcl scripting language. See
+Carrier allows for plugins to be written in the Tcl scripting language. See
 \fIplugins/tcl/TCL-HOWTO\fR for more information about Tcl scripting.
 
 .SH D-Bus
-Pidgin allows for interaction via D-Bus.  Currently very little documentation
+Carrier allows for interaction via D-Bus.  Currently very little documentation
 about this interaction exists.
 
 .SH FILES
-  \fI@prefix@/bin/pidgin\fR: Pidgin's location.
+  \fI@prefix@/bin/carrier\fR: Pidgin's location.
 .br
   \fI~/.purple/blist.xml\fR: the buddy list.
 .br
@@ -501,7 +501,7 @@ about this interaction exists.
 .br
   \fI~/.purple/pounces.xml\fR: stores the user's buddy pounces.
 .br
-  \fI~/.purple/prefs.xml\fR: Pidgin's configuration file.
+  \fI~/.purple/prefs.xml\fR: Carrier's configuration file.
 .br
   \fI~/.purple/status.xml\fR: stores the user's away messages.
 .br
@@ -520,12 +520,12 @@ about this interaction exists.
 The bug tracker can be reached by visiting \fIhttp://developer.pidgin.im/query\fR
 
 .SH PATCHES
-If you fix a bug in Pidgin (or otherwise enhance it), please submit a
+If you fix a bug in Carrier (or otherwise enhance it), please submit a
 patch (using \fImtn diff > my.diff\fR against the latest version from the
 Monotone repository) at \fIhttp://developer.pidgin.im/simpleticket\fR
 
 Before sending a bug report, please verify that you have the latest
-version of Pidgin.  Many bugs (major and minor) are fixed
+version of Carrier.  Many bugs (major and minor) are fixed
 at each release, and if yours is out of date, the problem may already
 have been solved.
 

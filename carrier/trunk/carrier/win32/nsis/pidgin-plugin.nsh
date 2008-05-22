@@ -3,11 +3,11 @@
 ;; Copyright 2005, Daniel Atallah <daniel_atallah@yahoo.com>
 ;;
 ;; Include in plugin installer scripts using:
-;;   !addincludedir "${PATH_TO_PIDGIN_SRC}\carrier\win32\nsis"
-;;   !include "carrier-plugin.nsh"
+;;   !addincludedir "${PATH_TO_PIDGIN_SRC}\pidgin\win32\nsis"
+;;   !include "pidgin-plugin.nsh"
 ;;
 
-!define PIDGIN_REG_KEY              "SOFTWARE\carrier"
+!define PIDGIN_REG_KEY              "SOFTWARE\pidgin"
 
 !define PIDGIN_VERSION_OK           0
 !define PIDGIN_VERSION_INCOMPATIBLE 1

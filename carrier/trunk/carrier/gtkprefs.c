@@ -831,6 +831,106 @@ conversation_usetabs_cb(const char *name, PurplePrefType type,
 		gtk_widget_set_sensitive(GTK_WIDGET(data), FALSE);
 }
 
+
+#define CONVERSATION_CLOSE_ACCEL_PATH "<main>/Conversation/Close"
+
+/* Filled in in keyboard_shortcuts(). */
+static GtkAccelKey ctrl_w = { 0, 0, 0 };
+static GtkAccelKey escape = { 0, 0, 0 };
+
+static guint escape_closes_conversation_cb_id = 0;
+
+static gboolean
+accel_is_escape(GtkAccelKey *k)
+{
+	return (k->accel_key == escape.accel_key
+		&& k->accel_mods == escape.accel_mods);
+}
+
+/* Update the tickybox in Preferences when the keybinding for Conversation ->
+ * Close is changed via Gtk.
+ */
+static void
+conversation_close_accel_changed_cb (GtkAccelMap    *object,
+                                     gchar          *accel_path,
+                                     guint           accel_key,
+                                     GdkModifierType accel_mods,
+                                     gpointer        checkbox_)
+{
+	GtkToggleButton *checkbox = GTK_TOGGLE_BUTTON(checkbox_);
+	GtkAccelKey new = { accel_key, accel_mods, 0 };
+
+	g_signal_handler_block(checkbox, escape_closes_conversation_cb_id);
+	gtk_toggle_button_set_active(checkbox, accel_is_escape(&new));
+	g_signal_handler_unblock(checkbox, escape_closes_conversation_cb_id);
+}
+
+
+static void
+escape_closes_conversation_cb(GtkWidget *w,
+                              gpointer unused)
+{
+	gboolean active = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w));
+	gboolean changed;
+	GtkAccelKey *new_key = active ? &escape : &ctrl_w;
+
+	changed = gtk_accel_map_change_entry(CONVERSATION_CLOSE_ACCEL_PATH,
+		new_key->accel_key, new_key->accel_mods, TRUE);
+
+	/* If another path is already bound to the new accelerator,
+	 * _change_entry tries to delete that binding (because it was passed
+	 * replace=TRUE).  If that other path is locked, then _change_entry
+	 * will fail.  We don't ever lock any accelerator paths, so this case
+	 * should never arise.
+	 */
+	if(!changed)
+		purple_debug_warning("gtkprefs", "Escape accel failed to change\n");
+
+	/* TODO: create pidgin_accels_schedule_save */
+	pidgin_save_accels_cb(NULL, 0, 0, NULL, NULL);
+}
+
+
+/* Creates preferences for keyboard shortcuts that it's hard to change with the
+ * standard Gtk accelerator-changing mechanism.
+ */
+static void
+keyboard_shortcuts(GtkWidget *page)
+{
+	GtkWidget *vbox = pidgin_make_frame(page, _("Keyboard Shortcuts"));
+	GtkWidget *checkbox;
+	GtkAccelKey current = { 0, 0, 0 };
+	GtkAccelMap *map = gtk_accel_map_get();
+
+	/* Maybe it would be better just to hardcode the values?
+	 * -- resiak, 2007-04-30
+	 */
+	if (ctrl_w.accel_key == 0)
+	{
+		gtk_accelerator_parse ("<Control>w", &(ctrl_w.accel_key),
+			&(ctrl_w.accel_mods));
+		g_assert(ctrl_w.accel_key != 0);
+
+		gtk_accelerator_parse ("Escape", &(escape.accel_key),
+			&(escape.accel_mods));
+		g_assert(escape.accel_key != 0);
+	}
+
+	checkbox = gtk_check_button_new_with_mnemonic(
+		_("Cl_ose conversations with the Escape key"));
+	gtk_accel_map_lookup_entry(CONVERSATION_CLOSE_ACCEL_PATH, &current);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkbox),
+		accel_is_escape(&current));
+
+	escape_closes_conversation_cb_id = g_signal_connect(checkbox,
+		"clicked", G_CALLBACK(escape_closes_conversation_cb), NULL);
+
+	g_signal_connect(map, "changed::" CONVERSATION_CLOSE_ACCEL_PATH,
+		G_CALLBACK(conversation_close_accel_changed_cb), checkbox);
+
+	gtk_box_pack_start(GTK_BOX(vbox), checkbox, FALSE, FALSE, 0);
+}
+
 static GtkWidget *
 interface_page(void)
 {
@@ -909,6 +1009,10 @@ interface_page(void)
 	gtk_size_group_add_widget(sg, label);
 
 	g_list_free(names);
+
+
+	keyboard_shortcuts(ret);
+
 
 	gtk_widget_show_all(ret);
 	g_object_unref(sg);
@@ -2025,15 +2129,14 @@ away_page(void)
 	return ret;
 }
 
-/* Page for Funpidgin options */
 static GtkWidget *
 funpidgin_page(void)
 {
 	GtkWidget *ret;
-	GtkWidget *vbox;
-	GtkWidget *select1;
-	GtkWidget *select2;
-	GtkWidget *select3;
+	GtkWidget *vbox, *hbox1, *hbox2;
+	GtkWidget *select1, *label1;
+	GtkWidget *select2, *label2;
+	GtkWidget *check_box;
 	GtkWidget *ind_box;
 	GtkWidget *dep_box;
 	GtkWidget *contrast;
@@ -2042,17 +2145,43 @@ funpidgin_page(void)
 	ret = gtk_vbox_new(FALSE, PIDGIN_HIG_CAT_SPACE);
 	gtk_container_set_border_width(GTK_CONTAINER(ret), PIDGIN_HIG_BORDER);
 	sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-
+	
+	hbox1 = gtk_hbox_new(FALSE, PIDGIN_HIG_CAT_SPACE);
+	hbox2 = gtk_hbox_new(FALSE, PIDGIN_HIG_CAT_SPACE);
 	vbox = pidgin_make_frame (ret, _("Carrier Options"));
 	
-	pidgin_prefs_checkbox(_("Automatically _resize the text input box"),
+	/* The manual resizing code which is oh so expensive to maintain */
+	check_box = pidgin_prefs_checkbox(_("Automatically _resize the text input box"),
 				PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size", vbox);
-	pidgin_prefs_checkbox(_("_Place new conversation windows where the last one was"),
-				PIDGIN_PREFS_ROOT "/conversations/funpidgin_remember_window_placement", vbox);
-	pidgin_prefs_checkbox(_("Show inline typing _notifications"),
+	select1 = pidgin_prefs_labeled_spin_button(hbox1,
+		_("Mi_nimum entry lines:"), PIDGIN_PREFS_ROOT "/conversations/funpidgin_min_entry",
+		1, 100, sg);
+	label1 = pidgin_prefs_dropdown(hbox1, _("units:"), PURPLE_PREF_INT,
+					PIDGIN_PREFS_ROOT "/conversations/funpidgin_min_units",
+					_("lines"), 0,
+					_("%"), 1,
+					NULL);
+	select2 = pidgin_prefs_labeled_spin_button(hbox2,
+		_("Ma_ximum entry lines:"), PIDGIN_PREFS_ROOT "/conversations/funpidgin_max_entry",
+		1, 100, sg);
+	label2 = pidgin_prefs_dropdown(hbox2, _("units:"), PURPLE_PREF_INT,
+					PIDGIN_PREFS_ROOT "/conversations/funpidgin_max_units",
+					_("lines"), 0,
+					_("%"), 1,
+					NULL);
+	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size"))) {
+		gtk_widget_set_sensitive(hbox1, FALSE);
+		gtk_widget_set_sensitive(hbox2, FALSE);
+	}
+	g_signal_connect(G_OBJECT(check_box), "clicked",
+					 G_CALLBACK(pidgin_toggle_sensitive), hbox1);
+	g_signal_connect(G_OBJECT(check_box), "clicked",
+					 G_CALLBACK(pidgin_toggle_sensitive), hbox2);
+	gtk_box_pack_start(GTK_BOX(vbox), hbox1, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(vbox), hbox2, FALSE, FALSE, 0);
+					 
+	pidgin_prefs_checkbox(_("Show inline _typing notifications"),
 				PIDGIN_PREFS_ROOT "/conversations/funpidgin_inline_typing_notification", vbox);
-	pidgin_prefs_checkbox(_("_Show send button in conversations"),
-				PIDGIN_PREFS_ROOT "/conversations/funpidgin_send_button", vbox);
 				
 	contrast = pidgin_prefs_checkbox(_("_Contrast group titles with background color"),
 				PIDGIN_PREFS_ROOT "/blist/funpidgin_group_title_contrast", vbox);
@@ -2067,7 +2196,7 @@ funpidgin_page(void)
 	ind_box = pidgin_prefs_checkbox(_("Use protocol _icons as status icons"),
 				PIDGIN_PREFS_ROOT "/blist/funpidgin_protocol_as_status", vbox);
 				
-	dep_box = pidgin_prefs_checkbox(_("_Hide subscripted status if it is available"),
+	dep_box = pidgin_prefs_checkbox(_("_Hide available subscripts"),
 				PIDGIN_PREFS_ROOT "/blist/funpidgin_hide_available", vbox);
 	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/blist/funpidgin_protocol_as_status"))) {
 		gtk_widget_set_sensitive(dep_box, FALSE);
@@ -2079,15 +2208,18 @@ funpidgin_page(void)
 	g_signal_connect(G_OBJECT(dep_box), "clicked",
 					 G_CALLBACK(funpidgin_refresh_blist_cb), dep_box);
 	
-	select1 = pidgin_prefs_labeled_spin_button(vbox,
-			_("_Tab width in characters (0 to always expand):"), PIDGIN_PREFS_ROOT "/conversations/funpidgin_tab_width",
-			0, 255, sg);
-	select2 = pidgin_prefs_labeled_spin_button(vbox,
-			_("_Buddy icon size:"), PIDGIN_PREFS_ROOT "/conversations/im/funpidgin_icon_size",
-			8, 255, sg);
-	select3 = pidgin_prefs_labeled_spin_button(vbox,
-			_("Status change _delay (ms):"), PIDGIN_PREFS_ROOT "/blist/funpidgin_status_delay",
-			0, 8191, sg);
+	pidgin_prefs_labeled_spin_button(vbox,
+		_("_Tab width in characters (0 to always expand):"), PIDGIN_PREFS_ROOT "/conversations/funpidgin_tab_width",
+		0, 255, sg);
+	pidgin_prefs_labeled_spin_button(vbox,
+		_("Buddy icon size 1:"), PIDGIN_PREFS_ROOT "/conversations/im/funpidgin_icon_size_1",
+		8, 255, sg);
+	pidgin_prefs_labeled_spin_button(vbox,
+		_("Buddy icon size 2:"), PIDGIN_PREFS_ROOT "/conversations/im/funpidgin_icon_size_2",
+		8, 255, sg);
+	pidgin_prefs_labeled_spin_button(vbox,
+		_("Status change _delay (ms):"), PIDGIN_PREFS_ROOT "/blist/funpidgin_status_delay",
+		0, 8191, sg);
 	
 	gtk_widget_show_all(ret);
 	g_object_unref(sg);
@@ -2123,7 +2255,6 @@ static void prefs_notebook_init(void) {
 #endif
 	prefs_notebook_add_page(_("Logging"), logging_page(), notebook_page++);
 	prefs_notebook_add_page(_("Status / Idle"), away_page(), notebook_page++);
-	/* Adds a page for Funpidgin options */
 	prefs_notebook_add_page(_("Carrier"), funpidgin_page(), notebook_page++);
 }
 
@@ -2239,11 +2370,6 @@ pidgin_prefs_init(void)
 	/* Smiley Callbacks */
 	purple_prefs_connect_callback(prefs, PIDGIN_PREFS_ROOT "/smileys/theme",
 								smiley_theme_pref_cb, NULL);
-								
-	/* Funpidgin Prefs */
-	purple_prefs_add_int(PIDGIN_PREFS_ROOT "/conversations/funpidgin_tab_width", 12);
-	purple_prefs_add_int(PIDGIN_PREFS_ROOT "/conversations/im/funpidgin_icon_size", 32);
-	purple_prefs_add_int(PIDGIN_PREFS_ROOT "/conversations/blist/funpidgin_status_delay", 4000);
 
 	pidgin_prefs_update_old();
 }

@@ -1,17 +1,17 @@
 EXTRA_DIST = \
-		carrier.pc.in \
-		carrier-uninstalled.pc.in \
 		getopt.c \
 		getopt.h \
 		getopt1.c \
 		Makefile.mingw \
+		carrier.pc.in \
+		carrier-uninstalled.pc.in \
 		win32/IdleTracker/Makefile.mingw \
 		win32/IdleTracker/idletrack.c \
 		win32/IdleTracker/idletrack.h \
 		win32/MinimizeToTray.h \
 		win32/MinimizeToTray.c \
-		win32/pidgin_dll_rc.rc.in \
-		win32/pidgin_exe_rc.rc.in \
+		win32/carrier_dll_rc.rc.in \
+		win32/carrier_exe_rc.rc.in \
 		win32/gtkdocklet-win32.c \
 		win32/gtkwin32dep.c \
 		win32/gtkwin32dep.h \
@@ -21,10 +21,10 @@ EXTRA_DIST = \
 		win32/winpidgin.c \
 		win32/wspell.c \
 		win32/wspell.h \
-		win32/nsis/pixmaps/pidgin-header.bmp \
-		win32/nsis/pixmaps/pidgin-intro.bmp \
-		win32/nsis/pixmaps/pidgin-install.ico \
-		win32/nsis/pidgin-installer.nsi \
+		win32/nsis/pixmaps/carrier-header.bmp \
+		win32/nsis/pixmaps/carrier-intro.bmp \
+		win32/nsis/pixmaps/carrier-install.ico \
+		win32/nsis/carrier-installer.nsi \
 		win32/nsis/pidgin-plugin.nsh \
 		win32/nsis/langmacros.nsh \
 		win32/nsis/translations/afrikaans.nsh \

@@ -49,6 +49,7 @@ SetDateSave on
 !include "WordFunc.nsh"
 !insertmacro VersionCompare
 !insertmacro WordFind
+!insertmacro un.WordFind
 
 ;--------------------------------
 ;Defines
@@ -255,21 +256,21 @@ ReserveFile "${NSISDIR}\Plugins\System.dll"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;--------------------------------
-;Uninstall any old version of Pidgin (or Gaim)
+;Uninstall any old version of Carrier (or Gaim)
 
 Section -SecUninstallOldPidgin
   ; Check install rights..
   Call CheckUserInstallRights
   Pop $R0
 
-  ;First try to uninstall Pidgin
+  ;First try to uninstall Carrier
   StrCpy $R4 ${PIDGIN_REG_KEY}
   StrCpy $R5 ${PIDGIN_UNINSTALL_KEY}
   StrCpy $R6 ${PIDGIN_UNINST_EXE}
   StrCpy $R7 "Carrier"
 
   start_comparison:
-  ;If pidgin is currently set to run on startup,
+  ;If carrier is currently set to run on startup,
   ;  save the section of the Registry where the setting is before uninstalling,
   ;  so we can put it back after installing the new version
   ClearErrors
@@ -325,7 +326,7 @@ Section -SecUninstallOldPidgin
         no_version_found:
           ;We've already tried to fallback to an old gaim instance
           StrCmp $R7 "Gaim" done
-          ; If we couldn't uninstall Pidgin, try to uninstall Gaim
+          ; If we couldn't uninstall Carrier, try to uninstall Gaim
           StrCpy $STARTUP_RUN_KEY "NONE"
           StrCpy $R4 ${OLD_GAIM_REG_KEY}
           StrCpy $R5 ${OLD_GAIM_UNINSTALL_KEY}
@@ -396,7 +397,7 @@ Section $(GTK_SECTION_TITLE) SecGtk
   ; end got_install rights
 
   gtk_no_install_rights:
-    ; Install GTK+ to Pidgin install dir
+    ; Install GTK+ to Carrier install dir
     StrCpy $GTK_FOLDER $INSTDIR
     ClearErrors
     ExecWait '"$TEMP\gtk-runtime.exe" /L=$LANGUAGE $ISSILENT /D=$GTK_FOLDER'
@@ -417,7 +418,7 @@ SectionEnd ; end of GTK+ section
 !endif
 
 ;--------------------------------
-;Pidgin Install Section
+;Carrier Install Section
 
 Section $(PIDGIN_SECTION_TITLE) SecPidgin
   SectionIn 1 RO
@@ -428,10 +429,10 @@ Section $(PIDGIN_SECTION_TITLE) SecPidgin
 
   ; Get GTK+ lib dir if we have it..
 
-  StrCmp $R0 "NONE" pidgin_none
-  StrCmp $R0 "HKLM" pidgin_hklm pidgin_hkcu
+  StrCmp $R0 "NONE" carrier_none
+  StrCmp $R0 "HKLM" carrier_hklm carrier_hkcu
 
-  pidgin_hklm:
+  carrier_hklm:
     ReadRegStr $R1 HKLM ${GTK_REG_KEY} "Path"
     WriteRegStr HKLM "${HKLM_APP_PATHS_KEY}" "" "$INSTDIR\carrier.exe"
     WriteRegStr HKLM "${HKLM_APP_PATHS_KEY}" "Path" "$R1\bin"
@@ -447,7 +448,7 @@ Section $(PIDGIN_SECTION_TITLE) SecPidgin
     SetShellVarContext "all"
     Goto pidgin_install_files
 
-  pidgin_hkcu:
+  carrier_hkcu:
     ReadRegStr $R1 HKCU ${GTK_REG_KEY} "Path"
     StrCmp $R1 "" 0 +2
       ReadRegStr $R1 HKLM ${GTK_REG_KEY} "Path"
@@ -460,14 +461,14 @@ Section $(PIDGIN_SECTION_TITLE) SecPidgin
     WriteRegDWORD HKCU "${PIDGIN_UNINSTALL_KEY}" "NoModify" 1
     WriteRegDWORD HKCU "${PIDGIN_UNINSTALL_KEY}" "NoRepair" 1
     WriteRegStr HKCU "${PIDGIN_UNINSTALL_KEY}" "UninstallString" "$INSTDIR\${PIDGIN_UNINST_EXE}"
-    Goto pidgin_install_files
+    Goto carrier_install_files
 
-  pidgin_none:
+  carrier_none:
     ReadRegStr $R1 HKLM ${GTK_REG_KEY} "Path"
 
-  pidgin_install_files:
+  carrier_install_files:
     SetOutPath "$INSTDIR"
-    ; Pidgin files
+    ; Carrier files
     SetOverwrite on
 
     ;Delete old liboscar and libjabber since they tend to be problematic
@@ -522,14 +523,14 @@ Section $(PIDGIN_SECTION_TITLE) SecPidgin
     WriteUninstaller "$INSTDIR\${PIDGIN_UNINST_EXE}"
     SetOverwrite off
 
-    ; If we previously had pidgin set up to run on startup, make it do so again
+    ; If we previously had carrier set up to run on startup, make it do so again
     StrCmp $STARTUP_RUN_KEY "HKCU" +1 +2
     WriteRegStr HKCU "${STARTUP_RUN_KEY}" "Carrier" "$INSTDIR\carrier.exe"
     StrCmp $STARTUP_RUN_KEY "HKLM" +1 +2
     WriteRegStr HKLM "${STARTUP_RUN_KEY}" "Carrier" "$INSTDIR\carrier.exe"
 
   done:
-SectionEnd ; end of default Pidgin section
+SectionEnd ; end of default Carrier section
 
 ;--------------------------------
 ;Shortcuts
@@ -549,23 +550,18 @@ SectionGroupEnd
 
 ;--------------------------------
 ;URI Handling
+
+!macro URI_SECTION proto
+  Section /o "${proto}:" SecURI_${proto}
+    Push "${proto}"
+    Call RegisterURIHandler
+  SectionEnd
+!macroend
 SectionGroup /e $(URI_HANDLERS_SECTION_TITLE) SecURIHandlers
-  Section /o "aim:" SecURI_AIM
-    Push "aim"
-    Call RegisterURIHandler
-  SectionEnd
-  Section /o "msnim:" SecURI_MSNIM
-    Push "msnim"
-    Call RegisterURIHandler
-  SectionEnd
-  Section /o "myim:" SecURI_MYIM
-    Push "myim"
-    Call RegisterURIHandler
-  SectionEnd
-  Section /o "ymsgr:" SecURI_YMSGR
-    Push "ymsgr"
-    Call RegisterURIHandler
-  SectionEnd
+  !insertmacro URI_SECTION "aim"
+  !insertmacro URI_SECTION "msnim"
+  !insertmacro URI_SECTION "myim"
+  !insertmacro URI_SECTION "ymsgr"
 SectionGroupEnd
 
 ;--------------------------------
@@ -694,7 +690,19 @@ Section Uninstall
     ; The WinPrefs plugin may have left this behind..
     DeleteRegValue HKCU "${STARTUP_RUN_KEY}" "Carrier"
     DeleteRegValue HKLM "${STARTUP_RUN_KEY}" "Carrier"
-    ; Remove Language preference info (TODO: check if NSIS removes this)
+    ; Remove Language preference info
+    DeleteRegValue HKCU "${PIDGIN_REG_KEY}" "Installer Language"
+
+    ; Remove any URI handlers
+    ; I can't think of an easy way to maintain a list in a single place
+    Push "aim"
+    Call un.UnregisterURIHandler
+    Push "msnim"
+    Call un.UnregisterURIHandler
+    Push "myim"
+    Call un.UnregisterURIHandler
+    Push "ymsgr"
+    Call un.UnregisterURIHandler
 
     Delete "$INSTDIR\ca-certs\Equifax_Secure_CA.pem"
     Delete "$INSTDIR\ca-certs\GTE_CyberTrust_Global_Root.pem"
@@ -732,7 +740,6 @@ Section Uninstall
     Delete "$INSTDIR\plugins\libyahoo.dll"
     Delete "$INSTDIR\plugins\libxmpp.dll"
     Delete "$INSTDIR\plugins\log_reader.dll"
-    Delete "$INSTDIR\plugins\manualsize.dll"
     Delete "$INSTDIR\plugins\markerline.dll"
     Delete "$INSTDIR\plugins\newline.dll"
     Delete "$INSTDIR\plugins\notify.dll"
@@ -791,7 +798,7 @@ Section Uninstall
     !endif
     Delete "$INSTDIR\install.log"
 
-    ;Try to remove Pidgin install dir (only if empty)
+    ;Try to remove Carrier install dir (only if empty)
     RMDir "$INSTDIR"
 
     ; Shortcuts..
@@ -878,7 +885,7 @@ SectionEnd ; end of uninstall section
 ;--------------------------------
 ;Functions
 
-; Default the URI handler checkboxes if Pidgin is the current handler or if there is no handler
+; Default the URI handler checkboxes if Carrier is the current handler or if there is no handler
 Function SelectURIHandlerSelections
   Push $R0
   Push $R1
@@ -904,12 +911,12 @@ Function SelectURIHandlerSelections
   ReadRegStr $R3 HKCR "$R2" ""
   IfErrors default_on ;there is no current handler
 
-  ; Check if Pidgin is the current handler
-  ClearErrors
-  ReadRegStr $R3 HKCR "$R2\shell\Open\command" ""
-  IfErrors end_loop
-  ${WordFind} "$R3" "carrier.exe" "E+1{" $R3
-  IfErrors end_loop default_on
+  Push $R2
+  Call CheckIfPidginIsCurrentURIHandler
+  Pop $R3
+
+  ; If Carrier isn't the current handler, we don't steal it automatically
+  IntCmp $R3 0 end_loop
 
   ;We default the URI handler checkbox on
   default_on:
@@ -927,9 +934,58 @@ Function SelectURIHandlerSelections
   Pop $R0
 FunctionEnd ;SelectURIHandlerSections
 
+; Check if Carrier is the current handler
+; Returns a boolean on the stack
+!macro CheckIfPidginIsCurrentURIHandlerMacro UN
+Function ${UN}CheckIfPidginIsCurrentURIHandler
+  Exch $R0
+  ClearErrors
+
+  ReadRegStr $R0 HKCR "$R0\shell\Open\command" ""
+  IfErrors 0 +3
+    IntOp $R0 0 + 0
+    Goto done
+
+  !ifdef __UNINSTALL__
+  ${un.WordFind} "$R0" "carrier.exe" "E+1{" $R0
+  !else
+  ${WordFind} "$R0" "carrier.exe" "E+1{" $R0
+  !endif
+  IntOp $R0 0 + 1
+  IfErrors 0 +2
+    IntOp $R0 0 + 0
+
+  done:
+  Exch $R0
+FunctionEnd
+!macroend
+!insertmacro CheckIfPidginIsCurrentURIHandlerMacro ""
+!insertmacro CheckIfPidginIsCurrentURIHandlerMacro "un."
+
+; If Carrier is the current URI handler for the specified protocol, remove it.
+Function un.UnregisterURIHandler
+  Exch $R0
+  Push $R1
+
+  Push $R0
+  Call un.CheckIfPidginIsCurrentURIHandler
+  Pop $R1
+
+  ; If Carrier isn't the current handler, leave it as-is
+  IntCmp $R1 0 done
+
+  ;Unregister the URI handler
+  DetailPrint "Unregistering $R0 URI Handler"
+  DeleteRegKey HKCR "$R0"
+
+  done:
+  Pop $R1
+  Pop $R0
+FunctionEnd
 
 Function RegisterURIHandler
   Exch $R0
+  DetailPrint "Registering $R0 URI Handler"
   DeleteRegKey HKCR "$R0"
   WriteRegStr HKCR "$R0" "" "URL:$R0"
   WriteRegStr HKCR "$R0" "URL Protocol" ""
@@ -1199,12 +1255,14 @@ Function .onInit
   StrCpy $SPELLCHECK_SEL ""
 
   ;Try to copy the old Gaim installer Lang Reg. key
+  ;(remove it after we're done to prevent this being done more than once)
   ClearErrors
   ReadRegStr $R0 HKCU "${PIDGIN_REG_KEY}" "Installer Language"
   IfErrors 0 +5
   ClearErrors
-  ReadRegStr $R0 HKCU "SOFTWARE\gaim" "Installer Language"
-  IfErrors +2
+  ReadRegStr $R0 HKCU "${OLD_GAIM_REG_KEY}" "Installer Language"
+  IfErrors +3
+  DeleteRegValue HKCU "${OLD_GAIM_REG_KEY}" "Installer Language"
   WriteRegStr HKCU "${PIDGIN_REG_KEY}" "Installer Language" "$R0"
 
   !insertmacro SetSectionFlag ${SecSpellCheck} ${SF_RO}
@@ -1248,7 +1306,7 @@ Function .onInit
   StrCpy $ISSILENT "/NOUI"
 
   ; GTK installer has two silent states.. one with Message boxes, one without
-  ; If pidgin installer was run silently, we want to supress gtk installer msg boxes.
+  ; If carrier installer was run silently, we want to supress gtk installer msg boxes.
   IfSilent 0 set_gtk_normal
       StrCpy $ISSILENT "/S"
   set_gtk_normal:
@@ -1290,7 +1348,7 @@ Function .onInit
   ; If install path was set on the command, use it.
   StrCmp $INSTDIR "" 0 instdir_done
 
-  ;  If pidgin or gaim is currently installed, we should default to where it is currently installed
+  ;  If carrier or gaim is currently installed, we should default to where it is currently installed
   ClearErrors
   ReadRegStr $INSTDIR HKCU "${PIDGIN_REG_KEY}" ""
   IfErrors +2
@@ -1322,6 +1380,7 @@ FunctionEnd
 Function un.onInit
   Call un.RunCheck
   StrCpy $name "Carrier ${PIDGIN_VERSION}"
+;LogSet on
 
   ; Get stored language preference
   !insertmacro MUI_UNGETLANGUAGE
