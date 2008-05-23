@@ -23,6 +23,7 @@ PERL_LIB_TOP ?= $(WIN32_DEV_TOP)/perl58
 SILC_TOOLKIT ?= $(WIN32_DEV_TOP)/silc-toolkit-1.1.5
 TCL_LIB_TOP ?= $(WIN32_DEV_TOP)/tcl-8.4.5
 GSTREAMER_TOP ?= $(WIN32_DEV_TOP)/gstreamer-0.10.13
+WEBKIT_TOP ?= $(WIN32_DEV_TOP)/webkit-1.0
 
 # Where we installing this stuff to?
 PIDGIN_INSTALL_DIR := $(PIDGIN_TREE_TOP)/win32-install-dir
