@@ -20,7 +20,8 @@ webkitdir = $(libdir)/pidgin
 
 webkit_la_LDFLAGS = -module -avoid-version
 
-EXTRA_DIST = $(webkittemplate_DATA)
+EXTRA_DIST =	Makefile.mingw \
+		$(webkittemplate_DATA)
 
 if PLUGINS
 

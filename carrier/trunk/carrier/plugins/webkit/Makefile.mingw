@@ -1,0 +1,102 @@
+#
+# Makefile.mingw
+#
+# Description: Makefile for webkit plugin.
+#
+
+PIDGIN_TREE_TOP := ../../..
+include $(PIDGIN_TREE_TOP)/libpurple/win32/global.mak
+
+datadir := $(PIDGIN_INSTALL_DIR)
+
+webkittemplatedir = $(datadir)/carrier/webkit
+nobase_webkittemplate_DATA = Template.html \
+	defaultstyle/Contents/Resources/background.png \
+	defaultstyle/Contents/Resources/main.css \
+	defaultstyle/Contents/Resources/Status.html \
+	defaultstyle/Contents/Resources/Incoming/buddy_icon.png \
+	defaultstyle/Contents/Resources/Incoming/Content.html \
+	defaultstyle/Contents/Resources/Incoming/Context.html \
+	defaultstyle/Contents/Resources/Incoming/NextContent.html \
+	defaultstyle/Contents/Resources/Incoming/NextContext.html \
+	defaultstyle/Contents/Resources/Outgoing/buddy_icon.png \
+	defaultstyle/Contents/Resources/Outgoing/Content.html \
+	defaultstyle/Contents/Resources/Outgoing/Context.html \
+	defaultstyle/Contents/Resources/Outgoing/NextContent.html \
+	defaultstyle/Contents/Resources/Outgoing/NextContext.html
+
+EXTRA_DIST =	Makefile.am \
+		$(webkittemplate_DATA)
+
+TARGET = webkit
+
+##
+## INCLUDE PATHS
+##
+INCLUDE_PATHS +=	-I. \
+			-I$(WEBKIT_TOP)/include/webkit-1.0 \
+			-I$(GTK_TOP)/include \
+			-I$(GTK_TOP)/include/gtk-2.0 \
+			-I$(GTK_TOP)/include/glib-2.0 \
+			-I$(GTK_TOP)/include/pango-1.0 \
+			-I$(GTK_TOP)/include/atk-1.0 \
+			-I$(GTK_TOP)/include/cairo \
+			-I$(GTK_TOP)/lib/glib-2.0/include \
+			-I$(GTK_TOP)/lib/gtk-2.0/include \
+			-I$(PURPLE_TOP) \
+			-I$(PURPLE_TOP)/win32 \
+			-I$(PIDGIN_TOP) \
+			-I$(PIDGIN_TOP)/win32 \
+			-I$(PIDGIN_TREE_TOP)
+		
+LIB_PATHS +=		-L$(GTK_TOP)/lib \
+			-L$(WEBKIT_TOP) \
+			-L$(PURPLE_TOP) \
+			-L$(PIDGIN_TOP)
+			
+##
+##  SOURCES, OBJECTS
+##
+C_SRC =			webkit.c
+
+OBJECTS = $(C_SRC:%.c=%.o)
+
+##
+## LIBRARIES
+##
+LIBS =			-lgtk-win32-2.0 \
+			-lglib-2.0 \
+			-lgdk-win32-2.0 \
+			-lgobject-2.0 \
+			-lWebKit \
+			-lintl \
+			-lpurple \
+			-lcarrier
+
+include $(PIDGIN_COMMON_RULES)
+
+##
+## TARGET DEFINITIONS
+##
+.PHONY: all install clean
+
+all: $(TARGET).dll
+
+install: $(PIDGIN_INSTALL_PLUGINS_DIR) all
+	cp $(TARGET).dll $(PIDGIN_INSTALL_PLUGINS_DIR)
+	mkdir -p $(webkittemplatedir)
+	cp $(webkittemplate_DATA) $(webkittemplatedir)
+
+$(OBJECTS): $(PIDGIN_CONFIG_H)
+
+$(TARGET).dll: $(PURPLE_DLL).a $(PIDGIN_DLL).a $(OBJECTS)
+	$(CC) -shared $(OBJECTS) $(LIB_PATHS) $(LIBS) $(DLL_LD_FLAGS) -o $(TARGET).dll
+
+##
+## CLEAN RULES
+##
+clean:
+	rm -rf $(OBJECTS)
+	rm -rf $(TARGET).dll
+
+include $(PIDGIN_COMMON_TARGETS)
