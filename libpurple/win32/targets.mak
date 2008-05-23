@@ -24,13 +24,13 @@ $(PURPLE_PERL_DLL) $(PURPLE_PERL_DLL).a:
 	$(MAKE) -C $(PURPLE_PERL_TOP) -f $(MINGW_MAKEFILE) perl.dll
 
 $(PIDGIN_DLL) $(PIDGIN_DLL).a:
-	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) pidgin.dll
+	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) carrier.dll
 
 $(PIDGIN_IDLETRACK_DLL) $(PIDGIN_IDLETRACK_DLL).a:
 	$(MAKE) -C $(PIDGIN_IDLETRACK_TOP) -f $(MINGW_MAKEFILE) idletrack.dll
 
 $(PIDGIN_EXE):
-	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) pidgin.exe
+	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) carrier.exe
 
 # Installation Directories
 $(PIDGIN_INSTALL_DIR):
