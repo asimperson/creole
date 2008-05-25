@@ -1,7 +1,7 @@
 /*
  * Adium Webkit views
  * Copyright (C) 2007 Sean Egan <seanegan@gmail.com>
- * Port to FunPidgin by Alex Sadleir <maxious@lambdacomplex.org>
+ * Port to Carrier by Alex Sadleir <maxious@lambdacomplex.org>
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation; either version 2 of the
@@ -24,9 +24,9 @@
 
 #define PLUGIN_ID		"gtk-adium-ims"
 #define PLUGIN_NAME		"adium-ims"
-// define PLUGIN_AUTHOR		"Sean Egan <seanegan@gmail.com>"
-// Change plugin author so that support requests don't go to 
-// someone who isn't responsible for all the dodgy hacks ;)
+/* define PLUGIN_AUTHOR		"Sean Egan <seanegan@gmail.com>"
+   Change plugin author so that support requests don't go to 
+   someone who isn't responsible for all the dodgy hacks ;) */
 #define PLUGIN_AUTHOR          "Alex Sadleir <maxious@lambdacomplex.org>"
 #define PURPLE_PLUGINS          "Hell yeah"
 
@@ -45,12 +45,11 @@
 #include <util.h>
 #include <debug.h>
 #include <version.h>
+#include <gtkplugin.h>
 
 /* Pidgin headers */
 #include <gtkconv.h>
 #include <gtkimhtml.h>
-#include <gtkplugin.h>
-
 
 static PurpleConversationUiOps *uiops = NULL;
 
@@ -100,6 +99,9 @@ char *resources_dir = NULL;
 char *template_path = NULL;
 char *base_href_path = NULL;
 char *css_path = NULL;
+
+/* Store progress of loading HTML */
+static gint load_progress;
 
 static char 
 *replace_message_tokens(char *text, gsize len, PurpleConversation *conv, const char *name, const char *alias, 
@@ -223,7 +225,6 @@ static char
 			replace = purple_utf8_strftime(format ? format : "%X", NULL);
 			g_free(format);
 		} else {
-		//	cur++;
 			continue;
 		}
 
@@ -275,6 +276,12 @@ static char
 	g_strfreev(ms);
 	return g_string_free(str, FALSE);
 }
+static void
+progress_change_cb (WebKitWebView* page, gint progress, gpointer data)
+{
+    load_progress = progress;
+}
+
 
 static WebKitNavigationResponse
 webkit_navigation_requested_cb(WebKitWebView *web_view, WebKitWebFrame *frame, WebKitNetworkRequest *request)
@@ -283,12 +290,89 @@ webkit_navigation_requested_cb(WebKitWebView *web_view, WebKitWebFrame *frame, W
 	purple_notify_uri(NULL, webkit_network_request_get_uri(request));
 	return WEBKIT_NAVIGATION_RESPONSE_IGNORE;
 }
+static int
+load_message_style() 
+{
+
+	char *file;
+
+	style_dir = g_build_filename(purple_user_dir(), "styles", purple_prefs_get_string("/plugins/gtk/adium-ims/style"),  NULL);
+
+
+        if (!g_file_test(style_dir, G_FILE_TEST_IS_DIR)) { /* check constant */
+                purple_debug_error("adium-ims", "user's custom message style not detected @ %s, falling back to default\n", style_dir );
+		style_dir = g_build_filename(DATADIR, "carrier", "webkit", "defaultstyle", NULL);
+        }
+
+	resources_dir = g_build_filename(style_dir, "Contents", "Resources", "", NULL);
+
+	template_path = g_build_filename(resources_dir, "Template.html", NULL);
+       	if (!g_file_test(template_path, G_FILE_TEST_EXISTS)) { // check constant
+               template_path = g_build_filename(DATADIR, "carrier", "webkit", "Template.html", NULL);
+        }
+
+	/* Although we're really loading the template from the pidgin DATADIR, 
+	 *	we need to tell WebKit to pretend that it's loading from the style dir
+	 *	so that relative links such as images are valid				*/
+	base_href_path = g_build_filename(resources_dir, "Template.html", NULL);
+
+
+	if (!g_file_get_contents(template_path, &template_html, &template_html_len, NULL)) {
+                purple_debug_error("adium-ims", "Template.html not found at %s\n", template_path);
+		return FALSE;
+	}
+	
+	file = g_build_filename(resources_dir, "Header.html", NULL);
+	g_file_get_contents(file, &header_html, &header_html_len, NULL);
+
+	file = g_build_filename(resources_dir, "Footer.html", NULL);
+	g_file_get_contents(file, &footer_html, &footer_html_len, NULL);
+
+	file = g_build_filename(resources_dir, "Outgoing", "Content.html", NULL);
+	if (!g_file_get_contents(file, &outgoing_content_html, &outgoing_content_html_len, NULL)) {
+                purple_debug_error("adium-ims", "Outgoing/Content.html not found at %s\n", file);
+		return FALSE;
+	}
+
+	file = g_build_filename(resources_dir, "Outgoing", "NextContent.html", NULL);
+	if (!g_file_get_contents(file, &outgoing_next_content_html, &outgoing_next_content_html_len, NULL)) {
+		outgoing_next_content_html = outgoing_content_html;
+		outgoing_next_content_html_len = outgoing_content_html_len;
+	}
+
+	file = g_build_filename(resources_dir, "Incoming", "Content.html", NULL);
+	if (!g_file_get_contents(file, &incoming_content_html, &incoming_content_html_len, NULL)) {
+                purple_debug_error("adium-ims", "Incoming/Content.html not found at %s\n", file);
+		return FALSE;
+	}
+
+	file = g_build_filename(resources_dir, "Incoming", "NextContent.html", NULL);
+	if (!g_file_get_contents(file, &incoming_next_content_html, &incoming_next_content_html_len, NULL)) {
+		incoming_next_content_html = incoming_content_html;
+		incoming_next_content_html_len = incoming_content_html_len;
+	}
+
+	file = g_build_filename(resources_dir, "Status.html", NULL);
+	if (!g_file_get_contents(file, &status_html, &status_html_len, NULL)) {
+		purple_debug_error("adium-ims", "Status.html not found at %s\n", file);
+		return FALSE;
+	}
+
+	file = g_build_filename(resources_dir, purple_prefs_get_string("/plugins/gtk/adium-ims/css"), NULL);
+	if (!g_file_get_contents(file, &basestyle_css, &basestyle_css_len, NULL)) {
+                purple_debug_error("adium-ims", "Cascading Style Sheet not found at %s\n", file);
+                return FALSE;
+        }
+
+	g_free(file);
+	return TRUE;
+}
 
 static GtkWidget 
 *get_webkit(PurpleConversation *conv)
 {
 	PidginWebkit *gx;
-
+	/* if a WebKit view doesn't exist yet, we'll have to make one */
 	if ((gx = g_hash_table_lookup(webkits, conv)) == NULL)
 	{
 		PidginConversation *gtkconv;
@@ -303,7 +387,7 @@ static GtkWidget
 		imhtml = gtkconv->imhtml;
 
 		gx = g_new0(PidginWebkit, 1);
-
+		load_message_style();
 		webkit = webkit_web_view_new();
 		header = replace_header_tokens(header_html, header_html_len, conv);
 		footer = replace_header_tokens(footer_html, footer_html_len, conv);
@@ -311,7 +395,8 @@ static GtkWidget
 		webkit_web_view_load_string(WEBKIT_WEB_VIEW(webkit), template, "text/html", "UTF-8", base_href_path);
 
 		g_signal_connect(G_OBJECT(webkit), "navigation-requested", G_CALLBACK(webkit_navigation_requested_cb), gx);
-		
+		g_signal_connect(G_OBJECT(webkit), "load-progress-changed", G_CALLBACK (progress_change_cb), gx);		
+
 		gx->webkit = webkit;
 		gx->imhtml = hack_and_get_widget(gtkconv);
 		g_hash_table_insert(webkits, conv, gx);
@@ -358,7 +443,7 @@ gtk_smiley_tree_lookup (GtkSmileyTree *tree,
                 }
                 else if (*x == '<') /* Because we're all WYSIWYG now, a '<'
                                      * char should only appear as the start of a tag.  Perhaps a safer (but costlier)
-                                     *                                      * check would be to call gtk_imhtml_is_tag on it */
+                                     * check would be to call gtk_imhtml_is_tag on it */
                         break;
                 else {
                         alen = 1;
@@ -448,79 +533,6 @@ static char
 	}
 	return g_string_free(str, FALSE);
 }
-static int
-load_message_style() 
-{
-
-	char *file;
-
-	style_dir = g_build_filename(purple_user_dir(), "styles", purple_prefs_get_string("/plugins/gtk/adium-ims/style"),  NULL);
-
-
-        if (!g_file_test(style_dir, G_FILE_TEST_IS_DIR)) { // check constant
-                purple_debug_error("adium-ims", "user's custom message style not detected @ %s, falling back to default\n", style_dir );
-		style_dir = g_build_filename(DATADIR, "carrier", "webkit", "defaultstyle", NULL);
-        }
-
-	resources_dir = g_build_filename(style_dir, "Contents", "Resources", "", NULL);
-
-	template_path = g_build_filename(DATADIR, "carrier", "webkit", "Template.html", NULL);
-	// Although we're really loading the template from the pidgin DATADIR, 
-	//	we need to tell WebKit to pretend that it's loading from the style dir
-	//	so that relative links such as images are valid
-	base_href_path = g_build_filename(resources_dir, "Template.html", NULL);
-
-
-	if (!g_file_get_contents(template_path, &template_html, &template_html_len, NULL)) {
-                purple_debug_error("adium-ims", "Template.html not found at %s\n", template_path);
-		return FALSE;
-	}
-	
-	file = g_build_filename(resources_dir, "Header.html", NULL);
-	g_file_get_contents(file, &header_html, &header_html_len, NULL);
-
-	file = g_build_filename(resources_dir, "Footer.html", NULL);
-	g_file_get_contents(file, &footer_html, &footer_html_len, NULL);
-
-	file = g_build_filename(resources_dir, "Outgoing", "Content.html", NULL);
-	if (!g_file_get_contents(file, &outgoing_content_html, &outgoing_content_html_len, NULL)) {
-                purple_debug_error("adium-ims", "Outgoing/Content.html not found at %s\n", file);
-		return FALSE;
-	}
-
-	file = g_build_filename(resources_dir, "Outgoing", "NextContent.html", NULL);
-	if (!g_file_get_contents(file, &outgoing_next_content_html, &outgoing_next_content_html_len, NULL)) {
-		outgoing_next_content_html = outgoing_content_html;
-		outgoing_next_content_html_len = outgoing_content_html_len;
-	}
-
-	file = g_build_filename(resources_dir, "Incoming", "Content.html", NULL);
-	if (!g_file_get_contents(file, &incoming_content_html, &incoming_content_html_len, NULL)) {
-                purple_debug_error("adium-ims", "Incoming/Content.html not found at %s\n", file);
-		return FALSE;
-	}
-
-	file = g_build_filename(resources_dir, "Incoming", "NextContent.html", NULL);
-	if (!g_file_get_contents(file, &incoming_next_content_html, &incoming_next_content_html_len, NULL)) {
-		incoming_next_content_html = incoming_content_html;
-		incoming_next_content_html_len = incoming_content_html_len;
-	}
-
-	file = g_build_filename(resources_dir, "Status.html", NULL);
-	if (!g_file_get_contents(file, &status_html, &status_html_len, NULL)) {
-		purple_debug_error("adium-ims", "Status.html not found at %s\n", file);
-		return FALSE;
-	}
-
-	file = g_build_filename(resources_dir, purple_prefs_get_string("/plugins/gtk/adium-ims/css"), NULL);
-	if (!g_file_get_contents(file, &basestyle_css, &basestyle_css_len, NULL)) {
-                purple_debug_error("adium-ims", "Cascading Style Sheet not found at %s\n", file);
-                return FALSE;
-        }
-
-	g_free(file);
-	return TRUE;
-}
 
 static void 
 purple_webkit_write_conv(PurpleConversation *conv, const char *name, const char *alias,
@@ -546,9 +558,9 @@ purple_webkit_write_conv(PurpleConversation *conv, const char *name, const char 
 	}
 
 	/* So it's an IM. Let's play. */
-	load_message_style();
 	webkit = get_webkit(conv);
-	stripped = g_strdup(message); //purple_markup_strip_html(message);
+	purple_debug_info("adium-ims","webkit: page loaded %d %%", load_progress);
+	stripped = g_strdup(message); 
 
 	if (flags & PURPLE_MESSAGE_SEND && old_flags & PURPLE_MESSAGE_SEND) {
 		message_html = outgoing_next_content_html;
@@ -608,7 +620,6 @@ hack_and_get_widget(PidginConversation *gtkconv)
 
 	imhtml = gtk_container_get_children(GTK_CONTAINER(pane))->data;
 	purple_debug_info("adium-ims","HTML Container %s hooked\n", G_OBJECT_TYPE_NAME(imhtml));
-	//return pane;
 	return imhtml;
 }
 
@@ -624,7 +635,6 @@ purple_conversation_use_webkit(PurpleConversation *conv)
 	if (!gtkconv)
 		return;
 
-	load_message_style();
 	frame = hack_and_get_widget(gtkconv);
 	g_object_ref(frame);
 	webkit = get_webkit(conv);
@@ -730,6 +740,7 @@ plugin_unload(PurplePlugin *plugin)
 	return TRUE;
 }
 
+
 static PurplePluginPrefFrame *
 get_plugin_pref_frame(PurplePlugin *plugin) {
         PurplePluginPrefFrame *frame;
@@ -775,7 +786,6 @@ Default style based on tutorial.AdiumMessageStyle by Mark Fickett (Perez)", NULL
                 }
         }
         purple_plugin_pref_frame_add(frame, ppref); */
-
         return frame;
 } 
 
