@@ -637,7 +637,7 @@ WinMain (struct HINSTANCE__ *hInstance, struct HINSTANCE__ *hPrevInstance,
 			return 0;
 
 	/* Now we are ready for Pidgin .. */
-	if ((hmod = LoadLibrary("pidgin.dll")))
+	if ((hmod = LoadLibrary("carrier.dll")))
 		pidgin_main = (LPFNPIDGINMAIN) GetProcAddress(hmod, "pidgin_main");
 
 	if (!pidgin_main) {
@@ -645,7 +645,7 @@ WinMain (struct HINSTANCE__ *hInstance, struct HINSTANCE__ *hPrevInstance,
 		BOOL mod_not_found = (dw == ERROR_MOD_NOT_FOUND || dw == ERROR_DLL_NOT_FOUND);
 		const char *err_msg = get_win32_error_message(dw);
 
-		snprintf(errbuf, 512, "Error loading pidgin.dll.\nError: (%u) %s%s%s",
+		snprintf(errbuf, 512, "Error loading carrier.dll.\nError: (%u) %s%s%s",
 			(UINT) dw, err_msg,
 			mod_not_found ? "\n" : "",
 			mod_not_found ? "This probably means that GTK+ can't be found." : "");

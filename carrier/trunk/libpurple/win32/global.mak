@@ -38,7 +38,7 @@ PURPLE_INSTALL_PO_DIR := $(PURPLE_INSTALL_DIR)/locale
 PURPLE_TOP := $(PIDGIN_TREE_TOP)/libpurple
 PURPLE_PLUGINS_TOP := $(PURPLE_TOP)/plugins
 PURPLE_PERL_TOP := $(PURPLE_PLUGINS_TOP)/perl
-PIDGIN_TOP := $(PIDGIN_TREE_TOP)/pidgin
+PIDGIN_TOP := $(PIDGIN_TREE_TOP)/carrier
 PIDGIN_IDLETRACK_TOP := $(PIDGIN_TOP)/win32/IdleTracker
 PIDGIN_PIXMAPS_TOP := $(PIDGIN_TOP)/pixmaps
 PIDGIN_PLUGINS_TOP := $(PIDGIN_TOP)/plugins
@@ -85,6 +85,7 @@ DEFINES += -DHAVE_CYRUS_SASL
 endif
 
 DEFINES += -DHAVE_CONFIG_H
+DEFINES += -DPIDGIN_DATADIR="﻿﻿../../../win32-install-dir"
 
 # Use -g flag when building debug version of Pidgin (including plugins).
 # Use -fnative-struct instead of -mms-bitfields when using mingw 1.1

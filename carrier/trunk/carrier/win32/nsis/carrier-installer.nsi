@@ -446,7 +446,7 @@ Section $(PIDGIN_SECTION_TITLE) SecPidgin
     WriteRegStr HKLM "${PIDGIN_UNINSTALL_KEY}" "UninstallString" "$INSTDIR\${PIDGIN_UNINST_EXE}"
     ; Sets scope of the desktop and Start Menu entries for all users.
     SetShellVarContext "all"
-    Goto pidgin_install_files
+    Goto carrier_install_files
 
   carrier_hkcu:
     ReadRegStr $R1 HKCU ${GTK_REG_KEY} "Path"
