@@ -2356,6 +2356,7 @@ AC_OUTPUT([Makefile
 		   carrier/pixmaps/Makefile
 		   carrier/pixmaps/buddy_icons/qq/Makefile
 		   carrier/pixmaps/emotes/default/24/Makefile
+		   carrier/pixmaps/emotes/oldpidgin/24/Makefile
 		   carrier/pixmaps/emotes/none/Makefile
 		   carrier/plugins/Makefile
 		   carrier/plugins/cap/Makefile

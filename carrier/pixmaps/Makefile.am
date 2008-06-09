@@ -1,12 +1,13 @@
 carrierpixmapdir = $(datadir)/pixmaps/carrier
 carriericonsdir = $(datadir)
 
-SUBDIRS = buddy_icons/qq emotes/default/24 emotes/none
+SUBDIRS = buddy_icons/qq emotes/default/24 emotes/oldpidgin/24 emotes/none
 
 if INSTALL_PIXMAPS
 MAKEFILE_MINGW = \
 		buddy_icons/qq/Makefile.mingw \
 		emotes/default/24/Makefile.mingw \
+		emotes/oldpidgin/24/Makefile.mingw \
 		emotes/none/Makefile.mingw
 
 ANIMATIONS_16 = \
@@ -288,6 +289,197 @@ EMOTES_DEFAULT_24_SCALABLE = \
 		emotes/default/24/scalable/worship.svg \
 		emotes/default/24/scalable/yawn.svg \
 		emotes/default/24/scalable/yin-yang.svg
+
+EMOTES_OLDPIDGIN_24_SCALABLE = \
+		emotes/oldpidgin/24/scalable/act-up.svg \
+		emotes/oldpidgin/24/scalable/airplane.svg \
+		emotes/oldpidgin/24/scalable/alien.svg \
+		emotes/oldpidgin/24/scalable/angel.svg \
+		emotes/oldpidgin/24/scalable/angry.svg \
+		emotes/oldpidgin/24/scalable/arrogant.svg \
+		emotes/oldpidgin/24/scalable/at-wits-end.svg \
+		emotes/oldpidgin/24/scalable/bad.svg \
+		emotes/oldpidgin/24/scalable/bashful.svg \
+		emotes/oldpidgin/24/scalable/beat-up.svg \
+		emotes/oldpidgin/24/scalable/beauty.svg \
+		emotes/oldpidgin/24/scalable/beer.svg \
+		emotes/oldpidgin/24/scalable/blowkiss.svg \
+		emotes/oldpidgin/24/scalable/bomb.svg \
+		emotes/oldpidgin/24/scalable/bowl.svg \
+		emotes/oldpidgin/24/scalable/boy.svg \
+		emotes/oldpidgin/24/scalable/brb.svg \
+		emotes/oldpidgin/24/scalable/bulgy-eyes.svg \
+		emotes/oldpidgin/24/scalable/bye.svg \
+		emotes/oldpidgin/24/scalable/cake.svg \
+		emotes/oldpidgin/24/scalable/call-me.svg \
+		emotes/oldpidgin/24/scalable/camera.svg \
+		emotes/oldpidgin/24/scalable/can.svg \
+		emotes/oldpidgin/24/scalable/car.svg \
+		emotes/oldpidgin/24/scalable/cat.svg \
+		emotes/oldpidgin/24/scalable/chicken.svg \
+		emotes/oldpidgin/24/scalable/clap.svg \
+		emotes/oldpidgin/24/scalable/clock.svg \
+		emotes/oldpidgin/24/scalable/cloudy.svg \
+		emotes/oldpidgin/24/scalable/clover.svg \
+		emotes/oldpidgin/24/scalable/clown.svg \
+		emotes/oldpidgin/24/scalable/coffee.svg \
+		emotes/oldpidgin/24/scalable/coins.svg \
+		emotes/oldpidgin/24/scalable/computer.svg \
+		emotes/oldpidgin/24/scalable/confused.svg \
+		emotes/oldpidgin/24/scalable/console.svg \
+		emotes/oldpidgin/24/scalable/cowboy.svg \
+		emotes/oldpidgin/24/scalable/cow.svg \
+		emotes/oldpidgin/24/scalable/crying.svg \
+		emotes/oldpidgin/24/scalable/curl-lip.svg \
+		emotes/oldpidgin/24/scalable/curse.svg \
+		emotes/oldpidgin/24/scalable/cute.svg \
+		emotes/oldpidgin/24/scalable/cyclops.svg \
+		emotes/oldpidgin/24/scalable/dance.svg \
+		emotes/oldpidgin/24/scalable/dazed.svg \
+		emotes/oldpidgin/24/scalable/desire.svg \
+		emotes/oldpidgin/24/scalable/devil.svg \
+		emotes/oldpidgin/24/scalable/disapointed.svg \
+		emotes/oldpidgin/24/scalable/disdain.svg \
+		emotes/oldpidgin/24/scalable/doctor.svg \
+		emotes/oldpidgin/24/scalable/dog.svg \
+		emotes/oldpidgin/24/scalable/doh.svg \
+		emotes/oldpidgin/24/scalable/dont-know.svg \
+		emotes/oldpidgin/24/scalable/drink.svg \
+		emotes/oldpidgin/24/scalable/drool.svg \
+		emotes/oldpidgin/24/scalable/eat.svg \
+		emotes/oldpidgin/24/scalable/embarrassed.svg \
+		emotes/oldpidgin/24/scalable/excruciating.svg \
+		emotes/oldpidgin/24/scalable/eyeroll.svg \
+		emotes/oldpidgin/24/scalable/female-fighter.svg \
+		emotes/oldpidgin/24/scalable/film.svg \
+		emotes/oldpidgin/24/scalable/fingers-crossed.svg \
+		emotes/oldpidgin/24/scalable/flag.svg \
+		emotes/oldpidgin/24/scalable/foot-in-mouth.svg \
+		emotes/oldpidgin/24/scalable/freaked-out.svg \
+		emotes/oldpidgin/24/scalable/ghost.svg \
+		emotes/oldpidgin/24/scalable/giggle.svg \
+		emotes/oldpidgin/24/scalable/girl.svg \
+		emotes/oldpidgin/24/scalable/glasses-cool.svg \
+		emotes/oldpidgin/24/scalable/glasses-nerdy.svg \
+		emotes/oldpidgin/24/scalable/goat.svg \
+		emotes/oldpidgin/24/scalable/go-away.svg \
+		emotes/oldpidgin/24/scalable/good.svg \
+		emotes/oldpidgin/24/scalable/hammer.svg \
+		emotes/oldpidgin/24/scalable/handcuffs.svg \
+		emotes/oldpidgin/24/scalable/handshake.svg \
+		emotes/oldpidgin/24/scalable/highfive.svg \
+		emotes/oldpidgin/24/scalable/hug-left.svg \
+		emotes/oldpidgin/24/scalable/hug-right.svg \
+		emotes/oldpidgin/24/scalable/hypnotized.svg \
+		emotes/oldpidgin/24/scalable/in-love.svg \
+		emotes/oldpidgin/24/scalable/island.svg \
+		emotes/oldpidgin/24/scalable/jump.svg \
+		emotes/oldpidgin/24/scalable/kissed.svg \
+		emotes/oldpidgin/24/scalable/kissing.svg \
+		emotes/oldpidgin/24/scalable/kiss.svg \
+		emotes/oldpidgin/24/scalable/knife.svg \
+		emotes/oldpidgin/24/scalable/lamp.svg \
+		emotes/oldpidgin/24/scalable/lashes.svg \
+		emotes/oldpidgin/24/scalable/laugh.svg \
+		emotes/oldpidgin/24/scalable/liquor.svg \
+		emotes/oldpidgin/24/scalable/loser.svg \
+		emotes/oldpidgin/24/scalable/love-over.svg \
+		emotes/oldpidgin/24/scalable/love.svg \
+		emotes/oldpidgin/24/scalable/lying.svg \
+		emotes/oldpidgin/24/scalable/madtongue.svg \
+		emotes/oldpidgin/24/scalable/mail.svg \
+		emotes/oldpidgin/24/scalable/male-fighter1.svg \
+		emotes/oldpidgin/24/scalable/male-fighter2.svg \
+		emotes/oldpidgin/24/scalable/mean.svg \
+		emotes/oldpidgin/24/scalable/meeting.svg \
+		emotes/oldpidgin/24/scalable/messed.svg \
+		emotes/oldpidgin/24/scalable/mobile.svg \
+		emotes/oldpidgin/24/scalable/mohawk.svg \
+		emotes/oldpidgin/24/scalable/moneymouth.svg \
+		emotes/oldpidgin/24/scalable/monkey.svg \
+		emotes/oldpidgin/24/scalable/moon.svg \
+		emotes/oldpidgin/24/scalable/msn-away.svg \
+		emotes/oldpidgin/24/scalable/msn-busy.svg \
+		emotes/oldpidgin/24/scalable/msn_online.svg \
+		emotes/oldpidgin/24/scalable/msn.svg \
+		emotes/oldpidgin/24/scalable/musical-note.svg \
+		emotes/oldpidgin/24/scalable/music.svg \
+		emotes/oldpidgin/24/scalable/nailbiting.svg \
+		emotes/oldpidgin/24/scalable/neutral.svg \
+		emotes/oldpidgin/24/scalable/on-the-phone.svg \
+		emotes/oldpidgin/24/scalable/party.svg \
+		emotes/oldpidgin/24/scalable/peace.svg \
+		emotes/oldpidgin/24/scalable/phone.svg \
+		emotes/oldpidgin/24/scalable/pig.svg \
+		emotes/oldpidgin/24/scalable/pill.svg \
+		emotes/oldpidgin/24/scalable/pirate.svg \
+		emotes/oldpidgin/24/scalable/pissed-off.svg \
+		emotes/oldpidgin/24/scalable/pizza.svg \
+		emotes/oldpidgin/24/scalable/plate.svg \
+		emotes/oldpidgin/24/scalable/poop.svg \
+		emotes/oldpidgin/24/scalable/pray.svg \
+		emotes/oldpidgin/24/scalable/present.svg \
+		emotes/oldpidgin/24/scalable/qq.svg \
+		emotes/oldpidgin/24/scalable/question.svg \
+		emotes/oldpidgin/24/scalable/quiet.svg \
+		emotes/oldpidgin/24/scalable/rainbow.svg \
+		emotes/oldpidgin/24/scalable/rain.svg \
+		emotes/oldpidgin/24/scalable/rose-dead.svg \
+		emotes/oldpidgin/24/scalable/rose.svg \
+		emotes/oldpidgin/24/scalable/rotfl.svg \
+		emotes/oldpidgin/24/scalable/sad.svg \
+		emotes/oldpidgin/24/scalable/sarcastic.svg \
+		emotes/oldpidgin/24/scalable/search.svg \
+		emotes/oldpidgin/24/scalable/secret.svg \
+		emotes/oldpidgin/24/scalable/shame.svg \
+		emotes/oldpidgin/24/scalable/sheep.svg \
+		emotes/oldpidgin/24/scalable/shock.svg \
+		emotes/oldpidgin/24/scalable/shout.svg \
+		emotes/oldpidgin/24/scalable/shut-mouth.svg \
+		emotes/oldpidgin/24/scalable/sick.svg \
+		emotes/oldpidgin/24/scalable/sidefrown.svg \
+		emotes/oldpidgin/24/scalable/sigarette.svg \
+		emotes/oldpidgin/24/scalable/silly.svg \
+		emotes/oldpidgin/24/scalable/sinister.svg \
+		emotes/oldpidgin/24/scalable/skeleton.svg \
+		emotes/oldpidgin/24/scalable/skywalker.svg \
+		emotes/oldpidgin/24/scalable/sleepy.svg \
+		emotes/oldpidgin/24/scalable/smile-big.svg \
+		emotes/oldpidgin/24/scalable/smile.svg \
+		emotes/oldpidgin/24/scalable/smirk.svg \
+		emotes/oldpidgin/24/scalable/snail.svg \
+		emotes/oldpidgin/24/scalable/snicker.svg \
+		emotes/oldpidgin/24/scalable/snowman.svg \
+		emotes/oldpidgin/24/scalable/soccerball.svg \
+		emotes/oldpidgin/24/scalable/soldier.svg \
+		emotes/oldpidgin/24/scalable/star.svg \
+		emotes/oldpidgin/24/scalable/starving.svg \
+		emotes/oldpidgin/24/scalable/stop.svg \
+		emotes/oldpidgin/24/scalable/struggle.svg \
+		emotes/oldpidgin/24/scalable/sun.svg \
+		emotes/oldpidgin/24/scalable/sweat.svg \
+		emotes/oldpidgin/24/scalable/talktohand.svg \
+		emotes/oldpidgin/24/scalable/teeth.svg \
+		emotes/oldpidgin/24/scalable/terror.svg \
+		emotes/oldpidgin/24/scalable/thinking.svg \
+		emotes/oldpidgin/24/scalable/thunder.svg \
+		emotes/oldpidgin/24/scalable/time-out.svg \
+		emotes/oldpidgin/24/scalable/tongue.svg \
+		emotes/oldpidgin/24/scalable/tremble.svg \
+		emotes/oldpidgin/24/scalable/turtle.svg \
+		emotes/oldpidgin/24/scalable/tv.svg \
+		emotes/oldpidgin/24/scalable/umbrella.svg \
+		emotes/oldpidgin/24/scalable/vampire.svg \
+		emotes/oldpidgin/24/scalable/victory.svg \
+		emotes/oldpidgin/24/scalable/waiting.svg \
+		emotes/oldpidgin/24/scalable/watermelon.svg \
+		emotes/oldpidgin/24/scalable/waving.svg \
+		emotes/oldpidgin/24/scalable/weep.svg \
+		emotes/oldpidgin/24/scalable/wilt.svg \
+		emotes/oldpidgin/24/scalable/wink.svg \
+		emotes/oldpidgin/24/scalable/worship.svg \
+		emotes/oldpidgin/24/scalable/yawn.svg \
+		emotes/oldpidgin/24/scalable/yin-yang.svg
 
 PROTOCOLS_16_SCALABLE = \
 		protocols/16/scalable/aim.svg \
@@ -659,6 +851,7 @@ EXTRA_DIST = \
 		$(ICONS_48_SCALABLE)	\
 		$(EMBLEMS_16_SCALABLE)	\
 		$(EMOTES_DEFAULT_24_SCALABLE)	\
+		$(EMOTES_OLDPIDGIN_24_SCALABLE)	\
 		$(PROTOCOLS_16_SCALABLE)	\
 		$(PROTOCOLS_22_SCALABLE)	\
 		$(PROTOCOLS_48_SCALABLE)	\
