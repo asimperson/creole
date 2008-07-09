@@ -26,6 +26,9 @@
 /* #warning ***pidgin*** */
 #ifndef _PIDGIN_H_
 #define _PIDGIN_H_
+/* Carrier libpurple overrides! */
+#define PURPLE_WEBSITE "http://funpidgin.sourceforge.net/"
+#define PURPLE_DEVEL_WEBSITE "http://funpidgin.sourceforge.net/"
 
 #include <gtk/gtk.h>
 
