@@ -885,9 +885,6 @@ escape_closes_conversation_cb(GtkWidget *w,
 	 */
 	if(!changed)
 		purple_debug_warning("gtkprefs", "Escape accel failed to change\n");
-
-	/* TODO: create pidgin_accels_schedule_save */
-	pidgin_save_accels_cb(NULL, 0, 0, NULL, NULL);
 }
 
 
@@ -925,8 +922,8 @@ keyboard_shortcuts(GtkWidget *page)
 	escape_closes_conversation_cb_id = g_signal_connect(checkbox,
 		"clicked", G_CALLBACK(escape_closes_conversation_cb), NULL);
 
-	g_signal_connect(map, "changed::" CONVERSATION_CLOSE_ACCEL_PATH,
-		G_CALLBACK(conversation_close_accel_changed_cb), checkbox);
+	g_signal_connect_object(map, "changed::" CONVERSATION_CLOSE_ACCEL_PATH,
+		G_CALLBACK(conversation_close_accel_changed_cb), checkbox, (GConnectFlags)0);
 
 	gtk_box_pack_start(GTK_BOX(vbox), checkbox, FALSE, FALSE, 0);
 }
