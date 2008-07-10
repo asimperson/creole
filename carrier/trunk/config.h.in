@@ -336,6 +336,9 @@
 /* Define to 1 if you have the `vprintf' function. */
 #undef HAVE_VPRINTF
 
+/* Define if we're using WebKit. */
+#undef HAVE_WEBKIT
+
 /* Define to 1 if you have X11 */
 #undef HAVE_X11
 
