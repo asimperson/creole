@@ -2179,6 +2179,9 @@ funpidgin_page(void)
 					 
 	pidgin_prefs_checkbox(_("Show inline _typing notifications"),
 				PIDGIN_PREFS_ROOT "/conversations/funpidgin_inline_typing_notification", vbox);
+
+	pidgin_prefs_checkbox(_("Disable pasting of Rich Text/HTML in conversation windows"),
+				PIDGIN_PREFS_ROOT "/conversations/funpidgin_disable_rich_text_paste", vbox);
 				
 	contrast = pidgin_prefs_checkbox(_("_Contrast group titles with background color"),
 				PIDGIN_PREFS_ROOT "/blist/funpidgin_group_title_contrast", vbox);

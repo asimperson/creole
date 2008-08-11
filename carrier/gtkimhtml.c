@@ -36,6 +36,7 @@
 #include "debug.h"
 #include "util.h"
 #include "gtkimhtml.h"
+#include "gtkplugin.h"
 #include "gtksourceiter.h"
 #include "gtksourceundomanager.h"
 #include "gtksourceview-marshal.h"
@@ -854,7 +855,6 @@ static void hijack_menu_cb(GtkIMHtml *imhtml, GtkMenu *menu, gpointer data)
 	                        gtk_widget_get_clipboard(GTK_WIDGET(imhtml), GDK_SELECTION_CLIPBOARD))));
 	/* put it after "Paste" */
 	gtk_menu_shell_insert(GTK_MENU_SHELL(menu), menuitem, 3);
-
 	g_signal_connect(G_OBJECT(menuitem), "activate",
 					 G_CALLBACK(paste_unformatted_cb), imhtml);
 
@@ -1064,7 +1064,6 @@ static void imhtml_paste_insert(GtkIMHtml *imhtml, const char *text, gboolean pl
 static void paste_plaintext_received_cb (GtkClipboard *clipboard, const gchar *text, gpointer data)
 {
 	char *tmp;
-
 	if (text == NULL || !(*text))
 		return;
 
@@ -1081,7 +1080,7 @@ static void paste_received_cb (GtkClipboard *clipboard, GtkSelectionData *select
 	if (!gtk_text_view_get_editable(GTK_TEXT_VIEW(imhtml)))
 		return;
 
-	if (imhtml->wbfo || selection_data->length <= 0) {
+	if (purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_disable_rich_text_paste") || imhtml->wbfo || selection_data->length <= 0) {
 		gtk_clipboard_request_text(clipboard, paste_plaintext_received_cb, imhtml);
 		return;
 	} else {
@@ -1167,12 +1166,16 @@ static void paste_clipboard_cb(GtkIMHtml *imhtml, gpointer blah)
 #ifdef _WIN32
 	/* If we're on windows, let's see if we can get data from the HTML Format
 	   clipboard before we try to paste from the GTK buffer */
-	if (!clipboard_paste_html_win32(imhtml))
+	if (!purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_disable_rich_text_paste") && !clipboard_paste_html_win32(imhtml))
 #endif
 	{
 	GtkClipboard *clipboard = gtk_widget_get_clipboard(GTK_WIDGET(imhtml), GDK_SELECTION_CLIPBOARD);
+	if (purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_disable_rich_text_paste")) {
+                gtk_clipboard_request_text(clipboard, paste_plaintext_received_cb, imhtml);
+	} else {
 	gtk_clipboard_request_contents(clipboard, gdk_atom_intern("text/html", FALSE),
 				       paste_received_cb, imhtml);
+	}
 	}
 	g_signal_stop_emission_by_name(imhtml, "paste-clipboard");
 }
@@ -1219,9 +1222,12 @@ static gboolean gtk_imhtml_button_press_event(GtkIMHtml *imhtml, GdkEventButton 
 		gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(imhtml), &iter, x, y);
 		gtk_text_buffer_place_cursor(imhtml->text_buffer, &iter);
 
-		gtk_clipboard_request_contents(clipboard, gdk_atom_intern("text/html", FALSE),
+	       	if (purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_disable_rich_text_paste")) {
+        	        gtk_clipboard_request_text(clipboard, paste_plaintext_received_cb, imhtml);
+	        } else {
+			gtk_clipboard_request_contents(clipboard, gdk_atom_intern("text/html", FALSE),
 				       paste_received_cb, imhtml);
-
+		}
 		return TRUE;
         }
 
