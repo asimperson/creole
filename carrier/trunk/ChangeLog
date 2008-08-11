@@ -1,4 +1,7 @@
 Pidgin and Finch: The Pimpin' Penguin IM Clients That're Good for the Soul
+SVN	
+        Carrier:
+        * Added ability to disable Rich Text paste (HTML including fonts and hyperlinks)
 
 version 2.4.3 (07/01/2008):
 	Carrier:
