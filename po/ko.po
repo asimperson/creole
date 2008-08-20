@@ -1388,19 +1388,19 @@ msgstr "일시정지(_P)"
 msgid "Login Options"
 msgstr "로그인 설정"
 
-#: ../pidgin/gtkaccount.c:430
+#: ../carrier/gtkaccount.c:430
 msgid "Pro_tocol:"
 msgstr "프로토콜(_T):"
 
-#: ../pidgin/gtkaccount.c:441
+#: ../carrier/gtkaccount.c:441
 msgid "Screen _name:"
 msgstr "아이디(_N):"
 
-#: ../pidgin/gtkaccount.c:531
+#: ../carrier/gtkaccount.c:531
 msgid "_Local alias:"
 msgstr "별칭(_L):"
 
-#: ../pidgin/gtkaccount.c:535
+#: ../carrier/gtkaccount.c:535
 msgid "Remember pass_word"
 msgstr "비밀번호 저장"
 
@@ -1409,12 +1409,12 @@ msgstr "비밀번호 저장"
 msgid "User Options"
 msgstr "사용자 설정"
 
-#: ../pidgin/gtkaccount.c:606
+#: ../carrier/gtkaccount.c:606
 msgid "New _mail notifications"
 msgstr "새 메일 알림"
 
 #. Buddy icon
-#: ../pidgin/gtkaccount.c:611
+#: ../carrier/gtkaccount.c:611
 msgid "Use this buddy _icon for this account:"
 msgstr "다음 아이콘 사용:"
 
@@ -2819,7 +2819,7 @@ msgstr "아무하라어"
 msgid "About %s"
 msgstr "%s 정보"
 
-#: ../pidgin/gtkdialogs.c:400
+#: ../carrier/gtkdialogs.c:400
 #, c-format
 msgid "%s is a graphical modular messaging client based on libpurple which is capable of connecting to AIM, MSN, Yahoo!, XMPP, ICQ, IRC, SILC, SIP/SIMPLE, Novell GroupWise, Lotus Sametime, Bonjour, Zephyr, MySpaceIM, Gadu-Gadu, and QQ all at once.  It is written using GTK+.<BR><BR>You may modify and redistribute the program under the terms of the GPL (version 2 or later).  A copy of the GPL is contained in the 'COPYING' file distributed with %s.  %s is copyrighted by its contributors.  See the 'COPYRIGHT' file for the complete list of contributors.  We provide no warranty for this program.<BR><BR>"
 msgstr "%s은 AIM, MSN, Yahoo!, Jabber, ICQ, IRC, SILC, SIP/SIMPLE, Novell GroupWise, Lotus Sametime, Bonjour, Zephyr, Gadu-Gadu 그리고 QQ 프로토콜을 모두 이용할 수 있는 GTK+ 툴킷을 채용한 모듈형 메시지 클라이언트입니다.<BR><BR>GPL 라이센스(버전 2 이상)가 정하는 조항 하에 재배포 또는 변경이 가능합니다. GPL 복사가 본 %s 패키지 내에 'COPYING' 라고 하는 파일명으로서 포함되어 있습니다. %s의 저작권은 그 공헌자에게 귀속됩니다. 공헌자의 상세한 목록에 대해서는 'COPYRIGHT' 를 참조해 주십시오. 본 프로그램은 어떠한 보증도 하지 않습니다.<BR><BR>"
@@ -2828,7 +2828,7 @@ msgstr "%s은 AIM, MSN, Yahoo!, Jabber, ICQ, IRC, SILC, SIP/SIMPLE, Novell Group
 msgid "<FONT SIZE=\"4\">IRC:</FONT> #wingaim on irc.freenode.net<BR><BR>"
 msgstr "<FONT SIZE=\"4\">IRC:</FONT> irc.freenode.net の #wingaim 채널<BR><BR>"
 
-#: ../pidgin/gtkdialogs.c:418
+#: ../carrier/gtkdialogs.c:418
 msgid "<FONT SIZE=\"4\">IRC:</FONT> #pidgin on irc.freenode.net<BR><BR>"
 msgstr "<FONT SIZE=\"4\">IRC:</FONT> irc.freenode.net의 #pidgin 채널<BR><BR>"
 
@@ -3207,7 +3207,7 @@ msgid "Color to draw hyperlinks when mouse is over them."
 msgstr "하이퍼링크 위에 커서가 놓였을 때의 색상입니다."
 
 #: ../gtk/gtkimhtml.c:1516
-msgid "_Copy E-Mail Address"
+msgid "_Copy Email Address"
 msgstr "이메일 주소 복사(_C)"
 
 #: ../gtk/gtkimhtml.c:1528
@@ -3339,27 +3339,27 @@ msgstr "기울림"
 msgid "Underline"
 msgstr "밑줄"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1091
+#: ../carrier/gtkimhtmltoolbar.c:1091
 msgid "Strikethrough"
 msgstr "취소줄"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1093
+#: ../carrier/gtkimhtmltoolbar.c:1093
 msgid "Increase Font Size"
 msgstr "글자 크기 크게"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1094
+#: ../carrier/gtkimhtmltoolbar.c:1094
 msgid "Decrease Font Size"
 msgstr "글자 크기 작게"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1096
+#: ../carrier/gtkimhtmltoolbar.c:1096
 msgid "Font Face"
 msgstr "글꼴 종류"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1098
+#: ../carrier/gtkimhtmltoolbar.c:1098
 msgid "Foreground Color"
 msgstr "글자색"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1097
+#: ../carrier/gtkimhtmltoolbar.c:1097
 msgid "Background Color"
 msgstr "배경색"
 
@@ -3367,7 +3367,7 @@ msgstr "배경색"
 msgid "Reset Formatting"
 msgstr "서식을 초기화 합니다."
 
-#: ../pidgin/gtkimhtmltoolbar.c:1103
+#: ../carrier/gtkimhtmltoolbar.c:1103
 msgid "Insert IM Image"
 msgstr "IM 이미지를 삽입합니다."
 
@@ -3383,80 +3383,80 @@ msgstr "이미지 삽입"
 msgid "Insert Smiley"
 msgstr "이모티콘을 삽입합니다."
 
-#: ../pidgin/gtkimhtmltoolbar.c:1180
+#: ../carrier/gtkimhtmltoolbar.c:1180
 msgid "<b>_Bold</b>"
 msgstr "<b>굵게(_B)</b>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1181
+#: ../carrier/gtkimhtmltoolbar.c:1181
 msgid "<i>_Italic</i>"
 msgstr "<i>기울림(_I)</i>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1182
+#: ../carrier/gtkimhtmltoolbar.c:1182
 msgid "<u>_Underline</u>"
 msgstr "<u>밑줄(_U)</u>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1183
+#: ../carrier/gtkimhtmltoolbar.c:1183
 msgid "<span strikethrough='true'>Strikethrough</span>"
 msgstr "<span strikethrough='true'>취소줄</span>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1184
+#: ../carrier/gtkimhtmltoolbar.c:1184
 msgid "<span size='larger'>_Larger</span>"
 msgstr "<span size='larger'>크게(_L)</span>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1186
+#: ../carrier/gtkimhtmltoolbar.c:1186
 msgid "_Normal"
 msgstr "표준(_N)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1188
+#: ../carrier/gtkimhtmltoolbar.c:1188
 msgid "<span size='smaller'>_Smaller</span>"
 msgstr "<span size='smaller'>작게(_S)</span>"
 
 #. If we want to show the formatting for the following items, we would
 #. * need to update them when formatting changes. The above items don't need
 #. * no updating nor nothin'
-#: ../pidgin/gtkimhtmltoolbar.c:1192
+#: ../carrier/gtkimhtmltoolbar.c:1192
 msgid "_Font face"
 msgstr "글꼴(_F)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1193
+#: ../carrier/gtkimhtmltoolbar.c:1193
 msgid "Foreground _color"
 msgstr "글자색(_C)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1194
+#: ../carrier/gtkimhtmltoolbar.c:1194
 msgid "Bac_kground color"
 msgstr "배경색(_K)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1271
+#: ../carrier/gtkimhtmltoolbar.c:1271
 msgid "_Image"
 msgstr "이미지(_I)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1277
+#: ../carrier/gtkimhtmltoolbar.c:1277
 msgid "_Link"
 msgstr "링크(_L)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1283
+#: ../carrier/gtkimhtmltoolbar.c:1283
 msgid "_Horizontal rule"
 msgstr "수평 눈금(_H)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1305
+#: ../carrier/gtkimhtmltoolbar.c:1305
 msgid "_Smile!"
 msgstr "이모티콘(_S)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1305
+#: ../carrier/gtkimhtmltoolbar.c:1305
 msgid "_Smiley"
 msgstr "이모티콘(_S)"
 
-#: ../pidgin/gtklog.c:293
+#: ../carrier/gtklog.c:293
 #, c-format
 msgid "Are you sure you want to permanently delete the log of the conversation with %s which started at %s?"
 msgstr "정말 %s 님과 %s 에 시작된 대화 기록을 영구적으로 삭제하시겠습니까?"
 
-#: ../pidgin/gtklog.c:304
+#: ../carrier/gtklog.c:304
 #, c-format
 msgid "Are you sure you want to permanently delete the log of the conversation in %s which started at %s?"
 msgstr "정말 %s 에서 %s 에 시작된 대화 기록을 영구적으로 삭제하시겠습니까?"
 
-#: ../pidgin/gtklog.c:309
+#: ../carrier/gtklog.c:309
 #, c-format
 msgid "Are you sure you want to permanently delete the system log which started at %s?"
 msgstr "정말 %s 시작된 시스템 기록을 영구적으로 삭제하시겠습니까?"
@@ -3602,8 +3602,8 @@ msgstr[0] "%s 에는 %d 개의 새로운 메시지가 있습니다."
 
 #: ../gtk/gtknotify.c:511
 #, c-format
-msgid "<b>You have %d new e-mail.</b>"
-msgid_plural "<b>You have %d new e-mails.</b>"
+msgid "<b>You have %d new email.</b>"
+msgid_plural "<b>You have %d new emails.</b>"
 msgstr[0] "<b>%d 개의 새로운 메시지가 있습니다.</b>"
 #msgstr[1] "<b>%d 개의 새로운 메시지가 있습니다.</b>"
 
@@ -3990,19 +3990,19 @@ msgstr "부드러운 스크롤 사용"
 msgid "F_lash window when IMs are received"
 msgstr "메시지를 받으면 창을 깜빡거림(_L)"
 
-#: ../pidgin/gtkprefs.c:943
+#: ../carrier/gtkprefs.c:943
 msgid "Font"
 msgstr "글꼴"
 
-#: ../pidgin/gtkprefs.c:945
+#: ../carrier/gtkprefs.c:945
 msgid "Use document font from _theme"
 msgstr "테마로부터 문서 글꼴 사용(_T)"
 
-#: ../pidgin/gtkprefs.c:947
+#: ../carrier/gtkprefs.c:947
 msgid "Use font from _theme"
 msgstr "테마로부터 글꼴 사용(_T)"
 
-#: ../pidgin/gtkprefs.c:949
+#: ../carrier/gtkprefs.c:949
 msgid "Conversation _font:"
 msgstr "대화창 글꼴(_F):"
 
@@ -5183,7 +5183,7 @@ msgstr "없음"
 
 #: ../gtk/plugins/gevolution/gevolution.c:239
 #: ../gtk/plugins/gevolution/gevolution.c:245
-msgid "Unable to send e-mail"
+msgid "Unable to send email"
 msgstr "이메일을 보낼 수 없음"
 
 #: ../gtk/plugins/gevolution/gevolution.c:240
@@ -5191,7 +5191,7 @@ msgid "The evolution executable was not found in the PATH."
 msgstr "환경변수 PATH 로부터 Evolution의 실행 형식을 찾을 수 없습니다."
 
 #: ../gtk/plugins/gevolution/gevolution.c:246
-msgid "An e-mail address was not found for this buddy."
+msgid "An email address was not found for this buddy."
 msgstr "이 친구의 이메일 주소가 없습니다."
 
 #: ../gtk/plugins/gevolution/gevolution.c:272
@@ -5199,7 +5199,7 @@ msgid "Add to Address Book"
 msgstr "주소록에 추가"
 
 #: ../gtk/plugins/gevolution/gevolution.c:284
-msgid "Send E-Mail"
+msgid "Send Email"
 msgstr "이메일 전송"
 
 #. Configuration frame
@@ -5257,7 +5257,7 @@ msgid "Last name:"
 msgstr "성:"
 
 #: ../gtk/plugins/gevolution/new_person_dialog.c:382
-msgid "E-mail:"
+msgid "Email:"
 msgstr "이메일:"
 
 #. *< type
@@ -7249,7 +7249,7 @@ msgstr "성"
 #: ../libgaim/protocols/jabber/jabber.c:797
 #: ../libgaim/protocols/silc/silc.c:695
 #: ../libgaim/protocols/silc/silc.c:935
-msgid "E-mail"
+msgid "Email"
 msgstr "이메일"
 
 #: ../libgaim/protocols/bonjour/bonjour.c:591
@@ -8309,16 +8309,6 @@ msgstr "국가"
 msgid "Telephone"
 msgstr "전화"
 
-#: ../libgaim/protocols/jabber/buddy.c:283
-#: ../libgaim/protocols/jabber/buddy.c:898
-#: ../libgaim/protocols/jabber/buddy.c:906
-#: ../libgaim/protocols/jabber/buddy.c:1564
-#: ../libgaim/protocols/silc/ops.c:1075
-#: ../libgaim/protocols/silc/util.c:553
-#: ../libgaim/protocols/yahoo/yahoo_profile.c:1037
-msgid "E-Mail"
-msgstr "이메일"
-
 #: ../libgaim/protocols/jabber/buddy.c:284
 #: ../libgaim/protocols/jabber/buddy.c:921
 msgid "Organization Name"
@@ -8447,7 +8437,7 @@ msgid "Do Not Disturb"
 msgstr "다른 용무 중"
 
 #: ../libpurple/status.c:156
-#: ../pidgin/gtkstatusbox.c:1059
+#: ../carrier/gtkstatusbox.c:1059
 msgid "Do not disturb"
 msgstr "다른 용무 중"
 
@@ -8493,7 +8483,7 @@ msgstr "Jabber 사용자를 검색하려면 하나 이상의 빈 칸을 입력�
 #: ../libgaim/protocols/novell/novell.c:1488
 #: ../libgaim/protocols/oscar/oscar.c:3708
 #: ../libgaim/protocols/oscar/oscar.c:3717
-msgid "E-Mail Address"
+msgid "Email Address"
 msgstr "이메일 주소"
 
 #: ../libgaim/protocols/jabber/buddy.c:1758
@@ -9181,7 +9171,7 @@ msgid "Syntax Error (probably a client bug)"
 msgstr "문법 오류 (아마 클라이언트의 버그일 수 있습니다.)"
 
 #: ../libgaim/protocols/msn/error.c:42
-msgid "Invalid e-mail address"
+msgid "Invalid email address"
 msgstr "이메일 주소가 잘못되었습니다."
 
 #: ../libgaim/protocols/msn/error.c:45
@@ -9659,7 +9649,7 @@ msgid "Home Fax"
 msgstr "자택 팩스"
 
 #: ../libgaim/protocols/msn/msn.c:1607
-msgid "Personal E-Mail"
+msgid "Personal Email"
 msgstr "개인 이메일"
 
 #: ../libgaim/protocols/msn/msn.c:1608
@@ -9720,7 +9710,7 @@ msgid "Work Fax"
 msgstr "회사 팩스"
 
 #: ../libgaim/protocols/msn/msn.c:1638
-msgid "Work E-Mail"
+msgid "Work Email"
 msgstr "회사 이메일"
 
 #: ../libgaim/protocols/msn/msn.c:1639
@@ -10903,7 +10893,7 @@ msgstr ""
 #: ../libgaim/protocols/oscar/oscar.c:2436
 #, c-format
 msgid ""
-"You have received an ICQ e-mail from %s [%s]\n"
+"You have received an ICQ email from %s [%s]\n"
 "\n"
 "Message is:\n"
 "%s"
@@ -11101,12 +11091,12 @@ msgstr "아이디"
 
 #: ../libgaim/protocols/oscar/oscar.c:3923
 #, c-format
-msgid "No results found for e-mail address %s"
+msgid "No results found for email address %s"
 msgstr "이메일 주소 %s 에 대한 결과를 찾을 수 없습니다."
 
 #: ../libgaim/protocols/oscar/oscar.c:3944
 #, c-format
-msgid "You should receive an e-mail asking to confirm %s."
+msgid "You should receive an email asking to confirm %s."
 msgstr "%s 님을 확인하기 위해 질의 메일을 수신해 주십시오."
 
 #: ../libgaim/protocols/oscar/oscar.c:3946
@@ -11134,17 +11124,17 @@ msgstr "오류 0x%04x: 요구된 아이디가 너무 길어 조형할 수 없습
 
 #: ../libgaim/protocols/oscar/oscar.c:3989
 #, c-format
-msgid "Error 0x%04x: Unable to change e-mail address because there is already a request pending for this screen name."
+msgid "Error 0x%04x: Unable to change email address because there is already a request pending for this screen name."
 msgstr "오류 0x%04x: 이 아이디에 대해 이미 요구가 있었기 때문에 이메일 주소를 변경할 수 없습니다."
 
 #: ../libgaim/protocols/oscar/oscar.c:3992
 #, c-format
-msgid "Error 0x%04x: Unable to change e-mail address because the given address has too many screen names associated with it."
+msgid "Error 0x%04x: Unable to change email address because the given address has too many screen names associated with it."
 msgstr "오류 0x%04x: 많은 아이디에 할당되어 있기 때문에, 이 이메일 주소로는 변경할 수 없습니다."
 
 #: ../libgaim/protocols/oscar/oscar.c:3995
 #, c-format
-msgid "Error 0x%04x: Unable to change e-mail address because the given address is invalid."
+msgid "Error 0x%04x: Unable to change email address because the given address is invalid."
 msgstr "오류 0x%04x: 이 주소가 상이하기 때문에, 이 이메일 주소로는 변경할 수 없습니다."
 
 #: ../libgaim/protocols/oscar/oscar.c:3998
@@ -11168,7 +11158,7 @@ msgstr "계정 정보"
 
 #: ../libgaim/protocols/oscar/oscar.c:4014
 #, c-format
-msgid "The e-mail address for %s is %s"
+msgid "The email address for %s is %s"
 msgstr "%s 님의 이메일 주소는 %s 입니다."
 
 #: ../libgaim/protocols/oscar/oscar.c:4189
@@ -11386,15 +11376,15 @@ msgid "You can re-request authorization from these buddies by right-clicking on 
 msgstr "오른쪽 클릭하여 \"승인 재요청\" 을 선택하면, 이들의 친구로부터 인증을 재요청할 수 있습니다."
 
 #: ../libgaim/protocols/oscar/oscar.c:6187
-msgid "Find Buddy by E-Mail"
+msgid "Find Buddy by Email"
 msgstr "이메일로부터 친구 찾기"
 
 #: ../libgaim/protocols/oscar/oscar.c:6188
-msgid "Search for a buddy by e-mail address"
+msgid "Search for a buddy by email address"
 msgstr "이메일 주소로부터 친구를 찾습니다."
 
 #: ../libgaim/protocols/oscar/oscar.c:6189
-msgid "Type the e-mail address of the buddy you are searching for."
+msgid "Type the email address of the buddy you are searching for."
 msgstr "검색할 친구의 이메일 주소를 입력해 주십시오."
 
 #: ../libgaim/protocols/oscar/oscar.c:6192
@@ -11428,11 +11418,11 @@ msgid "Confirm Account"
 msgstr "계정 확인"
 
 #: ../libgaim/protocols/oscar/oscar.c:6401
-msgid "Display Currently Registered E-Mail Address"
+msgid "Display Currently Registered Email Address"
 msgstr "현재 등록되어 있는 이메일 주소 표시"
 
 #: ../libgaim/protocols/oscar/oscar.c:6405
-msgid "Change Currently Registered E-Mail Address..."
+msgid "Change Currently Registered Email Address..."
 msgstr "현재 등록되어 있는 이메일 주소 변경..."
 
 #: ../libgaim/protocols/oscar/oscar.c:6412
@@ -11440,7 +11430,7 @@ msgid "Show Buddies Awaiting Authorization"
 msgstr "승인을 기다리는 친구 표시"
 
 #: ../libgaim/protocols/oscar/oscar.c:6418
-msgid "Search for Buddy by E-Mail Address..."
+msgid "Search for Buddy by Email Address..."
 msgstr "이메일로 친구 검색..."
 
 #: ../libgaim/protocols/oscar/oscar.c:6423
@@ -11517,10 +11507,6 @@ msgstr "혈액형"
 #: ../libgaim/protocols/qq/buddy_info.c:54
 msgid "College"
 msgstr "학력"
-
-#: ../libgaim/protocols/qq/buddy_info.c:55
-msgid "Email"
-msgstr "이메일"
 
 #: ../libgaim/protocols/qq/buddy_info.c:57
 msgid "Zipcode"
@@ -13840,7 +13826,7 @@ msgstr "사용자명: \t%s\n"
 
 #: ../libgaim/protocols/silc/util.c:359
 #, c-format
-msgid "E-Mail: \t\t%s\n"
+msgid "Email: \t\t%s\n"
 msgstr "이메일: \t\t%s\n"
 
 #: ../libgaim/protocols/silc/util.c:361
@@ -14078,7 +14064,7 @@ msgid "Dir service temporarily unavailable."
 msgstr "일시적으로 디렉토리 서비스를 이용할 수 없습니다."
 
 #: ../libgaim/protocols/toc/toc.c:530
-msgid "E-mail lookup restricted."
+msgid "Email lookup restricted."
 msgstr "이메일 검색이 거부되었습니다."
 
 #: ../libgaim/protocols/toc/toc.c:533
@@ -15022,27 +15008,27 @@ msgstr "%s (으)로 쓰는 중 오류: %s"
 msgid "Unable to connect to %s: %s"
 msgstr "%s (으)로 접속할 수 없습니다: %s"
 
-#: ../pidgin/gtkblist.c:3073
+#: ../carrier/gtkblist.c:3073
 msgid "/Buddies/Show"
 msgstr "/친구/보기"
 
-#: ../pidgin/gtkblist.c:3074
+#: ../carrier/gtkblist.c:3074
 msgid "/Buddies/Show/_Offline Buddies"
 msgstr "/친구/보기/오프라인 친구(_O)"
 
-#: ../pidgin/gtkblist.c:3075
+#: ../carrier/gtkblist.c:3075
 msgid "/Buddies/Show/_Empty Groups"
 msgstr "/친구/보기/빈 그룹(_E)"
 
-#: ../pidgin/gtkblist.c:3076
+#: ../carrier/gtkblist.c:3076
 msgid "/Buddies/Show/Buddy _Details"
 msgstr "/친구/보기/친구 상세(_D)"
 
-#: ../pidgin/gtkblist.c:3077
+#: ../carrier/gtkblist.c:3077
 msgid "/Buddies/Show/Idle _Times"
 msgstr "/친구/보기/대기 시간(_T)"
 
-#: ../pidgin/gtkblist.c:3078
+#: ../carrier/gtkblist.c:3078
 msgid "/Buddies/Show/_Protocol Icons"
 msgstr "/친구/보기/프로토콜 아이콘(_P)"
 
@@ -15050,7 +15036,7 @@ msgstr "/친구/보기/프로토콜 아이콘(_P)"
 msgid "HTTP Method Server"
 msgstr "HTTP 방식 서버"
 
-#: ../pidgin/gtkblist.c:3094
+#: ../carrier/gtkblist.c:3094
 msgid "/Tools/_Certificates"
 msgstr "/도구/인증(_C)"
 
@@ -15070,32 +15056,32 @@ msgid "You have no database of root certificates, so this certificate cannot be 
 msgstr "루트 인증 데이터베이스가 없습니다.이 인증은 유효화 되지 못했습니다."
 
 #: ../finch/gntcertmgr.c:86
-#: ../pidgin/gtkcertmgr.c:188
+#: ../carrier/gtkcertmgr.c:188
 msgid "Certificate Import"
 msgstr "인증 가져오기"
 
 #: ../finch/gntcertmgr.c:88
-#: ../pidgin/gtkcertmgr.c:190
+#: ../carrier/gtkcertmgr.c:190
 msgid "Type the host name this certificate is for."
 msgstr "이 인증을 위한 호스트명을 입력하십시오."
 
 #: ../finch/gntcertmgr.c:99
-#: ../pidgin/gtkcertmgr.c:212
+#: ../carrier/gtkcertmgr.c:212
 msgid "Certificate Import Error"
 msgstr "인증 가져오기 오류"
 
 #: ../finch/gntcertmgr.c:100
-#: ../pidgin/gtkcertmgr.c:213
+#: ../carrier/gtkcertmgr.c:213
 msgid "X.509 certificate import failed"
 msgstr "X.509 인증 가져오기 실패"
 
 #: ../finch/gntcertmgr.c:110
-#: ../pidgin/gtkcertmgr.c:224
+#: ../carrier/gtkcertmgr.c:224
 msgid "Select a PEM certificate"
 msgstr "PEM 인증 선택"
 
 #: ../finch/gntcertmgr.c:127
-#: ../pidgin/gtkcertmgr.c:245
+#: ../carrier/gtkcertmgr.c:245
 #, c-format
 msgid ""
 "Export to file %s failed.\n"
@@ -15105,17 +15091,17 @@ msgstr ""
 "목적 경로에 쓰기 권한이 있는지 확인하십시오.\n"
 
 #: ../finch/gntcertmgr.c:129
-#: ../pidgin/gtkcertmgr.c:247
+#: ../carrier/gtkcertmgr.c:247
 msgid "Certificate Export Error"
 msgstr "인증 내보내기 오류"
 
 #: ../finch/gntcertmgr.c:130
-#: ../pidgin/gtkcertmgr.c:248
+#: ../carrier/gtkcertmgr.c:248
 msgid "X.509 certificate export failed"
 msgstr "X.509 인증 내보내기 실패"
 
 #: ../finch/gntcertmgr.c:159
-#: ../pidgin/gtkcertmgr.c:299
+#: ../carrier/gtkcertmgr.c:299
 msgid "PEM X.509 Certificate Export"
 msgstr "PEM X.509 인증 내보내기"
 
@@ -15129,35 +15115,35 @@ msgid "SSL Host Certificate"
 msgstr "SSL 호스트 인증"
 
 #: ../finch/gntcertmgr.c:233
-#: ../pidgin/gtkcertmgr.c:372
+#: ../carrier/gtkcertmgr.c:372
 #, c-format
 msgid "Really delete certificate for %s?"
 msgstr "정말 %s 인증을 삭제하시겠습니까?"
 
 #: ../finch/gntcertmgr.c:236
-#: ../pidgin/gtkcertmgr.c:374
+#: ../carrier/gtkcertmgr.c:374
 msgid "Confirm certificate delete"
 msgstr "인증 삭제 확인"
 
 #: ../finch/gntcertmgr.c:293
-#: ../pidgin/gtkcertmgr.c:602
+#: ../carrier/gtkcertmgr.c:602
 msgid "Certificate Manager"
 msgstr "인증 관리자"
 
-#: ../pidgin/gtkprefs.c:1000
+#: ../carrier/gtkprefs.c:1000
 msgid "Show _detailed information"
 msgstr "상세 정보 보이기(_D)"
 
-#: ../pidgin/gtkprefs.c:1021
+#: ../carrier/gtkprefs.c:1021
 msgid "Minimi_ze new conversation windows"
 msgstr "최소화로 새 대화창 열기(_Z)"
 
-#: ../pidgin/gtkimhtmltoolbar.c:846
-#: ../pidgin/gtkimhtmltoolbar.c:1220
+#: ../carrier/gtkimhtmltoolbar.c:846
+#: ../carrier/gtkimhtmltoolbar.c:1220
 msgid "_Font"
 msgstr "글꼴(_F)"
 
-#: ../pidgin/gtkprefs.c:1959
+#: ../carrier/gtkprefs.c:1959
 msgid "_Minutes before becoming idle:"
 msgstr "대기 시간 간격(분)(_M)"
 
@@ -15187,24 +15173,24 @@ msgstr "외부 참가/부분 메시지를 안 보입니다."
 msgid "This plugin hides join/part messages in large rooms, except for those users actively taking part in a conversation."
 msgstr "큰 대화방에서 활성적으로 대화에 참여하고 있는 사람들을 제외한 사람들의 참가/부분 메시지를 안 보이게 합니다."
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:371
+#: ../carrier/plugins/win32/winprefs/winprefs.c:371
 msgid "Windows Pidgin Options"
 msgstr "Windows Pidgin 설정"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:373
+#: ../carrier/plugins/win32/winprefs/winprefs.c:373
 msgid "Options specific to Pidgin for Windows."
 msgstr "Windows를 위한 Pidgin 설정을 제공합니다."
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:374
+#: ../carrier/plugins/win32/winprefs/winprefs.c:374
 msgid "Provides options specific to Pidgin for Windows , such as buddy list docking."
 msgstr "친구 목록 도킹과 같은 Windows에 대한 Pidgin 설정을 제공합니다."
 
 #. Widget creation function
-#: ../pidgin/gtkcertmgr.c:530
+#: ../carrier/gtkcertmgr.c:530
 msgid "SSL Servers"
 msgstr "SSL 서버"
 
-#: ../pidgin/gtkaccount.c:2201
+#: ../carrier/gtkaccount.c:2201
 #, c-format
 msgid ""
 "<span size='larger' weight='bold'>Welcome to %s!</span>\n"
@@ -15220,7 +15206,7 @@ msgstr ""
 "친구 목록 창에 있는 <b>계정 -> 추가/편집</b> 메뉴에서도 이 창을 열 수 있습니다."
 
 #. Translators: Please maintain the use of -> and <- to refer to menu heirarchy
-#: ../pidgin/gtkblist.c:4616
+#: ../carrier/gtkblist.c:4616
 #, c-format
 msgid ""
 "<span weight='bold' size='larger'>Welcome to %s!</span>\n"
@@ -15239,7 +15225,7 @@ msgstr "Windows Live ID 인증: 연결할 수 없음"
 msgid "Windows Live ID authentication Failed"
 msgstr "Windows Live ID 인증 실패"
 
-#: ../pidgin/plugins/relnot.c:71
+#: ../carrier/plugins/relnot.c:71
 #, c-format
 msgid "You are using %s version %s.  The current version is %s.  You can get it from <a href=\"%s\">%s</a><hr>"
 msgstr "사용 중인 %s 버전은 %s 입니다. 현재 버전은 %s 입니다. 다음 사이트에서 다운로드 받을 수 있습니다: <a href=\"%s\">%s</a><hr>"
