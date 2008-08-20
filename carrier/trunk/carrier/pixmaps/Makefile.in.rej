@@ -1,0 +1,71 @@
+***************
+*** 152,176 ****
+  	toolbar/16/font-size-up.png toolbar/16/insert.png \
+  	toolbar/16/insert-image.png toolbar/16/insert-link.png \
+  	toolbar/16/message-new.png toolbar/16/plugins.png \
+- 	toolbar/16/send-file.png toolbar/16/unblock.png \
+- 	toolbar/22/select-avatar.png tray/16/tray-away.png \
+- 	tray/16/tray-busy.png tray/16/tray-invisible.png \
+- 	tray/16/tray-connecting.png tray/16/tray-extended-away.png \
+- 	tray/16/tray-message.png tray/16/tray-new-im.png \
+- 	tray/16/tray-offline.png tray/16/tray-online.png \
+- 	tray/22/tray-away.png tray/22/tray-busy.png \
+- 	tray/22/tray-connecting.png tray/22/tray-extended-away.png \
+- 	tray/22/tray-invisible.png tray/22/tray-message.png \
+- 	tray/22/tray-new-im.png tray/22/tray-offline.png \
+- 	tray/22/tray-online.png tray/32/tray-away.png \
+- 	tray/32/tray-busy.png tray/32/tray-connecting.png \
+- 	tray/32/tray-extended-away.png tray/32/tray-invisible.png \
+- 	tray/32/tray-new-im.png tray/32/tray-offline.png \
+- 	tray/32/tray-online.png tray/48/tray-away.png \
+- 	tray/48/tray-busy.png tray/48/tray-connecting.png \
+- 	tray/48/tray-extended-away.png tray/48/tray-invisible.png \
+- 	tray/48/tray-new-im.png tray/48/tray-offline.png \
+- 	tray/48/tray-online.png
+  nobase_dist_pidginpixmapDATA_INSTALL = $(install_sh_DATA)
+  pidginbuttonpixDATA_INSTALL = $(INSTALL_DATA)
+  pidgindistpixDATA_INSTALL = $(INSTALL_DATA)
+--- 152,176 ----
+  	toolbar/16/font-size-up.png toolbar/16/insert.png \
+  	toolbar/16/insert-image.png toolbar/16/insert-link.png \
+  	toolbar/16/message-new.png toolbar/16/plugins.png \
++ 	toolbar/16/send-file.png toolbar/16/transfer.png \
++ 	toolbar/16/unblock.png toolbar/22/select-avatar.png \
++ 	tray/16/tray-away.png tray/16/tray-busy.png \
++ 	tray/16/tray-invisible.png tray/16/tray-connecting.png \
++ 	tray/16/tray-extended-away.png tray/16/tray-message.png \
++ 	tray/16/tray-new-im.png tray/16/tray-offline.png \
++ 	tray/16/tray-online.png tray/22/tray-away.png \
++ 	tray/22/tray-busy.png tray/22/tray-connecting.png \
++ 	tray/22/tray-extended-away.png tray/22/tray-invisible.png \
++ 	tray/22/tray-message.png tray/22/tray-new-im.png \
++ 	tray/22/tray-offline.png tray/22/tray-online.png \
++ 	tray/32/tray-away.png tray/32/tray-busy.png \
++ 	tray/32/tray-connecting.png tray/32/tray-extended-away.png \
++ 	tray/32/tray-invisible.png tray/32/tray-new-im.png \
++ 	tray/32/tray-offline.png tray/32/tray-online.png \
++ 	tray/48/tray-away.png tray/48/tray-busy.png \
++ 	tray/48/tray-connecting.png tray/48/tray-extended-away.png \
++ 	tray/48/tray-invisible.png tray/48/tray-new-im.png \
++ 	tray/48/tray-offline.png tray/48/tray-online.png
+  nobase_dist_pidginpixmapDATA_INSTALL = $(install_sh_DATA)
+  pidginbuttonpixDATA_INSTALL = $(INSTALL_DATA)
+  pidgindistpixDATA_INSTALL = $(INSTALL_DATA)
+***************
+*** 767,775 ****
+  @INSTALL_PIXMAPS_TRUE@		icons/hicolor/16x16/apps/scalable/pidgin.svg
+  
+  @INSTALL_PIXMAPS_TRUE@ICONS_16 = icons/hicolor/16x16/apps/pidgin.png
+- @INSTALL_PIXMAPS_TRUE@ICONS_22_SCALABLE = \
+- @INSTALL_PIXMAPS_TRUE@		icons/hicolor/22x22/apps/scalable/pidgin.svg
+- 
+  @INSTALL_PIXMAPS_TRUE@ICONS_22 = icons/hicolor/22x22/apps/pidgin.png
+  @INSTALL_PIXMAPS_TRUE@ICONS_24_SCALABLE = \
+  @INSTALL_PIXMAPS_TRUE@		icons/hicolor/24x24/apps/scalable/pidgin.svg
+--- 769,774 ----
+  @INSTALL_PIXMAPS_TRUE@		icons/hicolor/16x16/apps/scalable/pidgin.svg
+  
+  @INSTALL_PIXMAPS_TRUE@ICONS_16 = icons/hicolor/16x16/apps/pidgin.png
+  @INSTALL_PIXMAPS_TRUE@ICONS_22 = icons/hicolor/22x22/apps/pidgin.png
+  @INSTALL_PIXMAPS_TRUE@ICONS_24_SCALABLE = \
+  @INSTALL_PIXMAPS_TRUE@		icons/hicolor/24x24/apps/scalable/pidgin.svg
