@@ -6,7 +6,7 @@
 PIDGIN_TREE_TOP := ..
 include $(PIDGIN_TREE_TOP)/libpurple/win32/global.mak
 
-PACKAGE = carrier
+PACKAGE = pidgin
 
 .SUFFIXES:
 .SUFFIXES: .po .gmo

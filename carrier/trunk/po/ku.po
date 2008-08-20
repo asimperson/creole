@@ -44,7 +44,7 @@ msgid ""
 "  -v, --version       display the current version and exit\n"
 msgstr ""
 
-#: ../finch/finch.c:328 ../pidgin/gtkmain.c:711
+#: ../finch/finch.c:328 ../carrier/gtkmain.c:711
 #, c-format
 msgid ""
 "%s encountered errors migrating your settings from %s to %s. Please "
@@ -94,7 +94,7 @@ msgid "(You probably forgot to 'make install'.)"
 msgstr ""
 
 #: ../finch/gntaccount.c:496 ../finch/gntconn.c:136
-#: ../pidgin/gtkaccount.c:1473 ../pidgin/gtkblist.c:4040
+#: ../carrier/gtkaccount.c:1473 ../pidgin/gtkblist.c:4040
 msgid "Modify Account"
 msgstr "Hesabê biguherîne"
 
@@ -103,12 +103,12 @@ msgstr "Hesabê biguherîne"
 msgid "New Account"
 msgstr "Hesab"
 
-#: ../finch/gntaccount.c:521 ../pidgin/gtkft.c:696
+#: ../finch/gntaccount.c:521 ../carrier/gtkft.c:696
 msgid "Protocol:"
 msgstr "Protokol:"
 
 #: ../finch/gntaccount.c:529
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:290
+#: ../carrier/plugins/gevolution/new_person_dialog.c:290
 msgid "Screen name:"
 msgstr "Navê dîmender:"
 
@@ -185,20 +185,20 @@ msgstr "Navê ku xuya dibe"
 #: ../libpurple/protocols/silc10/silc.c:942
 #: ../libpurple/protocols/yahoo/yahoo.c:1032
 #: ../libpurple/protocols/yahoo/yahoo.c:3498
-#: ../libpurple/protocols/yahoo/yahoo.c:3509 ../pidgin/gtkaccount.c:1908
-#: ../pidgin/gtkaccount.c:2495 ../pidgin/gtkblist.c:5967
-#: ../pidgin/gtkcertmgr.c:197 ../pidgin/gtkdialogs.c:773
-#: ../pidgin/gtkdialogs.c:912 ../pidgin/gtkdialogs.c:1004
-#: ../pidgin/gtkdialogs.c:1024 ../pidgin/gtkdialogs.c:1048
-#: ../pidgin/gtkdialogs.c:1070 ../pidgin/gtkdialogs.c:1118
-#: ../pidgin/gtkdialogs.c:1159 ../pidgin/gtkdialogs.c:1215
-#: ../pidgin/gtkdialogs.c:1254 ../pidgin/gtkdialogs.c:1281
-#: ../pidgin/gtkimhtmltoolbar.c:435 ../pidgin/gtklog.c:328
-#: ../pidgin/gtkplugin.c:289 ../pidgin/gtkpounce.c:1101
-#: ../pidgin/gtkprivacy.c:563 ../pidgin/gtkprivacy.c:579
-#: ../pidgin/gtkprivacy.c:604 ../pidgin/gtkprivacy.c:618
-#: ../pidgin/gtkrequest.c:271 ../pidgin/gtksavedstatuses.c:345
-#: ../pidgin/gtkstatusbox.c:1574
+#: ../libpurple/protocols/yahoo/yahoo.c:3509 ../carrier/gtkaccount.c:1908
+#: ../carrier/gtkaccount.c:2495 ../pidgin/gtkblist.c:5967
+#: ../carrier/gtkcertmgr.c:197 ../pidgin/gtkdialogs.c:773
+#: ../carrier/gtkdialogs.c:912 ../pidgin/gtkdialogs.c:1004
+#: ../carrier/gtkdialogs.c:1024 ../pidgin/gtkdialogs.c:1048
+#: ../carrier/gtkdialogs.c:1070 ../pidgin/gtkdialogs.c:1118
+#: ../carrier/gtkdialogs.c:1159 ../pidgin/gtkdialogs.c:1215
+#: ../carrier/gtkdialogs.c:1254 ../pidgin/gtkdialogs.c:1281
+#: ../carrier/gtkimhtmltoolbar.c:435 ../pidgin/gtklog.c:328
+#: ../carrier/gtkplugin.c:289 ../pidgin/gtkpounce.c:1101
+#: ../carrier/gtkprivacy.c:563 ../pidgin/gtkprivacy.c:579
+#: ../carrier/gtkprivacy.c:604 ../pidgin/gtkprivacy.c:618
+#: ../carrier/gtkrequest.c:271 ../pidgin/gtksavedstatuses.c:345
+#: ../carrier/gtkstatusbox.c:1574
 msgid "Cancel"
 msgstr "Betal"
 
@@ -208,13 +208,13 @@ msgstr "Betal"
 #: ../finch/gntplugin.c:379 ../finch/gntpounce.c:465 ../finch/gntprefs.c:265
 #: ../finch/gntsound.c:1055 ../finch/gntstatus.c:488 ../finch/gntstatus.c:598
 #: ../libpurple/account.c:1297 ../libpurple/plugins/buddynote.c:50
-#: ../libpurple/protocols/jabber/buddy.c:727 ../pidgin/gtkdebug.c:749
-#: ../pidgin/gtkrequest.c:277
+#: ../libpurple/protocols/jabber/buddy.c:727 ../carrier/gtkdebug.c:749
+#: ../carrier/gtkrequest.c:277
 msgid "Save"
 msgstr "Tomar bike"
 
-#: ../finch/gntaccount.c:632 ../pidgin/gtkaccount.c:1900
-#: ../pidgin/gtksavedstatuses.c:333 ../pidgin/gtkstatusbox.c:1568
+#: ../finch/gntaccount.c:632 ../carrier/gtkaccount.c:1900
+#: ../carrier/gtksavedstatuses.c:333 ../pidgin/gtkstatusbox.c:1568
 #, c-format
 msgid "Are you sure you want to delete %s?"
 msgstr "Li xwe bawer î ku tu dixwazî %s'yê jê bibî?"
@@ -228,14 +228,14 @@ msgstr "Hesab çalak bike"
 #: ../finch/gntaccount.c:637 ../finch/gntaccount.c:707
 #: ../finch/gntcertmgr.c:319 ../finch/gntpounce.c:666 ../finch/gntpounce.c:729
 #: ../finch/gntstatus.c:144 ../finch/gntstatus.c:210
-#: ../pidgin/gtkaccount.c:1907 ../pidgin/gtklog.c:327
-#: ../pidgin/gtkpounce.c:1100 ../pidgin/gtkrequest.c:274
-#: ../pidgin/gtksavedstatuses.c:344 ../pidgin/gtkstatusbox.c:1573
+#: ../carrier/gtkaccount.c:1907 ../pidgin/gtklog.c:327
+#: ../carrier/gtkpounce.c:1100 ../pidgin/gtkrequest.c:274
+#: ../carrier/gtksavedstatuses.c:344 ../pidgin/gtkstatusbox.c:1573
 msgid "Delete"
 msgstr "Jê bibe"
 
 #: ../finch/gntaccount.c:669 ../finch/gntblist.c:2119 ../finch/gntui.c:82
-#: ../pidgin/gtkaccount.c:2325 ../pidgin/gtkdocklet.c:522
+#: ../carrier/gtkaccount.c:2325 ../pidgin/gtkdocklet.c:522
 msgid "Accounts"
 msgstr "Hesab"
 
@@ -253,9 +253,9 @@ msgstr "Tu li hêviya rêdanêyî ji alî van hevalan ve"
 #: ../libpurple/protocols/qq/sys_msg.c:267
 #: ../libpurple/protocols/sametime/sametime.c:5486
 #: ../libpurple/protocols/silc/chat.c:615
-#: ../libpurple/protocols/silc10/chat.c:599 ../pidgin/gtkaccount.c:2494
-#: ../pidgin/gtkblist.c:5966 ../pidgin/gtkconv.c:1659
-#: ../pidgin/gtkrequest.c:275
+#: ../libpurple/protocols/silc10/chat.c:599 ../carrier/gtkaccount.c:2494
+#: ../carrier/gtkblist.c:5966 ../pidgin/gtkconv.c:1659
+#: ../carrier/gtkrequest.c:275
 msgid "Add"
 msgstr "Zêde bike"
 
@@ -265,34 +265,34 @@ msgstr "Zêde bike"
 msgid "Modify"
 msgstr "_Biguherîne"
 
-#: ../finch/gntaccount.c:811 ../pidgin/gtkaccount.c:2441
+#: ../finch/gntaccount.c:811 ../carrier/gtkaccount.c:2441
 #, c-format
 msgid "%s%s%s%s has made %s his or her buddy%s%s"
 msgstr ""
 
-#: ../finch/gntaccount.c:884 ../pidgin/gtkaccount.c:2493
+#: ../finch/gntaccount.c:884 ../carrier/gtkaccount.c:2493
 msgid "Add buddy to your list?"
 msgstr "Vê/î kesê/î li lîsteya xwe ya kesan zêde bike"
 
-#: ../finch/gntaccount.c:944 ../pidgin/gtkaccount.c:2551
+#: ../finch/gntaccount.c:944 ../carrier/gtkaccount.c:2551
 #, fuzzy, c-format
 msgid "%s%s%s%s wants to add %s to his or her buddy list%s%s"
 msgstr "Bikarhêner %s dixwaze ku %s têxe lîsteya xwe ya hevalan."
 
 #: ../finch/gntaccount.c:969 ../finch/gntaccount.c:972
-#: ../finch/gntaccount.c:999 ../pidgin/gtkaccount.c:2574
-#: ../pidgin/gtkaccount.c:2580
+#: ../finch/gntaccount.c:999 ../carrier/gtkaccount.c:2574
+#: ../carrier/gtkaccount.c:2580
 #, fuzzy
 msgid "Authorize buddy?"
 msgstr "Destûrê Bidê"
 
 #: ../finch/gntaccount.c:976 ../finch/gntaccount.c:1003
-#: ../pidgin/gtkaccount.c:2575 ../pidgin/gtkaccount.c:2581
+#: ../carrier/gtkaccount.c:2575 ../pidgin/gtkaccount.c:2581
 msgid "Authorize"
 msgstr "Destûrê Bidê"
 
 #: ../finch/gntaccount.c:977 ../finch/gntaccount.c:1004
-#: ../pidgin/gtkaccount.c:2576 ../pidgin/gtkaccount.c:2582
+#: ../carrier/gtkaccount.c:2576 ../pidgin/gtkaccount.c:2582
 msgid "Deny"
 msgstr "Red bike"
 
@@ -319,7 +319,7 @@ msgid "Error adding buddy"
 msgstr "Dema %s Dihate Xwendin Çewtî"
 
 #: ../finch/gntblist.c:325 ../libpurple/protocols/oscar/oscar.c:2888
-#: ../pidgin/gtkaccount.c:1981 ../pidgin/gtksavedstatuses.c:980
+#: ../carrier/gtkaccount.c:1981 ../pidgin/gtksavedstatuses.c:980
 msgid "Screen Name"
 msgstr "Navê Ekranê"
 
@@ -329,9 +329,9 @@ msgstr "Navê Ekranê"
 #: ../libpurple/protocols/silc10/chat.c:590
 #: ../libpurple/protocols/yahoo/yahoo_profile.c:704
 #: ../libpurple/protocols/zephyr/zephyr.c:788
-#: ../libpurple/protocols/zephyr/zephyr.c:1207 ../pidgin/gtkdialogs.c:1023
-#: ../pidgin/gtkdialogs.c:1047 ../pidgin/gtkdialogs.c:1069
-#: ../pidgin/gtkrequest.c:278
+#: ../libpurple/protocols/zephyr/zephyr.c:1207 ../carrier/gtkdialogs.c:1023
+#: ../carrier/gtkdialogs.c:1047 ../pidgin/gtkdialogs.c:1069
+#: ../carrier/gtkrequest.c:278
 msgid "Alias"
 msgstr "Nav"
 
@@ -343,8 +343,8 @@ msgstr "Kom:"
 #: ../finch/gntblist.c:335 ../finch/gntblist.c:401 ../finch/gntblist.c:1305
 #: ../finch/gntnotify.c:174 ../finch/gntstatus.c:576
 #: ../libpurple/plugins/idle.c:153 ../libpurple/plugins/idle.c:190
-#: ../pidgin/gtkblist.c:3008 ../pidgin/gtknotify.c:506
-#: ../pidgin/gtkpounce.c:1268 ../pidgin/plugins/gevolution/gevolution.c:445
+#: ../carrier/gtkblist.c:3008 ../pidgin/gtknotify.c:506
+#: ../carrier/gtkpounce.c:1268 ../pidgin/plugins/gevolution/gevolution.c:445
 msgid "Account"
 msgstr "Hesab"
 
@@ -357,8 +357,8 @@ msgstr "Hesab"
 #: ../libpurple/protocols/silc10/buddy.c:1033
 #: ../libpurple/protocols/silc10/buddy.c:1080
 #: ../libpurple/protocols/silc10/buddy.c:1180
-#: ../libpurple/protocols/yahoo/yahoo.c:3343 ../pidgin/gtkblist.c:5483
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:445
+#: ../libpurple/protocols/yahoo/yahoo.c:3343 ../carrier/gtkblist.c:5483
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:445
 msgid "Add Buddy"
 msgstr "Kesekê/î lê zêde bike"
 
@@ -376,10 +376,10 @@ msgstr "Sohbet"
 #: ../libpurple/protocols/jabber/jabber.c:927
 #: ../libpurple/protocols/msn/msn.c:1584 ../libpurple/protocols/msn/msn.c:1649
 #: ../libpurple/protocols/msn/msn.c:1676
-#: ../libpurple/protocols/qq/buddy_info.c:44 ../pidgin/gtkplugin.c:582
-#: ../pidgin/gtkroomlist.c:618
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:132
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:123
+#: ../libpurple/protocols/qq/buddy_info.c:44 ../carrier/gtkplugin.c:582
+#: ../carrier/gtkroomlist.c:618
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:132
+#: ../carrier/plugins/gevolution/assoc-buddy.c:123
 msgid "Name"
 msgstr "Nav"
 
@@ -388,7 +388,7 @@ msgstr "Nav"
 msgid "Auto-join"
 msgstr "Ji ber xwe ve beşdar bibe"
 
-#: ../finch/gntblist.c:419 ../finch/gntblist.c:854 ../pidgin/gtkblist.c:5859
+#: ../finch/gntblist.c:419 ../finch/gntblist.c:854 ../carrier/gtkblist.c:5859
 msgid "Add Chat"
 msgstr "Chatekê lê zêde bike"
 
@@ -413,7 +413,7 @@ msgstr "Peldankeke bi vî navê jixwe heye"
 
 #: ../finch/gntblist.c:454 ../finch/gntblist.c:856
 #: ../libpurple/protocols/sametime/sametime.c:5396
-#: ../libpurple/protocols/sametime/sametime.c:5484 ../pidgin/gtkblist.c:5963
+#: ../libpurple/protocols/sametime/sametime.c:5484 ../carrier/gtkblist.c:5963
 msgid "Add Group"
 msgstr "Kome zêde bike"
 
@@ -441,11 +441,11 @@ msgstr "_Serast bike"
 msgid "Edit Settings"
 msgstr "Mîhengên Giştî Bikar Bîne"
 
-#: ../finch/gntblist.c:864 ../pidgin/gtkutils.c:931
+#: ../finch/gntblist.c:864 ../carrier/gtkutils.c:931
 msgid "Information"
 msgstr "Agahî"
 
-#: ../finch/gntblist.c:864 ../pidgin/gtkutils.c:931
+#: ../finch/gntblist.c:864 ../carrier/gtkutils.c:931
 #, fuzzy
 msgid "Retrieving..."
 msgstr "Tê Girêdan..."
@@ -465,7 +465,7 @@ msgstr "Hişyarkera Kesan Lê Zêde Bike"
 #: ../finch/gntblist.c:915 ../finch/gntconv.c:519
 #: ../libpurple/protocols/jabber/si.c:874
 #: ../libpurple/protocols/oscar/oscar.c:654 ../libpurple/protocols/qq/qq.c:587
-#: ../pidgin/gtkconv.c:1607
+#: ../carrier/gtkconv.c:1607
 msgid "Send File"
 msgstr "Pelî Bişîne"
 
@@ -513,15 +513,15 @@ msgid "Confirm Remove"
 msgstr "Girtinê erê bike"
 
 #: ../finch/gntblist.c:1100 ../finch/gntblist.c:1252 ../finch/gntft.c:227
-#: ../pidgin/gtkconv.c:1656 ../pidgin/gtkrequest.c:276
-#: ../pidgin/gtkstatusbox.c:264
+#: ../carrier/gtkconv.c:1656 ../pidgin/gtkrequest.c:276
+#: ../carrier/gtkstatusbox.c:264
 msgid "Remove"
 msgstr "Rake"
 
 #. Buddy List
 #: ../finch/gntblist.c:1226 ../finch/gntblist.c:2307 ../finch/gntprefs.c:258
-#: ../finch/gntui.c:83 ../pidgin/gtkblist.c:2688 ../pidgin/gtkblist.c:4284
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:326
+#: ../finch/gntui.c:83 ../carrier/gtkblist.c:2688 ../pidgin/gtkblist.c:4284
+#: ../carrier/plugins/win32/winprefs/winprefs.c:326
 msgid "Buddy List"
 msgstr "Lîsteya Hevalan"
 
@@ -557,7 +557,7 @@ msgstr ""
 #: ../libpurple/protocols/silc10/ops.c:1036
 #: ../libpurple/protocols/silc10/ops.c:1179
 #: ../libpurple/protocols/silc10/ops.c:1328
-#: ../libpurple/protocols/yahoo/yahoo_profile.c:1066 ../pidgin/gtkblist.c:3032
+#: ../libpurple/protocols/yahoo/yahoo_profile.c:1066 ../carrier/gtkblist.c:3032
 msgid "Nickname"
 msgstr "Leqeb"
 
@@ -570,8 +570,8 @@ msgstr "Leqeb"
 #: ../libpurple/protocols/novell/novell.c:2825
 #: ../libpurple/protocols/oscar/oscar.c:2912
 #: ../libpurple/protocols/yahoo/yahoo.c:3097
-#: ../libpurple/protocols/yahoo/yahoo_profile.c:710 ../pidgin/gtkblist.c:3060
-#: ../pidgin/gtkblist.c:3460 ../pidgin/gtkprefs.c:1925
+#: ../libpurple/protocols/yahoo/yahoo_profile.c:710 ../carrier/gtkblist.c:3060
+#: ../carrier/gtkblist.c:3460 ../pidgin/gtkprefs.c:1925
 msgid "Idle"
 msgstr "Neçalak"
 
@@ -601,36 +601,36 @@ msgstr ""
 "\n"
 "<b>Dîtina Dawî:</b> berî %s"
 
-#: ../finch/gntblist.c:1702 ../pidgin/gtkdocklet.c:470
-#: ../pidgin/gtkstatusbox.c:1072
+#: ../finch/gntblist.c:1702 ../carrier/gtkdocklet.c:470
+#: ../carrier/gtkstatusbox.c:1072
 msgid "New..."
 msgstr "Nû..."
 
-#: ../finch/gntblist.c:1709 ../pidgin/gtkdocklet.c:471
-#: ../pidgin/gtkstatusbox.c:1073
+#: ../finch/gntblist.c:1709 ../carrier/gtkdocklet.c:471
+#: ../carrier/gtkstatusbox.c:1073
 msgid "Saved..."
 msgstr "Hatiye Tomarkirin..."
 
 #: ../finch/gntblist.c:2087 ../finch/gntplugin.c:255 ../finch/gntui.c:88
-#: ../pidgin/gtkdocklet.c:523 ../pidgin/gtkplugin.c:531
+#: ../carrier/gtkdocklet.c:523 ../pidgin/gtkplugin.c:531
 msgid "Plugins"
 msgstr "Pêvek"
 
-#: ../finch/gntblist.c:2203 ../pidgin/gtkdialogs.c:754
-#: ../pidgin/gtkdialogs.c:893 ../pidgin/gtkdialogs.c:974
+#: ../finch/gntblist.c:2203 ../carrier/gtkdialogs.c:754
+#: ../carrier/gtkdialogs.c:893 ../pidgin/gtkdialogs.c:974
 msgid "_Name"
 msgstr "_Nav"
 
-#: ../finch/gntblist.c:2208 ../pidgin/gtkdialogs.c:759
-#: ../pidgin/gtkdialogs.c:898 ../pidgin/gtkdialogs.c:979
+#: ../finch/gntblist.c:2208 ../carrier/gtkdialogs.c:759
+#: ../carrier/gtkdialogs.c:898 ../pidgin/gtkdialogs.c:979
 msgid "_Account"
 msgstr "_Hesab"
 
-#: ../finch/gntblist.c:2216 ../pidgin/gtkdialogs.c:767
+#: ../finch/gntblist.c:2216 ../carrier/gtkdialogs.c:767
 msgid "New Instant Message"
 msgstr "Peyama Nû"
 
-#: ../finch/gntblist.c:2218 ../pidgin/gtkdialogs.c:769
+#: ../finch/gntblist.c:2218 ../carrier/gtkdialogs.c:769
 msgid ""
 "Please enter the screen name or alias of the person you would like to IM."
 msgstr ""
@@ -667,15 +667,15 @@ msgstr ""
 #: ../libpurple/protocols/silc10/silc.c:735
 #: ../libpurple/protocols/yahoo/yahoo.c:1031
 #: ../libpurple/protocols/yahoo/yahoo.c:3497
-#: ../libpurple/protocols/yahoo/yahoo.c:3508 ../pidgin/gtkblist.c:4039
-#: ../pidgin/gtkcertmgr.c:195 ../pidgin/gtkdialogs.c:772
-#: ../pidgin/gtkdialogs.c:911 ../pidgin/gtkdialogs.c:1003
-#: ../pidgin/gtkrequest.c:270
+#: ../libpurple/protocols/yahoo/yahoo.c:3508 ../carrier/gtkblist.c:4039
+#: ../carrier/gtkcertmgr.c:195 ../pidgin/gtkdialogs.c:772
+#: ../carrier/gtkdialogs.c:911 ../pidgin/gtkdialogs.c:1003
+#: ../carrier/gtkrequest.c:270
 msgid "OK"
 msgstr "Temam"
 
 #. Create the "Options" frame.
-#: ../finch/gntblist.c:2241 ../finch/gntpounce.c:447 ../pidgin/gtkpounce.c:790
+#: ../finch/gntblist.c:2241 ../finch/gntpounce.c:447 ../carrier/gtkpounce.c:790
 msgid "Options"
 msgstr "Vebijêrk"
 
@@ -709,55 +709,55 @@ msgstr "Li gor rêza alfabeyê"
 msgid "Sort by log size"
 msgstr "Li gorî mezinahiya tomarbûnê"
 
-#: ../finch/gntcertmgr.c:86 ../pidgin/gtkcertmgr.c:188
+#: ../finch/gntcertmgr.c:86 ../carrier/gtkcertmgr.c:188
 #, fuzzy
 msgid "Certificate Import"
 msgstr "Porta Girêdanê"
 
-#: ../finch/gntcertmgr.c:87 ../pidgin/gtkcertmgr.c:189
+#: ../finch/gntcertmgr.c:87 ../carrier/gtkcertmgr.c:189
 msgid "Specify a hostname"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:88 ../pidgin/gtkcertmgr.c:190
+#: ../finch/gntcertmgr.c:88 ../carrier/gtkcertmgr.c:190
 msgid "Type the host name this certificate is for."
 msgstr ""
 
-#: ../finch/gntcertmgr.c:97 ../pidgin/gtkcertmgr.c:210
+#: ../finch/gntcertmgr.c:97 ../carrier/gtkcertmgr.c:210
 #, c-format
 msgid ""
 "File %s could not be imported.\n"
 "Make sure that the file is readable and in PEM format.\n"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:99 ../pidgin/gtkcertmgr.c:212
+#: ../finch/gntcertmgr.c:99 ../carrier/gtkcertmgr.c:212
 msgid "Certificate Import Error"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:100 ../pidgin/gtkcertmgr.c:213
+#: ../finch/gntcertmgr.c:100 ../carrier/gtkcertmgr.c:213
 msgid "X.509 certificate import failed"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:110 ../pidgin/gtkcertmgr.c:224
+#: ../finch/gntcertmgr.c:110 ../carrier/gtkcertmgr.c:224
 #, fuzzy
 msgid "Select a PEM certificate"
 msgstr "Pelekî hilbijêre"
 
-#: ../finch/gntcertmgr.c:127 ../pidgin/gtkcertmgr.c:245
+#: ../finch/gntcertmgr.c:127 ../carrier/gtkcertmgr.c:245
 #, c-format
 msgid ""
 "Export to file %s failed.\n"
 "Check that you have write permission to the target path\n"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:129 ../pidgin/gtkcertmgr.c:247
+#: ../finch/gntcertmgr.c:129 ../carrier/gtkcertmgr.c:247
 msgid "Certificate Export Error"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:130 ../pidgin/gtkcertmgr.c:248
+#: ../finch/gntcertmgr.c:130 ../carrier/gtkcertmgr.c:248
 msgid "X.509 certificate export failed"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:159 ../pidgin/gtkcertmgr.c:299
+#: ../finch/gntcertmgr.c:159 ../carrier/gtkcertmgr.c:299
 msgid "PEM X.509 Certificate Export"
 msgstr ""
 
@@ -779,16 +779,16 @@ msgstr ""
 msgid "SSL Host Certificate"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:233 ../pidgin/gtkcertmgr.c:372
+#: ../finch/gntcertmgr.c:233 ../carrier/gtkcertmgr.c:372
 #, c-format
 msgid "Really delete certificate for %s?"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:236 ../pidgin/gtkcertmgr.c:374
+#: ../finch/gntcertmgr.c:236 ../carrier/gtkcertmgr.c:374
 msgid "Confirm certificate delete"
 msgstr ""
 
-#: ../finch/gntcertmgr.c:293 ../pidgin/gtkcertmgr.c:602
+#: ../finch/gntcertmgr.c:293 ../carrier/gtkcertmgr.c:602
 msgid "Certificate Manager"
 msgstr ""
 
@@ -799,8 +799,8 @@ msgstr ""
 msgid "Hostname"
 msgstr "Navê Makîneyê"
 
-#: ../finch/gntcertmgr.c:315 ../finch/gntnotify.c:383 ../pidgin/gtkconv.c:1635
-#: ../pidgin/gtkdebug.c:835
+#: ../finch/gntcertmgr.c:315 ../finch/gntnotify.c:383 ../carrier/gtkconv.c:1635
+#: ../carrier/gtkdebug.c:835
 msgid "Info"
 msgstr "Agahî"
 
@@ -809,8 +809,8 @@ msgstr "Agahî"
 #: ../finch/gntplugin.c:210 ../finch/gntplugin.c:310 ../finch/gntpounce.c:738
 #: ../finch/gntstatus.c:216 ../libpurple/protocols/msn/msn.c:403
 #: ../libpurple/protocols/silc/util.c:382
-#: ../libpurple/protocols/silc10/util.c:377 ../pidgin/gtkaccount.c:2468
-#: ../pidgin/gtkrequest.c:273
+#: ../libpurple/protocols/silc10/util.c:377 ../carrier/gtkaccount.c:2468
+#: ../carrier/gtkrequest.c:273
 msgid "Close"
 msgstr "Bigire"
 
@@ -833,7 +833,7 @@ msgid ""
 "and re-enable the account."
 msgstr ""
 
-#: ../finch/gntconn.c:137 ../pidgin/gtkblist.c:4041
+#: ../finch/gntconn.c:137 ../carrier/gtkblist.c:4041
 #, fuzzy
 msgid "Re-enable Account"
 msgstr "Hesabeke Nû ya Jabber Biafirîne"
@@ -842,23 +842,23 @@ msgstr "Hesabeke Nû ya Jabber Biafirîne"
 msgid "No such command."
 msgstr "Fermana nayê zanîn."
 
-#: ../finch/gntconv.c:143 ../pidgin/gtkconv.c:489
+#: ../finch/gntconv.c:143 ../carrier/gtkconv.c:489
 msgid "Syntax Error:  You typed the wrong number of arguments to that command."
 msgstr "Xeletiya Syntaxê: Ji bo vê fermanê ev hejmara parametreyan xelet e."
 
-#: ../finch/gntconv.c:148 ../pidgin/gtkconv.c:495
+#: ../finch/gntconv.c:148 ../carrier/gtkconv.c:495
 msgid "Your command failed for an unknown reason."
 msgstr "Ji ber sedemeke ku nayêzanîn fermana ku te da bicih nehat."
 
-#: ../finch/gntconv.c:153 ../pidgin/gtkconv.c:502
+#: ../finch/gntconv.c:153 ../carrier/gtkconv.c:502
 msgid "That command only works in chats, not IMs."
 msgstr "Ev ferman tenê di sohbetan de derbasdar e, ne di peyamên demdemî de."
 
-#: ../finch/gntconv.c:156 ../pidgin/gtkconv.c:505
+#: ../finch/gntconv.c:156 ../carrier/gtkconv.c:505
 msgid "That command only works in IMs, not chats."
 msgstr "Ev ferman tenê di peyamên demdemî de derbasdar e, ne di sohbetan de."
 
-#: ../finch/gntconv.c:160 ../pidgin/gtkconv.c:510
+#: ../finch/gntconv.c:160 ../carrier/gtkconv.c:510
 msgid "That command doesn't work on this protocol."
 msgstr "Ev ferman li ser vê pêşwaziyê naxebite."
 
@@ -889,11 +889,11 @@ msgstr "Bikarhêner dinivîse..."
 msgid "You have left this chat."
 msgstr "Di chatê de diaxivî"
 
-#: ../finch/gntconv.c:387 ../pidgin/gtkconv.c:1362
+#: ../finch/gntconv.c:387 ../carrier/gtkconv.c:1362
 msgid "Logging started. Future messages in this conversation will be logged."
 msgstr "Dest bi tomarkirinê kir. Peyamên di vê axaftinê de wê bêne tomarkirin."
 
-#: ../finch/gntconv.c:393 ../pidgin/gtkconv.c:1370
+#: ../finch/gntconv.c:393 ../carrier/gtkconv.c:1370
 msgid ""
 "Logging stopped. Future messages in this conversation will not be logged."
 msgstr "Tomarkirin qediya. Peyamên di vê axaftinê de êdî wê neyê tomarkirin"
@@ -942,15 +942,15 @@ msgstr "(%s) %s <Bersiva-Bixweber>: %s↵\n"
 msgid "List of users:\n"
 msgstr ""
 
-#: ../finch/gntconv.c:1023 ../pidgin/gtkconv.c:331
+#: ../finch/gntconv.c:1023 ../carrier/gtkconv.c:331
 msgid "Supported debug options are:  version"
 msgstr "Vebijartokên vebijartina xeletiyan ên tên destekirin: guherto"
 
-#: ../finch/gntconv.c:1059 ../pidgin/gtkconv.c:381
+#: ../finch/gntconv.c:1059 ../carrier/gtkconv.c:381
 msgid "No such command (in this context)."
 msgstr "Fermana nederbasdar."
 
-#: ../finch/gntconv.c:1062 ../pidgin/gtkconv.c:384
+#: ../finch/gntconv.c:1062 ../carrier/gtkconv.c:384
 msgid ""
 "Use \"/help &lt;command&gt;\" for help on a specific command.\n"
 "The following commands are available in this context:\n"
@@ -959,17 +959,17 @@ msgstr ""
 "bistîne.\n"
 "Fermanên li jêr li vir derbasdar in:\n"
 
-#: ../finch/gntconv.c:1120 ../pidgin/gtkconv.c:7560
+#: ../finch/gntconv.c:1120 ../carrier/gtkconv.c:7560
 msgid ""
 "say &lt;message&gt;:  Send a message normally as if you weren't using a "
 "command."
 msgstr "Bi say &lt;mesaj&gt;: dikarî wekî ku ferman nanivîsî, peyam bişeynî"
 
-#: ../finch/gntconv.c:1123 ../pidgin/gtkconv.c:7563
+#: ../finch/gntconv.c:1123 ../carrier/gtkconv.c:7563
 msgid "me &lt;action&gt;:  Send an IRC style action to a buddy or chat."
 msgstr "min &ew;xebat&gt;: Cureyeke IRC bişîne ji bo heval an jî diyalogê."
 
-#: ../finch/gntconv.c:1126 ../pidgin/gtkconv.c:7566
+#: ../finch/gntconv.c:1126 ../carrier/gtkconv.c:7566
 msgid ""
 "debug &lt;option&gt;:  Send various debug information to the current "
 "conversation."
@@ -977,11 +977,11 @@ msgstr ""
 "sererastker &ew;bijarek&gt;: Gelek agahiyên sererastkeran dişîne diyaloga "
 "heyî."
 
-#: ../finch/gntconv.c:1129 ../pidgin/gtkconv.c:7569
+#: ../finch/gntconv.c:1129 ../carrier/gtkconv.c:7569
 msgid "clear: Clears the conversation scrollback."
 msgstr "%s paceya nivîsandinê girt."
 
-#: ../finch/gntconv.c:1132 ../pidgin/gtkconv.c:7575
+#: ../finch/gntconv.c:1132 ../carrier/gtkconv.c:7575
 msgid "help &lt;command&gt;:  Help on a specific command."
 msgstr "help &lt;ferman&gt;: Alîkariya derbarê fermana hatiye diyarkirin de."
 
@@ -1013,7 +1013,7 @@ msgstr ""
 msgid "statuses: Show the savedstatuses window."
 msgstr ""
 
-#: ../finch/gntdebug.c:235 ../finch/gntui.c:86 ../pidgin/gtkdebug.c:695
+#: ../finch/gntdebug.c:235 ../finch/gntui.c:86 ../carrier/gtkdebug.c:695
 msgid "Debug Window"
 msgstr "Paceya vebijartina xeletiyan"
 
@@ -1021,7 +1021,7 @@ msgstr "Paceya vebijartina xeletiyan"
 #. * it's necessary to make the width of the debug window resizable ... like I said,
 #. * it doesn't make sense. The bug is likely in the packing in gntbox.c.
 #.
-#: ../finch/gntdebug.c:256 ../pidgin/gtkdebug.c:754
+#: ../finch/gntdebug.c:256 ../carrier/gtkdebug.c:754
 msgid "Clear"
 msgstr "Paqij Bike"
 
@@ -1030,30 +1030,30 @@ msgstr "Paqij Bike"
 msgid "Filter: "
 msgstr "Parzûn"
 
-#: ../finch/gntdebug.c:266 ../pidgin/gtkdebug.c:763
+#: ../finch/gntdebug.c:266 ../carrier/gtkdebug.c:763
 msgid "Pause"
 msgstr "Navber"
 
-#: ../finch/gntft.c:118 ../pidgin/gtkft.c:229
+#: ../finch/gntft.c:118 ../carrier/gtkft.c:229
 #, fuzzy, c-format
 msgid "File Transfers - %d%% of %d files"
 msgstr "Guhestina pelê bo %s biserneket"
 
 #. Create the window.
 #: ../finch/gntft.c:123 ../finch/gntft.c:196 ../finch/gntui.c:87
-#: ../pidgin/gtkft.c:234 ../pidgin/gtkft.c:762
+#: ../carrier/gtkft.c:234 ../pidgin/gtkft.c:762
 msgid "File Transfers"
 msgstr "Verêkirina Pelan"
 
-#: ../finch/gntft.c:201 ../pidgin/gtkft.c:645
+#: ../finch/gntft.c:201 ../carrier/gtkft.c:645
 msgid "Progress"
 msgstr "Pêşketin"
 
-#: ../finch/gntft.c:201 ../pidgin/gtkft.c:652
+#: ../finch/gntft.c:201 ../carrier/gtkft.c:652
 msgid "Filename"
 msgstr "Navê pelî"
 
-#: ../finch/gntft.c:201 ../pidgin/gtkft.c:659
+#: ../finch/gntft.c:201 ../carrier/gtkft.c:659
 msgid "Size"
 msgstr "Mezinahî"
 
@@ -1062,7 +1062,7 @@ msgstr "Mezinahî"
 msgid "Speed"
 msgstr "Lez:"
 
-#: ../finch/gntft.c:201 ../pidgin/gtkft.c:666
+#: ../finch/gntft.c:201 ../carrier/gtkft.c:666
 msgid "Remaining"
 msgstr "Mayî"
 
@@ -1084,9 +1084,9 @@ msgstr "Mayî"
 #: ../libpurple/protocols/oscar/oscar.c:3780
 #: ../libpurple/protocols/sametime/sametime.c:3263
 #: ../libpurple/protocols/sametime/sametime.c:4150
-#: ../libpurple/protocols/yahoo/yahoo.c:3248 ../pidgin/gtkblist.c:3104
-#: ../pidgin/gtkblist.c:3118 ../pidgin/gtkblist.c:3120
-#: ../pidgin/gtksavedstatuses.c:999 ../pidgin/gtksavedstatuses.c:1144
+#: ../libpurple/protocols/yahoo/yahoo.c:3248 ../carrier/gtkblist.c:3104
+#: ../carrier/gtkblist.c:3118 ../pidgin/gtkblist.c:3120
+#: ../carrier/gtksavedstatuses.c:999 ../pidgin/gtksavedstatuses.c:1144
 msgid "Status"
 msgstr "Rewş"
 
@@ -1104,19 +1104,19 @@ msgstr "Veguhastinên hatine temamkirin _paqij bike"
 msgid "Stop"
 msgstr ""
 
-#: ../finch/gntft.c:305 ../pidgin/gtkft.c:169 ../pidgin/gtkft.c:973
+#: ../finch/gntft.c:305 ../carrier/gtkft.c:169 ../pidgin/gtkft.c:973
 msgid "Waiting for transfer to begin"
 msgstr "Li benda destpêkirina transferê ye"
 
-#: ../finch/gntft.c:372 ../pidgin/gtkft.c:166 ../pidgin/gtkft.c:1054
+#: ../finch/gntft.c:372 ../carrier/gtkft.c:166 ../pidgin/gtkft.c:1054
 msgid "Canceled"
 msgstr "Hate Betalkirin"
 
-#: ../finch/gntft.c:374 ../pidgin/gtkft.c:1056
+#: ../finch/gntft.c:374 ../carrier/gtkft.c:1056
 msgid "Failed"
 msgstr "Serneket"
 
-#: ../finch/gntft.c:420 ../pidgin/gtkft.c:134
+#: ../finch/gntft.c:420 ../carrier/gtkft.c:134
 #, fuzzy, c-format
 msgid "%.2f KiB/s"
 msgstr "%.2f KB/s"
@@ -1126,8 +1126,8 @@ msgstr "%.2f KB/s"
 msgid "The file was saved as %s."
 msgstr ""
 
-#: ../finch/gntft.c:432 ../finch/gntft.c:433 ../pidgin/gtkft.c:163
-#: ../pidgin/gtkft.c:1116
+#: ../finch/gntft.c:432 ../finch/gntft.c:433 ../carrier/gtkft.c:163
+#: ../carrier/gtkft.c:1116
 msgid "Finished"
 msgstr "Qediya"
 
@@ -1144,12 +1144,12 @@ msgstr "E-peyam"
 msgid "You have mail!"
 msgstr ""
 
-#: ../finch/gntnotify.c:174 ../pidgin/gtknotify.c:513
+#: ../finch/gntnotify.c:174 ../carrier/gtknotify.c:513
 #, fuzzy
 msgid "Sender"
 msgstr "Zayend"
 
-#: ../finch/gntnotify.c:174 ../pidgin/gtknotify.c:520
+#: ../finch/gntnotify.c:174 ../carrier/gtknotify.c:520
 msgid "Subject"
 msgstr "Mijar"
 
@@ -1160,17 +1160,17 @@ msgid_plural "%s (%s) has %d new messages."
 msgstr[0] "%s, %d peyamên nû hene."
 msgstr[1] "%s, %d peyamên nû hene."
 
-#: ../finch/gntnotify.c:225 ../pidgin/gtknotify.c:341
+#: ../finch/gntnotify.c:225 ../carrier/gtknotify.c:341
 msgid "New Mail"
 msgstr "Peyama Nû"
 
-#: ../finch/gntnotify.c:290 ../pidgin/gtknotify.c:940
+#: ../finch/gntnotify.c:290 ../carrier/gtknotify.c:940
 #, c-format
 msgid "Info for %s"
 msgstr "Agahiya %s"
 
 #: ../finch/gntnotify.c:291 ../libpurple/protocols/toc/toc.c:476
-#: ../pidgin/gtknotify.c:941
+#: ../carrier/gtknotify.c:941
 msgid "Buddy Information"
 msgstr "Agahiya Heval"
 
@@ -1179,7 +1179,7 @@ msgstr "Agahiya Heval"
 msgid "Continue"
 msgstr "Girêde"
 
-#: ../finch/gntnotify.c:386 ../pidgin/gtkconv.c:1596
+#: ../finch/gntnotify.c:386 ../carrier/gtkconv.c:1596
 msgid "IM"
 msgstr "IM"
 
@@ -1245,19 +1245,19 @@ msgstr "Mîhenga Tê_ketanê"
 #. Back to instant-apply! I win!  BU-HAHAHA!
 #. Create the window
 #: ../finch/gntplugin.c:371 ../finch/gntplugin.c:378 ../finch/gntprefs.c:264
-#: ../finch/gntui.c:90 ../pidgin/gtkdocklet.c:524 ../pidgin/gtkprefs.c:2067
+#: ../finch/gntui.c:90 ../carrier/gtkdocklet.c:524 ../pidgin/gtkprefs.c:2067
 msgid "Preferences"
 msgstr "Vebijêrk"
 
-#: ../finch/gntpounce.c:183 ../pidgin/gtkpounce.c:256
+#: ../finch/gntpounce.c:183 ../carrier/gtkpounce.c:256
 msgid "Please enter a buddy to pounce."
 msgstr "Ji bo hişyarkirinê kesekê/î têkevê."
 
-#: ../finch/gntpounce.c:328 ../pidgin/gtkpounce.c:517
+#: ../finch/gntpounce.c:328 ../carrier/gtkpounce.c:517
 msgid "New Buddy Pounce"
 msgstr "Hişyarkara Nû"
 
-#: ../finch/gntpounce.c:328 ../pidgin/gtkpounce.c:517
+#: ../finch/gntpounce.c:328 ../carrier/gtkpounce.c:517
 msgid "Edit Buddy Pounce"
 msgstr "Hişyarkarê Mîheng Bike"
 
@@ -1276,7 +1276,7 @@ msgid "Buddy name:"
 msgstr "Navê _Heval"
 
 #. Create the "Pounce When Buddy..." frame.
-#: ../finch/gntpounce.c:374 ../pidgin/gtkpounce.c:585
+#: ../finch/gntpounce.c:374 ../carrier/gtkpounce.c:585
 msgid "Pounce When Buddy..."
 msgstr ""
 
@@ -1331,7 +1331,7 @@ msgid "Sends a message"
 msgstr "Peyamekê bişîne"
 
 #. Create the "Action" frame.
-#: ../finch/gntpounce.c:414 ../pidgin/gtkpounce.c:646
+#: ../finch/gntpounce.c:414 ../carrier/gtkpounce.c:646
 msgid "Action"
 msgstr "Çalakî"
 
@@ -1364,7 +1364,7 @@ msgstr "Deng bikar bîne"
 msgid "Pounce only when my status is not available"
 msgstr ""
 
-#: ../finch/gntpounce.c:450 ../pidgin/gtkpounce.c:1281
+#: ../finch/gntpounce.c:450 ../carrier/gtkpounce.c:1281
 msgid "Recurring"
 msgstr "Cardin xuyakirin"
 
@@ -1381,66 +1381,66 @@ msgstr ""
 msgid "You must create an account first before you can create a pounce."
 msgstr ""
 
-#: ../finch/gntpounce.c:662 ../pidgin/gtkpounce.c:1096
+#: ../finch/gntpounce.c:662 ../carrier/gtkpounce.c:1096
 #, c-format
 msgid "Are you sure you want to delete the pounce on %s for %s?"
 msgstr ""
 
-#: ../finch/gntpounce.c:696 ../finch/gntui.c:84 ../pidgin/gtkpounce.c:1325
+#: ../finch/gntpounce.c:696 ../finch/gntui.c:84 ../carrier/gtkpounce.c:1325
 msgid "Buddy Pounces"
 msgstr ""
 
-#: ../finch/gntpounce.c:810 ../pidgin/gtkpounce.c:1452
+#: ../finch/gntpounce.c:810 ../carrier/gtkpounce.c:1452
 #, c-format
 msgid "%s has started typing to you (%s)"
 msgstr "%s ji te re dinivîse (%s)"
 
-#: ../finch/gntpounce.c:812 ../pidgin/gtkpounce.c:1454
+#: ../finch/gntpounce.c:812 ../carrier/gtkpounce.c:1454
 #, fuzzy, c-format
 msgid "%s has paused while typing to you (%s)"
 msgstr "%s ji te re dinivîse (%s)"
 
-#: ../finch/gntpounce.c:814 ../pidgin/gtkpounce.c:1456
+#: ../finch/gntpounce.c:814 ../carrier/gtkpounce.c:1456
 #, c-format
 msgid "%s has signed on (%s)"
 msgstr "%s têketê (%s)"
 
-#: ../finch/gntpounce.c:816 ../pidgin/gtkpounce.c:1458
+#: ../finch/gntpounce.c:816 ../carrier/gtkpounce.c:1458
 #, c-format
 msgid "%s has returned from being idle (%s)"
 msgstr "%s ji betaliyê vegeriya (%s)"
 
-#: ../finch/gntpounce.c:818 ../pidgin/gtkpounce.c:1460
+#: ../finch/gntpounce.c:818 ../carrier/gtkpounce.c:1460
 #, c-format
 msgid "%s has returned from being away (%s)"
 msgstr "%s vegeriya (%s)"
 
-#: ../finch/gntpounce.c:820 ../pidgin/gtkpounce.c:1462
+#: ../finch/gntpounce.c:820 ../carrier/gtkpounce.c:1462
 #, c-format
 msgid "%s has stopped typing to you (%s)"
 msgstr "%s ji te re nanivîse (%s)"
 
-#: ../finch/gntpounce.c:822 ../pidgin/gtkpounce.c:1464
+#: ../finch/gntpounce.c:822 ../carrier/gtkpounce.c:1464
 #, c-format
 msgid "%s has signed off (%s)"
 msgstr "%s derket (%s)"
 
-#: ../finch/gntpounce.c:824 ../pidgin/gtkpounce.c:1466
+#: ../finch/gntpounce.c:824 ../carrier/gtkpounce.c:1466
 #, c-format
 msgid "%s has become idle (%s)"
 msgstr "%s girêdayî (%s)"
 
-#: ../finch/gntpounce.c:826 ../pidgin/gtkpounce.c:1468
+#: ../finch/gntpounce.c:826 ../carrier/gtkpounce.c:1468
 #, c-format
 msgid "%s has gone away. (%s)"
 msgstr "%s li derve. (%s)"
 
-#: ../finch/gntpounce.c:828 ../pidgin/gtkpounce.c:1470
+#: ../finch/gntpounce.c:828 ../carrier/gtkpounce.c:1470
 #, c-format
 msgid "%s has sent you a message. (%s)"
 msgstr "%s peyam ji te re şandiye. (%s)"
 
-#: ../finch/gntpounce.c:829 ../pidgin/gtkpounce.c:1471
+#: ../finch/gntpounce.c:829 ../carrier/gtkpounce.c:1471
 #, c-format
 msgid "Unknown pounce event. Please report this!"
 msgstr "Çalakiya hişyarkar a nayê zanîn. Ji kerema xwe re ragihîne!"
@@ -1449,13 +1449,13 @@ msgstr "Çalakiya hişyarkar a nayê zanîn. Ji kerema xwe re ragihîne!"
 msgid "Based on keyboard use"
 msgstr ""
 
-#: ../finch/gntprefs.c:94 ../pidgin/gtkprefs.c:1930
+#: ../finch/gntprefs.c:94 ../carrier/gtkprefs.c:1930
 msgid "From last sent message"
 msgstr ""
 
-#: ../finch/gntprefs.c:96 ../pidgin/gtkprefs.c:898 ../pidgin/gtkprefs.c:907
-#: ../pidgin/gtkprefs.c:1929 ../pidgin/gtkprefs.c:1943
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:333
+#: ../finch/gntprefs.c:96 ../carrier/gtkprefs.c:898 ../pidgin/gtkprefs.c:907
+#: ../carrier/gtkprefs.c:1929 ../pidgin/gtkprefs.c:1943
+#: ../carrier/plugins/win32/winprefs/winprefs.c:333
 msgid "Never"
 msgstr "Qet"
 
@@ -1513,12 +1513,12 @@ msgid "Change status to"
 msgstr "_Rewşê biguherîne:"
 
 #. Conversations
-#: ../finch/gntprefs.c:259 ../pidgin/gtkprefs.c:993 ../pidgin/gtkprefs.c:2033
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:340
+#: ../finch/gntprefs.c:259 ../carrier/gtkprefs.c:993 ../pidgin/gtkprefs.c:2033
+#: ../carrier/plugins/win32/winprefs/winprefs.c:340
 msgid "Conversations"
 msgstr "Nivîsandin"
 
-#: ../finch/gntprefs.c:260 ../pidgin/gtkprefs.c:1467 ../pidgin/gtkprefs.c:2044
+#: ../finch/gntprefs.c:260 ../carrier/gtkprefs.c:1467 ../pidgin/gtkprefs.c:2044
 msgid "Logging"
 msgstr "Tomar"
 
@@ -1527,67 +1527,67 @@ msgstr "Tomar"
 msgid "Not implemented yet."
 msgstr "Taybetmendî Lê Nehat Zêdekirin"
 
-#: ../finch/gntrequest.c:659 ../pidgin/gtkrequest.c:1555
-#: ../pidgin/gtkrequest.c:1601
+#: ../finch/gntrequest.c:659 ../carrier/gtkrequest.c:1555
+#: ../carrier/gtkrequest.c:1601
 msgid "Save File..."
 msgstr "Pelî tomar bike..."
 
-#: ../finch/gntrequest.c:659 ../pidgin/gtkrequest.c:1556
-#: ../pidgin/gtkrequest.c:1602
+#: ../finch/gntrequest.c:659 ../carrier/gtkrequest.c:1556
+#: ../carrier/gtkrequest.c:1602
 msgid "Open File..."
 msgstr "Pelî Veke..."
 
-#: ../finch/gntsound.c:97 ../pidgin/gtksound.c:64
+#: ../finch/gntsound.c:97 ../carrier/gtksound.c:64
 msgid "Buddy logs in"
 msgstr "Hevala/ê te têketê"
 
-#: ../finch/gntsound.c:98 ../pidgin/gtksound.c:65
+#: ../finch/gntsound.c:98 ../carrier/gtksound.c:65
 msgid "Buddy logs out"
 msgstr "Hevala/ê te jê derket"
 
-#: ../finch/gntsound.c:99 ../pidgin/gtksound.c:66
+#: ../finch/gntsound.c:99 ../carrier/gtksound.c:66
 msgid "Message received"
 msgstr "Peyam hat standin"
 
-#: ../finch/gntsound.c:100 ../pidgin/gtksound.c:67
+#: ../finch/gntsound.c:100 ../carrier/gtksound.c:67
 msgid "Message received begins conversation"
 msgstr "Peyama hat standin, nivîsandinê dide destpêkirin"
 
-#: ../finch/gntsound.c:101 ../pidgin/gtksound.c:68
+#: ../finch/gntsound.c:101 ../carrier/gtksound.c:68
 msgid "Message sent"
 msgstr "Peyam hat şandin"
 
-#: ../finch/gntsound.c:102 ../pidgin/gtksound.c:69
+#: ../finch/gntsound.c:102 ../carrier/gtksound.c:69
 msgid "Person enters chat"
 msgstr "Kes tevli chatê bû"
 
-#: ../finch/gntsound.c:103 ../pidgin/gtksound.c:70
+#: ../finch/gntsound.c:103 ../carrier/gtksound.c:70
 msgid "Person leaves chat"
 msgstr "Kes ji chatê derket"
 
-#: ../finch/gntsound.c:104 ../pidgin/gtksound.c:71
+#: ../finch/gntsound.c:104 ../carrier/gtksound.c:71
 msgid "You talk in chat"
 msgstr "Di chatê de diaxivî"
 
-#: ../finch/gntsound.c:105 ../pidgin/gtksound.c:72
+#: ../finch/gntsound.c:105 ../carrier/gtksound.c:72
 msgid "Others talk in chat"
 msgstr "Yên di chatê de diaxivin"
 
-#: ../finch/gntsound.c:107 ../pidgin/gtksound.c:75
+#: ../finch/gntsound.c:107 ../carrier/gtksound.c:75
 msgid "Someone says your screen name in chat"
 msgstr ""
 
-#: ../finch/gntsound.c:361 ../pidgin/gtksound.c:311
+#: ../finch/gntsound.c:361 ../carrier/gtksound.c:311
 #, fuzzy
 msgid "GStreamer Failure"
 msgstr "Pelgehê Tomar Bike"
 
-#: ../finch/gntsound.c:362 ../pidgin/gtksound.c:312
+#: ../finch/gntsound.c:362 ../carrier/gtksound.c:312
 msgid "GStreamer failed to initialize."
 msgstr ""
 
-#: ../finch/gntsound.c:716 ../finch/gntsound.c:802 ../pidgin/gtkprefs.c:1587
-#: ../pidgin/gtkprefs.c:1676 ../pidgin/gtkprefs.c:1872
+#: ../finch/gntsound.c:716 ../finch/gntsound.c:802 ../carrier/gtkprefs.c:1587
+#: ../carrier/gtkprefs.c:1676 ../pidgin/gtkprefs.c:1872
 msgid "(default)"
 msgstr ""
 
@@ -1606,7 +1606,7 @@ msgstr "Vebijêrk"
 msgid "Profiles"
 msgstr "Profîl"
 
-#: ../finch/gntsound.c:954 ../pidgin/gtkprefs.c:1717
+#: ../finch/gntsound.c:954 ../carrier/gtkprefs.c:1717
 msgid "Automatic"
 msgstr "Bixweber"
 
@@ -1615,7 +1615,7 @@ msgstr "Bixweber"
 msgid "Console Beep"
 msgstr "Bîpa konsolê"
 
-#: ../finch/gntsound.c:958 ../pidgin/gtkprefs.c:1721
+#: ../finch/gntsound.c:958 ../carrier/gtkprefs.c:1721
 msgid "Command"
 msgstr "Ferman"
 
@@ -1624,7 +1624,7 @@ msgstr "Ferman"
 msgid "No Sound"
 msgstr "Deng tuneye"
 
-#: ../finch/gntsound.c:961 ../pidgin/gtkprefs.c:1712
+#: ../finch/gntsound.c:961 ../carrier/gtkprefs.c:1712
 msgid "Sound Method"
 msgstr "Metoda Deng"
 
@@ -1643,7 +1643,7 @@ msgstr ""
 "(%s ji bo navê pelî)"
 
 #. Sound options
-#: ../finch/gntsound.c:981 ../pidgin/gtkprefs.c:1756
+#: ../finch/gntsound.c:981 ../carrier/gtkprefs.c:1756
 msgid "Sound Options"
 msgstr "Vebijartokên Deng"
 
@@ -1652,19 +1652,19 @@ msgstr "Vebijartokên Deng"
 msgid "Sounds when conversation has focus"
 msgstr "Dema ku nivîsandin çalak be, deng vekirî"
 
-#: ../finch/gntsound.c:990 ../pidgin/gtkprefs.c:897 ../pidgin/gtkprefs.c:909
-#: ../pidgin/gtkprefs.c:1763 ../pidgin/plugins/timestamp_format.c:42
-#: ../pidgin/plugins/timestamp_format.c:51
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:334
+#: ../finch/gntsound.c:990 ../carrier/gtkprefs.c:897 ../pidgin/gtkprefs.c:909
+#: ../carrier/gtkprefs.c:1763 ../pidgin/plugins/timestamp_format.c:42
+#: ../carrier/plugins/timestamp_format.c:51
+#: ../carrier/plugins/win32/winprefs/winprefs.c:334
 msgid "Always"
 msgstr "Her dem"
 
-#: ../finch/gntsound.c:991 ../pidgin/gtkprefs.c:1761
+#: ../finch/gntsound.c:991 ../carrier/gtkprefs.c:1761
 #, fuzzy
 msgid "Only when available"
 msgstr "Neamade"
 
-#: ../finch/gntsound.c:992 ../pidgin/gtkprefs.c:1762
+#: ../finch/gntsound.c:992 ../carrier/gtkprefs.c:1762
 #, fuzzy
 msgid "Only when not available"
 msgstr "Di %s de sohbet ne gengaz e."
@@ -1675,11 +1675,11 @@ msgid "Volume(0-100):"
 msgstr "Deng:"
 
 #. Sound events
-#: ../finch/gntsound.c:1018 ../pidgin/gtkprefs.c:1798
+#: ../finch/gntsound.c:1018 ../carrier/gtkprefs.c:1798
 msgid "Sound Events"
 msgstr "Çalakiya Deng"
 
-#: ../finch/gntsound.c:1020 ../pidgin/gtkprefs.c:1857
+#: ../finch/gntsound.c:1020 ../carrier/gtkprefs.c:1857
 msgid "Event"
 msgstr "Buyêr"
 
@@ -1688,15 +1688,15 @@ msgstr "Buyêr"
 msgid "File"
 msgstr "Parzûn"
 
-#: ../finch/gntsound.c:1039 ../pidgin/gtkprefs.c:1876
+#: ../finch/gntsound.c:1039 ../carrier/gtkprefs.c:1876
 msgid "Test"
 msgstr "Test"
 
-#: ../finch/gntsound.c:1042 ../pidgin/gtkprefs.c:1880
+#: ../finch/gntsound.c:1042 ../carrier/gtkprefs.c:1880
 msgid "Reset"
 msgstr "Vala Bike"
 
-#: ../finch/gntsound.c:1045 ../pidgin/gtkprefs.c:1884
+#: ../finch/gntsound.c:1045 ../carrier/gtkprefs.c:1884
 msgid "Choose..."
 msgstr "Hilbijêre..."
 
@@ -1710,7 +1710,7 @@ msgstr "Li xwe bawer î ku tu dixwazî %s'yê jê bibî?"
 msgid "Delete Status"
 msgstr "Rewşa Girêdanê"
 
-#: ../finch/gntstatus.c:176 ../pidgin/gtksavedstatuses.c:597
+#: ../finch/gntstatus.c:176 ../carrier/gtksavedstatuses.c:597
 msgid "Saved Statuses"
 msgstr "Rewşên Hatine Tomarkirin"
 
@@ -1718,11 +1718,11 @@ msgstr "Rewşên Hatine Tomarkirin"
 #: ../libpurple/protocols/jabber/buddy.c:298
 #: ../libpurple/protocols/jabber/buddy.c:1359
 #: ../libpurple/protocols/novell/novell.c:1484
-#: ../pidgin/gtksavedstatuses.c:500
+#: ../carrier/gtksavedstatuses.c:500
 msgid "Title"
 msgstr "Sernivîs"
 
-#: ../finch/gntstatus.c:183 ../pidgin/gtksavedstatuses.c:515
+#: ../finch/gntstatus.c:183 ../carrier/gtksavedstatuses.c:515
 msgid "Type"
 msgstr "Cure"
 
@@ -1769,7 +1769,7 @@ msgstr "Cure"
 #: ../libpurple/protocols/yahoo/yahoo.c:3751
 #: ../libpurple/protocols/yahoo/yahoo.c:3757
 #: ../libpurple/protocols/zephyr/zephyr.c:2337
-#: ../pidgin/gtksavedstatuses.c:526 ../pidgin/gtksavedstatuses.c:1010
+#: ../carrier/gtksavedstatuses.c:526 ../pidgin/gtksavedstatuses.c:1010
 msgid "Message"
 msgstr "Peyam"
 
@@ -1804,7 +1804,7 @@ msgstr "Ji kerema xwe re ji bo gruba ku hatiye hilbijartin navekî din bibîne."
 msgid "Substatus"
 msgstr "Rewş"
 
-#: ../finch/gntstatus.c:464 ../pidgin/gtkft.c:699
+#: ../finch/gntstatus.c:464 ../carrier/gtkft.c:699
 msgid "Status:"
 msgstr "Rewş:"
 
@@ -1833,7 +1833,7 @@ msgstr "_Tomar bike & Bikar bîne"
 msgid "Certificates"
 msgstr ""
 
-#: ../finch/gntui.c:89 ../pidgin/gtkprefs.c:2035
+#: ../finch/gntui.c:89 ../carrier/gtkprefs.c:2035
 msgid "Sounds"
 msgstr "Deng"
 
@@ -1941,16 +1941,16 @@ msgstr ""
 msgid "Toaster plugin"
 msgstr ""
 
-#: ../finch/plugins/gnthistory.c:116 ../pidgin/plugins/history.c:120
+#: ../finch/plugins/gnthistory.c:116 ../carrier/plugins/history.c:120
 #, c-format
 msgid "<b>Conversation with %s on %s:</b><br>"
 msgstr "<b>Hevpeyvîn bi %s re li ser %s:</b><br>"
 
-#: ../finch/plugins/gnthistory.c:138 ../pidgin/plugins/history.c:147
+#: ../finch/plugins/gnthistory.c:138 ../carrier/plugins/history.c:147
 msgid "History Plugin Requires Logging"
 msgstr "Pêveka Rabirdûyan Dixwaze Tomarkirin Çêbibe"
 
-#: ../finch/plugins/gnthistory.c:139 ../pidgin/plugins/history.c:148
+#: ../finch/plugins/gnthistory.c:139 ../carrier/plugins/history.c:148
 msgid ""
 "Logging can be enabled from Tools -> Preferences -> Logging.\n"
 "\n"
@@ -1967,11 +1967,11 @@ msgstr ""
 msgid "GntHistory"
 msgstr "Dîrok"
 
-#: ../finch/plugins/gnthistory.c:181 ../pidgin/plugins/history.c:190
+#: ../finch/plugins/gnthistory.c:181 ../carrier/plugins/history.c:190
 msgid "Shows recently logged conversations in new conversations."
 msgstr "Di axaftinên nû de axaftinên kevn nîşan bide."
 
-#: ../finch/plugins/gnthistory.c:182 ../pidgin/plugins/history.c:191
+#: ../finch/plugins/gnthistory.c:182 ../carrier/plugins/history.c:191
 msgid ""
 "When a new conversation is opened this plugin will insert the last "
 "conversation into the current conversation."
@@ -2024,7 +2024,7 @@ msgid "Missing protocol plugin for %s"
 msgstr "Ji bo pêveka %s protokola kêm"
 
 #: ../libpurple/account.c:1041 ../libpurple/connection.c:108
-#: ../pidgin/gtkblist.c:4036
+#: ../carrier/gtkblist.c:4036
 msgid "Connection Error"
 msgstr "Şaşîtiya Girêdanê"
 
@@ -2072,15 +2072,15 @@ msgstr "Agahiyên Bikarhêner Têkevê"
 #: ../libpurple/protocols/jabber/buddy.c:2027
 #: ../libpurple/protocols/jabber/buddy.c:2044
 #: ../libpurple/protocols/novell/novell.c:2831
-#: ../libpurple/protocols/qq/qq.c:232 ../pidgin/gtkft.c:160
+#: ../libpurple/protocols/qq/qq.c:232 ../carrier/gtkft.c:160
 msgid "Unknown"
 msgstr "Nenas"
 
 #: ../libpurple/blist.c:521 ../libpurple/blist.c:1320
 #: ../libpurple/blist.c:1552 ../libpurple/protocols/jabber/roster.c:69
-#: ../libpurple/protocols/myspace/myspace.c:3244 ../pidgin/gtkblist.c:5373
-#: ../pidgin/plugins/gevolution/gevo-util.c:67
-#: ../pidgin/plugins/gevolution/gevolution.c:96
+#: ../libpurple/protocols/myspace/myspace.c:3244 ../carrier/gtkblist.c:5373
+#: ../carrier/plugins/gevolution/gevo-util.c:67
+#: ../carrier/plugins/gevolution/gevolution.c:96
 msgid "Buddies"
 msgstr "Heval"
 
@@ -2891,19 +2891,19 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../libpurple/plugins/buddynote.c:90 ../pidgin/plugins/gtkbuddynote.c:74
+#: ../libpurple/plugins/buddynote.c:90 ../carrier/plugins/gtkbuddynote.c:74
 #, fuzzy
 msgid "Buddy Notes"
 msgstr "Heval"
 
 #. *< name
 #. *< version
-#: ../libpurple/plugins/buddynote.c:92 ../pidgin/plugins/gtkbuddynote.c:76
+#: ../libpurple/plugins/buddynote.c:92 ../carrier/plugins/gtkbuddynote.c:76
 msgid "Store notes on particular buddies."
 msgstr ""
 
 #. *< summary
-#: ../libpurple/plugins/buddynote.c:93 ../pidgin/plugins/gtkbuddynote.c:77
+#: ../libpurple/plugins/buddynote.c:93 ../carrier/plugins/gtkbuddynote.c:77
 #, fuzzy
 msgid "Adds the option to store notes for buddies on your buddy list."
 msgstr "Bikarhênerê têxe lîsteya xwe"
@@ -3317,7 +3317,7 @@ msgstr ""
 #: ../libpurple/protocols/silc/pk.c:113 ../libpurple/protocols/silc/wb.c:304
 #: ../libpurple/protocols/silc10/buddy.c:314
 #: ../libpurple/protocols/silc10/pk.c:119
-#: ../libpurple/protocols/silc10/wb.c:304 ../pidgin/gtkrequest.c:268
+#: ../libpurple/protocols/silc10/wb.c:304 ../carrier/gtkrequest.c:268
 msgid "Yes"
 msgstr "Erê"
 
@@ -3329,7 +3329,7 @@ msgstr "Erê"
 #: ../libpurple/protocols/silc/pk.c:114 ../libpurple/protocols/silc/wb.c:305
 #: ../libpurple/protocols/silc10/buddy.c:315
 #: ../libpurple/protocols/silc10/pk.c:120
-#: ../libpurple/protocols/silc10/wb.c:305 ../pidgin/gtkrequest.c:269
+#: ../libpurple/protocols/silc10/wb.c:305 ../carrier/gtkrequest.c:269
 msgid "No"
 msgstr "Na"
 
@@ -3888,8 +3888,8 @@ msgstr "Sohbetekê lê zêde bike..."
 #: ../libpurple/protocols/qq/qq.c:170 ../libpurple/protocols/qq/qq.c:177
 #: ../libpurple/protocols/qq/qq.c:292
 #: ../libpurple/protocols/yahoo/yahoo.c:3099 ../libpurple/status.c:154
-#: ../pidgin/gtkblist.c:3104 ../pidgin/gtkblist.c:3436
-#: ../pidgin/gtkdocklet.c:450 ../pidgin/gtkstatusbox.c:1061
+#: ../carrier/gtkblist.c:3104 ../pidgin/gtkblist.c:3436
+#: ../carrier/gtkdocklet.c:450 ../pidgin/gtkstatusbox.c:1061
 msgid "Offline"
 msgstr "Negirêdayî"
 
@@ -3900,7 +3900,7 @@ msgstr "Negirêdayî"
 #: ../libpurple/protocols/novell/novell.c:2816
 #: ../libpurple/protocols/qq/qq.c:280
 #: ../libpurple/protocols/yahoo/yahoo.c:3101 ../libpurple/status.c:155
-#: ../pidgin/gtkdocklet.c:438 ../pidgin/gtkstatusbox.c:1057
+#: ../carrier/gtkdocklet.c:438 ../pidgin/gtkstatusbox.c:1057
 msgid "Available"
 msgstr "Amade"
 
@@ -3919,8 +3919,8 @@ msgstr "Amade"
 #: ../libpurple/protocols/silc10/buddy.c:1476
 #: ../libpurple/protocols/yahoo/yahoo.c:3653
 #: ../libpurple/protocols/yahoo/yahoo.c:3727 ../libpurple/status.c:158
-#: ../pidgin/gtkdocklet.c:442 ../pidgin/gtkprefs.c:1939
-#: ../pidgin/gtkstatusbox.c:1058
+#: ../carrier/gtkdocklet.c:442 ../pidgin/gtkprefs.c:1939
+#: ../carrier/gtkstatusbox.c:1058
 #, c-format
 msgid "Away"
 msgstr "Li derve"
@@ -4142,7 +4142,7 @@ msgid "_Channel:"
 msgstr "_Kanal:"
 
 #: ../libpurple/protocols/irc/irc.c:267
-#: ../libpurple/protocols/jabber/chat.c:59 ../pidgin/gtkaccount.c:524
+#: ../libpurple/protocols/jabber/chat.c:59 ../carrier/gtkaccount.c:524
 msgid "_Password:"
 msgstr "Şî_fre:"
 
@@ -4162,7 +4162,7 @@ msgstr "Navên IRC'ê bi valahî çênabin"
 #: ../libpurple/protocols/sametime/sametime.c:3723
 #: ../libpurple/protocols/simple/simple.c:1716
 #: ../libpurple/protocols/yahoo/yahoo.c:2939
-#: ../libpurple/protocols/zephyr/zephyr.c:1621 ../pidgin/gtkstatusbox.c:662
+#: ../libpurple/protocols/zephyr/zephyr.c:1621 ../carrier/gtkstatusbox.c:662
 msgid "Connecting"
 msgstr "Girêdide"
 
@@ -4891,8 +4891,8 @@ msgstr "Roja dayîkbûnê"
 #: ../libpurple/protocols/jabber/buddy.c:301
 #: ../libpurple/protocols/jabber/buddy.c:1365
 #: ../libpurple/protocols/jabber/chat.c:775
-#: ../libpurple/protocols/jabber/usermood.c:175 ../pidgin/gtkblist.c:3116
-#: ../pidgin/gtkprefs.c:739
+#: ../libpurple/protocols/jabber/usermood.c:175 ../carrier/gtkblist.c:3116
+#: ../carrier/gtkprefs.c:739
 msgid "Description"
 msgstr "Şîrove"
 
@@ -5367,8 +5367,8 @@ msgstr "Bikarhênerên Jabber Bigere"
 #: ../libpurple/protocols/qq/sys_msg.c:250
 #: ../libpurple/protocols/qq/sys_msg.c:268
 #: ../libpurple/protocols/sametime/sametime.c:5611
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:470
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:356
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:470
+#: ../carrier/plugins/gevolution/assoc-buddy.c:356
 msgid "Search"
 msgstr "Lêgerîn :"
 
@@ -5689,8 +5689,8 @@ msgid "None (To pending)"
 msgstr "Ne yek jî (ji bo hilandinê)"
 
 #: ../libpurple/protocols/jabber/jabber.c:1453
-#: ../pidgin/plugins/gevolution/eds-utils.c:73
-#: ../pidgin/plugins/gevolution/eds-utils.c:86
+#: ../carrier/plugins/gevolution/eds-utils.c:73
+#: ../carrier/plugins/gevolution/eds-utils.c:86
 msgid "None"
 msgstr "Ne yek jî"
 
@@ -6186,7 +6186,7 @@ msgid "XMPP Protocol Plugin"
 msgstr "Pêveka Protokola MSN'ê"
 
 #. Translators: 'domain' is used here in the context of Internet domains, e.g. pidgin.im
-#: ../libpurple/protocols/jabber/libxmpp.c:202 ../pidgin/gtkaccount.c:506
+#: ../libpurple/protocols/jabber/libxmpp.c:202 ../carrier/gtkaccount.c:506
 #, fuzzy
 msgid "Domain"
 msgstr "Romanî"
@@ -6216,7 +6216,7 @@ msgstr "Porta Girêdanê"
 #: ../libpurple/protocols/jabber/libxmpp.c:228
 #: ../libpurple/protocols/myspace/myspace.c:3274
 #: ../libpurple/protocols/silc/silc.c:1914
-#: ../libpurple/protocols/silc10/silc.c:1857 ../pidgin/gtkaccount.c:837
+#: ../libpurple/protocols/silc10/silc.c:1857 ../carrier/gtkaccount.c:837
 msgid "Connect server"
 msgstr "Digel pêşkêşkar girêdan çêke"
 
@@ -6853,8 +6853,8 @@ msgstr "Li makekompîturê nehate girêdan."
 msgid "Error retrieving profile"
 msgstr "Di standina Profîlê de xeletî"
 
-#: ../libpurple/protocols/msn/msn.c:1581 ../pidgin/plugins/convcolors.c:309
-#: ../pidgin/plugins/pidginrc.c:366
+#: ../libpurple/protocols/msn/msn.c:1581 ../carrier/plugins/convcolors.c:309
+#: ../carrier/plugins/pidginrc.c:366
 msgid "General"
 msgstr "Giştî"
 
@@ -8357,9 +8357,9 @@ msgid ""
 msgstr ""
 
 #. Label
-#: ../libpurple/protocols/oscar/oscar.c:639 ../pidgin/gtkutils.c:2387
-#: ../pidgin/gtkutils.c:2417
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:332
+#: ../libpurple/protocols/oscar/oscar.c:639 ../carrier/gtkutils.c:2387
+#: ../carrier/gtkutils.c:2417
+#: ../carrier/plugins/gevolution/new_person_dialog.c:332
 msgid "Buddy Icon"
 msgstr "Wêne"
 
@@ -8478,7 +8478,7 @@ msgstr ""
 #: ../libpurple/protocols/oscar/oscar.c:737 ../libpurple/protocols/qq/qq.c:183
 #: ../libpurple/protocols/qq/qq.c:288
 #: ../libpurple/protocols/yahoo/yahoo.c:3095 ../libpurple/status.c:157
-#: ../pidgin/gtkdocklet.c:446 ../pidgin/gtkstatusbox.c:1060
+#: ../carrier/gtkdocklet.c:446 ../pidgin/gtkstatusbox.c:1060
 #, c-format
 msgid "Invisible"
 msgstr "Nexuya"
@@ -8490,7 +8490,7 @@ msgstr "Girêdayî"
 
 #: ../libpurple/protocols/oscar/oscar.c:838
 #: ../libpurple/protocols/oscar/oscar.c:3707
-#: ../libpurple/protocols/yahoo/yahoo_profile.c:721 ../pidgin/gtkprefs.c:1126
+#: ../libpurple/protocols/yahoo/yahoo_profile.c:721 ../carrier/gtkprefs.c:1126
 msgid "IP Address"
 msgstr "Navnîşana IP'ê"
 
@@ -8728,7 +8728,7 @@ msgstr "Bikarhinerê ICQ  %u hevalek ji te re şandiye: %s (%s)"
 msgid "Do you want to add this buddy to your buddy list?"
 msgstr "Tu dixwazî vî/ê li lîsteya xwe ya hevalan zêde bikî?"
 
-#: ../libpurple/protocols/oscar/oscar.c:2471 ../pidgin/gtkroomlist.c:309
+#: ../libpurple/protocols/oscar/oscar.c:2471 ../carrier/gtkroomlist.c:309
 msgid "_Add"
 msgstr "_Lê zêde bike"
 
@@ -10204,7 +10204,7 @@ msgstr ""
 msgid "Send TEST Announcement"
 msgstr ""
 
-#: ../libpurple/protocols/sametime/sametime.c:3586 ../pidgin/gtkconv.c:4354
+#: ../libpurple/protocols/sametime/sametime.c:3586 ../carrier/gtkconv.c:4354
 msgid "Topic:"
 msgstr "Mijar:"
 
@@ -10227,7 +10227,7 @@ msgstr ""
 msgid "No Sametime Community Server Specified"
 msgstr ""
 
-#: ../libpurple/protocols/sametime/sametime.c:3644 ../pidgin/gtkblist.c:4041
+#: ../libpurple/protocols/sametime/sametime.c:3644 ../carrier/gtkblist.c:4041
 msgid "Connect"
 msgstr "Girêde"
 
@@ -10389,7 +10389,7 @@ msgid ""
 "buttons below."
 msgstr ""
 
-#: ../libpurple/protocols/sametime/sametime.c:5538 ../pidgin/gtknotify.c:756
+#: ../libpurple/protocols/sametime/sametime.c:5538 ../carrier/gtknotify.c:756
 msgid "Search Results"
 msgstr "Encamên Lêgerînê"
 
@@ -11630,7 +11630,7 @@ msgid "Your Current Mood"
 msgstr ""
 
 #: ../libpurple/protocols/silc/silc.c:741
-#: ../libpurple/protocols/silc10/silc.c:652 ../pidgin/gtkprefs.c:1641
+#: ../libpurple/protocols/silc10/silc.c:652 ../carrier/gtkprefs.c:1641
 #, c-format
 msgid "Normal"
 msgstr "Asayî"
@@ -12018,7 +12018,7 @@ msgid "Secure Internet Live Conferencing (SILC) Protocol"
 msgstr ""
 
 #: ../libpurple/protocols/silc/silc.c:1910
-#: ../libpurple/protocols/silc10/silc.c:1853 ../pidgin/gtkprefs.c:2036
+#: ../libpurple/protocols/silc10/silc.c:1853 ../carrier/gtkprefs.c:2036
 msgid "Network"
 msgstr "Tor"
 
@@ -12526,8 +12526,8 @@ msgstr ""
 msgid "Password Change Successful"
 msgstr "Şîfreya Te bi Awayekî Serkeftî Hate Guhertin."
 
-#: ../libpurple/protocols/toc/toc.c:1366 ../pidgin/gtkblist.c:5582
-#: ../pidgin/gtkblist.c:5932
+#: ../libpurple/protocols/toc/toc.c:1366 ../carrier/gtkblist.c:5582
+#: ../carrier/gtkblist.c:5932
 msgid "_Group:"
 msgstr "_Kom:"
 
@@ -13333,7 +13333,7 @@ msgstr "Çewtiya nenas"
 msgid "Unset"
 msgstr ""
 
-#: ../libpurple/status.c:156 ../pidgin/gtkstatusbox.c:1059
+#: ../libpurple/status.c:156 ../carrier/gtkstatusbox.c:1059
 #, fuzzy
 msgid "Do not disturb"
 msgstr "Mijûl Nekin"
@@ -13498,86 +13498,86 @@ msgstr "Peyamnêra înternetê"
 msgid "Send instant messages over multiple protocols"
 msgstr "Ji ser protokolên cuda peyamên demdemî bişîne"
 
-#: ../pidgin/eggtrayicon.c:129
+#: ../carrier/eggtrayicon.c:129
 msgid "Orientation"
 msgstr "Beralîkirin"
 
-#: ../pidgin/eggtrayicon.c:130
+#: ../carrier/eggtrayicon.c:130
 msgid "The orientation of the tray."
 msgstr "Beralîkirina sêniyê"
 
 #. Build the login options frame.
-#: ../pidgin/gtkaccount.c:407
+#: ../carrier/gtkaccount.c:407
 msgid "Login Options"
 msgstr "Vebijartokên Têketinê"
 
-#: ../pidgin/gtkaccount.c:428
+#: ../carrier/gtkaccount.c:428
 #, fuzzy
 msgid "Pro_tocol:"
 msgstr "Protokol:"
 
-#: ../pidgin/gtkaccount.c:439
+#: ../carrier/gtkaccount.c:439
 #, fuzzy
 msgid "Screen _name:"
 msgstr "Navê dîmender:"
 
-#: ../pidgin/gtkaccount.c:529
+#: ../carrier/gtkaccount.c:529
 #, fuzzy
 msgid "_Local alias:"
 msgstr "Bikarhênera Herêmî"
 
-#: ../pidgin/gtkaccount.c:533
+#: ../carrier/gtkaccount.c:533
 #, fuzzy
 msgid "Remember pass_word"
 msgstr "Şîfreyê bi bîr bîne."
 
 #. Build the user options frame.
-#: ../pidgin/gtkaccount.c:591
+#: ../carrier/gtkaccount.c:591
 msgid "User Options"
 msgstr "Vebijartokên Bikarhêneran"
 
-#: ../pidgin/gtkaccount.c:604
+#: ../carrier/gtkaccount.c:604
 #, fuzzy
 msgid "New _mail notifications"
 msgstr "Danezankarê peyamên nû"
 
 #. Buddy icon
-#: ../pidgin/gtkaccount.c:609
+#: ../carrier/gtkaccount.c:609
 msgid "Use this buddy _icon for this account:"
 msgstr ""
 
 #. Build the protocol options frame.
-#: ../pidgin/gtkaccount.c:731
+#: ../carrier/gtkaccount.c:731
 #, c-format
 msgid "%s Options"
 msgstr "Vebijartokên %s'yê"
 
-#: ../pidgin/gtkaccount.c:936
+#: ../carrier/gtkaccount.c:936
 #, fuzzy
 msgid "Use GNOME Proxy Settings"
 msgstr "Mîhengên Proxy'ê yên Gerdûnî"
 
-#: ../pidgin/gtkaccount.c:937
+#: ../carrier/gtkaccount.c:937
 msgid "Use Global Proxy Settings"
 msgstr "Mîhengên Proxy'ê yên Gerdûnî"
 
-#: ../pidgin/gtkaccount.c:943
+#: ../carrier/gtkaccount.c:943
 msgid "No Proxy"
 msgstr "Proxy'ê Bikar Neyne"
 
-#: ../pidgin/gtkaccount.c:949
+#: ../carrier/gtkaccount.c:949
 msgid "HTTP"
 msgstr "HTTP"
 
-#: ../pidgin/gtkaccount.c:955
+#: ../carrier/gtkaccount.c:955
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../pidgin/gtkaccount.c:961
+#: ../carrier/gtkaccount.c:961
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../pidgin/gtkaccount.c:967 ../pidgin/gtkprefs.c:1211
+#: ../carrier/gtkaccount.c:967 ../pidgin/gtkprefs.c:1211
 msgid "Use Environmental Settings"
 msgstr "Mîhengên Giştî Bikar Bîne"
 
@@ -13586,73 +13586,73 @@ msgstr "Mîhengên Giştî Bikar Bîne"
 #. A) your network is really slow and you have nothing better to do than
 #. look at butterflies.
 #. B)You are looking really closely at something that shouldn't matter.
-#: ../pidgin/gtkaccount.c:1006
+#: ../carrier/gtkaccount.c:1006
 msgid "If you look real closely"
 msgstr "Heke tu bi rastî girtî xuyabikî"
 
 #. This is an easter egg. See the comment on the previous line in the source.
-#: ../pidgin/gtkaccount.c:1009
+#: ../carrier/gtkaccount.c:1009
 msgid "you can see the butterflies mating"
 msgstr "cotbûna perperîkan dibînî"
 
-#: ../pidgin/gtkaccount.c:1030
+#: ../carrier/gtkaccount.c:1030
 msgid "Proxy Options"
 msgstr "Mîhengên Proxyê"
 
-#: ../pidgin/gtkaccount.c:1044 ../pidgin/gtkprefs.c:1205
+#: ../carrier/gtkaccount.c:1044 ../pidgin/gtkprefs.c:1205
 msgid "Proxy _type:"
 msgstr "Cureyê_Proxyê:"
 
-#: ../pidgin/gtkaccount.c:1053 ../pidgin/gtkprefs.c:1226
+#: ../carrier/gtkaccount.c:1053 ../pidgin/gtkprefs.c:1226
 msgid "_Host:"
 msgstr "_Host:"
 
-#: ../pidgin/gtkaccount.c:1057 ../pidgin/gtkprefs.c:1244
+#: ../carrier/gtkaccount.c:1057 ../pidgin/gtkprefs.c:1244
 msgid "_Port:"
 msgstr "_Port:"
 
-#: ../pidgin/gtkaccount.c:1065
+#: ../carrier/gtkaccount.c:1065
 msgid "_Username:"
 msgstr "_Navê bikarhêner:"
 
-#: ../pidgin/gtkaccount.c:1072 ../pidgin/gtkprefs.c:1281
+#: ../carrier/gtkaccount.c:1072 ../pidgin/gtkprefs.c:1281
 msgid "Pa_ssword:"
 msgstr "Şî_fre"
 
-#: ../pidgin/gtkaccount.c:1195
+#: ../carrier/gtkaccount.c:1195
 #, fuzzy
 msgid "Unable to save new account"
 msgstr "Girêdana nû nehat çêkirin."
 
-#: ../pidgin/gtkaccount.c:1196
+#: ../carrier/gtkaccount.c:1196
 msgid "An account already exists with the specified criteria."
 msgstr ""
 
-#: ../pidgin/gtkaccount.c:1473
+#: ../carrier/gtkaccount.c:1473
 msgid "Add Account"
 msgstr "Hesabekê lê zêde bike"
 
-#: ../pidgin/gtkaccount.c:1492
+#: ../carrier/gtkaccount.c:1492
 msgid "_Basic"
 msgstr "_Bingehîn"
 
-#: ../pidgin/gtkaccount.c:1499
+#: ../carrier/gtkaccount.c:1499
 msgid "Create this new account on the server"
 msgstr ""
 
-#: ../pidgin/gtkaccount.c:1515
+#: ../carrier/gtkaccount.c:1515
 msgid "_Advanced"
 msgstr "_Pêşketî"
 
-#: ../pidgin/gtkaccount.c:1973 ../pidgin/gtkplugin.c:569
+#: ../carrier/gtkaccount.c:1973 ../pidgin/gtkplugin.c:569
 msgid "Enabled"
 msgstr "Çalak"
 
-#: ../pidgin/gtkaccount.c:2001
+#: ../carrier/gtkaccount.c:2001
 msgid "Protocol"
 msgstr "Protokol"
 
-#: ../pidgin/gtkaccount.c:2201
+#: ../carrier/gtkaccount.c:2201
 #, c-format
 msgid ""
 "<span size='larger' weight='bold'>Welcome to %s!</span>\n"
@@ -13666,11 +13666,11 @@ msgid ""
 "<b>Accounts->Add/Edit</b> in the Buddy List window"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:767
+#: ../carrier/gtkblist.c:767
 msgid "Join a Chat"
 msgstr "Beşdarî Chatekê bibe"
 
-#: ../pidgin/gtkblist.c:788
+#: ../carrier/gtkblist.c:788
 msgid ""
 "Please enter the appropriate information about the chat you would like to "
 "join.\n"
@@ -13679,241 +13679,241 @@ msgstr ""
 "têkevê\n"
 
 #. Set up stuff for the account box
-#: ../pidgin/gtkblist.c:799 ../pidgin/gtkblist.c:5530
-#: ../pidgin/gtkblist.c:5893 ../pidgin/gtkpounce.c:539
-#: ../pidgin/gtkroomlist.c:396
+#: ../carrier/gtkblist.c:799 ../pidgin/gtkblist.c:5530
+#: ../carrier/gtkblist.c:5893 ../pidgin/gtkpounce.c:539
+#: ../carrier/gtkroomlist.c:396
 msgid "_Account:"
 msgstr "_Hesab:"
 
-#: ../pidgin/gtkblist.c:1088 ../pidgin/gtkprivacy.c:603
-#: ../pidgin/gtkprivacy.c:617
+#: ../carrier/gtkblist.c:1088 ../pidgin/gtkprivacy.c:603
+#: ../carrier/gtkprivacy.c:617
 msgid "_Block"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:1088
+#: ../carrier/gtkblist.c:1088
 #, fuzzy
 msgid "Un_block"
 msgstr "Blokê Rake"
 
-#: ../pidgin/gtkblist.c:1139
+#: ../carrier/gtkblist.c:1139
 msgid "Get _Info"
 msgstr "Agahî Bistîne"
 
-#: ../pidgin/gtkblist.c:1142 ../pidgin/pidginstock.c:90
+#: ../carrier/gtkblist.c:1142 ../pidgin/pidginstock.c:90
 msgid "I_M"
 msgstr "Peyam"
 
-#: ../pidgin/gtkblist.c:1148
+#: ../carrier/gtkblist.c:1148
 #, fuzzy
 msgid "_Send File"
 msgstr "Pelî Bişîne"
 
-#: ../pidgin/gtkblist.c:1155
+#: ../carrier/gtkblist.c:1155
 #, fuzzy
 msgid "Add Buddy _Pounce"
 msgstr "Hişyarkera Kesan Lê Zêde Bike"
 
-#: ../pidgin/gtkblist.c:1160 ../pidgin/gtkblist.c:1164
-#: ../pidgin/gtkblist.c:1269 ../pidgin/gtkblist.c:1292
+#: ../carrier/gtkblist.c:1160 ../pidgin/gtkblist.c:1164
+#: ../carrier/gtkblist.c:1269 ../pidgin/gtkblist.c:1292
 msgid "View _Log"
 msgstr "_Tomarkirinan Nîşan Bide"
 
-#: ../pidgin/gtkblist.c:1177 ../pidgin/gtkblist.c:1186
-#: ../pidgin/gtkblist.c:1277 ../pidgin/gtkblist.c:1298
+#: ../carrier/gtkblist.c:1177 ../pidgin/gtkblist.c:1186
+#: ../carrier/gtkblist.c:1277 ../pidgin/gtkblist.c:1298
 msgid "_Alias..."
 msgstr "_Navê ku xuya dibe..."
 
-#: ../pidgin/gtkblist.c:1180 ../pidgin/gtkblist.c:1188
-#: ../pidgin/gtkblist.c:1279 ../pidgin/gtkblist.c:1300
+#: ../carrier/gtkblist.c:1180 ../pidgin/gtkblist.c:1188
+#: ../carrier/gtkblist.c:1279 ../pidgin/gtkblist.c:1300
 msgid "_Remove"
 msgstr "_Rake"
 
-#: ../pidgin/gtkblist.c:1238
+#: ../carrier/gtkblist.c:1238
 msgid "Add a _Buddy"
 msgstr "Kesekî lê zêde bike"
 
-#: ../pidgin/gtkblist.c:1241
+#: ../carrier/gtkblist.c:1241
 msgid "Add a C_hat"
 msgstr "Chatekê lê zÊde bike"
 
-#: ../pidgin/gtkblist.c:1244
+#: ../carrier/gtkblist.c:1244
 msgid "_Delete Group"
 msgstr "Grubê jÊ bibe"
 
-#: ../pidgin/gtkblist.c:1246
+#: ../carrier/gtkblist.c:1246
 msgid "_Rename"
 msgstr "_Ji nû ve binav bike"
 
 #. join button
-#: ../pidgin/gtkblist.c:1265 ../pidgin/gtkroomlist.c:307
-#: ../pidgin/gtkroomlist.c:460 ../pidgin/pidginstock.c:88
+#: ../carrier/gtkblist.c:1265 ../pidgin/gtkroomlist.c:307
+#: ../carrier/gtkroomlist.c:460 ../pidgin/pidginstock.c:88
 msgid "_Join"
 msgstr "_Beşdar bibe"
 
-#: ../pidgin/gtkblist.c:1267
+#: ../carrier/gtkblist.c:1267
 msgid "Auto-Join"
 msgstr "Ji ber xwe ve beşdar bibe"
 
-#: ../pidgin/gtkblist.c:1305 ../pidgin/gtkblist.c:1329
+#: ../carrier/gtkblist.c:1305 ../pidgin/gtkblist.c:1329
 msgid "_Collapse"
 msgstr "_Teng bike"
 
-#: ../pidgin/gtkblist.c:1334
+#: ../carrier/gtkblist.c:1334
 msgid "_Expand"
 msgstr "_Fireh bike"
 
-#: ../pidgin/gtkblist.c:1585 ../pidgin/gtkblist.c:1597
-#: ../pidgin/gtkblist.c:4603 ../pidgin/gtkblist.c:4616
+#: ../carrier/gtkblist.c:1585 ../pidgin/gtkblist.c:1597
+#: ../carrier/gtkblist.c:4603 ../pidgin/gtkblist.c:4616
 msgid "/Tools/Mute Sounds"
 msgstr "/Amûr/Dengan Bigire"
 
-#: ../pidgin/gtkblist.c:2057 ../pidgin/gtkconv.c:4840
-#: ../pidgin/gtkpounce.c:430
+#: ../carrier/gtkblist.c:2057 ../pidgin/gtkconv.c:4840
+#: ../carrier/gtkpounce.c:430
 msgid ""
 "You are not currently signed on with an account that can add that buddy."
 msgstr ""
 "Te ne bi rengekî rast têketin pêk aniye ku bihêle tu hevalekî/ê lê zêde bikî."
 
 #. Buddies menu
-#: ../pidgin/gtkblist.c:2869
+#: ../carrier/gtkblist.c:2869
 msgid "/_Buddies"
 msgstr "/_Kes"
 
-#: ../pidgin/gtkblist.c:2870
+#: ../carrier/gtkblist.c:2870
 msgid "/Buddies/New Instant _Message..."
 msgstr "/Kes/_Peyama Nû"
 
-#: ../pidgin/gtkblist.c:2871
+#: ../carrier/gtkblist.c:2871
 msgid "/Buddies/Join a _Chat..."
 msgstr "/_Heval/Tevli Chatekê Bibe..."
 
-#: ../pidgin/gtkblist.c:2872
+#: ../carrier/gtkblist.c:2872
 msgid "/Buddies/Get User _Info..."
 msgstr "/_Heval/Agahiyên Bikarhêner bistîne..."
 
-#: ../pidgin/gtkblist.c:2873
+#: ../carrier/gtkblist.c:2873
 msgid "/Buddies/View User _Log..."
 msgstr "/_Heval/Tomarên Bikarhêner Nîşan Bide..."
 
-#: ../pidgin/gtkblist.c:2875
+#: ../carrier/gtkblist.c:2875
 #, fuzzy
 msgid "/Buddies/Show"
 msgstr "/Kes/_Derkeve"
 
-#: ../pidgin/gtkblist.c:2876
+#: ../carrier/gtkblist.c:2876
 #, fuzzy
 msgid "/Buddies/Show/_Offline Buddies"
 msgstr "/_Heval/Kesên Negirêdayî Nîşan Bide"
 
-#: ../pidgin/gtkblist.c:2877
+#: ../carrier/gtkblist.c:2877
 #, fuzzy
 msgid "/Buddies/Show/_Empty Groups"
 msgstr "/Heval/Komên Vala Nîşan Bide"
 
-#: ../pidgin/gtkblist.c:2878
+#: ../carrier/gtkblist.c:2878
 #, fuzzy
 msgid "/Buddies/Show/Buddy _Details"
 msgstr "/Heval/Hûragahiyên Hevalan _Nîşan bide"
 
-#: ../pidgin/gtkblist.c:2879
+#: ../carrier/gtkblist.c:2879
 #, fuzzy
 msgid "/Buddies/Show/Idle _Times"
 msgstr "/Heval/Dirêjahiya demê nîşan bide"
 
-#: ../pidgin/gtkblist.c:2880
+#: ../carrier/gtkblist.c:2880
 #, fuzzy
 msgid "/Buddies/Show/_Protocol Icons"
 msgstr "/Heval/Komên Vala Nîşan Bide"
 
-#: ../pidgin/gtkblist.c:2881
+#: ../carrier/gtkblist.c:2881
 msgid "/Buddies/_Sort Buddies"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:2883
+#: ../carrier/gtkblist.c:2883
 msgid "/Buddies/_Add Buddy..."
 msgstr "/_Heval/_Yekê Lê Zêde Bike..."
 
-#: ../pidgin/gtkblist.c:2884
+#: ../carrier/gtkblist.c:2884
 msgid "/Buddies/Add C_hat..."
 msgstr "/_Heval/Li Chatekê Zêde Bike..."
 
-#: ../pidgin/gtkblist.c:2885
+#: ../carrier/gtkblist.c:2885
 msgid "/Buddies/Add _Group..."
 msgstr "/_Kes/Grub lê zêde bike..."
 
-#: ../pidgin/gtkblist.c:2887
+#: ../carrier/gtkblist.c:2887
 msgid "/Buddies/_Quit"
 msgstr "/Kes/Dade"
 
 #. Accounts menu
-#: ../pidgin/gtkblist.c:2890
+#: ../carrier/gtkblist.c:2890
 msgid "/_Accounts"
 msgstr "/_Hesab"
 
-#: ../pidgin/gtkblist.c:2891 ../pidgin/gtkblist.c:6589
+#: ../carrier/gtkblist.c:2891 ../pidgin/gtkblist.c:6589
 msgid "/Accounts/Add\\/Edit"
 msgstr "/Hesap/Lêzêdekirin\\/Sererastkirin"
 
 #. Tools
-#: ../pidgin/gtkblist.c:2894
+#: ../carrier/gtkblist.c:2894
 msgid "/_Tools"
 msgstr "/_Amûr"
 
-#: ../pidgin/gtkblist.c:2895
+#: ../carrier/gtkblist.c:2895
 msgid "/Tools/Buddy _Pounces"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:2896
+#: ../carrier/gtkblist.c:2896
 #, fuzzy
 msgid "/Tools/_Certificates"
 msgstr "/_Amûr/_Vebijêrk"
 
-#: ../pidgin/gtkblist.c:2897
+#: ../carrier/gtkblist.c:2897
 msgid "/Tools/Plu_gins"
 msgstr "/Amûr/Pê_vek"
 
-#: ../pidgin/gtkblist.c:2898
+#: ../carrier/gtkblist.c:2898
 msgid "/Tools/Pr_eferences"
 msgstr "/_Amûr/_Vebijêrk"
 
-#: ../pidgin/gtkblist.c:2899
+#: ../carrier/gtkblist.c:2899
 msgid "/Tools/Pr_ivacy"
 msgstr "/Amûr/Ew_lekarî"
 
-#: ../pidgin/gtkblist.c:2901
+#: ../carrier/gtkblist.c:2901
 msgid "/Tools/_File Transfers"
 msgstr "/Amûr/_Şandina Pelan"
 
-#: ../pidgin/gtkblist.c:2902
+#: ../carrier/gtkblist.c:2902
 msgid "/Tools/R_oom List"
 msgstr "/Amûr/Lîsteya _Odeyê"
 
-#: ../pidgin/gtkblist.c:2903
+#: ../carrier/gtkblist.c:2903
 msgid "/Tools/System _Log"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:2905
+#: ../carrier/gtkblist.c:2905
 msgid "/Tools/Mute _Sounds"
 msgstr "/Amûr/_Deng Bigire"
 
 #. Help
-#: ../pidgin/gtkblist.c:2907
+#: ../carrier/gtkblist.c:2907
 msgid "/_Help"
 msgstr "/_Alîkarî"
 
-#: ../pidgin/gtkblist.c:2908
+#: ../carrier/gtkblist.c:2908
 msgid "/Help/Online _Help"
 msgstr "/Alîkarî/_Alîkariya Girêdayî"
 
-#: ../pidgin/gtkblist.c:2909
+#: ../carrier/gtkblist.c:2909
 msgid "/Help/_Debug Window"
 msgstr "/Alîkarî/_Derdestkirina Xeletiyan"
 
-#: ../pidgin/gtkblist.c:2911 ../pidgin/gtkblist.c:2913
+#: ../carrier/gtkblist.c:2911 ../pidgin/gtkblist.c:2913
 msgid "/Help/_About"
 msgstr "/Alîkarî/_Di Derheqê"
 
-#: ../pidgin/gtkblist.c:2942
+#: ../carrier/gtkblist.c:2942
 #, c-format
 msgid ""
 "\n"
@@ -13922,136 +13922,136 @@ msgstr ""
 "\n"
 "<b>Hesab:</b> %s"
 
-#: ../pidgin/gtkblist.c:3020
+#: ../carrier/gtkblist.c:3020
 #, fuzzy
 msgid "Buddy Alias"
 msgstr "Lîsteya Hevalan"
 
-#: ../pidgin/gtkblist.c:3049
+#: ../carrier/gtkblist.c:3049
 #, fuzzy
 msgid "Logged In"
 msgstr "Daniştin hat girtin"
 
-#: ../pidgin/gtkblist.c:3095
+#: ../carrier/gtkblist.c:3095
 #, fuzzy
 msgid "Last Seen"
 msgstr "Paşnav"
 
-#: ../pidgin/gtkblist.c:3116
+#: ../carrier/gtkblist.c:3116
 msgid "Spooky"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:3118
+#: ../carrier/gtkblist.c:3118
 msgid "Awesome"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:3120
+#: ../carrier/gtkblist.c:3120
 msgid "Rockin'"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:3453
+#: ../carrier/gtkblist.c:3453
 #, fuzzy, c-format
 msgid "Idle %dd %dh %02dm"
 msgstr "Dema %dh %02dm"
 
-#: ../pidgin/gtkblist.c:3455
+#: ../carrier/gtkblist.c:3455
 #, c-format
 msgid "Idle %dh %02dm"
 msgstr "Dema %dh %02dm"
 
-#: ../pidgin/gtkblist.c:3457
+#: ../carrier/gtkblist.c:3457
 #, c-format
 msgid "Idle %dm"
 msgstr "dema %dm"
 
-#: ../pidgin/gtkblist.c:3602
+#: ../carrier/gtkblist.c:3602
 msgid "/Buddies/New Instant Message..."
 msgstr "/Kes/Peyama Demdemî ya Nû..."
 
-#: ../pidgin/gtkblist.c:3603 ../pidgin/gtkblist.c:3636
+#: ../carrier/gtkblist.c:3603 ../pidgin/gtkblist.c:3636
 msgid "/Buddies/Join a Chat..."
 msgstr "/Kes/Beşdarî Chatekê Bibe..."
 
-#: ../pidgin/gtkblist.c:3604
+#: ../carrier/gtkblist.c:3604
 msgid "/Buddies/Get User Info..."
 msgstr "/Kes/Agahiyên Bikarhêner Bistîne..."
 
-#: ../pidgin/gtkblist.c:3605
+#: ../carrier/gtkblist.c:3605
 msgid "/Buddies/Add Buddy..."
 msgstr "/Kes/Kesekî-ê Lê Zêde Bike..."
 
-#: ../pidgin/gtkblist.c:3606 ../pidgin/gtkblist.c:3639
+#: ../carrier/gtkblist.c:3606 ../pidgin/gtkblist.c:3639
 msgid "/Buddies/Add Chat..."
 msgstr "/Heval/Sohbetê lê zêde bike..."
 
-#: ../pidgin/gtkblist.c:3607
+#: ../carrier/gtkblist.c:3607
 msgid "/Buddies/Add Group..."
 msgstr "/Kes/Komekê Lê Zêde Bike..."
 
-#: ../pidgin/gtkblist.c:3642
+#: ../carrier/gtkblist.c:3642
 msgid "/Tools/Privacy"
 msgstr "/Amûr/Ewlekarî"
 
-#: ../pidgin/gtkblist.c:3645
+#: ../carrier/gtkblist.c:3645
 msgid "/Tools/Room List"
 msgstr "/Amûr/Lîsteya Odeyan"
 
-#: ../pidgin/gtkblist.c:3742 ../pidgin/gtkdocklet.c:153
+#: ../carrier/gtkblist.c:3742 ../pidgin/gtkdocklet.c:153
 #, c-format
 msgid "%d unread message from %s\n"
 msgid_plural "%d unread messages from %s\n"
 msgstr[0] "%d peyama nexwendî ji %s\n"
 msgstr[1] "%d peyamên nexwendî ji %s\n"
 
-#: ../pidgin/gtkblist.c:3822
+#: ../carrier/gtkblist.c:3822
 msgid "Manually"
 msgstr "Bi destan"
 
-#: ../pidgin/gtkblist.c:3824
+#: ../carrier/gtkblist.c:3824
 msgid "Alphabetically"
 msgstr "Li gor rêza alfabeyê"
 
-#: ../pidgin/gtkblist.c:3825
+#: ../carrier/gtkblist.c:3825
 msgid "By status"
 msgstr "Li Gorî rewşê"
 
-#: ../pidgin/gtkblist.c:3826
+#: ../carrier/gtkblist.c:3826
 msgid "By log size"
 msgstr "Li gorî mezinahiya tomarbûnê"
 
-#: ../pidgin/gtkblist.c:4031 ../pidgin/gtkconn.c:179
+#: ../carrier/gtkblist.c:4031 ../pidgin/gtkconn.c:179
 #, c-format
 msgid "%s disconnected"
 msgstr "%s Girêdan çû"
 
-#: ../pidgin/gtkblist.c:4067
+#: ../carrier/gtkblist.c:4067
 #, c-format
 msgid "<span color=\"red\">%s disconnected: %s</span>"
 msgstr "<span color=\"red\">girêdana %s hate birrîn: %s</span>"
 
-#: ../pidgin/gtkblist.c:4219
+#: ../carrier/gtkblist.c:4219
 #, fuzzy
 msgid "<b>Username:</b>"
 msgstr ""
 "\n"
 "<b>Navê Bikarhêner:</b>"
 
-#: ../pidgin/gtkblist.c:4226
+#: ../carrier/gtkblist.c:4226
 #, fuzzy
 msgid "<b>Password:</b>"
 msgstr "<b>_Şîfre:</b>"
 
-#: ../pidgin/gtkblist.c:4237
+#: ../carrier/gtkblist.c:4237
 #, fuzzy
 msgid "_Login"
 msgstr "Têketin"
 
-#: ../pidgin/gtkblist.c:4320
+#: ../carrier/gtkblist.c:4320
 msgid "/Accounts"
 msgstr "/Hesab"
 
 #. Translators: Please maintain the use of -> and <- to refer to menu heirarchy
-#: ../pidgin/gtkblist.c:4334
+#: ../carrier/gtkblist.c:4334
 #, c-format
 msgid ""
 "<span weight='bold' size='larger'>Welcome to %s!</span>\n"
@@ -14064,32 +14064,32 @@ msgstr ""
 #. set the Show Offline Buddies option. must be done
 #. * after the treeview or faceprint gets mad. -Robot101
 #.
-#: ../pidgin/gtkblist.c:4597
+#: ../carrier/gtkblist.c:4597
 #, fuzzy
 msgid "/Buddies/Show/Offline Buddies"
 msgstr "/Kes/Kesên Negirêdayî Nîşan Bide"
 
-#: ../pidgin/gtkblist.c:4600
+#: ../carrier/gtkblist.c:4600
 #, fuzzy
 msgid "/Buddies/Show/Empty Groups"
 msgstr "/Kes/Grubên Vala Nîşan Bide"
 
-#: ../pidgin/gtkblist.c:4606
+#: ../carrier/gtkblist.c:4606
 #, fuzzy
 msgid "/Buddies/Show/Buddy Details"
 msgstr "/Heval/Rûragahiyên hevalan nîşan bide"
 
-#: ../pidgin/gtkblist.c:4609
+#: ../carrier/gtkblist.c:4609
 #, fuzzy
 msgid "/Buddies/Show/Idle Times"
 msgstr "/Heval/Dirêjahiya demê nîşan bide"
 
-#: ../pidgin/gtkblist.c:4612
+#: ../carrier/gtkblist.c:4612
 #, fuzzy
 msgid "/Buddies/Show/Protocol Icons"
 msgstr "/Kes/Grubên Vala Nîşan Bide"
 
-#: ../pidgin/gtkblist.c:5507
+#: ../carrier/gtkblist.c:5507
 msgid ""
 "Please enter the screen name of the person you would like to add to your "
 "buddy list. You may optionally enter an alias, or nickname,  for the buddy. "
@@ -14100,27 +14100,27 @@ msgstr ""
 "navê ku tu yê binivîsî dê di lîsteyê de li şûna navê tomarbûyî xuya bibe.\n"
 
 #. End of account box
-#: ../pidgin/gtkblist.c:5542
+#: ../carrier/gtkblist.c:5542
 #, fuzzy
 msgid "_Screen name:"
 msgstr "Navê dîmender:"
 
-#: ../pidgin/gtkblist.c:5564 ../pidgin/gtkblist.c:5914
+#: ../carrier/gtkblist.c:5564 ../pidgin/gtkblist.c:5914
 #, fuzzy
 msgid "A_lias:"
 msgstr "Navê ku xuya dibe"
 
-#: ../pidgin/gtkblist.c:5826
+#: ../carrier/gtkblist.c:5826
 msgid "This protocol does not support chat rooms."
 msgstr "Ev pêşwazî piştgiriyê nade odeyên axaftinê."
 
-#: ../pidgin/gtkblist.c:5842
+#: ../carrier/gtkblist.c:5842
 msgid ""
 "You are not currently signed on with any protocols that have the ability to "
 "chat."
 msgstr "Ji bo têketina odeyên axaftinê tu neketî tu pêşwaziyeke axaftinê."
 
-#: ../pidgin/gtkblist.c:5883
+#: ../carrier/gtkblist.c:5883
 msgid ""
 "Please enter an alias, and the appropriate information about the chat you "
 "would like to add to your buddy list.\n"
@@ -14128,49 +14128,49 @@ msgstr ""
 "Ji kerema xwe re navekî û agahiyekê ji bo chata ku tu dixwazî bikeviyê, "
 "bikevê.\n"
 
-#: ../pidgin/gtkblist.c:5964
+#: ../carrier/gtkblist.c:5964
 msgid "Please enter the name of the group to be added."
 msgstr "Ji kerema xwe re navê gruba ku dixwazî bikeviyê, bikevê"
 
-#: ../pidgin/gtkblist.c:6609
+#: ../carrier/gtkblist.c:6609
 msgid "<PurpleMain>/Accounts/"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:6633
+#: ../carrier/gtkblist.c:6633
 msgid "_Edit Account"
 msgstr "_Hesab sererast bike"
 
-#: ../pidgin/gtkblist.c:6646 ../pidgin/gtkconv.c:3073
+#: ../carrier/gtkblist.c:6646 ../pidgin/gtkconv.c:3073
 msgid "No actions available"
 msgstr "Tu çalakiyeke ku bê bikaranîn tune"
 
-#: ../pidgin/gtkblist.c:6654
+#: ../carrier/gtkblist.c:6654
 msgid "_Disable"
 msgstr "_Neçalak bike"
 
-#: ../pidgin/gtkblist.c:6666
+#: ../carrier/gtkblist.c:6666
 msgid "Enable Account"
 msgstr "Hesab çalak bike"
 
-#: ../pidgin/gtkblist.c:6672
+#: ../carrier/gtkblist.c:6672
 msgid "<PurpleMain>/Accounts/Enable Account"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:6721
+#: ../carrier/gtkblist.c:6721
 msgid "/Tools"
 msgstr "/Amûr"
 
-#: ../pidgin/gtkblist.c:6791
+#: ../carrier/gtkblist.c:6791
 msgid "/Buddies/Sort Buddies"
 msgstr "/Kes/Kesan Rêz Bike"
 
 #. Widget creation function
-#: ../pidgin/gtkcertmgr.c:530
+#: ../carrier/gtkcertmgr.c:530
 #, fuzzy
 msgid "SSL Servers"
 msgstr "Pêşkêşkar"
 
-#: ../pidgin/gtkconn.c:180
+#: ../carrier/gtkconn.c:180
 #, c-format
 msgid ""
 "%s\n"
@@ -14179,220 +14179,220 @@ msgid ""
 "re-enable the account."
 msgstr ""
 
-#: ../pidgin/gtkconv.c:482
+#: ../carrier/gtkconv.c:482
 #, fuzzy
 msgid "Unknown command."
 msgstr "Fermaneke nenas"
 
-#: ../pidgin/gtkconv.c:754 ../pidgin/gtkconv.c:780
+#: ../carrier/gtkconv.c:754 ../pidgin/gtkconv.c:780
 msgid "That buddy is not on the same protocol as this chat."
 msgstr "Kes bi vê sohbetê re ne li ser heman protokolê ye."
 
-#: ../pidgin/gtkconv.c:774
+#: ../carrier/gtkconv.c:774
 msgid ""
 "You are not currently signed on with an account that can invite that buddy."
 msgstr ""
 "Ji bo vexwendina vê/î kesê/î tu hê jî bi hesabeke derbasdar têneketiyê."
 
-#: ../pidgin/gtkconv.c:827
+#: ../carrier/gtkconv.c:827
 msgid "Invite Buddy Into Chat Room"
 msgstr "Kesan Vexwîne Odeya Axaftinê"
 
 #. Put our happy label in it.
-#: ../pidgin/gtkconv.c:857
+#: ../carrier/gtkconv.c:857
 msgid ""
 "Please enter the name of the user you wish to invite, along with an optional "
 "invite message."
 msgstr ""
 "Heke bixwazî bi peyameke vewxendinê navê kesê ku dixwazî vexwînî jî têkevê."
 
-#: ../pidgin/gtkconv.c:878
+#: ../carrier/gtkconv.c:878
 msgid "_Buddy:"
 msgstr "_Kes:"
 
-#: ../pidgin/gtkconv.c:889 ../pidgin/gtksavedstatuses.c:1194
-#: ../pidgin/gtksavedstatuses.c:1528
+#: ../carrier/gtkconv.c:889 ../pidgin/gtksavedstatuses.c:1194
+#: ../carrier/gtksavedstatuses.c:1528
 msgid "_Message:"
 msgstr "_Peyam"
 
-#: ../pidgin/gtkconv.c:947 ../pidgin/gtkconv.c:2598 ../pidgin/gtkdebug.c:219
-#: ../pidgin/gtkft.c:543
+#: ../carrier/gtkconv.c:947 ../pidgin/gtkconv.c:2598 ../pidgin/gtkdebug.c:219
+#: ../carrier/gtkft.c:543
 msgid "Unable to open file."
 msgstr "Pel venabe."
 
-#: ../pidgin/gtkconv.c:953
+#: ../carrier/gtkconv.c:953
 #, c-format
 msgid "<h1>Conversation with %s</h1>\n"
 msgstr "<h1>axaftin digel %s </h1>\n"
 
-#: ../pidgin/gtkconv.c:991
+#: ../carrier/gtkconv.c:991
 msgid "Save Conversation"
 msgstr "Nivîsandinan Tomar Bike"
 
-#: ../pidgin/gtkconv.c:1140 ../pidgin/gtkdebug.c:167 ../pidgin/gtkdebug.c:743
+#: ../carrier/gtkconv.c:1140 ../pidgin/gtkdebug.c:167 ../pidgin/gtkdebug.c:743
 msgid "Find"
 msgstr "Bibîne"
 
-#: ../pidgin/gtkconv.c:1166 ../pidgin/gtkdebug.c:195
+#: ../carrier/gtkconv.c:1166 ../pidgin/gtkdebug.c:195
 msgid "_Search for:"
 msgstr "_Lê bigere:"
 
-#: ../pidgin/gtkconv.c:1622
+#: ../carrier/gtkconv.c:1622
 msgid "Un-Ignore"
 msgstr "Tune-dîtin"
 
-#: ../pidgin/gtkconv.c:1625
+#: ../carrier/gtkconv.c:1625
 msgid "Ignore"
 msgstr "Guh medê"
 
-#: ../pidgin/gtkconv.c:1645
+#: ../carrier/gtkconv.c:1645
 msgid "Get Away Message"
 msgstr "Peyama Li Derve ye! Bistîne"
 
-#: ../pidgin/gtkconv.c:1668
+#: ../carrier/gtkconv.c:1668
 msgid "Last said"
 msgstr "Gotinên dawî"
 
-#: ../pidgin/gtkconv.c:2606
+#: ../carrier/gtkconv.c:2606
 msgid "Unable to save icon file to disk."
 msgstr "Îkon di diskê de tomar nebû"
 
-#: ../pidgin/gtkconv.c:2657
+#: ../carrier/gtkconv.c:2657
 msgid "Save Icon"
 msgstr "Îkonê Tomar Bike"
 
-#: ../pidgin/gtkconv.c:2709
+#: ../carrier/gtkconv.c:2709
 msgid "Animate"
 msgstr "Bileyizîne"
 
-#: ../pidgin/gtkconv.c:2714
+#: ../carrier/gtkconv.c:2714
 msgid "Hide Icon"
 msgstr "Îkonê Veşêre"
 
-#: ../pidgin/gtkconv.c:2717
+#: ../carrier/gtkconv.c:2717
 msgid "Save Icon As..."
 msgstr "Îkonê Veşêre, Wekî..."
 
-#: ../pidgin/gtkconv.c:2721
+#: ../carrier/gtkconv.c:2721
 #, fuzzy
 msgid "Set Custom Icon..."
 msgstr "Agahiya Bikarhêner Biguherîne..."
 
-#: ../pidgin/gtkconv.c:2734
+#: ../carrier/gtkconv.c:2734
 #, fuzzy
 msgid "Remove Custom Icon"
 msgstr "Têkiliyê Rake"
 
-#: ../pidgin/gtkconv.c:2861
+#: ../carrier/gtkconv.c:2861
 msgid "Show All"
 msgstr ""
 
 #. Conversation menu
-#: ../pidgin/gtkconv.c:2880
+#: ../carrier/gtkconv.c:2880
 msgid "/_Conversation"
 msgstr "/_Ligelhevaxaftin"
 
-#: ../pidgin/gtkconv.c:2882
+#: ../carrier/gtkconv.c:2882
 msgid "/Conversation/New Instant _Message..."
 msgstr "/Ligelhevaxaftin/Peyama_Nû..."
 
-#: ../pidgin/gtkconv.c:2887
+#: ../carrier/gtkconv.c:2887
 msgid "/Conversation/_Find..."
 msgstr "/Ligelhevaxaftin/_Bigere"
 
-#: ../pidgin/gtkconv.c:2889
+#: ../carrier/gtkconv.c:2889
 msgid "/Conversation/View _Log"
 msgstr "/Nivîsandin/Tomarbûnan Nîşan Bide"
 
-#: ../pidgin/gtkconv.c:2890
+#: ../carrier/gtkconv.c:2890
 msgid "/Conversation/_Save As..."
 msgstr "/Ligelhevaxaftin/_Tomar Bike, Wekî..."
 
-#: ../pidgin/gtkconv.c:2892
+#: ../carrier/gtkconv.c:2892
 msgid "/Conversation/Clea_r Scrollback"
 msgstr ""
 
-#: ../pidgin/gtkconv.c:2896
+#: ../carrier/gtkconv.c:2896
 msgid "/Conversation/Se_nd File..."
 msgstr "/Nivîsandin/_Pelî Bişîne..."
 
-#: ../pidgin/gtkconv.c:2897
+#: ../carrier/gtkconv.c:2897
 msgid "/Conversation/Add Buddy _Pounce..."
 msgstr "/Nivîsandin/Hişyarkar Lê Zêde Bike..."
 
-#: ../pidgin/gtkconv.c:2899
+#: ../carrier/gtkconv.c:2899
 msgid "/Conversation/_Get Info"
 msgstr "/Nivîsandin/_Agahiyê bistîne"
 
-#: ../pidgin/gtkconv.c:2901
+#: ../carrier/gtkconv.c:2901
 msgid "/Conversation/In_vite..."
 msgstr "/Nivîsandin/_Vexwîne"
 
-#: ../pidgin/gtkconv.c:2903
+#: ../carrier/gtkconv.c:2903
 #, fuzzy
 msgid "/Conversation/M_ore"
 msgstr "/Ligelhevaxaftin/_Dade"
 
-#: ../pidgin/gtkconv.c:2907
+#: ../carrier/gtkconv.c:2907
 msgid "/Conversation/Al_ias..."
 msgstr "/Nivîsandin/Navê Xuya Dibe..."
 
-#: ../pidgin/gtkconv.c:2909
+#: ../carrier/gtkconv.c:2909
 msgid "/Conversation/_Block..."
 msgstr "/Nivîsandin/_Block"
 
-#: ../pidgin/gtkconv.c:2911
+#: ../carrier/gtkconv.c:2911
 #, fuzzy
 msgid "/Conversation/_Unblock..."
 msgstr "/Nivîsandin/_Block"
 
-#: ../pidgin/gtkconv.c:2913
+#: ../carrier/gtkconv.c:2913
 msgid "/Conversation/_Add..."
 msgstr "/Nivîsandin/_Lê Zêde Bike..."
 
-#: ../pidgin/gtkconv.c:2915
+#: ../carrier/gtkconv.c:2915
 msgid "/Conversation/_Remove..."
 msgstr "/Ligelhevaxaftin/_Rake..."
 
-#: ../pidgin/gtkconv.c:2920
+#: ../carrier/gtkconv.c:2920
 msgid "/Conversation/Insert Lin_k..."
 msgstr "/Nivîsandin/Kurterê Lê Zêde Bike"
 
-#: ../pidgin/gtkconv.c:2922
+#: ../carrier/gtkconv.c:2922
 msgid "/Conversation/Insert Imag_e..."
 msgstr "/Ligelhevaxaftin/ Wêne Lê Zêde Bike..."
 
-#: ../pidgin/gtkconv.c:2928
+#: ../carrier/gtkconv.c:2928
 msgid "/Conversation/_Close"
 msgstr "/Ligelhevaxaftin/_Dade"
 
 #. Options
-#: ../pidgin/gtkconv.c:2932
+#: ../carrier/gtkconv.c:2932
 msgid "/_Options"
 msgstr "/_Bijartin"
 
-#: ../pidgin/gtkconv.c:2933
+#: ../carrier/gtkconv.c:2933
 msgid "/Options/Enable _Logging"
 msgstr "/_Vebijartok/_Tomaran Hilîne"
 
-#: ../pidgin/gtkconv.c:2934
+#: ../carrier/gtkconv.c:2934
 msgid "/Options/Enable _Sounds"
 msgstr "/Vebijartok/_Deng Vekiriye"
 
-#: ../pidgin/gtkconv.c:2936
+#: ../carrier/gtkconv.c:2936
 msgid "/Options/Show Formatting _Toolbars"
 msgstr "/Vebijêrk/_Darikê Teşekirinê Nîşan Bide"
 
-#: ../pidgin/gtkconv.c:2937
+#: ../carrier/gtkconv.c:2937
 msgid "/Options/Show Ti_mestamps"
 msgstr "/Vebijartok/Demê Nîşan Bide"
 
-#: ../pidgin/gtkconv.c:3061
+#: ../carrier/gtkconv.c:3061
 #, fuzzy
 msgid "/Conversation/More"
 msgstr "/Ligelhevaxaftin/_Dade"
 
-#: ../pidgin/gtkconv.c:3117
+#: ../carrier/gtkconv.c:3117
 #, fuzzy
 msgid "/Options"
 msgstr "/_Bijartin"
@@ -14402,609 +14402,609 @@ msgstr "/_Bijartin"
 #. Make sure the 'Conversation -> More' menuitems are regenerated whenever
 #. * the 'Conversation' menu pops up because the entries can change after the
 #. * conversation is created.
-#: ../pidgin/gtkconv.c:3152 ../pidgin/gtkconv.c:3184
+#: ../carrier/gtkconv.c:3152 ../pidgin/gtkconv.c:3184
 #, fuzzy
 msgid "/Conversation"
 msgstr "/_Ligelhevaxaftin"
 
-#: ../pidgin/gtkconv.c:3192
+#: ../carrier/gtkconv.c:3192
 msgid "/Conversation/View Log"
 msgstr "/Nivîsandin/Tomaran Nîşan Bide"
 
-#: ../pidgin/gtkconv.c:3198
+#: ../carrier/gtkconv.c:3198
 msgid "/Conversation/Send File..."
 msgstr "/Ligelhevaxaftin/Pelî Bişîne..."
 
-#: ../pidgin/gtkconv.c:3202
+#: ../carrier/gtkconv.c:3202
 msgid "/Conversation/Add Buddy Pounce..."
 msgstr "/Nivîsandin/Hişyarkar Lê Zêde Bike..."
 
-#: ../pidgin/gtkconv.c:3208
+#: ../carrier/gtkconv.c:3208
 msgid "/Conversation/Get Info"
 msgstr "/Nivîsandin/Agahiyê Bistîne"
 
-#: ../pidgin/gtkconv.c:3212
+#: ../carrier/gtkconv.c:3212
 msgid "/Conversation/Invite..."
 msgstr "/Nivîsandin/Dewam Bike..."
 
-#: ../pidgin/gtkconv.c:3218
+#: ../carrier/gtkconv.c:3218
 msgid "/Conversation/Alias..."
 msgstr "/Nivîsandin/Navê Xuya Dibe..."
 
-#: ../pidgin/gtkconv.c:3222
+#: ../carrier/gtkconv.c:3222
 msgid "/Conversation/Block..."
 msgstr "/Nivîsandin/Block..."
 
-#: ../pidgin/gtkconv.c:3226
+#: ../carrier/gtkconv.c:3226
 #, fuzzy
 msgid "/Conversation/Unblock..."
 msgstr "/Nivîsandin/Block..."
 
-#: ../pidgin/gtkconv.c:3230
+#: ../carrier/gtkconv.c:3230
 msgid "/Conversation/Add..."
 msgstr "/Ligelaxaftin/Lê Zêde Bike..."
 
-#: ../pidgin/gtkconv.c:3234
+#: ../carrier/gtkconv.c:3234
 msgid "/Conversation/Remove..."
 msgstr "/Ligelhevaxaftin/Rake..."
 
-#: ../pidgin/gtkconv.c:3240
+#: ../carrier/gtkconv.c:3240
 msgid "/Conversation/Insert Link..."
 msgstr "/Nivîsandin/Kurterê Lê Zêde Bike"
 
-#: ../pidgin/gtkconv.c:3244
+#: ../carrier/gtkconv.c:3244
 msgid "/Conversation/Insert Image..."
 msgstr "/Ligelhevaxaftin/Wêne Lê Zêde Bike..."
 
-#: ../pidgin/gtkconv.c:3250
+#: ../carrier/gtkconv.c:3250
 msgid "/Options/Enable Logging"
 msgstr "/_Vebijartok/Tomaran Hilîne"
 
-#: ../pidgin/gtkconv.c:3253
+#: ../carrier/gtkconv.c:3253
 msgid "/Options/Enable Sounds"
 msgstr "/Vebijartok/Deng Vekiriye"
 
-#: ../pidgin/gtkconv.c:3266
+#: ../carrier/gtkconv.c:3266
 msgid "/Options/Show Formatting Toolbars"
 msgstr "/Vebijêrk/Darikê Teşekirinê Nîşan Bide"
 
-#: ../pidgin/gtkconv.c:3269
+#: ../carrier/gtkconv.c:3269
 msgid "/Options/Show Timestamps"
 msgstr "/Vebijartok/Demê Nîşan Bide"
 
-#: ../pidgin/gtkconv.c:3346 ../pidgin/gtkconv.c:3388
+#: ../carrier/gtkconv.c:3346 ../pidgin/gtkconv.c:3388
 msgid "User is typing..."
 msgstr "Bikarhêner dinivîse..."
 
-#: ../pidgin/gtkconv.c:3391
+#: ../carrier/gtkconv.c:3391
 msgid "User has typed something and stopped"
 msgstr "Şexs tiştek nivîsî û dû re dev ji nivîsînê berda"
 
 #. Build the Send To menu
-#: ../pidgin/gtkconv.c:3574 ../pidgin/gtkconv.c:8022
+#: ../carrier/gtkconv.c:3574 ../pidgin/gtkconv.c:8022
 #, fuzzy
 msgid "_Send To"
 msgstr "_Bişîne"
 
-#: ../pidgin/gtkconv.c:4286
+#: ../carrier/gtkconv.c:4286
 msgid "_Send"
 msgstr "_Bişîne"
 
 #. Setup the label telling how many people are in the room.
-#: ../pidgin/gtkconv.c:4390
+#: ../carrier/gtkconv.c:4390
 msgid "0 people in room"
 msgstr "Di odê tu kes tune"
 
-#: ../pidgin/gtkconv.c:5759 ../pidgin/gtkconv.c:5880
+#: ../carrier/gtkconv.c:5759 ../pidgin/gtkconv.c:5880
 #, c-format
 msgid "%d person in room"
 msgid_plural "%d people in room"
 msgstr[0] "%d di odê de"
 msgstr[1] "%d di odê de"
 
-#: ../pidgin/gtkconv.c:6486 ../pidgin/gtkstatusbox.c:660
+#: ../carrier/gtkconv.c:6486 ../pidgin/gtkstatusbox.c:660
 msgid "Typing"
 msgstr "Nivîsîn"
 
-#: ../pidgin/gtkconv.c:6490
+#: ../carrier/gtkconv.c:6490
 msgid "Stopped Typing"
 msgstr "Dev Ji Nivîsandinê Berda"
 
-#: ../pidgin/gtkconv.c:6493
+#: ../carrier/gtkconv.c:6493
 #, fuzzy
 msgid "Nick Said"
 msgstr "Leqeb"
 
-#: ../pidgin/gtkconv.c:6496 ../pidgin/gtkdocklet.c:492
+#: ../carrier/gtkconv.c:6496 ../pidgin/gtkdocklet.c:492
 msgid "Unread Messages"
 msgstr "Peyamên nexwendî"
 
-#: ../pidgin/gtkconv.c:6499
+#: ../carrier/gtkconv.c:6499
 msgid "New Event"
 msgstr "Buyereke Nû"
 
-#: ../pidgin/gtkconv.c:7572
+#: ../carrier/gtkconv.c:7572
 #, fuzzy
 msgid "clear: Clears all conversation scrollbacks."
 msgstr "%s paceya nivîsandinê girt."
 
-#: ../pidgin/gtkconv.c:7736
+#: ../carrier/gtkconv.c:7736
 msgid "Confirm close"
 msgstr "Girtinê erê bike"
 
-#: ../pidgin/gtkconv.c:7768
+#: ../carrier/gtkconv.c:7768
 msgid "You have unread messages. Are you sure you want to close the window?"
 msgstr "Peyamên te yên nexwendî hene. Tu bawer î ku paceyê bigirî?"
 
-#: ../pidgin/gtkconv.c:8355
+#: ../carrier/gtkconv.c:8355
 msgid "Close other tabs"
 msgstr "Hilfirînên din bigire"
 
-#: ../pidgin/gtkconv.c:8361
+#: ../carrier/gtkconv.c:8361
 msgid "Close all tabs"
 msgstr "Hemû hilfirînan bigire"
 
-#: ../pidgin/gtkconv.c:8369
+#: ../carrier/gtkconv.c:8369
 msgid "Detach this tab"
 msgstr ""
 
-#: ../pidgin/gtkconv.c:8375
+#: ../carrier/gtkconv.c:8375
 msgid "Close this tab"
 msgstr "Vê hilfirînê bigire"
 
-#: ../pidgin/gtkconv.c:8875
+#: ../carrier/gtkconv.c:8875
 msgid "Close conversation"
 msgstr "Axaftinê dade"
 
-#: ../pidgin/gtkconv.c:9477
+#: ../carrier/gtkconv.c:9477
 msgid "Last created window"
 msgstr "Paceya ku di dawiyê de afirî"
 
-#: ../pidgin/gtkconv.c:9479
+#: ../carrier/gtkconv.c:9479
 msgid "Separate IM and Chat windows"
 msgstr "Paceyên peyam û axaftinan ji hev veqetîne"
 
-#: ../pidgin/gtkconv.c:9481 ../pidgin/gtkprefs.c:1415
+#: ../carrier/gtkconv.c:9481 ../pidgin/gtkprefs.c:1415
 msgid "New window"
 msgstr "Paceya nû"
 
-#: ../pidgin/gtkconv.c:9483
+#: ../carrier/gtkconv.c:9483
 msgid "By group"
 msgstr "Li gorî gruban"
 
-#: ../pidgin/gtkconv.c:9485
+#: ../carrier/gtkconv.c:9485
 msgid "By account"
 msgstr "Li gorî Hesaban"
 
-#: ../pidgin/gtkdebug.c:234
+#: ../carrier/gtkdebug.c:234
 msgid "Save Debug Log"
 msgstr "Tomara Xeletiyê Veşêre"
 
-#: ../pidgin/gtkdebug.c:582
+#: ../carrier/gtkdebug.c:582
 msgid "Invert"
 msgstr "Berovajî bike"
 
-#: ../pidgin/gtkdebug.c:585
+#: ../carrier/gtkdebug.c:585
 msgid "Highlight matches"
 msgstr ""
 
-#: ../pidgin/gtkdebug.c:652
+#: ../carrier/gtkdebug.c:652
 msgid "_Icon Only"
 msgstr ""
 
-#: ../pidgin/gtkdebug.c:653
+#: ../carrier/gtkdebug.c:653
 msgid "_Text Only"
 msgstr ""
 
-#: ../pidgin/gtkdebug.c:654
+#: ../carrier/gtkdebug.c:654
 msgid "_Both Icon & Text"
 msgstr ""
 
-#: ../pidgin/gtkdebug.c:775
+#: ../carrier/gtkdebug.c:775
 msgid "Filter"
 msgstr "Parzûn"
 
-#: ../pidgin/gtkdebug.c:794
+#: ../carrier/gtkdebug.c:794
 msgid "Right click for more options."
 msgstr "Ji bo vebijêrkên zêde li aliyê rastê bitikîne."
 
-#: ../pidgin/gtkdebug.c:824
+#: ../carrier/gtkdebug.c:824
 msgid "Level "
 msgstr ""
 
-#: ../pidgin/gtkdebug.c:825 ../pidgin/gtkdebug.c:831
+#: ../carrier/gtkdebug.c:825 ../pidgin/gtkdebug.c:831
 msgid "Select the debug filter level."
 msgstr ""
 
-#: ../pidgin/gtkdebug.c:833
+#: ../carrier/gtkdebug.c:833
 #, fuzzy
 msgid "All"
 msgstr "Destûr bide"
 
-#: ../pidgin/gtkdebug.c:834
+#: ../carrier/gtkdebug.c:834
 #, fuzzy
 msgid "Misc"
 msgstr "Muzîk"
 
-#: ../pidgin/gtkdebug.c:836
+#: ../carrier/gtkdebug.c:836
 #, fuzzy
 msgid "Warning"
 msgstr "Hişyar Bike"
 
-#: ../pidgin/gtkdebug.c:837
+#: ../carrier/gtkdebug.c:837
 #, fuzzy
 msgid "Error "
 msgstr "Çewtî"
 
-#: ../pidgin/gtkdebug.c:838
+#: ../carrier/gtkdebug.c:838
 #, fuzzy
 msgid "Fatal Error"
 msgstr "Xeletiya Herêmî"
 
-#: ../pidgin/gtkdialogs.c:72 ../pidgin/gtkdialogs.c:117
+#: ../carrier/gtkdialogs.c:72 ../pidgin/gtkdialogs.c:117
 msgid "lead developer"
 msgstr "pêşxistinkar"
 
-#: ../pidgin/gtkdialogs.c:73 ../pidgin/gtkdialogs.c:74
-#: ../pidgin/gtkdialogs.c:75 ../pidgin/gtkdialogs.c:76
-#: ../pidgin/gtkdialogs.c:77 ../pidgin/gtkdialogs.c:78
-#: ../pidgin/gtkdialogs.c:79 ../pidgin/gtkdialogs.c:80
-#: ../pidgin/gtkdialogs.c:81 ../pidgin/gtkdialogs.c:82
-#: ../pidgin/gtkdialogs.c:83 ../pidgin/gtkdialogs.c:84
-#: ../pidgin/gtkdialogs.c:85 ../pidgin/gtkdialogs.c:86
-#: ../pidgin/gtkdialogs.c:89 ../pidgin/gtkdialogs.c:91
-#: ../pidgin/gtkdialogs.c:92
+#: ../carrier/gtkdialogs.c:73 ../pidgin/gtkdialogs.c:74
+#: ../carrier/gtkdialogs.c:75 ../pidgin/gtkdialogs.c:76
+#: ../carrier/gtkdialogs.c:77 ../pidgin/gtkdialogs.c:78
+#: ../carrier/gtkdialogs.c:79 ../pidgin/gtkdialogs.c:80
+#: ../carrier/gtkdialogs.c:81 ../pidgin/gtkdialogs.c:82
+#: ../carrier/gtkdialogs.c:83 ../pidgin/gtkdialogs.c:84
+#: ../carrier/gtkdialogs.c:85 ../pidgin/gtkdialogs.c:86
+#: ../carrier/gtkdialogs.c:89 ../pidgin/gtkdialogs.c:91
+#: ../carrier/gtkdialogs.c:92
 msgid "developer"
 msgstr "pêşxistinkar"
 
-#: ../pidgin/gtkdialogs.c:87
+#: ../carrier/gtkdialogs.c:87
 msgid "support"
 msgstr "piştgirî"
 
-#: ../pidgin/gtkdialogs.c:88
+#: ../carrier/gtkdialogs.c:88
 #, fuzzy
 msgid "support/QA"
 msgstr "piştgirî"
 
-#: ../pidgin/gtkdialogs.c:90 ../pidgin/gtkdialogs.c:112
+#: ../carrier/gtkdialogs.c:90 ../pidgin/gtkdialogs.c:112
 msgid "developer & webmaster"
 msgstr "pêşxistinkar & webmaster"
 
-#: ../pidgin/gtkdialogs.c:99
+#: ../carrier/gtkdialogs.c:99
 msgid "Senior Contributor/QA"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:108
+#: ../carrier/gtkdialogs.c:108
 msgid "win32 port"
 msgstr "Porta win32"
 
-#: ../pidgin/gtkdialogs.c:109 ../pidgin/gtkdialogs.c:110
+#: ../carrier/gtkdialogs.c:109 ../pidgin/gtkdialogs.c:110
 msgid "maintainer"
 msgstr "têkildar"
 
-#: ../pidgin/gtkdialogs.c:111
+#: ../carrier/gtkdialogs.c:111
 msgid "libfaim maintainer"
 msgstr "Çavdêrê libfaim"
 
 #. If "lazy bum" translates literally into a serious insult, use something else or omit it.
-#: ../pidgin/gtkdialogs.c:114
+#: ../carrier/gtkdialogs.c:114
 msgid "hacker and designated driver [lazy bum]"
 msgstr "Hacker û pêşkêşkera sepandî [lazy bum]"
 
-#: ../pidgin/gtkdialogs.c:115
+#: ../carrier/gtkdialogs.c:115
 #, fuzzy
 msgid "XMPP developer"
 msgstr "pêşxistinkar"
 
-#: ../pidgin/gtkdialogs.c:116
+#: ../carrier/gtkdialogs.c:116
 msgid "original author"
 msgstr "tîprêziya xweser"
 
-#: ../pidgin/gtkdialogs.c:133
+#: ../carrier/gtkdialogs.c:133
 msgid "Afrikaans"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:134 ../pidgin/gtkdialogs.c:226
+#: ../carrier/gtkdialogs.c:134 ../pidgin/gtkdialogs.c:226
 #, fuzzy
 msgid "Arabic"
 msgstr "Amharî"
 
-#: ../pidgin/gtkdialogs.c:135
+#: ../carrier/gtkdialogs.c:135
 msgid "Belarusian Latin"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:136 ../pidgin/gtkdialogs.c:137
-#: ../pidgin/gtkdialogs.c:227
+#: ../carrier/gtkdialogs.c:136 ../pidgin/gtkdialogs.c:137
+#: ../carrier/gtkdialogs.c:227
 msgid "Bulgarian"
 msgstr "Bulgarî"
 
-#: ../pidgin/gtkdialogs.c:138 ../pidgin/gtkdialogs.c:139
-#: ../pidgin/gtkdialogs.c:140 ../pidgin/gtkdialogs.c:141
+#: ../carrier/gtkdialogs.c:138 ../pidgin/gtkdialogs.c:139
+#: ../carrier/gtkdialogs.c:140 ../pidgin/gtkdialogs.c:141
 msgid "Bengali"
 msgstr "Bengalî"
 
-#: ../pidgin/gtkdialogs.c:142
+#: ../carrier/gtkdialogs.c:142
 msgid "Bosnian"
 msgstr "Bosnayî"
 
-#: ../pidgin/gtkdialogs.c:143 ../pidgin/gtkdialogs.c:228
-#: ../pidgin/gtkdialogs.c:229
+#: ../carrier/gtkdialogs.c:143 ../pidgin/gtkdialogs.c:228
+#: ../carrier/gtkdialogs.c:229
 msgid "Catalan"
 msgstr "Katalan"
 
-#: ../pidgin/gtkdialogs.c:144 ../pidgin/gtkdialogs.c:145
+#: ../carrier/gtkdialogs.c:144 ../pidgin/gtkdialogs.c:145
 msgid "Valencian-Catalan"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:146 ../pidgin/gtkdialogs.c:230
+#: ../carrier/gtkdialogs.c:146 ../pidgin/gtkdialogs.c:230
 msgid "Czech"
 msgstr "Çekî"
 
-#: ../pidgin/gtkdialogs.c:147 ../pidgin/gtkdialogs.c:148
+#: ../carrier/gtkdialogs.c:147 ../pidgin/gtkdialogs.c:148
 msgid "Danish"
 msgstr "Danîmarkî"
 
-#: ../pidgin/gtkdialogs.c:149 ../pidgin/gtkdialogs.c:150
-#: ../pidgin/gtkdialogs.c:231
+#: ../carrier/gtkdialogs.c:149 ../pidgin/gtkdialogs.c:150
+#: ../carrier/gtkdialogs.c:231
 msgid "German"
 msgstr "Almanî"
 
-#: ../pidgin/gtkdialogs.c:151 ../pidgin/gtkdialogs.c:152
-#: ../pidgin/gtkdialogs.c:153
+#: ../carrier/gtkdialogs.c:151 ../pidgin/gtkdialogs.c:152
+#: ../carrier/gtkdialogs.c:153
 msgid "Dzongkha"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:154 ../pidgin/gtkdialogs.c:155
+#: ../carrier/gtkdialogs.c:154 ../pidgin/gtkdialogs.c:155
 msgid "Greek"
 msgstr "Yewnanî"
 
-#: ../pidgin/gtkdialogs.c:156
+#: ../carrier/gtkdialogs.c:156
 msgid "Australian English"
 msgstr "Îngilîziya Awustralyayê"
 
-#: ../pidgin/gtkdialogs.c:157
+#: ../carrier/gtkdialogs.c:157
 msgid "Canadian English"
 msgstr "Îngilîziya Kanadayê"
 
-#: ../pidgin/gtkdialogs.c:158
+#: ../carrier/gtkdialogs.c:158
 msgid "British English"
 msgstr "Îngilîziya Brîtanyayê"
 
-#: ../pidgin/gtkdialogs.c:159
+#: ../carrier/gtkdialogs.c:159
 msgid "Esperanto"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:160 ../pidgin/gtkdialogs.c:232
-#: ../pidgin/gtkdialogs.c:233 ../pidgin/gtkdialogs.c:234
-#: ../pidgin/gtkdialogs.c:235
+#: ../carrier/gtkdialogs.c:160 ../pidgin/gtkdialogs.c:232
+#: ../carrier/gtkdialogs.c:233 ../pidgin/gtkdialogs.c:234
+#: ../carrier/gtkdialogs.c:235
 msgid "Spanish"
 msgstr "Spanî"
 
-#: ../pidgin/gtkdialogs.c:161
+#: ../carrier/gtkdialogs.c:161
 msgid "Estonian"
 msgstr "Estonî"
 
-#: ../pidgin/gtkdialogs.c:162 ../pidgin/gtkdialogs.c:163
+#: ../carrier/gtkdialogs.c:162 ../pidgin/gtkdialogs.c:163
 msgid "Euskera(Basque)"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:164 ../pidgin/gtkdialogs.c:165
-#: ../pidgin/gtkdialogs.c:166
+#: ../carrier/gtkdialogs.c:164 ../pidgin/gtkdialogs.c:165
+#: ../carrier/gtkdialogs.c:166
 msgid "Persian"
 msgstr "Farsî"
 
-#: ../pidgin/gtkdialogs.c:167 ../pidgin/gtkdialogs.c:236
-#: ../pidgin/gtkdialogs.c:237
+#: ../carrier/gtkdialogs.c:167 ../pidgin/gtkdialogs.c:236
+#: ../carrier/gtkdialogs.c:237
 msgid "Finnish"
 msgstr "Fînikî"
 
-#: ../pidgin/gtkdialogs.c:168 ../pidgin/gtkdialogs.c:238
-#: ../pidgin/gtkdialogs.c:239 ../pidgin/gtkdialogs.c:240
-#: ../pidgin/gtkdialogs.c:241
+#: ../carrier/gtkdialogs.c:168 ../pidgin/gtkdialogs.c:238
+#: ../carrier/gtkdialogs.c:239 ../pidgin/gtkdialogs.c:240
+#: ../carrier/gtkdialogs.c:241
 msgid "French"
 msgstr "Fransî"
 
-#: ../pidgin/gtkdialogs.c:169 ../pidgin/gtkdialogs.c:170
-#: ../pidgin/gtkdialogs.c:242
+#: ../carrier/gtkdialogs.c:169 ../pidgin/gtkdialogs.c:170
+#: ../carrier/gtkdialogs.c:242
 msgid "Galician"
 msgstr "Zimanê Galisî"
 
-#: ../pidgin/gtkdialogs.c:171 ../pidgin/gtkdialogs.c:172
+#: ../carrier/gtkdialogs.c:171 ../pidgin/gtkdialogs.c:172
 msgid "Gujarati"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:172
+#: ../carrier/gtkdialogs.c:172
 msgid "Gujarati Language Team"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:173 ../pidgin/gtkdialogs.c:243
+#: ../carrier/gtkdialogs.c:173 ../pidgin/gtkdialogs.c:243
 msgid "Hebrew"
 msgstr "Îbranî"
 
-#: ../pidgin/gtkdialogs.c:174
+#: ../carrier/gtkdialogs.c:174
 msgid "Hindi"
 msgstr "Hindî"
 
-#: ../pidgin/gtkdialogs.c:175 ../pidgin/gtkdialogs.c:244
+#: ../carrier/gtkdialogs.c:175 ../pidgin/gtkdialogs.c:244
 msgid "Hungarian"
 msgstr "Macarî"
 
-#: ../pidgin/gtkdialogs.c:176
+#: ../carrier/gtkdialogs.c:176
 #, fuzzy
 msgid "Indonesian"
 msgstr "Makedonî"
 
-#: ../pidgin/gtkdialogs.c:177 ../pidgin/gtkdialogs.c:245
+#: ../carrier/gtkdialogs.c:177 ../pidgin/gtkdialogs.c:245
 msgid "Italian"
 msgstr "Italî"
 
-#: ../pidgin/gtkdialogs.c:178 ../pidgin/gtkdialogs.c:246
-#: ../pidgin/gtkdialogs.c:247 ../pidgin/gtkdialogs.c:248
+#: ../carrier/gtkdialogs.c:178 ../pidgin/gtkdialogs.c:246
+#: ../carrier/gtkdialogs.c:247 ../pidgin/gtkdialogs.c:248
 msgid "Japanese"
 msgstr "Japonî"
 
-#: ../pidgin/gtkdialogs.c:179 ../pidgin/gtkdialogs.c:249
+#: ../carrier/gtkdialogs.c:179 ../pidgin/gtkdialogs.c:249
 msgid "Georgian"
 msgstr "Gurcî"
 
-#: ../pidgin/gtkdialogs.c:179
+#: ../carrier/gtkdialogs.c:179
 #, fuzzy
 msgid "Ubuntu Georgian Translators"
 msgstr "Wergêrên Niha"
 
-#: ../pidgin/gtkdialogs.c:180
+#: ../carrier/gtkdialogs.c:180
 #, fuzzy
 msgid "Kannada"
 msgstr "Qedexe"
 
-#: ../pidgin/gtkdialogs.c:180
+#: ../carrier/gtkdialogs.c:180
 msgid "Kannada Translation team"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:181 ../pidgin/gtkdialogs.c:250
-#: ../pidgin/gtkdialogs.c:251
+#: ../carrier/gtkdialogs.c:181 ../pidgin/gtkdialogs.c:250
+#: ../carrier/gtkdialogs.c:251
 msgid "Korean"
 msgstr "Koreyî"
 
-#: ../pidgin/gtkdialogs.c:182 ../pidgin/gtkdialogs.c:183
-#: ../pidgin/gtkdialogs.c:184
+#: ../carrier/gtkdialogs.c:182 ../pidgin/gtkdialogs.c:183
+#: ../carrier/gtkdialogs.c:184
 msgid "Kurdish"
 msgstr "Kurdî"
 
-#: ../pidgin/gtkdialogs.c:185
+#: ../carrier/gtkdialogs.c:185
 msgid "Lao"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:186 ../pidgin/gtkdialogs.c:252
-#: ../pidgin/gtkdialogs.c:253
+#: ../carrier/gtkdialogs.c:186 ../pidgin/gtkdialogs.c:252
+#: ../carrier/gtkdialogs.c:253
 msgid "Lithuanian"
 msgstr "Litwanî"
 
-#: ../pidgin/gtkdialogs.c:187 ../pidgin/gtkdialogs.c:188
-#: ../pidgin/gtkdialogs.c:189 ../pidgin/gtkdialogs.c:254
+#: ../carrier/gtkdialogs.c:187 ../pidgin/gtkdialogs.c:188
+#: ../carrier/gtkdialogs.c:189 ../pidgin/gtkdialogs.c:254
 msgid "Macedonian"
 msgstr "Makedonî"
 
-#: ../pidgin/gtkdialogs.c:190 ../pidgin/gtkdialogs.c:255
-#: ../pidgin/gtkdialogs.c:256
+#: ../carrier/gtkdialogs.c:190 ../pidgin/gtkdialogs.c:255
+#: ../carrier/gtkdialogs.c:256
 #, fuzzy
 msgid "Bokmål Norwegian"
 msgstr "Norwecî"
 
-#: ../pidgin/gtkdialogs.c:191
+#: ../carrier/gtkdialogs.c:191
 #, fuzzy
 msgid "Nepali"
 msgstr "Bengalî"
 
-#: ../pidgin/gtkdialogs.c:192
+#: ../carrier/gtkdialogs.c:192
 msgid "Dutch, Flemish"
 msgstr "Hollandî, Flemenî"
 
-#: ../pidgin/gtkdialogs.c:193
+#: ../carrier/gtkdialogs.c:193
 #, fuzzy
 msgid "Norwegian Nynorsk"
 msgstr "Norwecî (Nynorsk)"
 
-#: ../pidgin/gtkdialogs.c:194 ../pidgin/gtkdialogs.c:195
-#: ../pidgin/gtkdialogs.c:196 ../pidgin/gtkdialogs.c:257
+#: ../carrier/gtkdialogs.c:194 ../pidgin/gtkdialogs.c:195
+#: ../carrier/gtkdialogs.c:196 ../pidgin/gtkdialogs.c:257
 msgid "Polish"
 msgstr "Polonî"
 
-#: ../pidgin/gtkdialogs.c:197
+#: ../carrier/gtkdialogs.c:197
 msgid "Portuguese"
 msgstr "Portekizî"
 
-#: ../pidgin/gtkdialogs.c:198
+#: ../carrier/gtkdialogs.c:198
 msgid "Portuguese-Brazil"
 msgstr "Portekizî-Brezîlya"
 
-#: ../pidgin/gtkdialogs.c:199
+#: ../carrier/gtkdialogs.c:199
 #, fuzzy
 msgid "Pashto"
 msgstr "Wêne"
 
-#: ../pidgin/gtkdialogs.c:200
+#: ../carrier/gtkdialogs.c:200
 msgid "Romanian"
 msgstr "Romanî"
 
-#: ../pidgin/gtkdialogs.c:201 ../pidgin/gtkdialogs.c:258
-#: ../pidgin/gtkdialogs.c:259
+#: ../carrier/gtkdialogs.c:201 ../pidgin/gtkdialogs.c:258
+#: ../carrier/gtkdialogs.c:259
 msgid "Russian"
 msgstr "Rusî"
 
-#: ../pidgin/gtkdialogs.c:202 ../pidgin/gtkdialogs.c:203
-#: ../pidgin/gtkdialogs.c:260 ../pidgin/gtkdialogs.c:261
-#: ../pidgin/gtkdialogs.c:262
+#: ../carrier/gtkdialogs.c:202 ../pidgin/gtkdialogs.c:203
+#: ../carrier/gtkdialogs.c:260 ../pidgin/gtkdialogs.c:261
+#: ../carrier/gtkdialogs.c:262
 msgid "Slovak"
 msgstr "Slovakî"
 
-#: ../pidgin/gtkdialogs.c:204 ../pidgin/gtkdialogs.c:263
+#: ../carrier/gtkdialogs.c:204 ../pidgin/gtkdialogs.c:263
 msgid "Slovenian"
 msgstr "Slovenî"
 
-#: ../pidgin/gtkdialogs.c:205
+#: ../carrier/gtkdialogs.c:205
 msgid "Albanian"
 msgstr "Albanî"
 
-#: ../pidgin/gtkdialogs.c:206 ../pidgin/gtkdialogs.c:207
-#: ../pidgin/gtkdialogs.c:264 ../pidgin/gtkdialogs.c:265
+#: ../carrier/gtkdialogs.c:206 ../pidgin/gtkdialogs.c:207
+#: ../carrier/gtkdialogs.c:264 ../pidgin/gtkdialogs.c:265
 msgid "Serbian"
 msgstr "Sirpkî"
 
-#: ../pidgin/gtkdialogs.c:208 ../pidgin/gtkdialogs.c:266
-#: ../pidgin/gtkdialogs.c:267
+#: ../carrier/gtkdialogs.c:208 ../pidgin/gtkdialogs.c:266
+#: ../carrier/gtkdialogs.c:267
 msgid "Swedish"
 msgstr "Swêdî"
 
-#: ../pidgin/gtkdialogs.c:209
+#: ../carrier/gtkdialogs.c:209
 msgid "Tamil"
 msgstr "Tamil"
 
-#: ../pidgin/gtkdialogs.c:210
+#: ../carrier/gtkdialogs.c:210
 msgid "Telugu"
 msgstr "Telugu"
 
-#: ../pidgin/gtkdialogs.c:211
+#: ../carrier/gtkdialogs.c:211
 #, fuzzy
 msgid "Thai"
 msgstr "Tamil"
 
-#: ../pidgin/gtkdialogs.c:212 ../pidgin/gtkdialogs.c:268
+#: ../carrier/gtkdialogs.c:212 ../pidgin/gtkdialogs.c:268
 msgid "Turkish"
 msgstr "Tirkî"
 
-#: ../pidgin/gtkdialogs.c:213
+#: ../carrier/gtkdialogs.c:213
 msgid "Vietnamese"
 msgstr "Vietnamî"
 
-#: ../pidgin/gtkdialogs.c:213
+#: ../carrier/gtkdialogs.c:213
 msgid "T.M.Thanh and the Gnome-Vi Team"
 msgstr "T.M.Thanh û Gnome-Vi Team"
 
-#: ../pidgin/gtkdialogs.c:214 ../pidgin/gtkdialogs.c:269
+#: ../carrier/gtkdialogs.c:214 ../pidgin/gtkdialogs.c:269
 msgid "Simplified Chinese"
 msgstr "Çîniya Hêsan"
 
-#: ../pidgin/gtkdialogs.c:215 ../pidgin/gtkdialogs.c:216
-#: ../pidgin/gtkdialogs.c:217
+#: ../carrier/gtkdialogs.c:215 ../pidgin/gtkdialogs.c:216
+#: ../carrier/gtkdialogs.c:217
 msgid "Hong Kong Chinese"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:218 ../pidgin/gtkdialogs.c:219
-#: ../pidgin/gtkdialogs.c:270
+#: ../carrier/gtkdialogs.c:218 ../pidgin/gtkdialogs.c:219
+#: ../carrier/gtkdialogs.c:270
 msgid "Traditional Chinese"
 msgstr "Çîniya Dêrîn"
 
-#: ../pidgin/gtkdialogs.c:225
+#: ../carrier/gtkdialogs.c:225
 msgid "Amharic"
 msgstr "Amharî"
 
-#: ../pidgin/gtkdialogs.c:357
+#: ../carrier/gtkdialogs.c:357
 #, fuzzy, c-format
 msgid "About %s"
 msgstr "Derbarê Gaimê de"
 
-#: ../pidgin/gtkdialogs.c:400
+#: ../carrier/gtkdialogs.c:400
 #, c-format
 msgid ""
 "%s is a graphical modular messaging client based on libpurple which is "
@@ -15018,49 +15018,49 @@ msgid ""
 "<BR><BR>"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:418
+#: ../carrier/gtkdialogs.c:418
 #, fuzzy, c-format
 msgid "<FONT SIZE=\"4\">IRC:</FONT> #pidgin on irc.freenode.net<BR><BR>"
 msgstr "<FONT SIZE=\"4\">IRC:</FONT> #gaim on irc.freenode.net<BR><BR>"
 
-#: ../pidgin/gtkdialogs.c:423
+#: ../carrier/gtkdialogs.c:423
 msgid "Current Developers"
 msgstr "Pêşvebirên heyî"
 
-#: ../pidgin/gtkdialogs.c:438
+#: ../carrier/gtkdialogs.c:438
 msgid "Crazy Patch Writers"
 msgstr "Crazy Patch Writers"
 
-#: ../pidgin/gtkdialogs.c:453
+#: ../carrier/gtkdialogs.c:453
 msgid "Retired Developers"
 msgstr "Pêşkêşkerên berê"
 
-#: ../pidgin/gtkdialogs.c:468
+#: ../carrier/gtkdialogs.c:468
 #, fuzzy
 msgid "Retired Crazy Patch Writers"
 msgstr "Crazy Patch Writers"
 
-#: ../pidgin/gtkdialogs.c:483
+#: ../carrier/gtkdialogs.c:483
 msgid "Artists"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:498
+#: ../carrier/gtkdialogs.c:498
 msgid "Current Translators"
 msgstr "Wergêrên Niha"
 
-#: ../pidgin/gtkdialogs.c:518
+#: ../carrier/gtkdialogs.c:518
 msgid "Past Translators"
 msgstr "Wergêrên Kevn"
 
-#: ../pidgin/gtkdialogs.c:536
+#: ../carrier/gtkdialogs.c:536
 msgid "Debugging Information"
 msgstr "Agahiya neqandinê"
 
-#: ../pidgin/gtkdialogs.c:906
+#: ../carrier/gtkdialogs.c:906
 msgid "Get User Info"
 msgstr "Agahiya Bikarhêr Bistîne"
 
-#: ../pidgin/gtkdialogs.c:908
+#: ../carrier/gtkdialogs.c:908
 msgid ""
 "Please enter the screen name or alias of the person whose info you would "
 "like to view."
@@ -15068,11 +15068,11 @@ msgstr ""
 "Ji kerema xwe re şexsê ku tu dixwazî agahiyên wî bibîne navê dîmen an jî "
 "etîketa şexs binivîse."
 
-#: ../pidgin/gtkdialogs.c:998
+#: ../carrier/gtkdialogs.c:998
 msgid "View User Log"
 msgstr "Tomara Bikarhêner Bibîne"
 
-#: ../pidgin/gtkdialogs.c:1000
+#: ../carrier/gtkdialogs.c:1000
 msgid ""
 "Please enter the screen name or alias of the person whose log you would like "
 "to view."
@@ -15080,32 +15080,32 @@ msgstr ""
 "Ji kerema xwe re şexsê ku tu dixwazî tomarên wî bibîne navê dîmen yan jî "
 "etîketa şexs binivîse."
 
-#: ../pidgin/gtkdialogs.c:1020
+#: ../carrier/gtkdialogs.c:1020
 msgid "Alias Contact"
 msgstr "Navê Xuya Dibe"
 
-#: ../pidgin/gtkdialogs.c:1021
+#: ../carrier/gtkdialogs.c:1021
 msgid "Enter an alias for this contact."
 msgstr "Ji bo vî kesê navê xuya dibe têkevê."
 
-#: ../pidgin/gtkdialogs.c:1043
+#: ../carrier/gtkdialogs.c:1043
 #, c-format
 msgid "Enter an alias for %s."
 msgstr "Navê xuya dibe yê %s têkevê."
 
-#: ../pidgin/gtkdialogs.c:1045
+#: ../carrier/gtkdialogs.c:1045
 msgid "Alias Buddy"
 msgstr "Navê Xuya Dibe"
 
-#: ../pidgin/gtkdialogs.c:1066
+#: ../carrier/gtkdialogs.c:1066
 msgid "Alias Chat"
 msgstr "Chata Xuya Dibe"
 
-#: ../pidgin/gtkdialogs.c:1067
+#: ../carrier/gtkdialogs.c:1067
 msgid "Enter an alias for this chat."
 msgstr "Ji bo vê chatê navê xuya dibe têkevê."
 
-#: ../pidgin/gtkdialogs.c:1106
+#: ../carrier/gtkdialogs.c:1106
 #, c-format
 msgid ""
 "You are about to remove the contact containing %s and %d other buddy from "
@@ -15120,15 +15120,15 @@ msgstr[1] ""
 "Tu dike kesê ku %s û %d dihewîne ji lîsteya xwe ya kesan bibe. Tu dixwazî "
 "berdewam bikî?"
 
-#: ../pidgin/gtkdialogs.c:1114
+#: ../carrier/gtkdialogs.c:1114
 msgid "Remove Contact"
 msgstr "Têkiliyê Rake"
 
-#: ../pidgin/gtkdialogs.c:1117
+#: ../carrier/gtkdialogs.c:1117
 msgid "_Remove Contact"
 msgstr "_Têkildar jê bibe"
 
-#: ../pidgin/gtkdialogs.c:1148
+#: ../carrier/gtkdialogs.c:1148
 #, fuzzy, c-format
 msgid ""
 "You are about to merge the group called %s into the group called %s. Do you "
@@ -15137,17 +15137,17 @@ msgstr ""
 "Tu koma %s û hemû endaman ji lîsteya xwe ya hevalan derdixe.\n"
 "Tu dixwazî bidomînî?"
 
-#: ../pidgin/gtkdialogs.c:1155
+#: ../carrier/gtkdialogs.c:1155
 #, fuzzy
 msgid "Merge Groups"
 msgstr "Komê jê bibe"
 
-#: ../pidgin/gtkdialogs.c:1158
+#: ../carrier/gtkdialogs.c:1158
 #, fuzzy
 msgid "_Merge Groups"
 msgstr "Grubê jÊ bibe"
 
-#: ../pidgin/gtkdialogs.c:1208
+#: ../carrier/gtkdialogs.c:1208
 #, c-format
 msgid ""
 "You are about to remove the group %s and all its members from your buddy "
@@ -15156,196 +15156,196 @@ msgstr ""
 "Tu koma %s û hemû endaman ji lîsteya xwe ya hevalan derdixe.\n"
 "Tu dixwazî bidomînî?"
 
-#: ../pidgin/gtkdialogs.c:1211
+#: ../carrier/gtkdialogs.c:1211
 msgid "Remove Group"
 msgstr "Komê jê bibe"
 
-#: ../pidgin/gtkdialogs.c:1214
+#: ../carrier/gtkdialogs.c:1214
 msgid "_Remove Group"
 msgstr "_Komê Jê bibe"
 
-#: ../pidgin/gtkdialogs.c:1247
+#: ../carrier/gtkdialogs.c:1247
 #, c-format
 msgid ""
 "You are about to remove %s from your buddy list.  Do you want to continue?"
 msgstr "Tu %s 'ê ji lîsteya xwe ya hevalan dibî. Dixwazî dewam bikî?"
 
-#: ../pidgin/gtkdialogs.c:1250
+#: ../carrier/gtkdialogs.c:1250
 msgid "Remove Buddy"
 msgstr "Jê bibe"
 
-#: ../pidgin/gtkdialogs.c:1253
+#: ../carrier/gtkdialogs.c:1253
 msgid "_Remove Buddy"
 msgstr "Vê/î Kesê/ê Rake"
 
-#: ../pidgin/gtkdialogs.c:1274
+#: ../carrier/gtkdialogs.c:1274
 #, c-format
 msgid ""
 "You are about to remove the chat %s from your buddy list.  Do you want to "
 "continue?"
 msgstr "Tu chata %s 'ê ji lîsteya xwe ya hevalan dibî. Dixwazî dewam bikî?"
 
-#: ../pidgin/gtkdialogs.c:1277
+#: ../carrier/gtkdialogs.c:1277
 msgid "Remove Chat"
 msgstr "Chatê Jê Bibe"
 
-#: ../pidgin/gtkdialogs.c:1280
+#: ../carrier/gtkdialogs.c:1280
 msgid "_Remove Chat"
 msgstr "_Sohbetê Jê bibe"
 
-#: ../pidgin/gtkdocklet.c:150
+#: ../carrier/gtkdocklet.c:150
 msgid "Right-click for more unread messages...\n"
 msgstr "Rastê bitikîne ji bo tu peyamên din ên nexwendî bibînî...\n"
 
-#: ../pidgin/gtkdocklet.c:435
+#: ../carrier/gtkdocklet.c:435
 msgid "Change Status"
 msgstr "Rewşê Biguhere"
 
-#: ../pidgin/gtkdocklet.c:487
+#: ../carrier/gtkdocklet.c:487
 msgid "Show Buddy List"
 msgstr "Lîsteya Kesan Nîşan Bide"
 
-#: ../pidgin/gtkdocklet.c:513
+#: ../carrier/gtkdocklet.c:513
 msgid "New Message..."
 msgstr "Peyama Nû..."
 
-#: ../pidgin/gtkdocklet.c:528
+#: ../carrier/gtkdocklet.c:528
 msgid "Mute Sounds"
 msgstr "Bêdeng"
 
-#: ../pidgin/gtkdocklet.c:535
+#: ../carrier/gtkdocklet.c:535
 #, fuzzy
 msgid "Blink on new message"
 msgstr "Peyama Nû..."
 
-#: ../pidgin/gtkdocklet.c:542
+#: ../carrier/gtkdocklet.c:542
 msgid "Quit"
 msgstr "Derkeve"
 
-#: ../pidgin/gtkft.c:154
+#: ../carrier/gtkft.c:154
 #, fuzzy
 msgid "Not started"
 msgstr "Nayê destekirin"
 
-#: ../pidgin/gtkft.c:274
+#: ../carrier/gtkft.c:274
 msgid "<b>Receiving As:</b>"
 msgstr "<b>Standî:</b>"
 
-#: ../pidgin/gtkft.c:276
+#: ../carrier/gtkft.c:276
 msgid "<b>Receiving From:</b>"
 msgstr "<b>Şandkar:</b>"
 
-#: ../pidgin/gtkft.c:280
+#: ../carrier/gtkft.c:280
 msgid "<b>Sending To:</b>"
 msgstr "<b>Bo Kê:</b>"
 
-#: ../pidgin/gtkft.c:282
+#: ../carrier/gtkft.c:282
 msgid "<b>Sending As:</b>"
 msgstr "<b>Yê Tê Şandin:</b>"
 
-#: ../pidgin/gtkft.c:498
+#: ../carrier/gtkft.c:498
 msgid "There is no application configured to open this type of file."
 msgstr "Ji bo vekirina vî pelî sepan nehatiye diyarkirin."
 
-#: ../pidgin/gtkft.c:503
+#: ../carrier/gtkft.c:503
 msgid "An error occurred while opening the file."
 msgstr "Di vekirina pelî de xeletiyek çêbû."
 
-#: ../pidgin/gtkft.c:540
+#: ../carrier/gtkft.c:540
 #, c-format
 msgid "Error launching %s: %s"
 msgstr "%s çewtiya xebitandinê: %s"
 
-#: ../pidgin/gtkft.c:549
+#: ../carrier/gtkft.c:549
 #, c-format
 msgid "Error running %s"
 msgstr "%s çewtiya xebitandinê"
 
-#: ../pidgin/gtkft.c:550
+#: ../carrier/gtkft.c:550
 #, c-format
 msgid "Process returned error code %d"
 msgstr "Di xebatê de çewtî. koda çewtiyê %d"
 
-#: ../pidgin/gtkft.c:697
+#: ../carrier/gtkft.c:697
 msgid "Filename:"
 msgstr "Navê pelî:"
 
-#: ../pidgin/gtkft.c:698
+#: ../carrier/gtkft.c:698
 msgid "Local File:"
 msgstr "Bikarhênera Herêmî"
 
-#: ../pidgin/gtkft.c:700
+#: ../carrier/gtkft.c:700
 msgid "Speed:"
 msgstr "Lez:"
 
-#: ../pidgin/gtkft.c:701
+#: ../carrier/gtkft.c:701
 msgid "Time Elapsed:"
 msgstr "Dema Derbas bûye:"
 
-#: ../pidgin/gtkft.c:702
+#: ../carrier/gtkft.c:702
 msgid "Time Remaining:"
 msgstr "Dema Maye:"
 
-#: ../pidgin/gtkft.c:784
+#: ../carrier/gtkft.c:784
 msgid "Close this window when all transfers _finish"
 msgstr "Dema ku hemû guheztin bidawî bibin vê paceyê bigire"
 
-#: ../pidgin/gtkft.c:794
+#: ../carrier/gtkft.c:794
 msgid "C_lear finished transfers"
 msgstr "Veguhastinên hatine temamkirin _paqij bike"
 
 #. "Download Details" arrow
-#: ../pidgin/gtkft.c:803
+#: ../carrier/gtkft.c:803
 msgid "File transfer _details"
 msgstr "Hûragahiyên _guheztina pelî"
 
 #. Pause button
-#: ../pidgin/gtkft.c:833 ../pidgin/pidginstock.c:95
+#: ../carrier/gtkft.c:833 ../pidgin/pidginstock.c:95
 msgid "_Pause"
 msgstr "_Bisekinîne"
 
 #. Resume button
-#: ../pidgin/gtkft.c:843
+#: ../carrier/gtkft.c:843
 msgid "_Resume"
 msgstr "Bi_domîne"
 
-#: ../pidgin/gtkimhtml.c:816
+#: ../carrier/gtkimhtml.c:816
 msgid "Paste as Plain _Text"
 msgstr ""
 
-#: ../pidgin/gtkimhtml.c:833 ../pidgin/gtkimhtmltoolbar.c:1194
+#: ../carrier/gtkimhtml.c:833 ../pidgin/gtkimhtmltoolbar.c:1194
 msgid "_Reset formatting"
 msgstr "Teşekirinê _vesaz bike"
 
-#: ../pidgin/gtkimhtml.c:1373
+#: ../carrier/gtkimhtml.c:1373
 msgid "Hyperlink color"
 msgstr "Rengê girêdanê"
 
-#: ../pidgin/gtkimhtml.c:1374
+#: ../carrier/gtkimhtml.c:1374
 msgid "Color to draw hyperlinks."
 msgstr "Girêdanan bireng bike"
 
-#: ../pidgin/gtkimhtml.c:1377
+#: ../carrier/gtkimhtml.c:1377
 msgid "Hyperlink prelight color"
 msgstr "Rengê girêdanê"
 
-#: ../pidgin/gtkimhtml.c:1378
+#: ../carrier/gtkimhtml.c:1378
 msgid "Color to draw hyperlinks when mouse is over them."
 msgstr "Dema mişk hate ser girêdanan birengîne."
 
-#: ../pidgin/gtkimhtml.c:1598
+#: ../carrier/gtkimhtml.c:1598
 msgid "_Copy E-Mail Address"
 msgstr "E-Peyamê _Ji Ber Bigire"
 
-#: ../pidgin/gtkimhtml.c:1610
+#: ../carrier/gtkimhtml.c:1610
 msgid "_Open Link in Browser"
 msgstr "Girêdanê Di Gerokê de Veke"
 
-#: ../pidgin/gtkimhtml.c:1620
+#: ../carrier/gtkimhtml.c:1620
 msgid "_Copy Link Location"
 msgstr "Girêdanê _Ji Ber Bigire"
 
-#: ../pidgin/gtkimhtml.c:3369
+#: ../carrier/gtkimhtml.c:3369
 msgid ""
 "<span size='larger' weight='bold'>Unrecognized file type</span>\n"
 "\n"
@@ -15355,7 +15355,7 @@ msgstr ""
 "\n"
 "PNG tê hilbijartin."
 
-#: ../pidgin/gtkimhtml.c:3372
+#: ../carrier/gtkimhtml.c:3372
 msgid ""
 "Unrecognized file type\n"
 "\n"
@@ -15365,7 +15365,7 @@ msgstr ""
 "\n"
 "PNG tê hilbijartin."
 
-#: ../pidgin/gtkimhtml.c:3401
+#: ../carrier/gtkimhtml.c:3401
 #, c-format
 msgid ""
 "<span size='larger' weight='bold'>Error saving image</span>\n"
@@ -15376,7 +15376,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../pidgin/gtkimhtml.c:3404
+#: ../carrier/gtkimhtml.c:3404
 #, c-format
 msgid ""
 "Error saving image\n"
@@ -15384,36 +15384,36 @@ msgid ""
 "%s"
 msgstr "Di tomarkirina wêneyê de xeletî: %s"
 
-#: ../pidgin/gtkimhtml.c:3482 ../pidgin/gtkimhtml.c:3494
+#: ../carrier/gtkimhtml.c:3482 ../pidgin/gtkimhtml.c:3494
 msgid "Save Image"
 msgstr "Wêneyê Tomar Bike"
 
-#: ../pidgin/gtkimhtml.c:3522
+#: ../carrier/gtkimhtml.c:3522
 #, c-format
 msgid "_Save Image..."
 msgstr "Wêneyê _Tomar Bike..."
 
-#: ../pidgin/gtkimhtmltoolbar.c:163
+#: ../carrier/gtkimhtmltoolbar.c:163
 msgid "Select Font"
 msgstr "Cureyê Nivîsê Hilbijêre"
 
-#: ../pidgin/gtkimhtmltoolbar.c:242
+#: ../carrier/gtkimhtmltoolbar.c:242
 msgid "Select Text Color"
 msgstr "Rengê Nivîsê HilbijÊre"
 
-#: ../pidgin/gtkimhtmltoolbar.c:321
+#: ../carrier/gtkimhtmltoolbar.c:321
 msgid "Select Background Color"
 msgstr "Rengê Rûerdê Hilbijêre"
 
-#: ../pidgin/gtkimhtmltoolbar.c:410
+#: ../carrier/gtkimhtmltoolbar.c:410
 msgid "_URL"
 msgstr "_URL"
 
-#: ../pidgin/gtkimhtmltoolbar.c:418
+#: ../carrier/gtkimhtmltoolbar.c:418
 msgid "_Description"
 msgstr "_Daxûyanî"
 
-#: ../pidgin/gtkimhtmltoolbar.c:421
+#: ../carrier/gtkimhtmltoolbar.c:421
 msgid ""
 "Please enter the URL and description of the link that you want to insert. "
 "The description is optional."
@@ -15421,210 +15421,210 @@ msgstr ""
 "Ji kerema xwe re girêdana ku dixwazî lê xêde bikî û (heke bixwazî) "
 "ravekirina wê têkevê."
 
-#: ../pidgin/gtkimhtmltoolbar.c:425
+#: ../carrier/gtkimhtmltoolbar.c:425
 msgid "Please enter the URL of the link that you want to insert."
 msgstr "Ji kerema xwe re girêdana ku dixwazî lê zêde bikî, têkevê."
 
-#: ../pidgin/gtkimhtmltoolbar.c:430 ../pidgin/gtkimhtmltoolbar.c:1102
+#: ../carrier/gtkimhtmltoolbar.c:430 ../pidgin/gtkimhtmltoolbar.c:1102
 msgid "Insert Link"
 msgstr "Girêdan Lê Zêde Bike"
 
-#: ../pidgin/gtkimhtmltoolbar.c:434 ../pidgin/gtkimhtmltoolbar.c:1262
+#: ../carrier/gtkimhtmltoolbar.c:434 ../pidgin/gtkimhtmltoolbar.c:1262
 msgid "_Insert"
 msgstr "_Lê Zêde Bike"
 
-#: ../pidgin/gtkimhtmltoolbar.c:514
+#: ../carrier/gtkimhtmltoolbar.c:514
 #, c-format
 msgid "Failed to store image: %s\n"
 msgstr "Wêne nehat tomarkirin: %s\n"
 
-#: ../pidgin/gtkimhtmltoolbar.c:540 ../pidgin/gtkimhtmltoolbar.c:550
+#: ../carrier/gtkimhtmltoolbar.c:540 ../pidgin/gtkimhtmltoolbar.c:550
 msgid "Insert Image"
 msgstr "Wêne lê zêde bike"
 
-#: ../pidgin/gtkimhtmltoolbar.c:761
+#: ../carrier/gtkimhtmltoolbar.c:761
 msgid "This theme has no available smileys."
 msgstr "Di vê temayê de smiley nîn in."
 
 #. show everything
-#: ../pidgin/gtkimhtmltoolbar.c:778
+#: ../carrier/gtkimhtmltoolbar.c:778
 msgid "Smile!"
 msgstr "Smile!"
 
-#: ../pidgin/gtkimhtmltoolbar.c:846 ../pidgin/gtkimhtmltoolbar.c:1219
+#: ../carrier/gtkimhtmltoolbar.c:846 ../pidgin/gtkimhtmltoolbar.c:1219
 #, fuzzy
 msgid "_Font"
 msgstr "Curenivîs"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1054
+#: ../carrier/gtkimhtmltoolbar.c:1054
 #, fuzzy
 msgid "Group Items"
 msgstr "Nave Komê"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1054
+#: ../carrier/gtkimhtmltoolbar.c:1054
 msgid "Ungroup Items"
 msgstr ""
 
-#: ../pidgin/gtkimhtmltoolbar.c:1088 ../pidgin/plugins/convcolors.c:287
+#: ../carrier/gtkimhtmltoolbar.c:1088 ../pidgin/plugins/convcolors.c:287
 msgid "Bold"
 msgstr "Qalind"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1089 ../pidgin/plugins/convcolors.c:294
+#: ../carrier/gtkimhtmltoolbar.c:1089 ../pidgin/plugins/convcolors.c:294
 msgid "Italic"
 msgstr "Paldayî"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1090 ../pidgin/plugins/convcolors.c:301
+#: ../carrier/gtkimhtmltoolbar.c:1090 ../pidgin/plugins/convcolors.c:301
 msgid "Underline"
 msgstr "Binxêz"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1091
+#: ../carrier/gtkimhtmltoolbar.c:1091
 msgid "Strikethrough"
 msgstr ""
 
-#: ../pidgin/gtkimhtmltoolbar.c:1093
+#: ../carrier/gtkimhtmltoolbar.c:1093
 #, fuzzy
 msgid "Increase Font Size"
 msgstr "Mezinahiya nivîsê wekî tune bihesibîne"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1094
+#: ../carrier/gtkimhtmltoolbar.c:1094
 msgid "Decrease Font Size"
 msgstr ""
 
-#: ../pidgin/gtkimhtmltoolbar.c:1096
+#: ../carrier/gtkimhtmltoolbar.c:1096
 msgid "Font Face"
 msgstr "Font"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1097
+#: ../carrier/gtkimhtmltoolbar.c:1097
 #, fuzzy
 msgid "Background Color"
 msgstr "Rengê zemînê"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1098
+#: ../carrier/gtkimhtmltoolbar.c:1098
 #, fuzzy
 msgid "Foreground Color"
 msgstr "Rengê nivîsê"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1100
+#: ../carrier/gtkimhtmltoolbar.c:1100
 #, fuzzy
 msgid "Reset Formatting"
 msgstr "Şêweyê vesazkirinê"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1103
+#: ../carrier/gtkimhtmltoolbar.c:1103
 #, fuzzy
 msgid "Insert IM Image"
 msgstr "Wêne lê zêde bike"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1104
+#: ../carrier/gtkimhtmltoolbar.c:1104
 #, fuzzy
 msgid "Insert Smiley"
 msgstr "Smily têxê"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1179
+#: ../carrier/gtkimhtmltoolbar.c:1179
 #, fuzzy
 msgid "<b>_Bold</b>"
 msgstr "<b>_Şîfre:</b>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1180
+#: ../carrier/gtkimhtmltoolbar.c:1180
 #, fuzzy
 msgid "<i>_Italic</i>"
 msgstr " <i>(ircop)</i>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1181
+#: ../carrier/gtkimhtmltoolbar.c:1181
 #, fuzzy
 msgid "<u>_Underline</u>"
 msgstr "Binxêz"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1182
+#: ../carrier/gtkimhtmltoolbar.c:1182
 msgid "<span strikethrough='true'>Strikethrough</span>"
 msgstr ""
 
-#: ../pidgin/gtkimhtmltoolbar.c:1183
+#: ../carrier/gtkimhtmltoolbar.c:1183
 #, fuzzy
 msgid "<span size='larger'>_Larger</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Gaim v%s</span>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1185
+#: ../carrier/gtkimhtmltoolbar.c:1185
 #, fuzzy
 msgid "_Normal"
 msgstr "Asayî"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1187
+#: ../carrier/gtkimhtmltoolbar.c:1187
 msgid "<span size='smaller'>_Smaller</span>"
 msgstr ""
 
 #. If we want to show the formatting for the following items, we would
 #. * need to update them when formatting changes. The above items don't need
 #. * no updating nor nothin'
-#: ../pidgin/gtkimhtmltoolbar.c:1191
+#: ../carrier/gtkimhtmltoolbar.c:1191
 #, fuzzy
 msgid "_Font face"
 msgstr "Font"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1192
+#: ../carrier/gtkimhtmltoolbar.c:1192
 #, fuzzy
 msgid "Foreground _color"
 msgstr "Rengê nivîsê"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1193
+#: ../carrier/gtkimhtmltoolbar.c:1193
 #, fuzzy
 msgid "Bac_kground color"
 msgstr "Rengê zemînê"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1270
+#: ../carrier/gtkimhtmltoolbar.c:1270
 #, fuzzy
 msgid "_Smiley"
 msgstr "Smile!"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1276
+#: ../carrier/gtkimhtmltoolbar.c:1276
 #, fuzzy
 msgid "_Image"
 msgstr "Wêneyê Tomar Bike"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1282
+#: ../carrier/gtkimhtmltoolbar.c:1282
 #, fuzzy
 msgid "_Link"
 msgstr "_Beşdar bibe"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1288
+#: ../carrier/gtkimhtmltoolbar.c:1288
 msgid "_Horizontal rule"
 msgstr ""
 
-#: ../pidgin/gtklog.c:293
+#: ../carrier/gtklog.c:293
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the log of the conversation with "
 "%s which started at %s?"
 msgstr ""
 
-#: ../pidgin/gtklog.c:304
+#: ../carrier/gtklog.c:304
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the log of the conversation in %"
 "s which started at %s?"
 msgstr ""
 
-#: ../pidgin/gtklog.c:309
+#: ../carrier/gtklog.c:309
 #, fuzzy, c-format
 msgid ""
 "Are you sure you want to permanently delete the system log which started at %"
 "s?"
 msgstr "Tu li xwe bawer î ku tu dixwazî peyama li derve \"%s\" rakî?"
 
-#: ../pidgin/gtklog.c:453
+#: ../carrier/gtklog.c:453
 #, c-format
 msgid "<span size='larger' weight='bold'>Conversation in %s on %s</span>"
 msgstr ""
 
-#: ../pidgin/gtklog.c:456
+#: ../carrier/gtklog.c:456
 #, c-format
 msgid "<span size='larger' weight='bold'>Conversation with %s on %s</span>"
 msgstr ""
 
-#: ../pidgin/gtklog.c:503
+#: ../carrier/gtklog.c:503
 msgid "%B %Y"
 msgstr "%B %Y"
 
-#: ../pidgin/gtklog.c:550
+#: ../carrier/gtklog.c:550
 msgid ""
 "System events will only be logged if the \"Log all status changes to system "
 "log\" preference is enabled."
@@ -15632,7 +15632,7 @@ msgstr ""
 "Dema vebijêrka \"Hemû guherînên rewşê li rojenûska pergalê tomar bike\" "
 "çalak be wê bûyerên pergalê werine tomarkirin."
 
-#: ../pidgin/gtklog.c:554
+#: ../carrier/gtklog.c:554
 msgid ""
 "Instant messages will only be logged if the \"Log all instant messages\" "
 "preference is enabled."
@@ -15640,44 +15640,44 @@ msgstr ""
 "Peyama demdemî tenê dema vebijêrka \"Hemû peyamên demdemî tomar bike\" çalak "
 "be tê tomarkirin."
 
-#: ../pidgin/gtklog.c:557
+#: ../carrier/gtklog.c:557
 msgid ""
 "Chats will only be logged if the \"Log all chats\" preference is enabled."
 msgstr ""
 
-#: ../pidgin/gtklog.c:561
+#: ../carrier/gtklog.c:561
 msgid "No logs were found"
 msgstr "Tomara rojenûskê nehate dîtin"
 
 #. Steal the "HELP" response and use it to trigger browsing to the logs folder
-#: ../pidgin/gtklog.c:576
+#: ../carrier/gtklog.c:576
 msgid "_Browse logs folder"
 msgstr ""
 
-#: ../pidgin/gtklog.c:640
+#: ../carrier/gtklog.c:640
 msgid "Total log size:"
 msgstr "Bi gişî mezinahiya tomaran:"
 
-#: ../pidgin/gtklog.c:709
+#: ../carrier/gtklog.c:709
 #, c-format
 msgid "Conversations in %s"
 msgstr "Hevpeyvîn di %s de"
 
-#: ../pidgin/gtklog.c:717 ../pidgin/gtklog.c:779
+#: ../carrier/gtklog.c:717 ../pidgin/gtklog.c:779
 #, c-format
 msgid "Conversations with %s"
 msgstr "Bi %s 'ê re axaftin"
 
-#: ../pidgin/gtklog.c:804
+#: ../carrier/gtklog.c:804
 msgid "System Log"
 msgstr "Tomarên Pergalê"
 
-#: ../pidgin/gtkmain.c:386
+#: ../carrier/gtkmain.c:386
 #, fuzzy, c-format
 msgid "%s %s. Try `%s -h' for more information.\n"
 msgstr "Gaim %s. Ji bo zêdetir agahî, `%s -h' biceribîne.\n"
 
-#: ../pidgin/gtkmain.c:388
+#: ../carrier/gtkmain.c:388
 #, c-format
 msgid ""
 "%s %s\n"
@@ -15693,7 +15693,7 @@ msgid ""
 "  -v, --version       display the current version and exit\n"
 msgstr ""
 
-#: ../pidgin/gtkmain.c:512
+#: ../carrier/gtkmain.c:512
 #, c-format
 msgid ""
 "%s has segfaulted and attempted to dump a core file.\n"
@@ -15717,69 +15717,69 @@ msgstr ""
 
 #. Translators may want to transliterate the name.
 #. It is not to be translated.
-#: ../pidgin/gtkmain.c:699 ../pidgin/pidgin.h:51
+#: ../carrier/gtkmain.c:699 ../pidgin/pidgin.h:51
 #, fuzzy
 msgid "Pidgin"
 msgstr "Rûpelkirin"
 
-#: ../pidgin/gtknotify.c:349
+#: ../carrier/gtknotify.c:349
 msgid "Open All Messages"
 msgstr "Hemû peyaman veke"
 
-#: ../pidgin/gtknotify.c:402
+#: ../carrier/gtknotify.c:402
 msgid "<span weight=\"bold\" size=\"larger\">You have mail!</span>"
 msgstr ""
 
-#: ../pidgin/gtknotify.c:540
+#: ../carrier/gtknotify.c:540
 #, c-format
 msgid "%s has %d new message."
 msgid_plural "%s has %d new messages."
 msgstr[0] "%s, %d peyamên nû hene."
 msgstr[1] "%s, %d peyamên nû hene."
 
-#: ../pidgin/gtknotify.c:564
+#: ../carrier/gtknotify.c:564
 #, fuzzy, c-format
 msgid "<b>You have %d new e-mail.</b>"
 msgid_plural "<b>You have %d new e-mails.</b>"
 msgstr[0] "<b>Hûragahiyên têketanê</b>"
 msgstr[1] "<b>Hûragahiyên têketanê</b>"
 
-#: ../pidgin/gtknotify.c:989
+#: ../carrier/gtknotify.c:989
 #, fuzzy, c-format
 msgid "The browser command \"%s\" is invalid."
 msgstr "Fermana Gerokê <b>%s</b>nederbasdar."
 
-#: ../pidgin/gtknotify.c:991 ../pidgin/gtknotify.c:1003
-#: ../pidgin/gtknotify.c:1016 ../pidgin/gtknotify.c:1144
+#: ../carrier/gtknotify.c:991 ../pidgin/gtknotify.c:1003
+#: ../carrier/gtknotify.c:1016 ../pidgin/gtknotify.c:1144
 msgid "Unable to open URL"
 msgstr "Girêdan venabe"
 
-#: ../pidgin/gtknotify.c:1001 ../pidgin/gtknotify.c:1014
+#: ../carrier/gtknotify.c:1001 ../pidgin/gtknotify.c:1014
 #, fuzzy, c-format
 msgid "Error launching \"%s\": %s"
 msgstr "Xeletiya xebitandinê <b>%s</b>: %s"
 
-#: ../pidgin/gtknotify.c:1145
+#: ../carrier/gtknotify.c:1145
 msgid ""
 "The 'Manual' browser command has been chosen, but no command has been set."
 msgstr ""
 "Fermana gerok a \"Bi destan mîheng bike\" hat hilbijartin lê tu ferman nehat "
 "nivîsandin."
 
-#: ../pidgin/gtkplugin.c:265
+#: ../carrier/gtkplugin.c:265
 msgid "The following plugins will be unloaded."
 msgstr ""
 
-#: ../pidgin/gtkplugin.c:284
+#: ../carrier/gtkplugin.c:284
 msgid "Multiple plugins will be unloaded."
 msgstr ""
 
-#: ../pidgin/gtkplugin.c:288
+#: ../carrier/gtkplugin.c:288
 #, fuzzy
 msgid "Unload Plugins"
 msgstr "Têketanan barneke"
 
-#: ../pidgin/gtkplugin.c:400
+#: ../carrier/gtkplugin.c:400
 #, c-format
 msgid ""
 "%s%s<span weight=\"bold\">Written by:</span>\t%s\n"
@@ -15789,7 +15789,7 @@ msgstr ""
 "%s%s<span weight=\"bold\">Nivîskar:</span> %s <span weight=\"bold\">Rûpelê "
 "Torê:</span> %s <span weight=\"bold\">Navê Pel:</span> %s"
 
-#: ../pidgin/gtkplugin.c:410
+#: ../carrier/gtkplugin.c:410
 #, c-format
 msgid ""
 "%s\n"
@@ -15797,128 +15797,128 @@ msgid ""
 "Check the plugin website for an update.</span>"
 msgstr ""
 
-#: ../pidgin/gtkplugin.c:536
+#: ../carrier/gtkplugin.c:536
 msgid "Configure Pl_ugin"
 msgstr "Mîhenga Tê_ketanê"
 
-#: ../pidgin/gtkplugin.c:599
+#: ../carrier/gtkplugin.c:599
 msgid "<b>Plugin Details</b>"
 msgstr "<b>Hûragahiyên têketanê</b>"
 
-#: ../pidgin/gtkpounce.c:157
+#: ../carrier/gtkpounce.c:157
 msgid "Select a file"
 msgstr "Pelekî hilbijêre"
 
 #. Create the "Pounce on Whom" frame.
-#: ../pidgin/gtkpounce.c:532
+#: ../carrier/gtkpounce.c:532
 msgid "Pounce on Whom"
 msgstr ""
 
-#: ../pidgin/gtkpounce.c:559
+#: ../carrier/gtkpounce.c:559
 msgid "_Buddy name:"
 msgstr "Navê _Heval"
 
-#: ../pidgin/gtkpounce.c:593
+#: ../carrier/gtkpounce.c:593
 msgid "Si_gns on"
 msgstr "Têketin"
 
-#: ../pidgin/gtkpounce.c:595
+#: ../carrier/gtkpounce.c:595
 msgid "Signs o_ff"
 msgstr "Derketin"
 
-#: ../pidgin/gtkpounce.c:597
+#: ../carrier/gtkpounce.c:597
 msgid "Goes a_way"
 msgstr "Çûye derve"
 
-#: ../pidgin/gtkpounce.c:599
+#: ../carrier/gtkpounce.c:599
 msgid "Ret_urns from away"
 msgstr "Ji derve vegriya"
 
-#: ../pidgin/gtkpounce.c:601
+#: ../carrier/gtkpounce.c:601
 msgid "Becomes _idle"
 msgstr ""
 
-#: ../pidgin/gtkpounce.c:603
+#: ../carrier/gtkpounce.c:603
 msgid "Is no longer i_dle"
 msgstr ""
 
-#: ../pidgin/gtkpounce.c:605
+#: ../carrier/gtkpounce.c:605
 #, fuzzy
 msgid "Starts _typing"
 msgstr "Destpêkên_nivisandinê"
 
-#: ../pidgin/gtkpounce.c:607
+#: ../carrier/gtkpounce.c:607
 msgid "P_auses while typing"
 msgstr ""
 
-#: ../pidgin/gtkpounce.c:609
+#: ../carrier/gtkpounce.c:609
 #, fuzzy
 msgid "Stops t_yping"
 msgstr "Rawestandinên_nivisandinê"
 
-#: ../pidgin/gtkpounce.c:611
+#: ../carrier/gtkpounce.c:611
 msgid "Sends a _message"
 msgstr ""
 
-#: ../pidgin/gtkpounce.c:654
+#: ../carrier/gtkpounce.c:654
 msgid "Ope_n an IM window"
 msgstr "Paceyekê IM veke"
 
-#: ../pidgin/gtkpounce.c:656
+#: ../carrier/gtkpounce.c:656
 msgid "_Pop up a notification"
 msgstr ""
 
-#: ../pidgin/gtkpounce.c:658
+#: ../carrier/gtkpounce.c:658
 msgid "Send a _message"
 msgstr "Peyamekê bişîne"
 
-#: ../pidgin/gtkpounce.c:660
+#: ../carrier/gtkpounce.c:660
 msgid "E_xecute a command"
 msgstr "Fermanekê bide xebitandin"
 
-#: ../pidgin/gtkpounce.c:662
+#: ../carrier/gtkpounce.c:662
 msgid "P_lay a sound"
 msgstr "Deng bikar bîne"
 
-#: ../pidgin/gtkpounce.c:668
+#: ../carrier/gtkpounce.c:668
 msgid "Brows_e..."
 msgstr "Biger_e..."
 
-#: ../pidgin/gtkpounce.c:670
+#: ../carrier/gtkpounce.c:670
 msgid "Br_owse..."
 msgstr "Bi_gere..."
 
-#: ../pidgin/gtkpounce.c:671
+#: ../carrier/gtkpounce.c:671
 msgid "Pre_view"
 msgstr "Pêş_dîtin"
 
-#: ../pidgin/gtkpounce.c:798
+#: ../carrier/gtkpounce.c:798
 msgid "P_ounce only when my status is not Available"
 msgstr ""
 
-#: ../pidgin/gtkpounce.c:803
+#: ../carrier/gtkpounce.c:803
 msgid "_Recurring"
 msgstr "_Cardin xuyakirin"
 
-#: ../pidgin/gtkpounce.c:1246
+#: ../carrier/gtkpounce.c:1246
 msgid "Pounce Target"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:386
-#: ../pidgin/pixmaps/emotes/default/24/default.theme.in.h:1
+#: ../carrier/gtkprefs.c:386
+#: ../carrier/pixmaps/emotes/default/24/default.theme.in.h:1
 #, fuzzy
 msgid "Default"
 msgstr "GNOME Standart"
 
-#: ../pidgin/gtkprefs.c:517
+#: ../carrier/gtkprefs.c:517
 msgid "Smiley theme failed to unpack."
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:644
+#: ../carrier/gtkprefs.c:644
 msgid "Install Theme"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:697
+#: ../carrier/gtkprefs.c:697
 msgid ""
 "Select a smiley theme that you would like to use from the list below. New "
 "themes can be installed by dragging and dropping them onto the theme list."
@@ -15926,142 +15926,142 @@ msgstr ""
 "Ji lîsteya jêr dirbekî rûyê dikene yê ku tu dixwazî bikar bîne hilbijêre. "
 "Dirbên nû bi kaşkirin û berdanê re li lîsteya dirban zêde dibe."
 
-#: ../pidgin/gtkprefs.c:732
+#: ../carrier/gtkprefs.c:732
 msgid "Icon"
 msgstr "Îkon"
 
-#: ../pidgin/gtkprefs.c:894
+#: ../carrier/gtkprefs.c:894
 msgid "System Tray Icon"
 msgstr "Îkona negihiştî ya Pergalê"
 
-#: ../pidgin/gtkprefs.c:895
+#: ../carrier/gtkprefs.c:895
 #, fuzzy
 msgid "_Show system tray icon:"
 msgstr "Îkona negihiştî ya Pergalê"
 
-#: ../pidgin/gtkprefs.c:899
+#: ../carrier/gtkprefs.c:899
 #, fuzzy
 msgid "On unread messages"
 msgstr "Peyamên nexwendî"
 
-#: ../pidgin/gtkprefs.c:904
+#: ../carrier/gtkprefs.c:904
 #, fuzzy
 msgid "Conversation Window Hiding"
 msgstr "Paceyên Nivîsandinê"
 
-#: ../pidgin/gtkprefs.c:905
+#: ../carrier/gtkprefs.c:905
 #, fuzzy
 msgid "_Hide new IM conversations:"
 msgstr "Hevpeyvîneke n_û:"
 
-#: ../pidgin/gtkprefs.c:908 ../pidgin/gtkprefs.c:1944
+#: ../carrier/gtkprefs.c:908 ../pidgin/gtkprefs.c:1944
 msgid "When away"
 msgstr "Dema Li derve be"
 
 #. All the tab options!
-#: ../pidgin/gtkprefs.c:916
+#: ../carrier/gtkprefs.c:916
 msgid "Tabs"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:918
+#: ../carrier/gtkprefs.c:918
 msgid "Show IMs and chats in _tabbed windows"
 msgstr "Chatan di hilpekînê nîşan bide"
 
-#: ../pidgin/gtkprefs.c:932
+#: ../carrier/gtkprefs.c:932
 msgid "Show close b_utton on tabs"
 msgstr "Bişkoja girtinê di hilpekînê de nîşan bide"
 
-#: ../pidgin/gtkprefs.c:935
+#: ../carrier/gtkprefs.c:935
 msgid "_Placement:"
 msgstr "_Bicihkirin:"
 
-#: ../pidgin/gtkprefs.c:937
+#: ../carrier/gtkprefs.c:937
 msgid "Top"
 msgstr "Ser"
 
-#: ../pidgin/gtkprefs.c:938
+#: ../carrier/gtkprefs.c:938
 msgid "Bottom"
 msgstr "Bin"
 
-#: ../pidgin/gtkprefs.c:939
+#: ../carrier/gtkprefs.c:939
 msgid "Left"
 msgstr "Çep"
 
-#: ../pidgin/gtkprefs.c:940
+#: ../carrier/gtkprefs.c:940
 msgid "Right"
 msgstr "Rast"
 
-#: ../pidgin/gtkprefs.c:942
+#: ../carrier/gtkprefs.c:942
 msgid "Left Vertical"
 msgstr "Serpahnaya Çep"
 
-#: ../pidgin/gtkprefs.c:943
+#: ../carrier/gtkprefs.c:943
 msgid "Right Vertical"
 msgstr "Serpahnaya Rast"
 
-#: ../pidgin/gtkprefs.c:950
+#: ../carrier/gtkprefs.c:950
 msgid "N_ew conversations:"
 msgstr "Hevpeyvîneke n_û:"
 
-#: ../pidgin/gtkprefs.c:995
+#: ../carrier/gtkprefs.c:995
 msgid "Show _formatting on incoming messages"
 msgstr "Di peyamên hatî de _teşekirinê nîşan bide"
 
-#: ../pidgin/gtkprefs.c:998
+#: ../carrier/gtkprefs.c:998
 #, fuzzy
 msgid "Show _detailed information"
 msgstr "Agahiya kanalê nehate stendin"
 
-#: ../pidgin/gtkprefs.c:1000
+#: ../carrier/gtkprefs.c:1000
 msgid "Enable buddy ic_on animation"
 msgstr "Îkona anîmasyona heval a gengaz"
 
-#: ../pidgin/gtkprefs.c:1007
+#: ../carrier/gtkprefs.c:1007
 msgid "_Notify buddies that you are typing to them"
 msgstr "Ragihîne hevalên ku niha ji wan re dinivîsî"
 
-#: ../pidgin/gtkprefs.c:1010
+#: ../carrier/gtkprefs.c:1010
 msgid "Highlight _misspelled words"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1014
+#: ../carrier/gtkprefs.c:1014
 msgid "Use smooth-scrolling"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1017
+#: ../carrier/gtkprefs.c:1017
 #, fuzzy
 msgid "F_lash window when IMs are received"
 msgstr "_Dema ku peyam bighîjin paceyê hişyar bike"
 
-#: ../pidgin/gtkprefs.c:1019
+#: ../carrier/gtkprefs.c:1019
 #, fuzzy
 msgid "Minimi_ze new conversation windows"
 msgstr "Paceya hevpeyvînê B_ilind bike"
 
-#: ../pidgin/gtkprefs.c:1023
+#: ../carrier/gtkprefs.c:1023
 #, fuzzy
 msgid "Font"
 msgstr "Curenivîs"
 
-#: ../pidgin/gtkprefs.c:1025
+#: ../carrier/gtkprefs.c:1025
 msgid "Use document font from _theme"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1027
+#: ../carrier/gtkprefs.c:1027
 msgid "Use font from _theme"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1029
+#: ../carrier/gtkprefs.c:1029
 #, fuzzy
 msgid "Conversation _font:"
 msgstr "Têketana Hevpeyvînê"
 
-#: ../pidgin/gtkprefs.c:1043
+#: ../carrier/gtkprefs.c:1043
 #, fuzzy
 msgid "Default Formatting"
 msgstr "Şêweyê vesazkirinê"
 
-#: ../pidgin/gtkprefs.c:1062
+#: ../carrier/gtkprefs.c:1062
 #, fuzzy
 msgid ""
 "This is how your outgoing message text will appear when you use protocols "
@@ -16070,119 +16070,119 @@ msgstr ""
 "Ev peyam, dema te bi protokolên ku şêwedanê destek dikin re peyam şandin, "
 "nîşan dide ka çawa xuya dibin. :)"
 
-#: ../pidgin/gtkprefs.c:1128
+#: ../carrier/gtkprefs.c:1128
 msgid "ST_UN server:"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1140
+#: ../carrier/gtkprefs.c:1140
 msgid "<span style=\"italic\">Example: stunserver.org</span>"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1144
+#: ../carrier/gtkprefs.c:1144
 msgid "_Autodetect IP address"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1153
+#: ../carrier/gtkprefs.c:1153
 msgid "Public _IP:"
 msgstr "_IP'a herêmî"
 
-#: ../pidgin/gtkprefs.c:1182
+#: ../carrier/gtkprefs.c:1182
 msgid "Ports"
 msgstr "Port"
 
-#: ../pidgin/gtkprefs.c:1185
+#: ../carrier/gtkprefs.c:1185
 msgid "_Manually specify range of ports to listen on"
 msgstr "_Bi destan asta qadên vekirî y3en guhdariyê destnîşan dike"
 
-#: ../pidgin/gtkprefs.c:1188
+#: ../carrier/gtkprefs.c:1188
 msgid "_Start port:"
 msgstr "_Destpêka bendergehê"
 
-#: ../pidgin/gtkprefs.c:1195
+#: ../carrier/gtkprefs.c:1195
 msgid "_End port:"
 msgstr "_Dawiya Bêndergehê"
 
-#: ../pidgin/gtkprefs.c:1203
+#: ../carrier/gtkprefs.c:1203
 msgid "Proxy Server"
 msgstr "Pêşkêşkara Proxyê"
 
-#: ../pidgin/gtkprefs.c:1207
+#: ../carrier/gtkprefs.c:1207
 msgid "No proxy"
 msgstr "Proxy tune"
 
-#: ../pidgin/gtkprefs.c:1263
+#: ../carrier/gtkprefs.c:1263
 msgid "_User:"
 msgstr "_Bikarhêner:"
 
-#: ../pidgin/gtkprefs.c:1328
+#: ../carrier/gtkprefs.c:1328
 msgid "Seamonkey"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1329
+#: ../carrier/gtkprefs.c:1329
 msgid "Opera"
 msgstr "Opera"
 
-#: ../pidgin/gtkprefs.c:1330
+#: ../carrier/gtkprefs.c:1330
 msgid "Netscape"
 msgstr "Netscape"
 
-#: ../pidgin/gtkprefs.c:1331
+#: ../carrier/gtkprefs.c:1331
 msgid "Mozilla"
 msgstr "Mozilla"
 
-#: ../pidgin/gtkprefs.c:1332
+#: ../carrier/gtkprefs.c:1332
 msgid "Konqueror"
 msgstr "Konqueror"
 
-#: ../pidgin/gtkprefs.c:1333
+#: ../carrier/gtkprefs.c:1333
 msgid "GNOME Default"
 msgstr "GNOME Standart"
 
-#: ../pidgin/gtkprefs.c:1334
+#: ../carrier/gtkprefs.c:1334
 msgid "Galeon"
 msgstr "Galeon"
 
-#: ../pidgin/gtkprefs.c:1335
+#: ../carrier/gtkprefs.c:1335
 msgid "Firefox"
 msgstr "Firefox"
 
-#: ../pidgin/gtkprefs.c:1336
+#: ../carrier/gtkprefs.c:1336
 msgid "Firebird"
 msgstr "Firebird"
 
-#: ../pidgin/gtkprefs.c:1337
+#: ../carrier/gtkprefs.c:1337
 msgid "Epiphany"
 msgstr "Epiphany"
 
-#: ../pidgin/gtkprefs.c:1346
+#: ../carrier/gtkprefs.c:1346
 msgid "Manual"
 msgstr "Bi destan"
 
-#: ../pidgin/gtkprefs.c:1399
+#: ../carrier/gtkprefs.c:1399
 msgid "Browser Selection"
 msgstr "Hilbijartina Gerokê"
 
-#: ../pidgin/gtkprefs.c:1403
+#: ../carrier/gtkprefs.c:1403
 msgid "_Browser:"
 msgstr "_Gerok"
 
-#: ../pidgin/gtkprefs.c:1411
+#: ../carrier/gtkprefs.c:1411
 msgid "_Open link in:"
 msgstr "Girêdanê veke:"
 
-#: ../pidgin/gtkprefs.c:1413
+#: ../carrier/gtkprefs.c:1413
 msgid "Browser default"
 msgstr "Geroka heyî"
 
-#: ../pidgin/gtkprefs.c:1414
+#: ../carrier/gtkprefs.c:1414
 msgid "Existing window"
 msgstr "Paceya heye"
 
-#: ../pidgin/gtkprefs.c:1416
+#: ../carrier/gtkprefs.c:1416
 msgid "New tab"
 msgstr "Hilpekîna nû"
 
-#: ../pidgin/gtkprefs.c:1430
+#: ../carrier/gtkprefs.c:1430
 #, c-format
 msgid ""
 "_Manual:\n"
@@ -16191,69 +16191,69 @@ msgstr ""
 "_Bi destan mîheng bike:\n"
 "(%s ji bo girêdanê)"
 
-#: ../pidgin/gtkprefs.c:1470
+#: ../carrier/gtkprefs.c:1470
 msgid "Log _format:"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1475
+#: ../carrier/gtkprefs.c:1475
 msgid "Log all _instant messages"
 msgstr "Hemû peyamên _demdemî tomar bike"
 
-#: ../pidgin/gtkprefs.c:1477
+#: ../carrier/gtkprefs.c:1477
 msgid "Log all c_hats"
 msgstr "Hemû chatan tomar bike"
 
-#: ../pidgin/gtkprefs.c:1479
+#: ../carrier/gtkprefs.c:1479
 msgid "Log all _status changes to system log"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1625
+#: ../carrier/gtkprefs.c:1625
 msgid "Sound Selection"
 msgstr "Hilbijartina Deng"
 
-#: ../pidgin/gtkprefs.c:1635
+#: ../carrier/gtkprefs.c:1635
 #, c-format
 msgid "Quietest"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1637
+#: ../carrier/gtkprefs.c:1637
 #, c-format
 msgid "Quieter"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1639
+#: ../carrier/gtkprefs.c:1639
 #, c-format
 msgid "Quiet"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1643
+#: ../carrier/gtkprefs.c:1643
 #, c-format
 msgid "Loud"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1645
+#: ../carrier/gtkprefs.c:1645
 #, c-format
 msgid "Louder"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1647
+#: ../carrier/gtkprefs.c:1647
 #, c-format
 msgid "Loudest"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1713
+#: ../carrier/gtkprefs.c:1713
 msgid "_Method:"
 msgstr "_Metod"
 
-#: ../pidgin/gtkprefs.c:1715
+#: ../carrier/gtkprefs.c:1715
 msgid "Console beep"
 msgstr "Bîpa konsolê"
 
-#: ../pidgin/gtkprefs.c:1722
+#: ../carrier/gtkprefs.c:1722
 msgid "No sounds"
 msgstr "Deng tuneye"
 
-#: ../pidgin/gtkprefs.c:1730
+#: ../carrier/gtkprefs.c:1730
 #, c-format
 msgid ""
 "Sound c_ommand:\n"
@@ -16262,310 +16262,310 @@ msgstr ""
 "Fermana _deng:\n"
 "(%s ji bo navê pelî)"
 
-#: ../pidgin/gtkprefs.c:1757
+#: ../carrier/gtkprefs.c:1757
 msgid "Sounds when conversation has _focus"
 msgstr "Dema ku nivîsandin çalak be, deng vekirî"
 
-#: ../pidgin/gtkprefs.c:1759
+#: ../carrier/gtkprefs.c:1759
 #, fuzzy
 msgid "Enable sounds:"
 msgstr "Hesab çalak bike"
 
-#: ../pidgin/gtkprefs.c:1770
+#: ../carrier/gtkprefs.c:1770
 msgid "Volume:"
 msgstr "Deng:"
 
-#: ../pidgin/gtkprefs.c:1850
+#: ../carrier/gtkprefs.c:1850
 msgid "Play"
 msgstr "Veke"
 
-#: ../pidgin/gtkprefs.c:1927
+#: ../carrier/gtkprefs.c:1927
 msgid "_Report idle time:"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1932
+#: ../carrier/gtkprefs.c:1932
 msgid "Based on keyboard or mouse use"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1941
+#: ../carrier/gtkprefs.c:1941
 msgid "_Auto-reply:"
 msgstr "_Bixweber-bibersivîne:"
 
-#: ../pidgin/gtkprefs.c:1945
+#: ../carrier/gtkprefs.c:1945
 msgid "When both away and idle"
 msgstr ""
 
 #. Auto-away stuff
-#: ../pidgin/gtkprefs.c:1951
+#: ../carrier/gtkprefs.c:1951
 msgid "Auto-away"
 msgstr "Li derveya bixweber"
 
-#: ../pidgin/gtkprefs.c:1953
+#: ../carrier/gtkprefs.c:1953
 msgid "Change status when _idle"
 msgstr "Dema _vala be rewşê biguherîne"
 
-#: ../pidgin/gtkprefs.c:1957
+#: ../carrier/gtkprefs.c:1957
 #, fuzzy
 msgid "_Minutes before becoming idle:"
 msgstr "_Xulke berê neamade bê diyar kirin:"
 
-#: ../pidgin/gtkprefs.c:1965
+#: ../carrier/gtkprefs.c:1965
 msgid "Change _status to:"
 msgstr "_Rewşê biguherîne:"
 
 #. Signon status stuff
-#: ../pidgin/gtkprefs.c:1986
+#: ../carrier/gtkprefs.c:1986
 msgid "Status at Startup"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1988
+#: ../carrier/gtkprefs.c:1988
 msgid "Use status from last _exit at startup"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:1994
+#: ../carrier/gtkprefs.c:1994
 msgid "Status to a_pply at startup:"
 msgstr ""
 
-#: ../pidgin/gtkprefs.c:2032
+#: ../carrier/gtkprefs.c:2032
 #, fuzzy
 msgid "Interface"
 msgstr "Rengê dirûvê navîn"
 
-#: ../pidgin/gtkprefs.c:2034
+#: ../carrier/gtkprefs.c:2034
 msgid "Smiley Themes"
 msgstr "Temayên Smilyan"
 
-#: ../pidgin/gtkprefs.c:2041
+#: ../carrier/gtkprefs.c:2041
 msgid "Browser"
 msgstr "Gerok"
 
-#: ../pidgin/gtkprefs.c:2045
+#: ../carrier/gtkprefs.c:2045
 #, fuzzy
 msgid "Status / Idle"
 msgstr "Neamade / Neçalak"
 
-#: ../pidgin/gtkprivacy.c:80
+#: ../carrier/gtkprivacy.c:80
 msgid "Allow all users to contact me"
 msgstr "Hemû bikarhêner dikarin xwe bigihînin min"
 
-#: ../pidgin/gtkprivacy.c:81
+#: ../carrier/gtkprivacy.c:81
 msgid "Allow only the users on my buddy list"
 msgstr "Tenê kesên di lîsteya min de dikarin min bibînin"
 
-#: ../pidgin/gtkprivacy.c:82
+#: ../carrier/gtkprivacy.c:82
 msgid "Allow only the users below"
 msgstr "Tenê kesên li jêr dikarin min bibînin"
 
-#: ../pidgin/gtkprivacy.c:83
+#: ../carrier/gtkprivacy.c:83
 msgid "Block all users"
 msgstr "Hemû bikarhêneran asteng bike"
 
-#: ../pidgin/gtkprivacy.c:84
+#: ../carrier/gtkprivacy.c:84
 msgid "Block only the users below"
 msgstr "Tenê bikarhênerên jêR asteng bike"
 
-#: ../pidgin/gtkprivacy.c:370
+#: ../carrier/gtkprivacy.c:370
 msgid "Privacy"
 msgstr "Veşarî"
 
-#: ../pidgin/gtkprivacy.c:382
+#: ../carrier/gtkprivacy.c:382
 msgid "Changes to privacy settings take effect immediately."
 msgstr "Guherandinên nepeniyê, di cî de çalak dibin."
 
 #. "Set privacy for:" label
-#: ../pidgin/gtkprivacy.c:394
+#: ../carrier/gtkprivacy.c:394
 msgid "Set privacy for:"
 msgstr "Mîhengên nepeniyê"
 
-#: ../pidgin/gtkprivacy.c:557 ../pidgin/gtkprivacy.c:574
+#: ../carrier/gtkprivacy.c:557 ../pidgin/gtkprivacy.c:574
 msgid "Permit User"
 msgstr "Destûrê Bide Bikarhêner"
 
-#: ../pidgin/gtkprivacy.c:558
+#: ../carrier/gtkprivacy.c:558
 msgid "Type a user you permit to contact you."
 msgstr "Kesekê/î ku te ji bo têkiliyê destûr dayê têkevê."
 
-#: ../pidgin/gtkprivacy.c:559
+#: ../carrier/gtkprivacy.c:559
 msgid "Please enter the name of the user you wish to be able to contact you."
 msgstr ""
 "Ji kerema xwe re navê kesa/ê ku dixwazî dikaribe bi te re têkeve têkiliyê, "
 "têkevê."
 
-#: ../pidgin/gtkprivacy.c:562 ../pidgin/gtkprivacy.c:578
+#: ../carrier/gtkprivacy.c:562 ../pidgin/gtkprivacy.c:578
 msgid "_Permit"
 msgstr ""
 
-#: ../pidgin/gtkprivacy.c:568
+#: ../carrier/gtkprivacy.c:568
 #, c-format
 msgid "Allow %s to contact you?"
 msgstr "Dixwazî bi %s re bipeyivî?"
 
-#: ../pidgin/gtkprivacy.c:570
+#: ../carrier/gtkprivacy.c:570
 #, c-format
 msgid "Are you sure you wish to allow %s to contact you?"
 msgstr "Dixwazî ku %s dikaribe bi te re têkeve têkiliyê?"
 
-#: ../pidgin/gtkprivacy.c:599 ../pidgin/gtkprivacy.c:613
+#: ../carrier/gtkprivacy.c:599 ../pidgin/gtkprivacy.c:613
 msgid "Block User"
 msgstr "Bikarhêner Asteng Bike"
 
-#: ../pidgin/gtkprivacy.c:600
+#: ../carrier/gtkprivacy.c:600
 msgid "Type a user to block."
 msgstr "Navê Bikarhênera/ê ku dixwazî bê astenkirin têkevê"
 
-#: ../pidgin/gtkprivacy.c:601
+#: ../carrier/gtkprivacy.c:601
 msgid "Please enter the name of the user you wish to block."
 msgstr "Ji kerema xwe re navê kesa/ê ku dixwazî asteng bikî têkevê."
 
-#: ../pidgin/gtkprivacy.c:609
+#: ../carrier/gtkprivacy.c:609
 #, c-format
 msgid "Block %s?"
 msgstr "%s asteng bike?"
 
-#: ../pidgin/gtkprivacy.c:611
+#: ../carrier/gtkprivacy.c:611
 #, c-format
 msgid "Are you sure you want to block %s?"
 msgstr "Dixwazî %s asteng bikî?"
 
-#: ../pidgin/gtkrequest.c:272
+#: ../carrier/gtkrequest.c:272
 msgid "Apply"
 msgstr "Bi kar bîne"
 
-#: ../pidgin/gtkrequest.c:1507
+#: ../carrier/gtkrequest.c:1507
 msgid "That file already exists"
 msgstr "Ev peldank jixwe heye"
 
-#: ../pidgin/gtkrequest.c:1508
+#: ../carrier/gtkrequest.c:1508
 msgid "Would you like to overwrite it?"
 msgstr "Dixwazî li ser binivîsî?"
 
-#: ../pidgin/gtkrequest.c:1511
+#: ../carrier/gtkrequest.c:1511
 msgid "Overwrite"
 msgstr "Li ser binivîse"
 
-#: ../pidgin/gtkrequest.c:1512
+#: ../carrier/gtkrequest.c:1512
 msgid "Choose New Name"
 msgstr "Navekî nû hilbijêre"
 
-#: ../pidgin/gtkrequest.c:1650 ../pidgin/gtkrequest.c:1664
+#: ../carrier/gtkrequest.c:1650 ../pidgin/gtkrequest.c:1664
 #, fuzzy
 msgid "Select Folder..."
 msgstr "Rengî hilbijêre"
 
 #. Create the window.
-#: ../pidgin/gtkroomlist.c:375
+#: ../carrier/gtkroomlist.c:375
 msgid "Room List"
 msgstr "Lîsteya odê"
 
 #. list button
-#: ../pidgin/gtkroomlist.c:443
+#: ../carrier/gtkroomlist.c:443
 msgid "_Get List"
 msgstr "Lîsteyê _bigire"
 
 #. add button
-#: ../pidgin/gtkroomlist.c:451
+#: ../carrier/gtkroomlist.c:451
 msgid "_Add Chat"
 msgstr "_Sohbetekê lê zêde bike"
 
-#: ../pidgin/gtksavedstatuses.c:337
+#: ../carrier/gtksavedstatuses.c:337
 #, fuzzy
 msgid "Are you sure you want to delete the selected saved statuses?"
 msgstr "Li xwe bawer î ku tu dixwazî %s'yê jê bibî?"
 
 #. Use button
-#: ../pidgin/gtksavedstatuses.c:620 ../pidgin/gtksavedstatuses.c:1266
+#: ../carrier/gtksavedstatuses.c:620 ../pidgin/gtksavedstatuses.c:1266
 msgid "_Use"
 msgstr "_Bi kar bîne"
 
-#: ../pidgin/gtksavedstatuses.c:780
+#: ../carrier/gtksavedstatuses.c:780
 msgid "Title already in use.  You must choose a unique title."
 msgstr "Sernav jixwe tê bikaranîn. Divê tu sernavekî cuda hilbijêrî."
 
-#: ../pidgin/gtksavedstatuses.c:970
+#: ../carrier/gtksavedstatuses.c:970
 msgid "Different"
 msgstr "Cuda"
 
-#: ../pidgin/gtksavedstatuses.c:1159
+#: ../carrier/gtksavedstatuses.c:1159
 msgid "_Title:"
 msgstr "_Sernivîs:"
 
-#: ../pidgin/gtksavedstatuses.c:1178 ../pidgin/gtksavedstatuses.c:1497
+#: ../carrier/gtksavedstatuses.c:1178 ../pidgin/gtksavedstatuses.c:1497
 msgid "_Status:"
 msgstr "_Rewş:"
 
 #. Different status message expander
-#: ../pidgin/gtksavedstatuses.c:1210
+#: ../carrier/gtksavedstatuses.c:1210
 msgid "Use a _different status for some accounts"
 msgstr "Ji bo hin hesaban rewşeke _cihê bikar bîne"
 
 #. Save & Use button
-#: ../pidgin/gtksavedstatuses.c:1274
+#: ../carrier/gtksavedstatuses.c:1274
 msgid "Sa_ve & Use"
 msgstr "_Tomar bike & Bikar bîne"
 
-#: ../pidgin/gtksavedstatuses.c:1480
+#: ../carrier/gtksavedstatuses.c:1480
 #, c-format
 msgid "Status for %s"
 msgstr "Rewşa %s"
 
-#: ../pidgin/gtkstatusbox.c:664
+#: ../carrier/gtkstatusbox.c:664
 #, fuzzy
 msgid "Waiting for network connection"
 msgstr "Li benda destpêkirina transferê ye"
 
-#: ../pidgin/gtkutils.c:632
+#: ../carrier/gtkutils.c:632
 msgid "Google Talk"
 msgstr ""
 
-#: ../pidgin/gtkutils.c:1399 ../pidgin/gtkutils.c:1422
+#: ../carrier/gtkutils.c:1399 ../pidgin/gtkutils.c:1422
 #, c-format
 msgid "The following error has occurred loading %s: %s"
 msgstr "Dema %s dihate barkirin ev çewtî çêbû: %s"
 
-#: ../pidgin/gtkutils.c:1402 ../pidgin/gtkutils.c:1424
+#: ../carrier/gtkutils.c:1402 ../pidgin/gtkutils.c:1424
 msgid "Failed to load image"
 msgstr "Di dema tomarkirina wêneyan de çewtî"
 
-#: ../pidgin/gtkutils.c:1498
+#: ../carrier/gtkutils.c:1498
 #, c-format
 msgid "Cannot send folder %s."
 msgstr "Peldanka %s nehate şandin."
 
-#: ../pidgin/gtkutils.c:1499
+#: ../carrier/gtkutils.c:1499
 #, fuzzy, c-format
 msgid ""
 "%s cannot transfer a folder. You will need to send the files within "
 "individually."
 msgstr "Gaîm nikare peldankekê veguhêze. Divê tu pelan tena serê xwe bişîne"
 
-#: ../pidgin/gtkutils.c:1531 ../pidgin/gtkutils.c:1543
-#: ../pidgin/gtkutils.c:1550
+#: ../carrier/gtkutils.c:1531 ../pidgin/gtkutils.c:1543
+#: ../carrier/gtkutils.c:1550
 msgid "You have dragged an image"
 msgstr "Te wêneyek bi xwêr kişand"
 
-#: ../pidgin/gtkutils.c:1532
+#: ../carrier/gtkutils.c:1532
 msgid ""
 "You can send this image as a file transfer, embed it into this message, or "
 "use it as the buddy icon for this user."
 msgstr ""
 
-#: ../pidgin/gtkutils.c:1538 ../pidgin/gtkutils.c:1558
+#: ../carrier/gtkutils.c:1538 ../pidgin/gtkutils.c:1558
 msgid "Set as buddy icon"
 msgstr "Wekî dîmena şexs tayîn bike"
 
-#: ../pidgin/gtkutils.c:1539 ../pidgin/gtkutils.c:1559
+#: ../carrier/gtkutils.c:1539 ../pidgin/gtkutils.c:1559
 msgid "Send image file"
 msgstr "Pelê wêneyan bişîne"
 
-#: ../pidgin/gtkutils.c:1540 ../pidgin/gtkutils.c:1559
+#: ../carrier/gtkutils.c:1540 ../pidgin/gtkutils.c:1559
 msgid "Insert in message"
 msgstr "Têxe hundirê peyamê"
 
-#: ../pidgin/gtkutils.c:1544
+#: ../carrier/gtkutils.c:1544
 msgid "Would you like to set it as the buddy icon for this user?"
 msgstr "Tu dixwazî ku vê wekî îkona heval mîheng bikî?"
 
-#: ../pidgin/gtkutils.c:1551
+#: ../carrier/gtkutils.c:1551
 #, fuzzy
 msgid ""
 "You can send this image as a file transfer, or use it as the buddy icon for "
@@ -16574,7 +16574,7 @@ msgstr ""
 "Tu dikarî vî wêneyî di peyamê de bicih bikî, an jî tu wekî îkona heval ji bo "
 "vî bikarhênerî bikarbînî."
 
-#: ../pidgin/gtkutils.c:1552
+#: ../carrier/gtkutils.c:1552
 msgid ""
 "You can insert this image into this message, or use it as the buddy icon for "
 "this user"
@@ -16587,17 +16587,17 @@ msgstr ""
 #. * send.  The only logical one is "Application," but do we really want to send a binary and nothing else?
 #. * Probably not.  I'll just give an error and return.
 #. The original patch sent the icon used by the launcher.  That's probably wrong
-#: ../pidgin/gtkutils.c:1610
+#: ../carrier/gtkutils.c:1610
 msgid "Cannot send launcher"
 msgstr "Xebatker nikare bişîne"
 
-#: ../pidgin/gtkutils.c:1610
+#: ../carrier/gtkutils.c:1610
 msgid ""
 "You dragged a desktop launcher. Most likely you wanted to send whatever this "
 "launcher points to instead of this launcher itself."
 msgstr ""
 
-#: ../pidgin/gtkutils.c:2345
+#: ../carrier/gtkutils.c:2345
 #, c-format
 msgid ""
 "<b>File:</b> %s\n"
@@ -16608,114 +16608,114 @@ msgstr ""
 "<b>Mezinahiya pelî:</b> %s↵\n"
 "<b>Mezinahiya wêneyê:</b> %dx%d"
 
-#: ../pidgin/gtkutils.c:2641
+#: ../carrier/gtkutils.c:2641
 #, c-format
 msgid "The file '%s' is too large for %s.  Please try a smaller image.\n"
 msgstr ""
 
-#: ../pidgin/gtkutils.c:2643
+#: ../carrier/gtkutils.c:2643
 #, fuzzy
 msgid "Icon Error"
 msgstr "Çewtiya Diyarkirinê"
 
-#: ../pidgin/gtkutils.c:2644
+#: ../carrier/gtkutils.c:2644
 #, fuzzy
 msgid "Could not set icon"
 msgstr "Şandin serneket"
 
-#: ../pidgin/gtkutils.c:2744
+#: ../carrier/gtkutils.c:2744
 #, fuzzy, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Wêne nehat tomarkirin: %s\n"
 
-#: ../pidgin/gtkutils.c:2793
+#: ../carrier/gtkutils.c:2793
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
 
-#: ../pidgin/gtkwhiteboard.c:754 ../pidgin/gtkwhiteboard.c:773
+#: ../carrier/gtkwhiteboard.c:754 ../pidgin/gtkwhiteboard.c:773
 msgid "Save File"
 msgstr "Pelgehê Tomar Bike"
 
-#: ../pidgin/gtkwhiteboard.c:861
+#: ../carrier/gtkwhiteboard.c:861
 msgid "Select color"
 msgstr "Rengekî hilbijêrî"
 
-#: ../pidgin/pidginstock.c:87
+#: ../carrier/pidginstock.c:87
 msgid "_Alias"
 msgstr "_Leqeb"
 
-#: ../pidgin/pidginstock.c:89
+#: ../carrier/pidginstock.c:89
 msgid "Close _tabs"
 msgstr ""
 
-#: ../pidgin/pidginstock.c:91
+#: ../carrier/pidginstock.c:91
 msgid "_Get Info"
 msgstr "_Agahî bistîne"
 
-#: ../pidgin/pidginstock.c:92
+#: ../carrier/pidginstock.c:92
 msgid "_Invite"
 msgstr "_Dawet bike"
 
-#: ../pidgin/pidginstock.c:93
+#: ../carrier/pidginstock.c:93
 msgid "_Modify"
 msgstr "_Biguherîne"
 
-#: ../pidgin/pidginstock.c:94
+#: ../carrier/pidginstock.c:94
 msgid "_Open Mail"
 msgstr "_Mail veke"
 
-#: ../pidgin/pixmaps/emotes/default/24/default.theme.in.h:2
+#: ../carrier/pixmaps/emotes/default/24/default.theme.in.h:2
 msgid "Pidgin smileys"
 msgstr ""
 
-#: ../pidgin/pixmaps/emotes/none/none.theme.in.h:1
+#: ../carrier/pixmaps/emotes/none/none.theme.in.h:1
 msgid "Penguin Pimps"
 msgstr ""
 
-#: ../pidgin/pixmaps/emotes/none/none.theme.in.h:2
+#: ../carrier/pixmaps/emotes/none/none.theme.in.h:2
 msgid "Selecting this disables graphical emoticons."
 msgstr ""
 
-#: ../pidgin/pixmaps/emotes/none/none.theme.in.h:3
+#: ../carrier/pixmaps/emotes/none/none.theme.in.h:3
 #, fuzzy
 msgid "none"
 msgstr "Herkes"
 
-#: ../pidgin/plugins/cap/cap.c:450
+#: ../carrier/plugins/cap/cap.c:450
 #, fuzzy
 msgid "Display Statistics"
 msgstr "Têrnekirinên demê bide zanîn"
 
-#: ../pidgin/plugins/cap/cap.c:462 ../pidgin/plugins/cap/cap.c:465
+#: ../carrier/plugins/cap/cap.c:462 ../pidgin/plugins/cap/cap.c:465
 #, fuzzy
 msgid "Response Probability:"
 msgstr "Bersiv winda ne"
 
-#: ../pidgin/plugins/cap/cap.c:811
+#: ../carrier/plugins/cap/cap.c:811
 #, fuzzy
 msgid "Statistics Configuration"
 msgstr "Sazkirina Îkona negihiştî"
 
 #. msg_difference spinner
-#: ../pidgin/plugins/cap/cap.c:814
+#: ../carrier/plugins/cap/cap.c:814
 msgid "Maximum response timeout:"
 msgstr ""
 
-#: ../pidgin/plugins/cap/cap.c:817 ../pidgin/plugins/cap/cap.c:824
-#: ../pidgin/plugins/cap/cap.c:831 ../pidgin/plugins/timestamp.c:150
+#: ../carrier/plugins/cap/cap.c:817 ../pidgin/plugins/cap/cap.c:824
+#: ../carrier/plugins/cap/cap.c:831 ../pidgin/plugins/timestamp.c:150
 #, fuzzy
 msgid "minutes"
 msgstr "deqe."
 
 #. last_seen spinner
-#: ../pidgin/plugins/cap/cap.c:821
+#: ../carrier/plugins/cap/cap.c:821
 msgid "Maximum last-seen difference:"
 msgstr ""
 
 #. threshold spinner
-#: ../pidgin/plugins/cap/cap.c:828
+#: ../carrier/plugins/cap/cap.c:828
 msgid "Threshold:"
 msgstr ""
 
@@ -16725,59 +16725,59 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/cap/cap.c:936
+#: ../carrier/plugins/cap/cap.c:936
 msgid "Contact Availability Prediction"
 msgstr ""
 
 #. *< name
 #. *< version
-#: ../pidgin/plugins/cap/cap.c:938
+#: ../carrier/plugins/cap/cap.c:938
 msgid "Contact Availability Prediction plugin."
 msgstr ""
 
 #. *  summary
-#: ../pidgin/plugins/cap/cap.c:939
+#: ../carrier/plugins/cap/cap.c:939
 msgid ""
 "The contact availability plugin (cap) is used to display statistical "
 "information about buddies in a users contact list."
 msgstr ""
 
-#: ../pidgin/plugins/contact_priority.c:61
+#: ../carrier/plugins/contact_priority.c:61
 msgid "Buddy is idle"
 msgstr "Heval betal ye"
 
-#: ../pidgin/plugins/contact_priority.c:62
+#: ../carrier/plugins/contact_priority.c:62
 msgid "Buddy is away"
 msgstr "Heval li derveye"
 
-#: ../pidgin/plugins/contact_priority.c:63
+#: ../carrier/plugins/contact_priority.c:63
 msgid "Buddy is \"extended\" away"
 msgstr "Heval \"ji bo demek dirêj\" li derve ye"
 
 #. Not used yet.
-#: ../pidgin/plugins/contact_priority.c:66
+#: ../carrier/plugins/contact_priority.c:66
 msgid "Buddy is mobile"
 msgstr "Têkildar telefona destaye"
 
-#: ../pidgin/plugins/contact_priority.c:68
+#: ../carrier/plugins/contact_priority.c:68
 msgid "Buddy is offline"
 msgstr "Têkildar li derveye"
 
-#: ../pidgin/plugins/contact_priority.c:90
+#: ../carrier/plugins/contact_priority.c:90
 msgid "Point values to use when..."
 msgstr "Nirxên dê werin bikaranîn..."
 
-#: ../pidgin/plugins/contact_priority.c:118
+#: ../carrier/plugins/contact_priority.c:118
 msgid ""
 "The buddy with the <i>largest score</i> is the buddy who will have priority "
 "in the contact.\n"
 msgstr ""
 
-#: ../pidgin/plugins/contact_priority.c:125
+#: ../carrier/plugins/contact_priority.c:125
 msgid "Use last buddy when scores are equal"
 msgstr ""
 
-#: ../pidgin/plugins/contact_priority.c:130
+#: ../carrier/plugins/contact_priority.c:130
 msgid "Point values to use for account..."
 msgstr "Nirxên ku wê ji bo hesêb werine bikaranîn..."
 
@@ -16787,20 +16787,20 @@ msgstr "Nirxên ku wê ji bo hesêb werine bikaranîn..."
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/contact_priority.c:187
+#: ../carrier/plugins/contact_priority.c:187
 msgid "Contact Priority"
 msgstr "Pêşaniya Girêdanê"
 
 #. *< name
 #. *< version
 #. *< summary
-#: ../pidgin/plugins/contact_priority.c:190
+#: ../carrier/plugins/contact_priority.c:190
 msgid ""
 "Allows for controlling the values associated with different buddy states."
 msgstr "Kontrolkirina nirxên derbarê rewşên cuda yên hevalan de pêk tîne."
 
 #. *< description
-#: ../pidgin/plugins/contact_priority.c:192
+#: ../carrier/plugins/contact_priority.c:192
 msgid ""
 "Allows for changing the point values of idle/away/offline states for buddies "
 "in contact priority computations."
@@ -16808,80 +16808,80 @@ msgstr ""
 "Di hesabên pêşanî yên hevalên di têkiliyê de guherandina nirxên xalên betal/"
 "li derve/derketî pêk tîne."
 
-#: ../pidgin/plugins/convcolors.c:23
+#: ../carrier/plugins/convcolors.c:23
 #, fuzzy
 msgid "Conversation Colors"
 msgstr "/Ligelhevaxaftin/_Dade"
 
-#: ../pidgin/plugins/convcolors.c:25 ../pidgin/plugins/convcolors.c:26
+#: ../carrier/plugins/convcolors.c:25 ../pidgin/plugins/convcolors.c:26
 #, fuzzy
 msgid "Customize colors in the conversation window"
 msgstr "%s paceya axaftinê girt."
 
-#: ../pidgin/plugins/convcolors.c:82
+#: ../carrier/plugins/convcolors.c:82
 #, fuzzy
 msgid "Error Messages"
 msgstr "Tepisandina Peyamên Çewt"
 
-#: ../pidgin/plugins/convcolors.c:83
+#: ../carrier/plugins/convcolors.c:83
 #, fuzzy
 msgid "Highlighted Messages"
 msgstr "Peyamên nexwendî"
 
-#: ../pidgin/plugins/convcolors.c:84
+#: ../carrier/plugins/convcolors.c:84
 #, fuzzy
 msgid "System Messages"
 msgstr "Peyamê Bişîne"
 
-#: ../pidgin/plugins/convcolors.c:85
+#: ../carrier/plugins/convcolors.c:85
 #, fuzzy
 msgid "Sent Messages"
 msgstr "Peyamê Bişîne"
 
-#: ../pidgin/plugins/convcolors.c:86
+#: ../carrier/plugins/convcolors.c:86
 #, fuzzy
 msgid "Received Messages"
 msgstr "Peyamê Bişîne"
 
-#: ../pidgin/plugins/convcolors.c:210 ../pidgin/plugins/pidginrc.c:251
+#: ../carrier/plugins/convcolors.c:210 ../pidgin/plugins/pidginrc.c:251
 #, c-format
 msgid "Select Color for %s"
 msgstr "Ji bo %s Rengekî Hilbijêre"
 
-#: ../pidgin/plugins/convcolors.c:310
+#: ../carrier/plugins/convcolors.c:310
 #, fuzzy
 msgid "Ignore incoming format"
 msgstr "Rengan wekî tune bihesibîne"
 
-#: ../pidgin/plugins/convcolors.c:311
+#: ../carrier/plugins/convcolors.c:311
 #, fuzzy
 msgid "Apply in Chats"
 msgstr "Chata Xuya Dibe"
 
-#: ../pidgin/plugins/convcolors.c:312
+#: ../carrier/plugins/convcolors.c:312
 msgid "Apply in IMs"
 msgstr ""
 
-#: ../pidgin/plugins/extplacement.c:80
+#: ../carrier/plugins/extplacement.c:80
 msgid "By conversation count"
 msgstr "Bi hejmara guftûgoyan"
 
-#: ../pidgin/plugins/extplacement.c:101
+#: ../carrier/plugins/extplacement.c:101
 msgid "Conversation Placement"
 msgstr "Bicîkirina Guftûgoyê"
 
 #. Translators: "New conversations" should match the text in the preferences dialog and "By conversation count" should be the same text used above
-#: ../pidgin/plugins/extplacement.c:105
+#: ../carrier/plugins/extplacement.c:105
 msgid ""
 "Note: The preference for \"New conversations\" must be set to \"By "
 "conversation count\"."
 msgstr ""
 
-#: ../pidgin/plugins/extplacement.c:111
+#: ../carrier/plugins/extplacement.c:111
 msgid "Number of conversations per window"
 msgstr "Hejmara guftûgoyên her paceyekê"
 
-#: ../pidgin/plugins/extplacement.c:117
+#: ../carrier/plugins/extplacement.c:117
 msgid "Separate IM and Chat windows when placing by number"
 msgstr "Dema li gorî hejmarê bê bicîkirin, paceyên IM û chatê ji hev veqetîne."
 
@@ -16891,19 +16891,19 @@ msgstr "Dema li gorî hejmarê bê bicîkirin, paceyên IM û chatê ji hev veqe
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/extplacement.c:146
+#: ../carrier/plugins/extplacement.c:146
 msgid "ExtPlacement"
 msgstr "Bicihkirina Derve"
 
 #. *< name
 #. *< version
-#: ../pidgin/plugins/extplacement.c:148
+#: ../carrier/plugins/extplacement.c:148
 msgid "Extra conversation placement options."
 msgstr "Vebijartokên bicîkirina guftûgoyeke din"
 
 #. *< summary
 #. *  description
-#: ../pidgin/plugins/extplacement.c:150
+#: ../carrier/plugins/extplacement.c:150
 msgid ""
 "Restrict the number of conversations per windows, optionally separating IMs "
 "and Chats"
@@ -16912,20 +16912,20 @@ msgstr ""
 "ji hev veqetîne."
 
 #. Configuration frame
-#: ../pidgin/plugins/gestures/gestures.c:235
+#: ../carrier/plugins/gestures/gestures.c:235
 msgid "Mouse Gestures Configuration"
 msgstr "Mîhengên Tevgerên Mişk"
 
-#: ../pidgin/plugins/gestures/gestures.c:242
+#: ../carrier/plugins/gestures/gestures.c:242
 msgid "Middle mouse button"
 msgstr "Bişkojka navîn a mişk"
 
-#: ../pidgin/plugins/gestures/gestures.c:247
+#: ../carrier/plugins/gestures/gestures.c:247
 msgid "Right mouse button"
 msgstr "Bişkojka rastê ya mişk"
 
 #. "Visual gesture display" checkbox
-#: ../pidgin/plugins/gestures/gestures.c:259
+#: ../carrier/plugins/gestures/gestures.c:259
 msgid "_Visual gesture display"
 msgstr "_Pêşandana tevgerên dîtbarî"
 
@@ -16935,19 +16935,19 @@ msgstr "_Pêşandana tevgerên dîtbarî"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/gestures/gestures.c:295
+#: ../carrier/plugins/gestures/gestures.c:295
 msgid "Mouse Gestures"
 msgstr "Tevgerên Mişkê"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/gestures/gestures.c:298
+#: ../carrier/plugins/gestures/gestures.c:298
 msgid "Provides support for mouse gestures"
 msgstr "Ji bo tevgerên mişkê destekê peyda dike"
 
 #. *  description
-#: ../pidgin/plugins/gestures/gestures.c:300
+#: ../carrier/plugins/gestures/gestures.c:300
 msgid ""
 "Allows support for mouse gestures in conversation windows.\n"
 "Drag the middle mouse button to perform certain actions:\n"
@@ -16965,34 +16965,34 @@ msgstr ""
 "Pêşî ber bi jor dû re jî ber bi rastê ve kaş bikî, dê here têkiliya di rêzê "
 "de."
 
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:143
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:143
 msgid "Instant Messaging"
 msgstr "Peyamşandina bilez"
 
 #. Add the label.
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:457
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:457
 msgid "Select a person from your address book below, or add a new person."
 msgstr "Kesekê/î ji deftera navnîşanan hilbijêre an jî kesekê/î lê zêde bike."
 
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:551
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:301
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:551
+#: ../carrier/plugins/gevolution/new_person_dialog.c:301
 msgid "Group:"
 msgstr "Kom:"
 
 #. "New Person" button
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:576
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:467
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:248
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:576
+#: ../carrier/plugins/gevolution/assoc-buddy.c:467
+#: ../carrier/plugins/gevolution/new_person_dialog.c:248
 msgid "New Person"
 msgstr "Kesê/a nû"
 
 #. "Select Buddy" button
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:593
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:593
 msgid "Select Buddy"
 msgstr "Heval hilbijêre"
 
 #. Add the label.
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:343
+#: ../carrier/plugins/gevolution/assoc-buddy.c:343
 msgid ""
 "Select a person from your address book to add this buddy to, or create a new "
 "person."
@@ -17001,43 +17001,43 @@ msgstr ""
 "kesekê/î biafirîne."
 
 #. Add the expander
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:431
+#: ../carrier/plugins/gevolution/assoc-buddy.c:431
 msgid "User _details"
 msgstr "_Kîtekîtên bikarhêner"
 
 #. "Associate Buddy" button
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:484
+#: ../carrier/plugins/gevolution/assoc-buddy.c:484
 msgid "_Associate Buddy"
 msgstr "_Kesekê/î Hilbijêre"
 
-#: ../pidgin/plugins/gevolution/gevolution.c:240
-#: ../pidgin/plugins/gevolution/gevolution.c:246
+#: ../carrier/plugins/gevolution/gevolution.c:240
+#: ../carrier/plugins/gevolution/gevolution.c:246
 msgid "Unable to send e-mail"
 msgstr "E-peyam nehate şandin"
 
-#: ../pidgin/plugins/gevolution/gevolution.c:241
+#: ../carrier/plugins/gevolution/gevolution.c:241
 msgid "The evolution executable was not found in the PATH."
 msgstr ""
 
-#: ../pidgin/plugins/gevolution/gevolution.c:247
+#: ../carrier/plugins/gevolution/gevolution.c:247
 msgid "An e-mail address was not found for this buddy."
 msgstr ""
 
-#: ../pidgin/plugins/gevolution/gevolution.c:273
+#: ../carrier/plugins/gevolution/gevolution.c:273
 msgid "Add to Address Book"
 msgstr "Têxe Deftera Navnîşanan"
 
-#: ../pidgin/plugins/gevolution/gevolution.c:285
+#: ../carrier/plugins/gevolution/gevolution.c:285
 msgid "Send E-Mail"
 msgstr "E-peyamekê Bişîne"
 
 #. Configuration frame
-#: ../pidgin/plugins/gevolution/gevolution.c:412
+#: ../carrier/plugins/gevolution/gevolution.c:412
 msgid "Evolution Integration Configuration"
 msgstr "Sazkirina Entegrasyona Evolution"
 
 #. Label
-#: ../pidgin/plugins/gevolution/gevolution.c:415
+#: ../carrier/plugins/gevolution/gevolution.c:415
 msgid "Select all accounts that buddies should be auto-added to."
 msgstr "Hemû hesabên ku divê kes bixweber têkevinê hilbijêre."
 
@@ -17047,7 +17047,7 @@ msgstr "Hemû hesabên ku divê kes bixweber têkevinê hilbijêre."
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/gevolution/gevolution.c:527
+#: ../carrier/plugins/gevolution/gevolution.c:527
 msgid "Evolution Integration"
 msgstr "Entegrasyona Evolution"
 
@@ -17055,37 +17055,37 @@ msgstr "Entegrasyona Evolution"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/gevolution/gevolution.c:530
-#: ../pidgin/plugins/gevolution/gevolution.c:532
+#: ../carrier/plugins/gevolution/gevolution.c:530
+#: ../carrier/plugins/gevolution/gevolution.c:532
 msgid "Provides integration with Evolution."
 msgstr ""
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:262
+#: ../carrier/plugins/gevolution/new_person_dialog.c:262
 msgid "Please enter the person's information below."
 msgstr "Ji kerema xwe re agahiyên bikarhênerê/î il jêr binivîse"
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:266
+#: ../carrier/plugins/gevolution/new_person_dialog.c:266
 msgid "Please enter the buddy's screen name and account type below."
 msgstr "Ji kerema xwe re navê bikarhêner ê ekranê û cureyê hesabê têkevê."
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:286
+#: ../carrier/plugins/gevolution/new_person_dialog.c:286
 msgid "Account type:"
 msgstr "Cureyê hesabê:"
 
 #. Optional Information section
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:309
+#: ../carrier/plugins/gevolution/new_person_dialog.c:309
 msgid "Optional information:"
 msgstr "Agahiya li gorî hilbijartinê:"
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:344
+#: ../carrier/plugins/gevolution/new_person_dialog.c:344
 msgid "First name:"
 msgstr "Nav:"
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:356
+#: ../carrier/plugins/gevolution/new_person_dialog.c:356
 msgid "Last name:"
 msgstr "Paşnav:"
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:376
+#: ../carrier/plugins/gevolution/new_person_dialog.c:376
 msgid "E-mail:"
 msgstr "E-peyam:"
 
@@ -17095,7 +17095,7 @@ msgstr "E-peyam:"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/gtk-signals-test.c:160
+#: ../carrier/plugins/gtk-signals-test.c:160
 msgid "GTK Signals Test"
 msgstr "Testa Sinyalên GTK"
 
@@ -17103,12 +17103,12 @@ msgstr "Testa Sinyalên GTK"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/gtk-signals-test.c:163
-#: ../pidgin/plugins/gtk-signals-test.c:165
+#: ../carrier/plugins/gtk-signals-test.c:163
+#: ../carrier/plugins/gtk-signals-test.c:165
 msgid "Test to see that all ui signals are working properly."
 msgstr "Ji bo ku bibînî ka hemû sinyal dixebitin an na, test bike."
 
-#: ../pidgin/plugins/gtkbuddynote.c:36
+#: ../carrier/plugins/gtkbuddynote.c:36
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -17117,7 +17117,7 @@ msgstr ""
 "\n"
 "<b>Idle:</b> %s"
 
-#: ../pidgin/plugins/history.c:188
+#: ../carrier/plugins/history.c:188
 msgid "History"
 msgstr "Dîrok"
 
@@ -17127,7 +17127,7 @@ msgstr "Dîrok"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/iconaway.c:82
+#: ../carrier/plugins/iconaway.c:82
 msgid "Iconify on Away"
 msgstr "Dema ku li derve be pacê biçûk bike"
 
@@ -17135,83 +17135,83 @@ msgstr "Dema ku li derve be pacê biçûk bike"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/iconaway.c:85 ../pidgin/plugins/iconaway.c:87
+#: ../carrier/plugins/iconaway.c:85 ../pidgin/plugins/iconaway.c:87
 msgid "Iconifies the buddy list and your conversations when you go away."
 msgstr ""
 "Dema ku rabî dê lîsteya te ya hevalan û axaftinên te bike rewşa direfşê."
 
-#: ../pidgin/plugins/mailchk.c:160
+#: ../carrier/plugins/mailchk.c:160
 msgid "Mail Checker"
 msgstr "Kontrolkirina E-Peyamê"
 
-#: ../pidgin/plugins/mailchk.c:162
+#: ../carrier/plugins/mailchk.c:162
 msgid "Checks for new local mail."
 msgstr "Ji bo peyamên nû kontrol bike."
 
-#: ../pidgin/plugins/mailchk.c:163
+#: ../carrier/plugins/mailchk.c:163
 msgid "Adds a small box to the buddy list that shows if you have new mail."
 msgstr ""
 "Dema ku ji te re peyameke nû were dê qutîkeke biçûk li lîsteya te zêde bike."
 
-#: ../pidgin/plugins/markerline.c:23
+#: ../carrier/plugins/markerline.c:23
 #, fuzzy
 msgid "Markerline"
 msgstr "Binxêz"
 
-#: ../pidgin/plugins/markerline.c:25 ../pidgin/plugins/markerline.c:26
+#: ../carrier/plugins/markerline.c:25 ../pidgin/plugins/markerline.c:26
 #, fuzzy
 msgid "Draw a line to indicate new messages in a conversation."
 msgstr "Di hevpeyvînê de peyama nîşeyan bixebitîne"
 
-#: ../pidgin/plugins/markerline.c:246
+#: ../carrier/plugins/markerline.c:246
 msgid "Draw Markerline in "
 msgstr ""
 
-#: ../pidgin/plugins/markerline.c:250 ../pidgin/plugins/notify.c:682
+#: ../carrier/plugins/markerline.c:250 ../pidgin/plugins/notify.c:682
 msgid "_IM windows"
 msgstr "_Paceya peyaman"
 
-#: ../pidgin/plugins/markerline.c:254 ../pidgin/plugins/notify.c:689
+#: ../carrier/plugins/markerline.c:254 ../pidgin/plugins/notify.c:689
 msgid "C_hat windows"
 msgstr "_Paceya Chatê"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:44
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:44
 msgid ""
 "A music messaging session has been requested. Please click the MM icon to "
 "accept."
 msgstr ""
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:45
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:45
 msgid "Music messaging session confirmed."
 msgstr ""
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:430
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:430
 msgid "Music Messaging"
 msgstr "Peyamên mûzîkê"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:431
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:431
 msgid "There was a conflict in running the command:"
 msgstr "Gengeşî di xebitandina fermanê de hebû"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:539
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:539
 msgid "Error Running Editor"
 msgstr "Çewtiya xebata Editor"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:540
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:540
 #, fuzzy
 msgid "The following error has occurred:"
 msgstr "Ev çewtî hate dîtin:"
 
 #. Configuration frame
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:639
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:639
 msgid "Music Messaging Configuration"
 msgstr ""
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:643
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:643
 msgid "Score Editor Path"
 msgstr "Riya Sererastkirina Skoran"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:644
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:644
 msgid "_Apply"
 msgstr "Bise_pîne"
 
@@ -17223,87 +17223,87 @@ msgstr "Bise_pîne"
 #. *< id
 #. *< name
 #. *< version
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:685
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:685
 msgid "Music Messaging Plugin for collaborative composition."
 msgstr ""
 
 #. *  summary
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:687
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:687
 msgid ""
 "The Music Messaging Plugin allows a number of users to simultaneously work "
 "on a piece of music by editting a common score in real-time."
 msgstr ""
 
 #. ---------- "Notify For" ----------
-#: ../pidgin/plugins/notify.c:678
+#: ../carrier/plugins/notify.c:678
 msgid "Notify For"
 msgstr "Hişyar Bike"
 
-#: ../pidgin/plugins/notify.c:697
+#: ../carrier/plugins/notify.c:697
 msgid "\t_Only when someone says your screen name"
 msgstr "\t_Bitenê dema ku yek navê dîmendera te dibêje"
 
-#: ../pidgin/plugins/notify.c:707
+#: ../carrier/plugins/notify.c:707
 msgid "_Focused windows"
 msgstr "_Paceya çalak"
 
 #. ---------- "Notification Methods" ----------
-#: ../pidgin/plugins/notify.c:715
+#: ../carrier/plugins/notify.c:715
 msgid "Notification Methods"
 msgstr "Azîneyên Agardarkirinê"
 
-#: ../pidgin/plugins/notify.c:722
+#: ../carrier/plugins/notify.c:722
 msgid "Prepend _string into window title:"
 msgstr "Sernavê pacê"
 
 #. Count method button
-#: ../pidgin/plugins/notify.c:741
+#: ../carrier/plugins/notify.c:741
 msgid "Insert c_ount of new messages into window title"
 msgstr "Hejmara peyamên nû li sernavê pacê zêde bike"
 
 #. Count xprop method button
-#: ../pidgin/plugins/notify.c:750
+#: ../carrier/plugins/notify.c:750
 #, fuzzy
 msgid "Insert count of new message into _X property"
 msgstr "Hejmara peyamên nû li sernavê pacê zêde bike"
 
 #. Urgent method button
-#: ../pidgin/plugins/notify.c:758
+#: ../carrier/plugins/notify.c:758
 msgid "Set window manager \"_URGENT\" hint"
 msgstr "Rêvebira pacê bi serbena \"_BILEZ\" ve mîheng bike"
 
 #. Raise window method button
-#: ../pidgin/plugins/notify.c:767
+#: ../carrier/plugins/notify.c:767
 msgid "R_aise conversation window"
 msgstr "Paceya hevpeyvînê B_ilind bike"
 
 #. ---------- "Notification Removals" ----------
-#: ../pidgin/plugins/notify.c:775
+#: ../carrier/plugins/notify.c:775
 msgid "Notification Removal"
 msgstr "Rakirina Hişyariyan"
 
 #. Remove on focus button
-#: ../pidgin/plugins/notify.c:780
+#: ../carrier/plugins/notify.c:780
 msgid "Remove when conversation window _gains focus"
 msgstr "Dema ku paceya axaftinê çalak bibe, rake"
 
 #. Remove on click button
-#: ../pidgin/plugins/notify.c:787
+#: ../carrier/plugins/notify.c:787
 msgid "Remove when conversation window _receives click"
 msgstr "Dema ku paceya axaftinê bê tikandin, rake"
 
 #. Remove on type button
-#: ../pidgin/plugins/notify.c:795
+#: ../carrier/plugins/notify.c:795
 msgid "Remove when _typing in conversation window"
 msgstr "Dema ku di paceya axaftinê de bê nivîsandin, rake"
 
 #. Remove on message send button
-#: ../pidgin/plugins/notify.c:803
+#: ../carrier/plugins/notify.c:803
 msgid "Remove when a _message gets sent"
 msgstr "Dema ku kurtepeyamek bê şandin, rake"
 
 #. Remove on conversation switch button
-#: ../pidgin/plugins/notify.c:812
+#: ../carrier/plugins/notify.c:812
 msgid "Remove on switch to conversation ta_b"
 msgstr "Dema derbasî h_ilpekîna hevdîtinê bû, rake"
 
@@ -17313,7 +17313,7 @@ msgstr "Dema derbasî h_ilpekîna hevdîtinê bû, rake"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/notify.c:907
+#: ../carrier/plugins/notify.c:907
 msgid "Message Notification"
 msgstr "Hişyarkirina Peyaman"
 
@@ -17321,7 +17321,7 @@ msgstr "Hişyarkirina Peyaman"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/notify.c:910 ../pidgin/plugins/notify.c:912
+#: ../carrier/plugins/notify.c:910 ../pidgin/plugins/notify.c:912
 msgid "Provides a variety of ways of notifying you of unread messages."
 msgstr "Derbarê peyamên te yên nexwendî de gelek rêyan pêşkêş dike."
 
@@ -17331,7 +17331,7 @@ msgstr "Derbarê peyamên te yên nexwendî de gelek rêyan pêşkêş dike."
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/pidgininc.c:91
+#: ../carrier/plugins/pidgininc.c:91
 #, fuzzy
 msgid "Pidgin Demonstration Plugin"
 msgstr "Pêveka Pêşandana Gaimê"
@@ -17339,12 +17339,12 @@ msgstr "Pêveka Pêşandana Gaimê"
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/pidgininc.c:94
+#: ../carrier/plugins/pidgininc.c:94
 msgid "An example plugin that does stuff - see the description."
 msgstr "mînaka têketineke bingehîn-li şîroveyê binêre"
 
 #. *  description
-#: ../pidgin/plugins/pidgininc.c:96
+#: ../carrier/plugins/pidgininc.c:96
 msgid ""
 "This is a really cool plugin that does a lot of stuff:\n"
 "- It tells you who wrote the program when you log in\n"
@@ -17356,63 +17356,63 @@ msgstr ""
 "- Hemû gotarên ku tên şûnde vedigerîne.\n"
 "- Dema ku tu têketiyê, peyamekê ji hemû kesên di lîsteya te de ne re dişîne."
 
-#: ../pidgin/plugins/pidginrc.c:41
+#: ../carrier/plugins/pidginrc.c:41
 msgid "Cursor Color"
 msgstr "Rengê Nîşanker"
 
-#: ../pidgin/plugins/pidginrc.c:42
+#: ../carrier/plugins/pidginrc.c:42
 msgid "Secondary Cursor Color"
 msgstr "Rengê duyemîn ê nîşanker"
 
-#: ../pidgin/plugins/pidginrc.c:43
+#: ../carrier/plugins/pidginrc.c:43
 msgid "Hyperlink Color"
 msgstr "Rengê girêdanê"
 
-#: ../pidgin/plugins/pidginrc.c:54
+#: ../carrier/plugins/pidginrc.c:54
 #, fuzzy
 msgid "GtkTreeView Horizontal Separation"
 msgstr "Dîtina dara Gtk / meznahiya dirêjahnayê"
 
-#: ../pidgin/plugins/pidginrc.c:73
+#: ../carrier/plugins/pidginrc.c:73
 msgid "Conversation Entry"
 msgstr "Têketana Hevpeyvînê"
 
-#: ../pidgin/plugins/pidginrc.c:74
+#: ../carrier/plugins/pidginrc.c:74
 msgid "Conversation History"
 msgstr "Dîroka Hevpeyvînê"
 
-#: ../pidgin/plugins/pidginrc.c:75
+#: ../carrier/plugins/pidginrc.c:75
 #, fuzzy
 msgid "Log Viewer"
 msgstr "Nîşankerê têketanê"
 
-#: ../pidgin/plugins/pidginrc.c:76
+#: ../carrier/plugins/pidginrc.c:76
 msgid "Request Dialog"
 msgstr "Diyaloga Daxwazan"
 
-#: ../pidgin/plugins/pidginrc.c:77
+#: ../carrier/plugins/pidginrc.c:77
 msgid "Notify Dialog"
 msgstr "Diyaloga Hişyariyan"
 
-#: ../pidgin/plugins/pidginrc.c:253
+#: ../carrier/plugins/pidginrc.c:253
 msgid "Select Color"
 msgstr "Rengî hilbijêre"
 
-#: ../pidgin/plugins/pidginrc.c:300
+#: ../carrier/plugins/pidginrc.c:300
 #, c-format
 msgid "Select Interface Font"
 msgstr "Curenivîs Dirûvê Navîn Hilbijêre"
 
-#: ../pidgin/plugins/pidginrc.c:303
+#: ../carrier/plugins/pidginrc.c:303
 #, c-format
 msgid "Select Font for %s"
 msgstr "Ji bo %s Curenivîsekê Hilbijêre"
 
-#: ../pidgin/plugins/pidginrc.c:371
+#: ../carrier/plugins/pidginrc.c:371
 msgid "GTK+ Interface Font"
 msgstr "Nivîsa Dirûvê Navîn yê GTK+"
 
-#: ../pidgin/plugins/pidginrc.c:391
+#: ../carrier/plugins/pidginrc.c:391
 msgid "GTK+ Text Shortcut Theme"
 msgstr "GTK+ Kurteriya mijara nivîsê"
 
@@ -17436,50 +17436,50 @@ msgstr "GTK+ Kurteriya mijara nivîsê"
 #. widget_bool_widgets[i]);
 #. }
 #.
-#: ../pidgin/plugins/pidginrc.c:428
+#: ../carrier/plugins/pidginrc.c:428
 msgid "Interface colors"
 msgstr "Rengê dirûvê navîn"
 
-#: ../pidgin/plugins/pidginrc.c:452
+#: ../carrier/plugins/pidginrc.c:452
 msgid "Widget Sizes"
 msgstr ""
 
-#: ../pidgin/plugins/pidginrc.c:473
+#: ../carrier/plugins/pidginrc.c:473
 msgid "Fonts"
 msgstr "Curenivîs"
 
-#: ../pidgin/plugins/pidginrc.c:497
+#: ../carrier/plugins/pidginrc.c:497
 #, fuzzy
 msgid "Gtkrc File Tools"
 msgstr "Kontrolkirina pelên GAIM'ê"
 
-#: ../pidgin/plugins/pidginrc.c:502
+#: ../carrier/plugins/pidginrc.c:502
 #, c-format
 msgid "Write settings to %s%sgtkrc-2.0"
 msgstr "Mîhengan li vir binivîse: %s%sgtkrc-2.0"
 
-#: ../pidgin/plugins/pidginrc.c:511
+#: ../carrier/plugins/pidginrc.c:511
 msgid "Re-read gtkrc files"
 msgstr "Pelên gtkrc cardin bixwîne"
 
-#: ../pidgin/plugins/pidginrc.c:544
+#: ../carrier/plugins/pidginrc.c:544
 #, fuzzy
 msgid "Pidgin GTK+ Theme Control"
 msgstr "Gaim GTK+ Kontrola mijarê"
 
-#: ../pidgin/plugins/pidginrc.c:546 ../pidgin/plugins/pidginrc.c:547
+#: ../carrier/plugins/pidginrc.c:546 ../pidgin/plugins/pidginrc.c:547
 msgid "Provides access to commonly used gtkrc settings."
 msgstr ""
 
-#: ../pidgin/plugins/raw.c:175
+#: ../carrier/plugins/raw.c:175
 msgid "Raw"
 msgstr "Xav"
 
-#: ../pidgin/plugins/raw.c:177
+#: ../carrier/plugins/raw.c:177
 msgid "Lets you send raw input to text-based protocols."
 msgstr "dihêle ku tu têketanên negihiştî bişînî protokolên nivîskî."
 
-#: ../pidgin/plugins/raw.c:178
+#: ../carrier/plugins/raw.c:178
 #, fuzzy
 msgid ""
 "Lets you send raw input to text-based protocols (XMPP, MSN, IRC, TOC). Hit "
@@ -17488,21 +17488,21 @@ msgstr ""
 "dihêle ku tu têketanên negihiştî bişînî protokolên nivîskî (Jabber, MSN, "
 "IRC, TOC). ji bo şandinê  'Enter' bitikîne.li Paceya vebijartinê binhêre."
 
-#: ../pidgin/plugins/relnot.c:71
+#: ../carrier/plugins/relnot.c:71
 #, fuzzy, c-format
 msgid ""
 "You are using %s version %s.  The current version is %s.  You can get it "
 "from <a href=\"%s\">%s</a><hr>"
 msgstr "Guhertoya Gaimê ya ku tu bikartînî %s ye. Ya nûtirîn %s ye.<hr>"
 
-#: ../pidgin/plugins/relnot.c:79
+#: ../carrier/plugins/relnot.c:79
 #, fuzzy, c-format
 msgid "<b>ChangeLog:</b><br>%s"
 msgstr ""
 "<b>Tomarkirin:</b>\n"
 "%s<br><br>"
 
-#: ../pidgin/plugins/relnot.c:84 ../pidgin/plugins/relnot.c:85
+#: ../carrier/plugins/relnot.c:84 ../pidgin/plugins/relnot.c:85
 msgid "New Version Available"
 msgstr "Guhertoya Nû Heye"
 
@@ -17512,19 +17512,19 @@ msgstr "Guhertoya Nû Heye"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/relnot.c:143
+#: ../carrier/plugins/relnot.c:143
 msgid "Release Notification"
 msgstr "Hişyarkirine Ji Bo Guhertoya Nû"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/relnot.c:146
+#: ../carrier/plugins/relnot.c:146
 msgid "Checks periodically for new releases."
 msgstr "Guhertoyên nû bi awayekî vedorî dişopîne."
 
 #. *  description
-#: ../pidgin/plugins/relnot.c:148
+#: ../carrier/plugins/relnot.c:148
 msgid ""
 "Checks periodically for new releases and notifies the user with the "
 "ChangeLog."
@@ -17532,68 +17532,68 @@ msgstr ""
 "Guhertoyên nû bi awayekî vedorî dişopîne û bikarhêneran bi Tomarkirina "
 "Guhertinan hişyar dike."
 
-#: ../pidgin/plugins/spellchk.c:1962
+#: ../carrier/plugins/spellchk.c:1962
 msgid "Duplicate Correction"
 msgstr ""
 
-#: ../pidgin/plugins/spellchk.c:1963
+#: ../carrier/plugins/spellchk.c:1963
 msgid "The specified word already exists in the correction list."
 msgstr ""
 
-#: ../pidgin/plugins/spellchk.c:2177
+#: ../carrier/plugins/spellchk.c:2177
 msgid "Text Replacements"
 msgstr "Guherandina Nivîsarê"
 
-#: ../pidgin/plugins/spellchk.c:2200
+#: ../carrier/plugins/spellchk.c:2200
 msgid "You type"
 msgstr "Tu dinivîsî"
 
-#: ../pidgin/plugins/spellchk.c:2214
+#: ../carrier/plugins/spellchk.c:2214
 msgid "You send"
 msgstr "Te dişeynî"
 
-#: ../pidgin/plugins/spellchk.c:2228
+#: ../carrier/plugins/spellchk.c:2228
 msgid "Whole words only"
 msgstr "Bi tenê hemû gotin"
 
-#: ../pidgin/plugins/spellchk.c:2240
+#: ../carrier/plugins/spellchk.c:2240
 msgid "Case sensitive"
 msgstr "Ji rewşê re hestiyare"
 
-#: ../pidgin/plugins/spellchk.c:2266
+#: ../carrier/plugins/spellchk.c:2266
 msgid "Add a new text replacement"
 msgstr "Guherandina nivîsara nû lê zêde bike"
 
-#: ../pidgin/plugins/spellchk.c:2282
+#: ../carrier/plugins/spellchk.c:2282
 msgid "You _type:"
 msgstr "Tu_dinivîsî:"
 
-#: ../pidgin/plugins/spellchk.c:2299
+#: ../carrier/plugins/spellchk.c:2299
 msgid "You _send:"
 msgstr "Tu_dişeynî:"
 
 #. Created here so it can be passed to whole_words_button_toggled.
-#: ../pidgin/plugins/spellchk.c:2311
+#: ../carrier/plugins/spellchk.c:2311
 msgid "_Exact case match (uncheck for automatic case handling)"
 msgstr ""
 
-#: ../pidgin/plugins/spellchk.c:2313
+#: ../carrier/plugins/spellchk.c:2313
 msgid "Only replace _whole words"
 msgstr ""
 
-#: ../pidgin/plugins/spellchk.c:2338
+#: ../carrier/plugins/spellchk.c:2338
 msgid "General Text Replacement Options"
 msgstr ""
 
-#: ../pidgin/plugins/spellchk.c:2339
+#: ../carrier/plugins/spellchk.c:2339
 msgid "Enable replacement of last word on send"
 msgstr ""
 
-#: ../pidgin/plugins/spellchk.c:2370
+#: ../carrier/plugins/spellchk.c:2370
 msgid "Text replacement"
 msgstr "Cîguherandina nivîsaran"
 
-#: ../pidgin/plugins/spellchk.c:2372 ../pidgin/plugins/spellchk.c:2373
+#: ../carrier/plugins/spellchk.c:2372 ../pidgin/plugins/spellchk.c:2373
 msgid "Replaces text in outgoing messages according to user-defined rules."
 msgstr ""
 "Li gorî zagonên hatine daxuyakirin peyvên di peyamêm diçin de diguherîne."
@@ -17604,7 +17604,7 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/ticker/ticker.c:74 ../pidgin/plugins/ticker/ticker.c:354
+#: ../carrier/plugins/ticker/ticker.c:74 ../pidgin/plugins/ticker/ticker.c:354
 msgid "Buddy Ticker"
 msgstr "Hilbijartina Kesan"
 
@@ -17612,11 +17612,11 @@ msgstr "Hilbijartina Kesan"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/ticker/ticker.c:357 ../pidgin/plugins/ticker/ticker.c:359
+#: ../carrier/plugins/ticker/ticker.c:357 ../pidgin/plugins/ticker/ticker.c:359
 msgid "A horizontal scrolling version of the buddy list."
 msgstr "Guhertoyeke berwarî ya lîsteya kesan."
 
-#: ../pidgin/plugins/timestamp.c:137
+#: ../carrier/plugins/timestamp.c:137
 #, fuzzy
 msgid "Display Timestamps Every"
 msgstr "Mohra demê ya İChatê"
@@ -17627,52 +17627,52 @@ msgstr "Mohra demê ya İChatê"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/timestamp.c:202
+#: ../carrier/plugins/timestamp.c:202
 msgid "Timestamp"
 msgstr "Mohra demê"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/timestamp.c:205
+#: ../carrier/plugins/timestamp.c:205
 #, fuzzy
 msgid "Display iChat-style timestamps"
 msgstr "Mohra demê ya İChatê"
 
 #. *  description
-#: ../pidgin/plugins/timestamp.c:207
+#: ../carrier/plugins/timestamp.c:207
 #, fuzzy
 msgid "Display iChat-style timestamps every N minutes."
 msgstr "Derbasdariya Paceya _Peyaman"
 
-#: ../pidgin/plugins/timestamp_format.c:23
+#: ../carrier/plugins/timestamp_format.c:23
 msgid "Timestamp Format Options"
 msgstr ""
 
-#: ../pidgin/plugins/timestamp_format.c:26
+#: ../carrier/plugins/timestamp_format.c:26
 #, c-format
 msgid "_Force 24-hour time format"
 msgstr ""
 
-#: ../pidgin/plugins/timestamp_format.c:33
+#: ../carrier/plugins/timestamp_format.c:33
 msgid "Show dates in..."
 msgstr "Demê nîşan bide..."
 
-#: ../pidgin/plugins/timestamp_format.c:38
+#: ../carrier/plugins/timestamp_format.c:38
 msgid "Co_nversations:"
 msgstr "Hev_peyvîn:"
 
-#: ../pidgin/plugins/timestamp_format.c:40
-#: ../pidgin/plugins/timestamp_format.c:49
+#: ../carrier/plugins/timestamp_format.c:40
+#: ../carrier/plugins/timestamp_format.c:49
 msgid "For delayed messages"
 msgstr ""
 
-#: ../pidgin/plugins/timestamp_format.c:41
-#: ../pidgin/plugins/timestamp_format.c:50
+#: ../carrier/plugins/timestamp_format.c:41
+#: ../carrier/plugins/timestamp_format.c:50
 msgid "For delayed messages and in chats"
 msgstr ""
 
-#: ../pidgin/plugins/timestamp_format.c:47
+#: ../carrier/plugins/timestamp_format.c:47
 msgid "_Message Logs:"
 msgstr "_Têketinên peyamê"
 
@@ -17682,62 +17682,62 @@ msgstr "_Têketinên peyamê"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/timestamp_format.c:151
+#: ../carrier/plugins/timestamp_format.c:151
 msgid "Message Timestamp Formats"
 msgstr ""
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/timestamp_format.c:154
+#: ../carrier/plugins/timestamp_format.c:154
 msgid "Customizes the message timestamp formats."
 msgstr ""
 
 #. *  description
-#: ../pidgin/plugins/timestamp_format.c:156
+#: ../carrier/plugins/timestamp_format.c:156
 msgid ""
 "This plugin allows the user to customize conversation and logging message "
 "timestamp formats."
 msgstr ""
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:175
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:598
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:645
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:175
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:598
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:645
 msgid "Opacity:"
 msgstr "Zebloqî:"
 
 #. IM Convo trans options
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:562
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:562
 msgid "IM Conversation Windows"
 msgstr "Paceyên Nivîsandinê"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:563
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:563
 msgid "_IM window transparency"
 msgstr "_Paceya peyaman a şefef"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:577
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:577
 msgid "_Show slider bar in IM window"
 msgstr "Şivên kaşkirinê di paceya peyaman de nîşan bide"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:584
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:584
 msgid "Remove IM window transparency on focus"
 msgstr "Dema hate ser, şeffafiya paceya peyamên demdemî winda bike"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:587
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:635
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:587
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:635
 msgid "Always on top"
 msgstr "Her dem li ser"
 
 #. Buddy List trans options
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:619
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:619
 msgid "Buddy List Window"
 msgstr "Paceya Lîsteya Hevalan"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:620
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:620
 msgid "_Buddy List window transparency"
 msgstr "_Zebloqiya Paceya Lîsteya Hevalan"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:633
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:633
 msgid "Remove Buddy List window transparency on focus"
 msgstr ""
 
@@ -17747,19 +17747,19 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:693
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:693
 msgid "Transparency"
 msgstr "Zebloqî"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:696
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:696
 msgid "Variable Transparency for the buddy list and conversations."
 msgstr "Zebloqiya Guherbar a ji bo lîsteya hevalan û axaftinan"
 
 #. *  description
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:698
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:698
 msgid ""
 "This plugin enables variable alpha transparency on conversation windows and "
 "the buddy list.\n"
@@ -17770,55 +17770,55 @@ msgstr ""
 "\n"
 "*Nîşe: Ji bo vê pêvekê pêwist e Win2000 yan jî WinXP hebe."
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:303
+#: ../carrier/plugins/win32/winprefs/winprefs.c:303
 msgid "GTK+ Runtime Version"
 msgstr "Guhertoya GTK+Runtime"
 
 #. Autostart
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:311
+#: ../carrier/plugins/win32/winprefs/winprefs.c:311
 msgid "Startup"
 msgstr "Destpêkirin"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:312
+#: ../carrier/plugins/win32/winprefs/winprefs.c:312
 #, fuzzy, c-format
 msgid "_Start %s on Windows startup"
 msgstr "Di destpêkirina Windowsê de Gaimê bide destpêkirin"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:327
+#: ../carrier/plugins/win32/winprefs/winprefs.c:327
 msgid "_Dockable Buddy List"
 msgstr "Lîsteya Hevalan a ku tê Girêdan"
 
 #. Blist On Top
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:331
+#: ../carrier/plugins/win32/winprefs/winprefs.c:331
 msgid "_Keep Buddy List window on top:"
 msgstr ""
 
 #. XXX: Did this ever work?
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:336
+#: ../carrier/plugins/win32/winprefs/winprefs.c:336
 msgid "Only when docked"
 msgstr ""
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:341
+#: ../carrier/plugins/win32/winprefs/winprefs.c:341
 #, fuzzy
 msgid "_Flash window when chat messages are received"
 msgstr "_Dema ku peyam bighîjin paceyê hişyar bike"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:371
+#: ../carrier/plugins/win32/winprefs/winprefs.c:371
 #, fuzzy
 msgid "Windows Pidgin Options"
 msgstr "Vebijartokên Têketinê"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:373
+#: ../carrier/plugins/win32/winprefs/winprefs.c:373
 #, fuzzy
 msgid "Options specific to Pidgin for Windows."
 msgstr "Vebijartokên ku ji bo WinGaimê taybet in."
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:374
+#: ../carrier/plugins/win32/winprefs/winprefs.c:374
 msgid ""
 "Provides options specific to Pidgin for Windows , such as buddy list docking."
 msgstr ""
 
-#: ../pidgin/plugins/xmppconsole.c:667
+#: ../carrier/plugins/xmppconsole.c:667
 msgid "<font color='#777777'>Logged out.</font>"
 msgstr ""
 
@@ -17828,29 +17828,29 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/xmppconsole.c:746 ../pidgin/plugins/xmppconsole.c:841
-#: ../pidgin/plugins/xmppconsole.c:860
+#: ../carrier/plugins/xmppconsole.c:746 ../pidgin/plugins/xmppconsole.c:841
+#: ../carrier/plugins/xmppconsole.c:860
 msgid "XMPP Console"
 msgstr ""
 
-#: ../pidgin/plugins/xmppconsole.c:753
+#: ../carrier/plugins/xmppconsole.c:753
 #, fuzzy
 msgid "Account: "
 msgstr "Hesab:"
 
-#: ../pidgin/plugins/xmppconsole.c:780
+#: ../carrier/plugins/xmppconsole.c:780
 msgid "<font color='#777777'>Not connected to XMPP</font>"
 msgstr ""
 
-#: ../pidgin/plugins/xmppconsole.c:790
+#: ../carrier/plugins/xmppconsole.c:790
 msgid "Insert an <iq/> stanza."
 msgstr ""
 
-#: ../pidgin/plugins/xmppconsole.c:799
+#: ../carrier/plugins/xmppconsole.c:799
 msgid "Insert a <presence/> stanza."
 msgstr ""
 
-#: ../pidgin/plugins/xmppconsole.c:808
+#: ../carrier/plugins/xmppconsole.c:808
 #, fuzzy
 msgid "Insert a <message/> stanza."
 msgstr "Têxe hundirê peyamê"
@@ -17858,12 +17858,12 @@ msgstr "Têxe hundirê peyamê"
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/xmppconsole.c:863
+#: ../carrier/plugins/xmppconsole.c:863
 msgid "Send and receive raw XMPP stanzas."
 msgstr ""
 
 #. *  description
-#: ../pidgin/plugins/xmppconsole.c:865
+#: ../carrier/plugins/xmppconsole.c:865
 msgid "This plugin is useful for debbuging XMPP servers or clients."
 msgstr ""
 

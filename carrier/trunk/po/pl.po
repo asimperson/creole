@@ -60,7 +60,7 @@ msgstr ""
 "  -n, --nologin       wyłącza automatyczne logowanie\n"
 "  -v, --version       wyświetla numer aktualnej wersji\n"
 
-#: ../finch/finch.c:1 ../pidgin/gtkmain.c:1
+#: ../finch/finch.c:1 ../carrier/gtkmain.c:1
 #, c-format
 msgid ""
 "%s encountered errors migrating your settings from %s to %s. Please "
@@ -106,8 +106,8 @@ msgstr "Brak wtyczek protokołów."
 msgid "(You probably forgot to 'make install'.)"
 msgstr "(Prawdopodobnie zapomniałaś/zapomniałeś uruchomić 'make install' )"
 
-#: ../finch/gntaccount.c:1 ../finch/gntconn.c:1 ../pidgin/gtkaccount.c:1
-#: ../pidgin/gtkblist.c:1
+#: ../finch/gntaccount.c:1 ../finch/gntconn.c:1 ../carrier/gtkaccount.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Modify Account"
 msgstr "Modyfikacja konta"
 
@@ -115,11 +115,11 @@ msgstr "Modyfikacja konta"
 msgid "New Account"
 msgstr "Nowe Konto"
 
-#: ../finch/gntaccount.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntaccount.c:1 ../carrier/gtkft.c:1
 msgid "Protocol:"
 msgstr "Protokół:"
 
-#: ../finch/gntaccount.c:1 ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../finch/gntaccount.c:1 ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "Screen name:"
 msgstr "Identyfikator:"
 
@@ -159,11 +159,11 @@ msgstr "Alias:"
 #: ../libpurple/protocols/silc10/chat.c:1
 #: ../libpurple/protocols/silc10/ops.c:1
 #: ../libpurple/protocols/silc10/silc.c:1
-#: ../libpurple/protocols/yahoo/yahoo.c:1 ../pidgin/gtkaccount.c:1
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkcertmgr.c:1 ../pidgin/gtkdialogs.c:1
-#: ../pidgin/gtkimhtmltoolbar.c:1 ../pidgin/gtklog.c:1 ../pidgin/gtkplugin.c:1
-#: ../pidgin/gtkpounce.c:1 ../pidgin/gtkprivacy.c:1 ../pidgin/gtkrequest.c:1
-#: ../pidgin/gtksavedstatuses.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../libpurple/protocols/yahoo/yahoo.c:1 ../carrier/gtkaccount.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkcertmgr.c:1 ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1 ../pidgin/gtklog.c:1 ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkpounce.c:1 ../pidgin/gtkprivacy.c:1 ../pidgin/gtkrequest.c:1
+#: ../carrier/gtksavedstatuses.c:1 ../pidgin/gtkstatusbox.c:1
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -173,13 +173,13 @@ msgstr "Anuluj"
 #: ../finch/gntplugin.c:1 ../finch/gntpounce.c:1 ../finch/gntprefs.c:1
 #: ../finch/gntsound.c:1 ../finch/gntstatus.c:1 ../finch/gntstatus.c:1
 #: ../libpurple/account.c:1 ../libpurple/plugins/buddynote.c:1
-#: ../libpurple/protocols/jabber/buddy.c:1 ../pidgin/gtkdebug.c:1
-#: ../pidgin/gtkrequest.c:1
+#: ../libpurple/protocols/jabber/buddy.c:1 ../carrier/gtkdebug.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Save"
 msgstr "Zapisz"
 
-#: ../finch/gntaccount.c:1 ../pidgin/gtkaccount.c:1
-#: ../pidgin/gtksavedstatuses.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../finch/gntaccount.c:1 ../carrier/gtkaccount.c:1
+#: ../carrier/gtksavedstatuses.c:1 ../pidgin/gtkstatusbox.c:1
 #, c-format
 msgid "Are you sure you want to delete %s?"
 msgstr "Czy na pewno usunąć %s?"
@@ -191,14 +191,14 @@ msgstr "Kasuj konto"
 #. Delete button
 #: ../finch/gntaccount.c:1 ../finch/gntcertmgr.c:1 ../finch/gntpounce.c:1
 #: ../finch/gntpounce.c:1 ../finch/gntstatus.c:1 ../finch/gntstatus.c:1
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtklog.c:1 ../pidgin/gtkpounce.c:1
-#: ../pidgin/gtkrequest.c:1 ../pidgin/gtksavedstatuses.c:1
-#: ../pidgin/gtkstatusbox.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtklog.c:1 ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkrequest.c:1 ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtkstatusbox.c:1
 msgid "Delete"
 msgstr "Usuń"
 
 #: ../finch/gntaccount.c:1 ../finch/gntblist.c:1 ../finch/gntui.c:1
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkdocklet.c:1
 msgid "Accounts"
 msgstr "Konta"
 
@@ -213,8 +213,8 @@ msgstr "Możesz włączyć lub wyłączyć konta z poniższej listy."
 #: ../libpurple/protocols/qq/sys_msg.c:1
 #: ../libpurple/protocols/sametime/sametime.c:1
 #: ../libpurple/protocols/silc/chat.c:1 ../libpurple/protocols/silc10/chat.c:1
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkblist.c:1 ../pidgin/gtkconv.c:1
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkblist.c:1 ../pidgin/gtkconv.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Add"
 msgstr "Dodaj"
 
@@ -223,29 +223,29 @@ msgstr "Dodaj"
 msgid "Modify"
 msgstr "Modyfikuj"
 
-#: ../finch/gntaccount.c:1 ../pidgin/gtkaccount.c:1
+#: ../finch/gntaccount.c:1 ../carrier/gtkaccount.c:1
 #, c-format
 msgid "%s%s%s%s has made %s his or her buddy%s%s"
 msgstr "Użytkownik %s%s%s%s dodał %s do swojej listy kontaktów %s%s"
 
-#: ../finch/gntaccount.c:1 ../pidgin/gtkaccount.c:1
+#: ../finch/gntaccount.c:1 ../carrier/gtkaccount.c:1
 msgid "Add buddy to your list?"
 msgstr "Dodać do listy znajomych?"
 
-#: ../finch/gntaccount.c:1 ../pidgin/gtkaccount.c:1
+#: ../finch/gntaccount.c:1 ../carrier/gtkaccount.c:1
 #, c-format
 msgid "%s%s%s%s wants to add %s to his or her buddy list%s%s"
 msgstr "Użytkownik %s%s%s%s chce dodać %s do swojej listy znajomych %s%s."
 
-#: ../finch/gntaccount.c:1 ../pidgin/gtkaccount.c:1
+#: ../finch/gntaccount.c:1 ../carrier/gtkaccount.c:1
 msgid "Authorize buddy?"
 msgstr "Prośba o autoryzację"
 
-#: ../finch/gntaccount.c:1 ../pidgin/gtkaccount.c:1
+#: ../finch/gntaccount.c:1 ../carrier/gtkaccount.c:1
 msgid "Authorize"
 msgstr "Autoryzuj"
 
-#: ../finch/gntaccount.c:1 ../pidgin/gtkaccount.c:1
+#: ../finch/gntaccount.c:1 ../carrier/gtkaccount.c:1
 msgid "Deny"
 msgstr "Odrzuć"
 
@@ -270,7 +270,7 @@ msgid "Error adding buddy"
 msgstr "Błąd podczas dodawania znajomego"
 
 #: ../finch/gntblist.c:1 ../libpurple/protocols/oscar/oscar.c:1
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtksavedstatuses.c:1
 msgid "Screen Name"
 msgstr "Identyfikator"
 
@@ -278,8 +278,8 @@ msgstr "Identyfikator"
 #: ../libpurple/protocols/msnp9/msn.c:1 ../libpurple/protocols/silc/chat.c:1
 #: ../libpurple/protocols/silc10/chat.c:1
 #: ../libpurple/protocols/yahoo/yahoo_profile.c:1
-#: ../libpurple/protocols/zephyr/zephyr.c:1 ../pidgin/gtkdialogs.c:1
-#: ../pidgin/gtkrequest.c:1
+#: ../libpurple/protocols/zephyr/zephyr.c:1 ../carrier/gtkdialogs.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Alias"
 msgstr "Alias"
 
@@ -288,16 +288,16 @@ msgid "Group"
 msgstr "Grupa"
 
 #: ../finch/gntblist.c:1 ../finch/gntnotify.c:1 ../finch/gntstatus.c:1
-#: ../libpurple/plugins/idle.c:1 ../pidgin/gtkblist.c:1
-#: ../pidgin/gtknotify.c:1 ../pidgin/gtkpounce.c:1
-#: ../pidgin/plugins/gevolution/gevolution.c:1
+#: ../libpurple/plugins/idle.c:1 ../carrier/gtkblist.c:1
+#: ../carrier/gtknotify.c:1 ../pidgin/gtkpounce.c:1
+#: ../carrier/plugins/gevolution/gevolution.c:1
 msgid "Account"
 msgstr "Konto"
 
 #: ../finch/gntblist.c:1 ../libpurple/protocols/silc/buddy.c:1
 #: ../libpurple/protocols/silc10/buddy.c:1
-#: ../libpurple/protocols/yahoo/yahoo.c:1 ../pidgin/gtkblist.c:1
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
+#: ../libpurple/protocols/yahoo/yahoo.c:1 ../carrier/gtkblist.c:1
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:1
 msgid "Add Buddy"
 msgstr "Dodaj użytkownika"
 
@@ -312,9 +312,9 @@ msgstr "Konferencje"
 #. Extract their Name and put it in
 #: ../finch/gntblist.c:1 ../libpurple/protocols/jabber/jabber.c:1
 #: ../libpurple/protocols/msn/msn.c:1 ../libpurple/protocols/msnp9/msn.c:1
-#: ../libpurple/protocols/qq/buddy_info.c:1 ../pidgin/gtkplugin.c:1
-#: ../pidgin/gtkroomlist.c:1 ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:1
+#: ../libpurple/protocols/qq/buddy_info.c:1 ../carrier/gtkplugin.c:1
+#: ../carrier/gtkroomlist.c:1 ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
+#: ../carrier/plugins/gevolution/assoc-buddy.c:1
 msgid "Name"
 msgstr "Nazwa"
 
@@ -322,7 +322,7 @@ msgstr "Nazwa"
 msgid "Auto-join"
 msgstr "Automatyczne przyłączanie się"
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkblist.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkblist.c:1
 msgid "Add Chat"
 msgstr "Dodanie konferencji"
 
@@ -343,7 +343,7 @@ msgid "A group with the name already exists."
 msgstr "Grupa o takiej nazwie już istnieje"
 
 #: ../finch/gntblist.c:1 ../libpurple/protocols/sametime/sametime.c:1
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Add Group"
 msgstr "Dodawanie grupy"
 
@@ -367,11 +367,11 @@ msgstr "Edytuj"
 msgid "Edit Settings"
 msgstr "Edytuj ustawienia"
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkutils.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkutils.c:1
 msgid "Information"
 msgstr "Informacja"
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkutils.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkutils.c:1
 msgid "Retrieving..."
 msgstr "Pobieranie..."
 
@@ -387,7 +387,7 @@ msgstr "Dodaj przechwytywanie zdarzeń"
 #. if (q_bud && is_online(q_bud->status)) {
 #: ../finch/gntblist.c:1 ../finch/gntconv.c:1
 #: ../libpurple/protocols/jabber/si.c:1 ../libpurple/protocols/oscar/oscar.c:1
-#: ../libpurple/protocols/qq/qq.c:1 ../pidgin/gtkconv.c:1
+#: ../libpurple/protocols/qq/qq.c:1 ../carrier/gtkconv.c:1
 msgid "Send File"
 msgstr "Wyślij plik"
 
@@ -434,14 +434,14 @@ msgstr "Czy na pewno usunąć %s?"
 msgid "Confirm Remove"
 msgstr "Potwierdź usunięcie"
 
-#: ../finch/gntblist.c:1 ../finch/gntft.c:1 ../pidgin/gtkconv.c:1
-#: ../pidgin/gtkrequest.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../finch/gntblist.c:1 ../finch/gntft.c:1 ../carrier/gtkconv.c:1
+#: ../carrier/gtkrequest.c:1 ../pidgin/gtkstatusbox.c:1
 msgid "Remove"
 msgstr "Usuń"
 
 #. Buddy List
 #: ../finch/gntblist.c:1 ../finch/gntprefs.c:1 ../finch/gntui.c:1
-#: ../pidgin/gtkblist.c:1 ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/plugins/win32/winprefs/winprefs.c:1
 msgid "Buddy List"
 msgstr "Lista znajomych"
 
@@ -463,7 +463,7 @@ msgstr "Google Talk"
 #: ../libpurple/protocols/silc/buddy.c:1 ../libpurple/protocols/silc/ops.c:1
 #: ../libpurple/protocols/silc10/buddy.c:1
 #: ../libpurple/protocols/silc10/ops.c:1
-#: ../libpurple/protocols/yahoo/yahoo_profile.c:1 ../pidgin/gtkblist.c:1
+#: ../libpurple/protocols/yahoo/yahoo_profile.c:1 ../carrier/gtkblist.c:1
 msgid "Nickname"
 msgstr "Identyfikator"
 
@@ -476,8 +476,8 @@ msgstr "Identyfikator"
 #: ../libpurple/protocols/novell/novell.c:1
 #: ../libpurple/protocols/oscar/oscar.c:1
 #: ../libpurple/protocols/yahoo/yahoo.c:1
-#: ../libpurple/protocols/yahoo/yahoo_profile.c:1 ../pidgin/gtkblist.c:1
-#: ../pidgin/gtkprefs.c:1
+#: ../libpurple/protocols/yahoo/yahoo_profile.c:1 ../carrier/gtkblist.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Idle"
 msgstr "Bezczynny"
 
@@ -508,24 +508,24 @@ msgstr ""
 "\n"
 "Ostatnio widziany: %s temu"
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkdocklet.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkdocklet.c:1
 msgid "New..."
 msgstr "Nowy..."
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkdocklet.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkdocklet.c:1
 msgid "Saved..."
 msgstr "Zapisane..."
 
 #: ../finch/gntblist.c:1 ../finch/gntplugin.c:1 ../finch/gntui.c:1
-#: ../pidgin/gtkdocklet.c:1 ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkdocklet.c:1 ../pidgin/gtkplugin.c:1
 msgid "Plugins"
 msgstr "Wtyczki"
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkdialogs.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkdialogs.c:1
 msgid "New Instant Message"
 msgstr "Nowa wiadomość"
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkdialogs.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkdialogs.c:1
 msgid ""
 "Please enter the screen name or alias of the person you would like to IM."
 msgstr ""
@@ -547,8 +547,8 @@ msgstr ""
 #: ../libpurple/protocols/silc10/chat.c:1
 #: ../libpurple/protocols/silc10/ops.c:1
 #: ../libpurple/protocols/silc10/silc.c:1
-#: ../libpurple/protocols/yahoo/yahoo.c:1 ../pidgin/gtkcertmgr.c:1
-#: ../pidgin/gtkdialogs.c:1 ../pidgin/gtkrequest.c:1
+#: ../libpurple/protocols/yahoo/yahoo.c:1 ../carrier/gtkcertmgr.c:1
+#: ../carrier/gtkdialogs.c:1 ../pidgin/gtkrequest.c:1
 msgid "OK"
 msgstr "OK"
 
@@ -556,7 +556,7 @@ msgstr "OK"
 msgid "Channel"
 msgstr "Kanał"
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkblist.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkblist.c:1
 msgid "Join a Chat"
 msgstr "Przyłączenie do konferencji"
 
@@ -569,7 +569,7 @@ msgid "Join"
 msgstr "Przyłącz się"
 
 #. Create the "Options" frame.
-#: ../finch/gntblist.c:1 ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntblist.c:1 ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 msgid "Options"
 msgstr "Opcje"
 
@@ -601,7 +601,7 @@ msgstr "Sortuj"
 msgid "By Status"
 msgstr "Według statusu"
 
-#: ../finch/gntblist.c:1 ../pidgin/gtkblist.c:1
+#: ../finch/gntblist.c:1 ../carrier/gtkblist.c:1
 msgid "Alphabetically"
 msgstr "Alfabetyczne"
 
@@ -609,19 +609,19 @@ msgstr "Alfabetyczne"
 msgid "By Log Size"
 msgstr "Według rozmiaru dziennika"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "Certificate Import"
 msgstr "Import certyfikatu"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "Specify a hostname"
 msgstr "Proszę wybrać nazwę hosta"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "Type the host name this certificate is for."
 msgstr "Wpisz nazwę hosta dla tego certyfikatu."
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 #, c-format
 msgid ""
 "File %s could not be imported.\n"
@@ -630,19 +630,19 @@ msgstr ""
 "Plik %s nie może zostać zaimportowany.\n"
 "Proszę się upewnić, czy plik jest odczytywalny i jest w formacie PEM.\n"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "Certificate Import Error"
 msgstr "Błąd importowania certyfikatu"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "X.509 certificate import failed"
 msgstr "Import certyfikatu X.509 zakończony niepowodzeniem."
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "Select a PEM certificate"
 msgstr "Wybierz certyfikat PEM"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 #, c-format
 msgid ""
 "Export to file %s failed.\n"
@@ -651,15 +651,15 @@ msgstr ""
 "Eksport do pliku %s zakończony niepowodzeniem.\n"
 "Upewnij się, że masz prawa zapisu do ścieżki docelowej.\n"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "Certificate Export Error"
 msgstr "Błąd eksportu certyfikatu"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "X.509 certificate export failed"
 msgstr "Eksportowanie certyfikatu X.509 zakończone niepowodzeniem."
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "PEM X.509 Certificate Export"
 msgstr "Eksportowanie certyfikatu PEM X.509"
 
@@ -685,16 +685,16 @@ msgstr ""
 msgid "SSL Host Certificate"
 msgstr "Certyfikat hosta SSL"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 #, c-format
 msgid "Really delete certificate for %s?"
 msgstr "Czy na pewno usunąć certyfikat dla %s?"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "Confirm certificate delete"
 msgstr "Potwierdź usunięcie certyfikatu"
 
-#: ../finch/gntcertmgr.c:1 ../pidgin/gtkcertmgr.c:1
+#: ../finch/gntcertmgr.c:1 ../carrier/gtkcertmgr.c:1
 msgid "Certificate Manager"
 msgstr "Menadżer certyfikatów"
 
@@ -704,8 +704,8 @@ msgstr "Menadżer certyfikatów"
 msgid "Hostname"
 msgstr "Nazwa hosta"
 
-#: ../finch/gntcertmgr.c:1 ../finch/gntnotify.c:1 ../pidgin/gtkconv.c:1
-#: ../pidgin/gtkdebug.c:1
+#: ../finch/gntcertmgr.c:1 ../finch/gntnotify.c:1 ../carrier/gtkconv.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Info"
 msgstr "Informacja"
 
@@ -714,7 +714,7 @@ msgstr "Informacja"
 #: ../finch/gntplugin.c:1 ../finch/gntpounce.c:1 ../finch/gntstatus.c:1
 #: ../libpurple/protocols/msn/msn.c:1 ../libpurple/protocols/msnp9/msn.c:1
 #: ../libpurple/protocols/silc/util.c:1 ../libpurple/protocols/silc10/util.c:1
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkrequest.c:1
 msgid "Close"
 msgstr "Zamknij"
 
@@ -749,28 +749,28 @@ msgstr "Ponownie włącz konto"
 msgid "No such command."
 msgstr "Nie ma takiego polecenia."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "Syntax Error:  You typed the wrong number of arguments to that command."
 msgstr ""
 "Błąd składni:  Podano niewłaściwą liczbę argumentów dla tego polecenia."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "Your command failed for an unknown reason."
 msgstr "Wykonanie polecenia zakończyło się niepowodzeniem z nieznanego powodu."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "That command only works in chats, not IMs."
 msgstr ""
 "To polecenie jest dostępne tylko przy konferencjach - nie można go używać "
 "przy prywatnych wiadomościach."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "That command only works in IMs, not chats."
 msgstr ""
 "To polecenie jest dostępne tylko przy prywatnych wiadomościach - nie można "
 "go używać w konferencjach."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "That command doesn't work on this protocol."
 msgstr "Wybrane polecenie nie działa z tym protokołem."
 
@@ -801,13 +801,13 @@ msgstr ""
 msgid "You have left this chat."
 msgstr "Opuściłeś tą konferencję"
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "Logging started. Future messages in this conversation will be logged."
 msgstr ""
 "Zapisywanie do dziennika zostało włączone. Wszystkie wiadomości które "
 "pojawią się w oknie tej rozmowy zostaną zapisane."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid ""
 "Logging stopped. Future messages in this conversation will not be logged."
 msgstr ""
@@ -851,15 +851,15 @@ msgstr "<AUTOMATYCZNA-ODPOWIEDŹ> "
 msgid "List of users:\n"
 msgstr "Lista użytkowników:\n"
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "Supported debug options are:  version"
 msgstr "Obsługiwane opcje polecenia debug to:  version"
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "No such command (in this context)."
 msgstr "Nie ma takiego polecenia (w tym kontekście)."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid ""
 "Use \"/help &lt;command&gt;\" for help on a specific command.\n"
 "The following commands are available in this context:\n"
@@ -868,7 +868,7 @@ msgstr ""
 "polecenia.\n"
 "W tym kontekście dostępne są następujące polecenia:\n"
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid ""
 "say &lt;message&gt;:  Send a message normally as if you weren't using a "
 "command."
@@ -876,23 +876,23 @@ msgstr ""
 "say &lt;wiadomość&gt;:  Wysyła wiadomość w normalny sposób, taki sam jak bez "
 "używania jakichkolwiek poleceń."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "me &lt;action&gt;:  Send an IRC style action to a buddy or chat."
 msgstr ""
 "me &lt;akcja&gt;:  Wysyła akcję w stylu IRC do znajomego lub konferencji."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid ""
 "debug &lt;option&gt;:  Send various debug information to the current "
 "conversation."
 msgstr ""
 "debug &lt;opcja&gt;:  Wysyła różne informacje debuggera do aktualnej rozmowy."
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "clear: Clears the conversation scrollback."
 msgstr "clear: Czyści okno rozmowy"
 
-#: ../finch/gntconv.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntconv.c:1 ../carrier/gtkconv.c:1
 msgid "help &lt;command&gt;:  Help on a specific command."
 msgstr ""
 "help &lt;polecenie&gt;:  Wyświetla pomoc dotyczącą określonego polecenia."
@@ -925,12 +925,12 @@ msgstr "prefs: Pokaż okno ustawień."
 msgid "statuses: Show the savedstatuses window."
 msgstr "statuses: Pokaż zapisane statusy."
 
-#: ../finch/gntdebug.c:1 ../pidgin/gtkconv.c:1 ../pidgin/gtkdebug.c:1
-#: ../pidgin/gtkft.c:1
+#: ../finch/gntdebug.c:1 ../carrier/gtkconv.c:1 ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkft.c:1
 msgid "Unable to open file."
 msgstr "Nie można otworzyć pliku."
 
-#: ../finch/gntdebug.c:1 ../finch/gntui.c:1 ../pidgin/gtkdebug.c:1
+#: ../finch/gntdebug.c:1 ../finch/gntui.c:1 ../carrier/gtkdebug.c:1
 msgid "Debug Window"
 msgstr "Okno diagnostyczne"
 
@@ -938,7 +938,7 @@ msgstr "Okno diagnostyczne"
 #. * it's necessary to make the width of the debug window resizable ... like I said,
 #. * it doesn't make sense. The bug is likely in the packing in gntbox.c.
 #. 
-#: ../finch/gntdebug.c:1 ../pidgin/gtkdebug.c:1
+#: ../finch/gntdebug.c:1 ../carrier/gtkdebug.c:1
 msgid "Clear"
 msgstr "Wyczyść"
 
@@ -946,29 +946,29 @@ msgstr "Wyczyść"
 msgid "Filter:"
 msgstr "Filtr:"
 
-#: ../finch/gntdebug.c:1 ../pidgin/gtkdebug.c:1
+#: ../finch/gntdebug.c:1 ../carrier/gtkdebug.c:1
 msgid "Pause"
 msgstr "Wstrzymaj"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 #, c-format
 msgid "File Transfers - %d%% of %d files"
 msgstr "Przesyłanie plików. Ukończono %d%%, ilość plików - %d"
 
 #. Create the window.
-#: ../finch/gntft.c:1 ../finch/gntui.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../finch/gntui.c:1 ../carrier/gtkft.c:1
 msgid "File Transfers"
 msgstr "Transmisja plików"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 msgid "Progress"
 msgstr "Postęp"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 msgid "Filename"
 msgstr "Nazwa pliku"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 msgid "Size"
 msgstr "Rozmiar"
 
@@ -976,7 +976,7 @@ msgstr "Rozmiar"
 msgid "Speed"
 msgstr "Szybkość"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 msgid "Remaining"
 msgstr "Pozostało"
 
@@ -989,8 +989,8 @@ msgstr "Pozostało"
 #: ../libpurple/protocols/novell/novell.c:1
 #: ../libpurple/protocols/oscar/oscar.c:1
 #: ../libpurple/protocols/sametime/sametime.c:1
-#: ../libpurple/protocols/yahoo/yahoo.c:1 ../pidgin/gtkblist.c:1
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../libpurple/protocols/yahoo/yahoo.c:1 ../carrier/gtkblist.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "Status"
 msgstr "Status"
 
@@ -1006,19 +1006,19 @@ msgstr "Wyczyść ukończone transfery"
 msgid "Stop"
 msgstr "Zatrzymaj"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 msgid "Waiting for transfer to begin"
 msgstr "Oczekiwanie na rozpoczęcie przesyłu"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 msgid "Canceled"
 msgstr "Anulowano"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 msgid "Failed"
 msgstr "Błąd"
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 #, c-format
 msgid "%.2f KiB/s"
 msgstr "%.2f KB/s"
@@ -1028,7 +1028,7 @@ msgstr "%.2f KB/s"
 msgid "The file was saved as %s."
 msgstr "Plik został zapisany jako %s."
 
-#: ../finch/gntft.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntft.c:1 ../carrier/gtkft.c:1
 msgid "Finished"
 msgstr "Ukończono"
 
@@ -1045,11 +1045,11 @@ msgstr "Emaile"
 msgid "You have mail!"
 msgstr "Masz wiadomość!"
 
-#: ../finch/gntnotify.c:1 ../pidgin/gtknotify.c:1
+#: ../finch/gntnotify.c:1 ../carrier/gtknotify.c:1
 msgid "Sender"
 msgstr "Nadawca"
 
-#: ../finch/gntnotify.c:1 ../pidgin/gtknotify.c:1
+#: ../finch/gntnotify.c:1 ../carrier/gtknotify.c:1
 msgid "Subject"
 msgstr "Temat"
 
@@ -1061,17 +1061,17 @@ msgstr[0] "%s (%s) ma %d nową wiadomość."
 msgstr[1] "%s (%s) ma %d nowe wiadomości."
 msgstr[2] "%s (%s) ma %d nowych wiadomości."
 
-#: ../finch/gntnotify.c:1 ../pidgin/gtknotify.c:1
+#: ../finch/gntnotify.c:1 ../carrier/gtknotify.c:1
 msgid "New Mail"
-msgstr "Nowa wiadomość e-mail"
+msgstr "Nowa wiadomość email"
 
-#: ../finch/gntnotify.c:1 ../pidgin/gtknotify.c:1
+#: ../finch/gntnotify.c:1 ../carrier/gtknotify.c:1
 #, c-format
 msgid "Info for %s"
 msgstr "Informacja o %s"
 
 #: ../finch/gntnotify.c:1 ../libpurple/protocols/toc/toc.c:1
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 msgid "Buddy Information"
 msgstr "Informacje o znajomym"
 
@@ -1079,7 +1079,7 @@ msgstr "Informacje o znajomym"
 msgid "Continue"
 msgstr "Kontynuuj"
 
-#: ../finch/gntnotify.c:1 ../pidgin/gtkconv.c:1
+#: ../finch/gntnotify.c:1 ../carrier/gtkconv.c:1
 msgid "IM"
 msgstr "Wiadomość"
 
@@ -1165,19 +1165,19 @@ msgstr "Konfiguruj wtyczkę"
 #. Back to instant-apply! I win!  BU-HAHAHA!
 #. Create the window
 #: ../finch/gntplugin.c:1 ../finch/gntprefs.c:1 ../finch/gntui.c:1
-#: ../pidgin/gtkdocklet.c:1 ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkdocklet.c:1 ../pidgin/gtkprefs.c:1
 msgid "Preferences"
 msgstr "Ustawienia"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 msgid "Please enter a buddy to pounce."
 msgstr "Proszę podać użytkownika, od którego zdarzenia będą przechwytywane."
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 msgid "New Buddy Pounce"
 msgstr "Nowe przechwytywanie zdarzeń"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 msgid "Edit Buddy Pounce"
 msgstr "Modyfikacja zdarzenia"
 
@@ -1195,7 +1195,7 @@ msgid "Buddy name:"
 msgstr "_Nazwa użytkownika:"
 
 #. Create the "Pounce When Buddy..." frame.
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 msgid "Pounce When Buddy..."
 msgstr "Przechwytywane zdarzenia"
 
@@ -1240,7 +1240,7 @@ msgid "Sends a message"
 msgstr "Wysyła wiadomość"
 
 #. Create the "Action" frame.
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 msgid "Action"
 msgstr "Działanie"
 
@@ -1272,7 +1272,7 @@ msgstr "O_dtworzenie dźwięku"
 msgid "Pounce only when my status is not available"
 msgstr "Aktywne tylko gdy jestem dostępny"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 msgid "Recurring"
 msgstr "Powtarzanie"
 
@@ -1290,66 +1290,66 @@ msgstr "Musisz wybrać konto"
 msgid "You must create an account first before you can create a pounce."
 msgstr ""
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "Are you sure you want to delete the pounce on %s for %s?"
 msgstr "Na pewno chcesz usunąć przechwytywane zdarzenie od %s z konta %s ?"
 
-#: ../finch/gntpounce.c:1 ../finch/gntui.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../finch/gntui.c:1 ../carrier/gtkpounce.c:1
 msgid "Buddy Pounces"
 msgstr "Przechwytywanie zdarzeń"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has started typing to you (%s)"
 msgstr "Użytkownik %s zaczął/zaczęła coś pisać do Ciebie (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, fuzzy, c-format
 msgid "%s has paused while typing to you (%s)"
 msgstr "Użytkownik %s zaczął/zaczęła coś pisać do Ciebie (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has signed on (%s)"
 msgstr "%s zalogował się (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has returned from being idle (%s)"
 msgstr "%s przestał być bezczynny (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has returned from being away (%s)"
 msgstr "%s jest już obecny (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has stopped typing to you (%s)"
 msgstr "%s przestał pisać do Ciebie (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has signed off (%s)"
 msgstr "%s rozłączył się (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has become idle (%s)"
 msgstr "%s zmienił status na bezczynny (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has gone away. (%s)"
 msgstr "%s zmieniła/zmienił stus na zajęty. (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "%s has sent you a message. (%s)"
 msgstr "%s wysłał do Ciebie wiadomość. (%s)"
 
-#: ../finch/gntpounce.c:1 ../pidgin/gtkpounce.c:1
+#: ../finch/gntpounce.c:1 ../carrier/gtkpounce.c:1
 #, c-format
 msgid "Unknown pounce event. Please report this!"
 msgstr ""
@@ -1360,12 +1360,12 @@ msgstr ""
 msgid "Based on keyboard use"
 msgstr "Na podstawie ruchów myszki i klaw."
 
-#: ../finch/gntprefs.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntprefs.c:1 ../carrier/gtkprefs.c:1
 msgid "From last sent message"
 msgstr "Od czasu wysłania ostatniej wiadomości"
 
-#: ../finch/gntprefs.c:1 ../pidgin/gtkprefs.c:1
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../finch/gntprefs.c:1 ../carrier/gtkprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "Never"
 msgstr "Nigdy"
 
@@ -1423,13 +1423,13 @@ msgid "Change status to"
 msgstr "Zmiana _statusu na:"
 
 #. Conversations
-#: ../finch/gntprefs.c:1 ../pidgin/gtkprefs.c:1
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../finch/gntprefs.c:1 ../carrier/gtkprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "Conversations"
 msgstr "Rozmowy"
 
 #: ../finch/gntprefs.c:1 ../finch/plugins/gnthistory.c:1
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Logging"
 msgstr "Dziennik Rozmów"
 
@@ -1438,65 +1438,65 @@ msgstr "Dziennik Rozmów"
 msgid "Not implemented yet."
 msgstr "Ta funkcja nie jest jeszcze obsługiwana"
 
-#: ../finch/gntrequest.c:1 ../pidgin/gtkrequest.c:1
+#: ../finch/gntrequest.c:1 ../carrier/gtkrequest.c:1
 msgid "Save File..."
 msgstr "Zapisz plik..."
 
-#: ../finch/gntrequest.c:1 ../pidgin/gtkrequest.c:1
+#: ../finch/gntrequest.c:1 ../carrier/gtkrequest.c:1
 msgid "Open File..."
 msgstr "Otwórz plik..."
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Buddy logs in"
 msgstr "Użytkownik loguje się"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Buddy logs out"
 msgstr "Użytkownik wyłącza swój komunikator"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Message received"
 msgstr "Odebrano wiadomość"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Message received begins conversation"
 msgstr "Odebrana wiadomość rozpoczyna rozmowę"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Message sent"
 msgstr "Wysłano wiadomość"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Person enters chat"
 msgstr "Osoba wchodzi na konferencję"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Person leaves chat"
 msgstr "Osoba opuszcza konferencję"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "You talk in chat"
 msgstr "Własna wypowiedź na konferencji"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Others talk in chat"
 msgstr "Wypowiedź innych na konferencji"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 msgid "Someone says your screen name in chat"
 msgstr "Ktoś wymawia Twoje imię na konferencji"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 #, fuzzy
 msgid "GStreamer Failure"
 msgstr "Zapisz plik"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtksound.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtksound.c:1
 #, fuzzy
 msgid "GStreamer failed to initialize."
 msgstr "Nie udało się rozpakować zestawu emotkionek."
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 #, fuzzy
 msgid "(default)"
 msgstr "Domyślny"
@@ -1516,7 +1516,7 @@ msgstr "Ustawienia"
 msgid "Profiles"
 msgstr "Profil"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Automatic"
 msgstr "Automatycznie"
 
@@ -1525,7 +1525,7 @@ msgstr "Automatycznie"
 msgid "Console Beep"
 msgstr "Sygnał konsoli"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Command"
 msgstr "Polecenie"
 
@@ -1534,7 +1534,7 @@ msgstr "Polecenie"
 msgid "No Sound"
 msgstr "Wyłączenie dźwięków"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Sound Method"
 msgstr "Metoda odtwarzania dźwięku"
 
@@ -1553,7 +1553,7 @@ msgstr ""
 "(%s dla nazwy pliku)"
 
 #. Sound options
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Sound Options"
 msgstr "Opcje dźwięku"
 
@@ -1562,17 +1562,17 @@ msgstr "Opcje dźwięku"
 msgid "Sounds when conversation has focus"
 msgstr "_Dźwięki w aktywnym oknie rozmowy"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
-#: ../pidgin/plugins/timestamp_format.c:1
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
+#: ../carrier/plugins/timestamp_format.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "Always"
 msgstr "Zawsze"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Only when available"
 msgstr "Tylko gdy jestem dostępny"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Only when not available"
 msgstr "Tylko podczas nieobecności"
 
@@ -1582,11 +1582,11 @@ msgid "Volume(0-100):"
 msgstr "Głośność:"
 
 #. Sound events
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Sound Events"
 msgstr "Zdarzenia dźwiękowe"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Event"
 msgstr "Zdarzenie"
 
@@ -1595,15 +1595,15 @@ msgstr "Zdarzenie"
 msgid "File"
 msgstr "Błąd"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Test"
 msgstr "Test"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Reset"
 msgstr "Reset"
 
-#: ../finch/gntsound.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntsound.c:1 ../carrier/gtkprefs.c:1
 msgid "Choose..."
 msgstr "Wybór..."
 
@@ -1617,17 +1617,17 @@ msgstr "Czy na pewno usunąć %s?"
 msgid "Delete Status"
 msgstr "Stan podłączenia"
 
-#: ../finch/gntstatus.c:1 ../pidgin/gtksavedstatuses.c:1
+#: ../finch/gntstatus.c:1 ../carrier/gtksavedstatuses.c:1
 msgid "Saved Statuses"
 msgstr "Zapisane statusy"
 
 #: ../finch/gntstatus.c:1 ../libpurple/protocols/jabber/buddy.c:1
 #: ../libpurple/protocols/msn/msn.c:1 ../libpurple/protocols/novell/novell.c:1
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "Title"
 msgstr "Tytuł"
 
-#: ../finch/gntstatus.c:1 ../pidgin/gtksavedstatuses.c:1
+#: ../finch/gntstatus.c:1 ../carrier/gtksavedstatuses.c:1
 msgid "Type"
 msgstr "Rodzaj"
 
@@ -1650,7 +1650,7 @@ msgstr "Rodzaj"
 #: ../libpurple/protocols/silc10/buddy.c:1
 #: ../libpurple/protocols/simple/simple.c:1
 #: ../libpurple/protocols/yahoo/yahoo.c:1
-#: ../libpurple/protocols/zephyr/zephyr.c:1 ../pidgin/gtksavedstatuses.c:1
+#: ../libpurple/protocols/zephyr/zephyr.c:1 ../carrier/gtksavedstatuses.c:1
 msgid "Message"
 msgstr "Wiadomość"
 
@@ -1684,7 +1684,7 @@ msgstr "Wpisz tytuł dla tego statusu."
 msgid "Substatus"
 msgstr "Status"
 
-#: ../finch/gntstatus.c:1 ../pidgin/gtkft.c:1
+#: ../finch/gntstatus.c:1 ../carrier/gtkft.c:1
 msgid "Status:"
 msgstr "Stan:"
 
@@ -1714,7 +1714,7 @@ msgstr "Z_apisz i użyj"
 msgid "Certificates"
 msgstr "Certyfikat dla %s"
 
-#: ../finch/gntui.c:1 ../pidgin/gtkprefs.c:1
+#: ../finch/gntui.c:1 ../carrier/gtkprefs.c:1
 msgid "Sounds"
 msgstr "Dźwięki"
 
@@ -1820,16 +1820,16 @@ msgstr ""
 msgid "Toaster plugin"
 msgstr ""
 
-#: ../finch/plugins/gnthistory.c:1 ../pidgin/plugins/history.c:1
+#: ../finch/plugins/gnthistory.c:1 ../carrier/plugins/history.c:1
 #, c-format
 msgid "<b>Conversation with %s on %s:</b><br>"
 msgstr "<b>Rozmowa z %s dnia %s:</b><br>"
 
-#: ../finch/plugins/gnthistory.c:1 ../pidgin/plugins/history.c:1
+#: ../finch/plugins/gnthistory.c:1 ../carrier/plugins/history.c:1
 msgid "History Plugin Requires Logging"
 msgstr "Wtyczka Historii wymaga włączonego zapisu rozmów do dziennika"
 
-#: ../finch/plugins/gnthistory.c:1 ../pidgin/plugins/history.c:1
+#: ../finch/plugins/gnthistory.c:1 ../carrier/plugins/history.c:1
 msgid ""
 "Logging can be enabled from Tools -> Preferences -> Logging.\n"
 "\n"
@@ -1847,11 +1847,11 @@ msgstr ""
 msgid "GntHistory"
 msgstr "Historia"
 
-#: ../finch/plugins/gnthistory.c:1 ../pidgin/plugins/history.c:1
+#: ../finch/plugins/gnthistory.c:1 ../carrier/plugins/history.c:1
 msgid "Shows recently logged conversations in new conversations."
 msgstr "Wyświetla ostatnio zapisane rozmowy w oknie nowych rozmów."
 
-#: ../finch/plugins/gnthistory.c:1 ../pidgin/plugins/history.c:1
+#: ../finch/plugins/gnthistory.c:1 ../carrier/plugins/history.c:1
 msgid ""
 "When a new conversation is opened this plugin will insert the last "
 "conversation into the current conversation."
@@ -1949,14 +1949,14 @@ msgstr "Ustawianie danych użytkownika"
 #: ../libpurple/account.c:1 ../libpurple/protocols/gg/gg.c:1
 #: ../libpurple/protocols/jabber/buddy.c:1
 #: ../libpurple/protocols/novell/novell.c:1 ../libpurple/protocols/qq/qq.c:1
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "Unknown"
 msgstr "Nieznany"
 
 #: ../libpurple/blist.c:1 ../libpurple/protocols/jabber/roster.c:1
-#: ../libpurple/protocols/myspace/myspace.c:1 ../pidgin/gtkblist.c:1
-#: ../pidgin/plugins/gevolution/gevo-util.c:1
-#: ../pidgin/plugins/gevolution/gevolution.c:1
+#: ../libpurple/protocols/myspace/myspace.c:1 ../carrier/gtkblist.c:1
+#: ../carrier/plugins/gevolution/gevo-util.c:1
+#: ../carrier/plugins/gevolution/gevolution.c:1
 msgid "Buddies"
 msgstr "Znajomi"
 
@@ -2693,7 +2693,7 @@ msgstr "_Zapisz"
 
 #: ../libpurple/plugins/autoaccept.c:1 ../libpurple/plugins/idle.c:1
 #: ../libpurple/protocols/oscar/oscar.c:1 ../libpurple/request.h:1
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -2755,18 +2755,18 @@ msgstr "Edytuj notatki..."
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../libpurple/plugins/buddynote.c:1 ../pidgin/plugins/gtkbuddynote.c:1
+#: ../libpurple/plugins/buddynote.c:1 ../carrier/plugins/gtkbuddynote.c:1
 msgid "Buddy Notes"
 msgstr "Notatki"
 
 #. *< name
 #. *< version
-#: ../libpurple/plugins/buddynote.c:1 ../pidgin/plugins/gtkbuddynote.c:1
+#: ../libpurple/plugins/buddynote.c:1 ../carrier/plugins/gtkbuddynote.c:1
 msgid "Store notes on particular buddies."
 msgstr "Umożliwia dodawanie notatek na temat poszczególnych znajomych."
 
 #. *< summary
-#: ../libpurple/plugins/buddynote.c:1 ../pidgin/plugins/gtkbuddynote.c:1
+#: ../libpurple/plugins/buddynote.c:1 ../carrier/plugins/gtkbuddynote.c:1
 msgid "Adds the option to store notes for buddies on your buddy list."
 msgstr ""
 "Dodaje opcję umożliwiającą dodawanie notatek na temat znajomych z twojej "
@@ -3178,7 +3178,7 @@ msgstr ""
 #: ../libpurple/protocols/silc/buddy.c:1 ../libpurple/protocols/silc/pk.c:1
 #: ../libpurple/protocols/silc/wb.c:1 ../libpurple/protocols/silc10/buddy.c:1
 #: ../libpurple/protocols/silc10/pk.c:1 ../libpurple/protocols/silc10/wb.c:1
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Yes"
 msgstr "Tak"
 
@@ -3189,7 +3189,7 @@ msgstr "Tak"
 #: ../libpurple/protocols/silc/buddy.c:1 ../libpurple/protocols/silc/pk.c:1
 #: ../libpurple/protocols/silc/wb.c:1 ../libpurple/protocols/silc10/buddy.c:1
 #: ../libpurple/protocols/silc10/pk.c:1 ../libpurple/protocols/silc10/wb.c:1
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "No"
 msgstr "Nie"
 
@@ -3462,8 +3462,8 @@ msgstr "Nazwisko"
 #: ../libpurple/protocols/silc/util.c:1 ../libpurple/protocols/silc10/ops.c:1
 #: ../libpurple/protocols/silc10/util.c:1
 #: ../libpurple/protocols/yahoo/yahoo_profile.c:1
-msgid "E-Mail"
-msgstr "E-mail"
+msgid "Email"
+msgstr "Email"
 
 #: ../libpurple/protocols/bonjour/bonjour.c:1
 msgid "AIM Account"
@@ -3491,12 +3491,6 @@ msgstr "Wtyczka protokołu Bonjour"
 #, fuzzy
 msgid "Purple Person"
 msgstr "Nowa osoba"
-
-#: ../libpurple/protocols/bonjour/bonjour.c:1 ../libpurple/protocols/gg/gg.c:1
-#: ../libpurple/protocols/jabber/jabber.c:1
-#: ../libpurple/protocols/silc/silc.c:1 ../libpurple/protocols/silc10/silc.c:1
-msgid "E-mail"
-msgstr "E-mail"
 
 #: ../libpurple/protocols/bonjour/bonjour.h:1
 msgid "Bonjour"
@@ -3715,7 +3709,7 @@ msgstr "Dodaj do konferencji..."
 #: ../libpurple/protocols/novell/novell.c:1
 #: ../libpurple/protocols/oscar/oscar.c:1 ../libpurple/protocols/qq/qq.c:1
 #: ../libpurple/protocols/yahoo/yahoo.c:1 ../libpurple/status.c:1
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkdocklet.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkdocklet.c:1 ../pidgin/gtkstatusbox.c:1
 msgid "Offline"
 msgstr "Rozłączony"
 
@@ -3723,7 +3717,7 @@ msgstr "Rozłączony"
 #: ../libpurple/protocols/msn/state.c:1 ../libpurple/protocols/msnp9/state.c:1
 #: ../libpurple/protocols/novell/novell.c:1 ../libpurple/protocols/qq/qq.c:1
 #: ../libpurple/protocols/yahoo/yahoo.c:1 ../libpurple/status.c:1
-#: ../pidgin/gtkdocklet.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../carrier/gtkdocklet.c:1 ../pidgin/gtkstatusbox.c:1
 msgid "Available"
 msgstr "Dostępny"
 
@@ -3737,7 +3731,7 @@ msgstr "Dostępny"
 #: ../libpurple/protocols/silc/buddy.c:1
 #: ../libpurple/protocols/silc10/buddy.c:1
 #: ../libpurple/protocols/yahoo/yahoo.c:1 ../libpurple/status.c:1
-#: ../pidgin/gtkdocklet.c:1 ../pidgin/gtkprefs.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../carrier/gtkdocklet.c:1 ../pidgin/gtkprefs.c:1 ../pidgin/gtkstatusbox.c:1
 #, c-format
 msgid "Away"
 msgstr "Zajęty"
@@ -3943,7 +3937,7 @@ msgid "_Channel:"
 msgstr "_Kanał:"
 
 #: ../libpurple/protocols/irc/irc.c:1 ../libpurple/protocols/jabber/chat.c:1
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "_Password:"
 msgstr "_Hasło:"
 
@@ -3962,7 +3956,7 @@ msgstr "Pseudonimy IRC nie mogą zawierać pustych znaków"
 #: ../libpurple/protocols/sametime/sametime.c:1
 #: ../libpurple/protocols/simple/simple.c:1
 #: ../libpurple/protocols/yahoo/yahoo.c:1
-#: ../libpurple/protocols/zephyr/zephyr.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../libpurple/protocols/zephyr/zephyr.c:1 ../carrier/gtkstatusbox.c:1
 msgid "Connecting"
 msgstr "Łączenie"
 
@@ -4636,8 +4630,8 @@ msgstr "Data urodzenia"
 
 #: ../libpurple/protocols/jabber/buddy.c:1
 #: ../libpurple/protocols/jabber/chat.c:1
-#: ../libpurple/protocols/jabber/usermood.c:1 ../pidgin/gtkblist.c:1
-#: ../pidgin/gtkprefs.c:1
+#: ../libpurple/protocols/jabber/usermood.c:1 ../carrier/gtkblist.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Description"
 msgstr "Opis"
 
@@ -4782,7 +4776,7 @@ msgstr "Wiadomość z wymianą kluczy"
 #: ../libpurple/protocols/jabber/buddy.c:1
 #, fuzzy
 msgid "Reachability Address"
-msgstr "Adres e-mail"
+msgstr "Adres email"
 
 #: ../libpurple/protocols/jabber/buddy.c:1
 #, fuzzy
@@ -5028,8 +5022,8 @@ msgstr "Wypełnij jedno lub więcej pól, aby wyszukać użytkowników sieci XMP
 #: ../libpurple/protocols/jabber/buddy.c:1
 #: ../libpurple/protocols/novell/novell.c:1
 #: ../libpurple/protocols/oscar/oscar.c:1
-msgid "E-Mail Address"
-msgstr "Adres e-mail"
+msgid "Email Address"
+msgstr "Adres email"
 
 #: ../libpurple/protocols/jabber/buddy.c:1
 msgid "Search for XMPP users"
@@ -5040,8 +5034,8 @@ msgstr "Szukanie użytkownika XMPP"
 #: ../libpurple/protocols/qq/group_im.c:1
 #: ../libpurple/protocols/qq/sys_msg.c:1
 #: ../libpurple/protocols/sametime/sametime.c:1
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:1
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:1
+#: ../carrier/plugins/gevolution/assoc-buddy.c:1
 msgid "Search"
 msgstr "Znajdź"
 
@@ -5333,7 +5327,7 @@ msgid "None (To pending)"
 msgstr "Brak (Oczekujesz na autoryzację)"
 
 #: ../libpurple/protocols/jabber/jabber.c:1
-#: ../pidgin/plugins/gevolution/eds-utils.c:1
+#: ../carrier/plugins/gevolution/eds-utils.c:1
 msgid "None"
 msgstr "Brak"
 
@@ -5801,7 +5795,7 @@ msgid "XMPP Protocol Plugin"
 msgstr "Wtyczka protokołu XMPP"
 
 #. Translators: 'domain' is used here in the context of Internet domains, e.g. pidgin.im
-#: ../libpurple/protocols/jabber/libxmpp.c:1 ../pidgin/gtkaccount.c:1
+#: ../libpurple/protocols/jabber/libxmpp.c:1 ../carrier/gtkaccount.c:1
 msgid "Domain"
 msgstr "Domena"
 
@@ -5830,7 +5824,7 @@ msgstr "Port"
 #: ../libpurple/protocols/jabber/libxmpp.c:1
 #: ../libpurple/protocols/myspace/myspace.c:1
 #: ../libpurple/protocols/silc/silc.c:1 ../libpurple/protocols/silc10/silc.c:1
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Connect server"
 msgstr "Serwer"
 
@@ -6040,8 +6034,8 @@ msgstr "Błąd składni (prawdopodobnie błąd klienta)"
 
 #: ../libpurple/protocols/msn/error.c:1 ../libpurple/protocols/msnp9/error.c:1
 #, c-format
-msgid "Invalid e-mail address"
-msgstr "Niepoprawny adres e-mail"
+msgid "Invalid email address"
+msgstr "Niepoprawny adres email"
 
 #: ../libpurple/protocols/msn/error.c:1 ../libpurple/protocols/msnp9/error.c:1
 #, c-format
@@ -6466,7 +6460,7 @@ msgid "Error retrieving profile"
 msgstr "Błąd podczas pobierania profilu"
 
 #: ../libpurple/protocols/msn/msn.c:1 ../libpurple/protocols/msnp9/msn.c:1
-#: ../pidgin/plugins/convcolors.c:1 ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/convcolors.c:1 ../pidgin/plugins/pidginrc.c:1
 msgid "General"
 msgstr "Ogólne"
 
@@ -6577,8 +6571,8 @@ msgid "Home Fax"
 msgstr "Strona domowa"
 
 #: ../libpurple/protocols/msn/msn.c:1 ../libpurple/protocols/msnp9/msn.c:1
-msgid "Personal E-Mail"
-msgstr "E-mail osobisty"
+msgid "Personal Email"
+msgstr "Email osobisty"
 
 #: ../libpurple/protocols/msn/msn.c:1 ../libpurple/protocols/msnp9/msn.c:1
 #, fuzzy
@@ -6642,8 +6636,8 @@ msgstr "Fax w pracy"
 
 #: ../libpurple/protocols/msn/msn.c:1 ../libpurple/protocols/msnp9/msn.c:1
 #, fuzzy
-msgid "Work E-Mail"
-msgstr "E-mail"
+msgid "Work Email"
+msgstr "Email"
 
 #: ../libpurple/protocols/msn/msn.c:1 ../libpurple/protocols/msnp9/msn.c:1
 #, fuzzy
@@ -8044,8 +8038,8 @@ msgid ""
 msgstr ""
 
 #. Label
-#: ../libpurple/protocols/oscar/oscar.c:1 ../pidgin/gtkutils.c:1
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../libpurple/protocols/oscar/oscar.c:1 ../carrier/gtkutils.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "Buddy Icon"
 msgstr "Ikona użytkownika"
 
@@ -8157,7 +8151,7 @@ msgstr "Strona WWW"
 
 #: ../libpurple/protocols/oscar/oscar.c:1 ../libpurple/protocols/qq/qq.c:1
 #: ../libpurple/protocols/qq/qq.c:1 ../libpurple/protocols/yahoo/yahoo.c:1
-#: ../libpurple/status.c:1 ../pidgin/gtkdocklet.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../libpurple/status.c:1 ../carrier/gtkdocklet.c:1 ../pidgin/gtkstatusbox.c:1
 #, c-format
 msgid "Invisible"
 msgstr "Niewidoczny"
@@ -8168,7 +8162,7 @@ msgid "Online"
 msgstr "Dostępny"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
-#: ../libpurple/protocols/yahoo/yahoo_profile.c:1 ../pidgin/gtkprefs.c:1
+#: ../libpurple/protocols/yahoo/yahoo_profile.c:1 ../carrier/gtkprefs.c:1
 msgid "IP Address"
 msgstr "Adres IP"
 
@@ -8390,12 +8384,12 @@ msgstr ""
 #: ../libpurple/protocols/oscar/oscar.c:1
 #, c-format
 msgid ""
-"You have received an ICQ e-mail from %s [%s]\n"
+"You have received an ICQ email from %s [%s]\n"
 "\n"
 "Message is:\n"
 "%s"
 msgstr ""
-"Otrzymano e-mail ICQ od %s [%s]\n"
+"Otrzymano email ICQ od %s [%s]\n"
 "\n"
 "Treść wiadomości:\n"
 "%s"
@@ -8409,7 +8403,7 @@ msgstr "Użytkownik ICQ %u przysłał kontakt: %s (%s)"
 msgid "Do you want to add this buddy to your buddy list?"
 msgstr "Chcesz dodać ten kontakt do swojej listy znajomych?"
 
-#: ../libpurple/protocols/oscar/oscar.c:1 ../pidgin/gtkroomlist.c:1
+#: ../libpurple/protocols/oscar/oscar.c:1 ../carrier/gtkroomlist.c:1
 msgid "_Add"
 msgstr "_Dodaj"
 
@@ -8584,13 +8578,13 @@ msgstr "Identyfikator"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 #, c-format
-msgid "No results found for e-mail address %s"
-msgstr "Nie znaleziono żadnych wyników dla adresu e-mail %s"
+msgid "No results found for email address %s"
+msgstr "Nie znaleziono żadnych wyników dla adresu email %s"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 #, c-format
-msgid "You should receive an e-mail asking to confirm %s."
-msgstr "Powinnaś/powinieneś otrzymać e-mail proszący o potwierdzenie %s."
+msgid "You should receive an email asking to confirm %s."
+msgstr "Powinnaś/powinieneś otrzymać email proszący o potwierdzenie %s."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 msgid "Account Confirmation Requested"
@@ -8629,28 +8623,28 @@ msgstr ""
 #: ../libpurple/protocols/oscar/oscar.c:1
 #, c-format
 msgid ""
-"Error 0x%04x: Unable to change e-mail address because there is already a "
+"Error 0x%04x: Unable to change email address because there is already a "
 "request pending for this screen name."
 msgstr ""
-"Błąd 0x%04x: Nie można zmienić adresu e-mail, ponieważ w kolejce czeka inna "
+"Błąd 0x%04x: Nie można zmienić adresu email, ponieważ w kolejce czeka inna "
 "prośba dla tego samego identyfikatora."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 #, c-format
 msgid ""
-"Error 0x%04x: Unable to change e-mail address because the given address has "
+"Error 0x%04x: Unable to change email address because the given address has "
 "too many screen names associated with it."
 msgstr ""
-"Błąd 0x%04x: Nie można zmienić adresu e-mail, ponieważ podany adres jest "
+"Błąd 0x%04x: Nie można zmienić adresu email, ponieważ podany adres jest "
 "skojarzony ze zbyt wieloma identyfikatorami."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 #, c-format
 msgid ""
-"Error 0x%04x: Unable to change e-mail address because the given address is "
+"Error 0x%04x: Unable to change email address because the given address is "
 "invalid."
 msgstr ""
-"Błąd 0x%04x: Nie można zmienić adresu e-mail, ponieważ podany adres jest "
+"Błąd 0x%04x: Nie można zmienić adresu email, ponieważ podany adres jest "
 "nieprawidłowy."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
@@ -8660,8 +8654,8 @@ msgstr "Błąd 0x%04x: Nieznany błąd."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 #, c-format
-msgid "The e-mail address for %s is %s"
-msgstr "Adres e-mail dla %s to %s"
+msgid "The email address for %s is %s"
+msgstr "Adres email dla %s to %s"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 msgid "Account Info"
@@ -8929,16 +8923,16 @@ msgstr ""
 "przyciskiem i wybierając \"Ponownie poproś o autoryzację\"."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
-msgid "Find Buddy by E-Mail"
-msgstr "Wyszukiwanie użytkownika wg adresu e-mail"
+msgid "Find Buddy by Email"
+msgstr "Wyszukiwanie użytkownika wg adresu email"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
-msgid "Search for a buddy by e-mail address"
-msgstr "Szukaj znajomych według adresu e-mail"
+msgid "Search for a buddy by email address"
+msgstr "Szukaj znajomych według adresu email"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
-msgid "Type the e-mail address of the buddy you are searching for."
-msgstr "Podaj adres e-mail znajomego, którego chcesz znaleźć."
+msgid "Type the email address of the buddy you are searching for."
+msgstr "Podaj adres email znajomego, którego chcesz znaleźć."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 msgid "_Search"
@@ -8967,20 +8961,20 @@ msgid "Confirm Account"
 msgstr "Potwierdzenie konta"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
-msgid "Display Currently Registered E-Mail Address"
-msgstr "Wyświetl aktualnie zarejestrowany adres e-mail"
+msgid "Display Currently Registered Email Address"
+msgstr "Wyświetl aktualnie zarejestrowany adres email"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
-msgid "Change Currently Registered E-Mail Address..."
-msgstr "Zmień aktualnie zarejestrowany adres e-mail..."
+msgid "Change Currently Registered Email Address..."
+msgstr "Zmień aktualnie zarejestrowany adres email..."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 msgid "Show Buddies Awaiting Authorization"
 msgstr "Pokazuj użytkowników oczekujących na autoryzację"
 
 #: ../libpurple/protocols/oscar/oscar.c:1
-msgid "Search for Buddy by E-Mail Address..."
-msgstr "Szukaj znajomych według adresu e-mail..."
+msgid "Search for Buddy by Email Address..."
+msgstr "Szukaj znajomych według adresu email..."
 
 #: ../libpurple/protocols/oscar/oscar.c:1
 msgid "Search for Buddy by Information"
@@ -9074,10 +9068,6 @@ msgstr "Grupa krwi"
 #, fuzzy
 msgid "College"
 msgstr "_Zwiń"
-
-#: ../libpurple/protocols/qq/buddy_info.c:1
-msgid "Email"
-msgstr "E-mail"
 
 #: ../libpurple/protocols/qq/buddy_info.c:1
 msgid "Zipcode"
@@ -9884,7 +9874,7 @@ msgstr "Zaproś do konferencji..."
 msgid "Send TEST Announcement"
 msgstr ""
 
-#: ../libpurple/protocols/sametime/sametime.c:1 ../pidgin/gtkconv.c:1
+#: ../libpurple/protocols/sametime/sametime.c:1 ../carrier/gtkconv.c:1
 msgid "Topic:"
 msgstr "Temat:"
 
@@ -10071,7 +10061,7 @@ msgid ""
 "buttons below."
 msgstr ""
 
-#: ../libpurple/protocols/sametime/sametime.c:1 ../pidgin/gtknotify.c:1
+#: ../libpurple/protocols/sametime/sametime.c:1 ../carrier/gtknotify.c:1
 msgid "Search Results"
 msgstr "Wyniki wyszukiwania"
 
@@ -11110,7 +11100,7 @@ msgid "Your Current Mood"
 msgstr "Aktualny nastrój"
 
 #: ../libpurple/protocols/silc/silc.c:1 ../libpurple/protocols/silc10/silc.c:1
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid "Normal"
 msgstr "Normalna"
@@ -11439,7 +11429,7 @@ msgstr ""
 "Konferencje na Żywo)"
 
 #: ../libpurple/protocols/silc/silc.c:1 ../libpurple/protocols/silc10/silc.c:1
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Network"
 msgstr "Sieć"
 
@@ -11507,8 +11497,8 @@ msgstr "Nazwa użytkownika: \t%s\n"
 
 #: ../libpurple/protocols/silc/util.c:1 ../libpurple/protocols/silc10/util.c:1
 #, c-format
-msgid "E-Mail: \t\t%s\n"
-msgstr "E-mail: \t\t%s\n"
+msgid "Email: \t\t%s\n"
+msgstr "Email: \t\t%s\n"
 
 #: ../libpurple/protocols/silc/util.c:1 ../libpurple/protocols/silc10/util.c:1
 #, c-format
@@ -11835,8 +11825,8 @@ msgstr "Usługa katalogu tymczasowo niedostępna."
 
 #: ../libpurple/protocols/toc/toc.c:1
 #, c-format
-msgid "E-mail lookup restricted."
-msgstr "Zastrzeżone wyszukiwanie e-mail."
+msgid "Email lookup restricted."
+msgstr "Zastrzeżone wyszukiwanie email."
 
 #: ../libpurple/protocols/toc/toc.c:1
 #, c-format
@@ -11917,7 +11907,7 @@ msgstr "TOC jest dostępny. Można ponownie wysłać wiadomości."
 msgid "Password Change Successful"
 msgstr "Pomyślnie zmieniono hasło"
 
-#: ../libpurple/protocols/toc/toc.c:1 ../pidgin/gtkblist.c:1
+#: ../libpurple/protocols/toc/toc.c:1 ../carrier/gtkblist.c:1
 msgid "_Group:"
 msgstr "_Grupa:"
 
@@ -12731,7 +12721,7 @@ msgstr "Nieznany błąd"
 msgid "Unset"
 msgstr "_Skasuj"
 
-#: ../libpurple/status.c:1 ../pidgin/gtkdocklet.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../libpurple/status.c:1 ../carrier/gtkdocklet.c:1 ../pidgin/gtkstatusbox.c:1
 msgid "Do not disturb"
 msgstr "Nie przeszkadzać"
 
@@ -12919,80 +12909,80 @@ msgstr "Komunikator Internetowy Pidgin"
 msgid "Send instant messages over multiple protocols"
 msgstr "Komunikator internetowy obsługujący kilka protokołów"
 
-#: ../pidgin/eggtrayicon.c:1
+#: ../carrier/eggtrayicon.c:1
 msgid "Orientation"
 msgstr "Ułożenie"
 
-#: ../pidgin/eggtrayicon.c:1
+#: ../carrier/eggtrayicon.c:1
 msgid "The orientation of the tray."
 msgstr "Ułożenie obszaru powiadamiania."
 
 #. Build the login options frame.
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Login Options"
 msgstr "Opcje logowania"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Pro_tocol:"
 msgstr "Pro_tokół:"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Screen _name:"
 msgstr "I_dentyfikator:"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "_Local alias:"
 msgstr "Lokalny alias:"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Remember pass_word"
 msgstr "Z_apamiętanie hasła"
 
 #. Build the user options frame.
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "User Options"
 msgstr "Opcje użytkownika"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "New _mail notifications"
 msgstr "Powiadamianie o nowej _poczcie"
 
 #. Buddy icon
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Use this buddy _icon for this account:"
 msgstr "Używanie poniższej ikony użytkownika dla tego konta:"
 
 #. Build the protocol options frame.
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 #, c-format
 msgid "%s Options"
 msgstr "Opcje %s"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Use GNOME Proxy Settings"
 msgstr "Ustawienia pośrednika sieciowego z GNOME"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Use Global Proxy Settings"
 msgstr "Globalne ustawienia pośrednika sieciowego"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "No Proxy"
 msgstr "Brak pośrednika"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "HTTP"
 msgstr "HTTP"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "SOCKS 4"
 msgstr "SOCKS 4"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "SOCKS 5"
 msgstr "SOCKS 5"
 
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
 msgid "Use Environmental Settings"
 msgstr "Ustawienia środowiska"
 
@@ -13001,73 +12991,73 @@ msgstr "Ustawienia środowiska"
 #. A) your network is really slow and you have nothing better to do than
 #. look at butterflies.
 #. B)You are looking really closely at something that shouldn't matter.
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "If you look real closely"
 msgstr "Jeśli spojrzysz naprawdę blisko"
 
 #. This is an easter egg. See the comment on the previous line in the source.
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "you can see the butterflies mating"
 msgstr "ujrzysz łączące się w pary motyle"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Proxy Options"
 msgstr "Opcje pośrednika sieciowego"
 
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
 msgid "Proxy _type:"
 msgstr "_Rodzaj pośrednika:"
 
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
 msgid "_Host:"
 msgstr "_Komputer:"
 
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
 msgid "_Port:"
 msgstr "_Port:"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "_Username:"
 msgstr "_Użytkownik:"
 
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkprefs.c:1
 msgid "Pa_ssword:"
 msgstr "_Hasło:"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 #, fuzzy
 msgid "Unable to save new account"
 msgstr "Nie można utworzyć połączenia"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "An account already exists with the specified criteria."
 msgstr ""
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Add Account"
 msgstr "Dodawanie konta"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "_Basic"
 msgstr "_Podstawowe"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Create this new account on the server"
 msgstr "Utwórz nowe konto na serwerze"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "_Advanced"
 msgstr "_Zaawansowane"
 
-#: ../pidgin/gtkaccount.c:1 ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkaccount.c:1 ../pidgin/gtkplugin.c:1
 msgid "Enabled"
 msgstr "Włączone"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 msgid "Protocol"
 msgstr "Protokół"
 
-#: ../pidgin/gtkaccount.c:1
+#: ../carrier/gtkaccount.c:1
 #, c-format
 msgid ""
 "<span size='larger' weight='bold'>Welcome to %s!</span>\n"
@@ -13090,7 +13080,7 @@ msgstr ""
 "Możesz w każdej chwili powrócić do tego okna wybierając z głównego menu "
 "programu %s <b>Konta->Dodaj/Edytuj</b>"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, c-format
 msgid "You have %d contact named %s. Would you like to merge them?"
 msgid_plural ""
@@ -13099,120 +13089,120 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid ""
 "Merging these contacts will cause them to share a single entry on the buddy "
 "list and use a single conversation window. You can separate them again by "
 "choosing 'Expand' from the contact's context menu"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy
 msgid "_Merge"
 msgstr "_Wiadomość:"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid ""
 "Please enter the appropriate information about the chat you would like to "
 "join.\n"
 msgstr ""
 "Wprowadź informacje dotyczące konferencji do której chcesz się przyłączyć.\n"
 
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkpounce.c:1 ../pidgin/gtkroomlist.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkpounce.c:1 ../pidgin/gtkroomlist.c:1
 msgid "_Account:"
 msgstr "_Konto:"
 
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkprivacy.c:1
 msgid "_Block"
 msgstr "_Blokowanie"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Un_block"
 msgstr "Odbl_okuj"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Move to"
 msgstr "Przenieś do"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Get _Info"
 msgstr "_Informacje"
 
-#: ../pidgin/gtkblist.c:1 ../pidgin/pidginstock.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/pidginstock.c:1
 msgid "I_M"
 msgstr "_Wiadomość"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Send File..."
 msgstr "Wyślij _plik"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Add Buddy _Pounce..."
 msgstr "Dodaj przechwytywanie zdarzeń"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "View _Log"
 msgstr "Wyświetl _dziennik rozmów"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Hide when offline"
 msgstr "Ukryj, gdy rozłączony"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Show when offline"
 msgstr "Pokazuj gdy rozłączony"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Alias..."
 msgstr "_Alias..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Remove"
 msgstr "_Usuń"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Add _Buddy..."
 msgstr "Dodaj użytkownika"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Add C_hat..."
 msgstr "Dodaj konferencję"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Delete Group"
 msgstr "_Usuń grupę"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Rename"
 msgstr "_Zmień nazwę"
 
 #. join button
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkroomlist.c:1 ../pidgin/pidginstock.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkroomlist.c:1 ../pidgin/pidginstock.c:1
 msgid "_Join"
 msgstr "_Przyłącz się"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Auto-Join"
 msgstr "Automatyczne przyłączanie się"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy
 msgid "Persistent"
 msgstr "Perski"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Collapse"
 msgstr "_Zwiń"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Expand"
 msgstr "_Rozwiń"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/Mute Sounds"
 msgstr "/Narzędzia/Wyłączenie dźwięków"
 
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkconv.c:1 ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkconv.c:1 ../pidgin/gtkpounce.c:1
 msgid ""
 "You are not currently signed on with an account that can add that buddy."
 msgstr ""
@@ -13220,138 +13210,138 @@ msgstr ""
 "tej sieci."
 
 #. Buddies menu
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/_Buddies"
 msgstr "/_Znajomi"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/New Instant _Message..."
 msgstr "/Znajomi/Nowa wiadomość..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Join a _Chat..."
 msgstr "/Znajomi/Przyłącz się do _konferencji..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Get User _Info..."
 msgstr "/Znajomi/Informacje o _użytkowniku..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/View User _Log..."
 msgstr "/Znajomi/Wyświetl _dziennik rozmów użytkownika..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Sh_ow"
 msgstr "/_Znajomi/Pokaż"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Show/_Offline Buddies"
 msgstr "/Znajomi/Pokaż/Wyświetlaj _nieobecnych"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Show/_Empty Groups"
 msgstr "/Znajomi/Pokaż/Wyświetlaj p_uste grupy"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Show/Buddy _Details"
 msgstr "/Znajomi/Pokaż/Wyświetlaj informacje o statusach"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Show/Idle _Times"
 msgstr "/Znajomi/Pokaż/Wyświetlaj czas _bezczynności"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Show/_Protocol Icons"
 msgstr "/Znajomi/Pokaż/Wyświetlaj ikony protokołów"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/_Sort Buddies"
 msgstr "/Znajomi/_Sortowanie listy"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/_Add Buddy..."
 msgstr "/Znajomi/_Dodaj znajomego..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Add C_hat..."
 msgstr "/Znajomi/Dodaj _konferencję.."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Add _Group..."
 msgstr "/Znajomi/Dodaj _grupę..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/_Quit"
 msgstr "/Znajomi/Za_kończ"
 
 #. Accounts menu
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/_Accounts"
 msgstr "/_Konta"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Accounts/Manage"
 msgstr "/Konta/Zarządzaj"
 
 #. Tools
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/_Tools"
 msgstr "/_Narzędzia"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/Buddy _Pounces"
 msgstr "/Narzędzia/Przechwytywanie _zdarzeń"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/_Certificates"
 msgstr "/Narzędzia/_Certyfikaty"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/Plu_gins"
 msgstr "/Narzędzia/W_tyczki"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/Pr_eferences"
 msgstr "/Narzędzia/_Ustawienia"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/Pr_ivacy"
 msgstr "/Narzędzia/P_rywatność"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/_File Transfers"
 msgstr "/Narzędzia/Przesyłanie _plików"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/R_oom List"
 msgstr "/Narzędzia/Lista pokoi"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/System _Log"
 msgstr "/Narzędzia/Dziennik _systemowy"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/Mute _Sounds"
 msgstr "/Narzędzia/Wyłączenie _dźwięków"
 
 #. Help
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/_Help"
 msgstr "/Pomo_c"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Help/Online _Help"
 msgstr "/Help/Pomoc w _sieci"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Help/_Debug Window"
 msgstr "/Pomoc/_Okno debuggera"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Help/_About"
 msgstr "/Pomoc/Informacje o _programie"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, c-format
 msgid ""
 "\n"
@@ -13360,78 +13350,78 @@ msgstr ""
 "\n"
 "<b>Konto:</b> %s"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Buddy Alias"
 msgstr "Alias"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Logged In"
 msgstr "Zalogowany"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Last Seen"
 msgstr "Ostatnio widziany"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Spooky"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Awesome"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Rockin'"
 msgstr ""
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, c-format
 msgid "Idle %dd %dh %02dm"
 msgstr "Bezczynny %dd %dh %02dm"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, c-format
 msgid "Idle %dh %02dm"
 msgstr "Bezczynny %dh %02dm"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, c-format
 msgid "Idle %dm"
 msgstr "Bezczynny %dm"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/New Instant Message..."
 msgstr "/Znajomi/Nowa wiadomość..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Join a Chat..."
 msgstr "/Znajomi/Przyłącz się do _konferencji..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Get User Info..."
 msgstr "/Znajomi/Pobierz informacje o użytkowniku..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Add Buddy..."
 msgstr "/Znajomi/Dodaj znajomego..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Add Chat..."
 msgstr "/Znajomi/Dodaj konferencję..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Add Group..."
 msgstr "/Znajomi/Dodaj grupę..."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/Privacy"
 msgstr "/Narzędzia/Prywatność"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools/Room List"
 msgstr "/Narzędzia/Lista pokoi"
 
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkdocklet.c:1
 #, c-format
 msgid "%d unread message from %s\n"
 msgid_plural "%d unread messages from %s\n"
@@ -13439,42 +13429,42 @@ msgstr[0] "%d nieprzeczytana wiadomość od %s\n"
 msgstr[1] "%d nieprzeczytanych wiadomości od %s\n"
 msgstr[2] "%d nieprzeczytanych Wiadomości od %s\n"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Manually"
 msgstr "Ręczne"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "By status"
 msgstr "Według statusu"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "By log size"
 msgstr "Według rozmiaru dziennika"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, c-format
 msgid "%s disconnected"
 msgstr "%s rozłączony"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, c-format
 msgid "%s disabled"
 msgstr "%s wyłączony"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy
 msgid "Reconnect"
 msgstr "Połącz"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Re-enable"
 msgstr "Włącz ponownie"
 
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkconv.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkconv.c:1
 msgid "Ignore"
 msgstr "Ignorowanie"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy, c-format
 msgid "%d account was disabled because you signed on from another location."
 msgid_plural ""
@@ -13483,24 +13473,24 @@ msgstr[0] "Zalogowano się z innego komputera."
 msgstr[1] "Zalogowano się z innego komputera."
 msgstr[2] "Zalogowano się z innego komputera."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "<b>Username:</b>"
 msgstr "<b>Użytkownik:</b>"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "<b>Password:</b>"
 msgstr "<b>Hasło:</b>"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Login"
 msgstr "_Login"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Accounts"
 msgstr "/Konta"
 
 #. Translators: Please maintain the use of -> and <- to refer to menu heirarchy
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, c-format
 msgid ""
 "<span weight='bold' size='larger'>Welcome to %s!</span>\n"
@@ -13513,32 +13503,32 @@ msgstr ""
 #. set the Show Offline Buddies option. must be done
 #. * after the treeview or faceprint gets mad. -Robot101
 #. 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy
 msgid "/Buddies/Show/Offline Buddies"
 msgstr "/Znajomi/Pokaż/Wyświetlaj _nieobecnych"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy
 msgid "/Buddies/Show/Empty Groups"
 msgstr "/Znajomi/Pokaż/Wyświetlaj p_uste grupy"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy
 msgid "/Buddies/Show/Buddy Details"
 msgstr "/Znajomi/Pokaż/Wyświetlaj informacje o statusach"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy
 msgid "/Buddies/Show/Idle Times"
 msgstr "/Znajomi/Pokaż/Wyświetlaj czas _bezczynności"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 #, fuzzy
 msgid "/Buddies/Show/Protocol Icons"
 msgstr "/Znajomi/Pokaż/Wyświetlaj ikony protokołów"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid ""
 "Please enter the screen name of the person you would like to add to your "
 "buddy list. You may optionally enter an alias, or nickname,  for the buddy. "
@@ -13549,24 +13539,24 @@ msgstr ""
 "zamiast identyfikatora tam gdzie jest to możliwe.\n"
 
 #. Set up stuff for the account box
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "A_ccount:"
 msgstr "Konto:"
 
 #. End of account box
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Screen name:"
 msgstr "Identyfikator:"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "A_lias:"
 msgstr "A_lias:"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "This protocol does not support chat rooms."
 msgstr "Ten protokół nie obsługuje pokojów konferencyjnych."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid ""
 "You are not currently signed on with any protocols that have the ability to "
 "chat."
@@ -13574,7 +13564,7 @@ msgstr ""
 "W tej chwili brak jest zarejestrowanego protokołu, które umożliwiają "
 "prowadzenie konferencji."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid ""
 "Please enter an alias, and the appropriate information about the chat you "
 "would like to add to your buddy list.\n"
@@ -13582,255 +13572,255 @@ msgstr ""
 "Wprowadź alias, oraz odpowiednie informacje dla konferencji, którą chcesz "
 "dodać do listy znajomych.\n"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Autojoin when account becomes online."
 msgstr "Automatycznie dołącz podczas połączenia konta."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Hide chat when the window is closed."
 msgstr "Ukryj, gdy okno jest zamknięte."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Please enter the name of the group to be added."
 msgstr "Podaj nazwę dodawanej grupy."
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "<PurpleMain>/Accounts/"
 msgstr "<PurpleMain>/Konta/"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Edit Account"
 msgstr "_Edycja konta"
 
-#: ../pidgin/gtkblist.c:1 ../pidgin/gtkconv.c:1
+#: ../carrier/gtkblist.c:1 ../pidgin/gtkconv.c:1
 msgid "No actions available"
 msgstr "Brak dostępnych akcji"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "_Disable"
 msgstr "_Wyłącz"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "Enable Account"
 msgstr "Włącz konto"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "<PurpleMain>/Accounts/Enable Account"
 msgstr "<PurpleMain>/Konta/Włącz konto"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Tools"
 msgstr "/Narzędzia"
 
-#: ../pidgin/gtkblist.c:1
+#: ../carrier/gtkblist.c:1
 msgid "/Buddies/Sort Buddies"
 msgstr "/Znajomi/Sortuj znajomych"
 
 #. Widget creation function
-#: ../pidgin/gtkcertmgr.c:1
+#: ../carrier/gtkcertmgr.c:1
 msgid "SSL Servers"
 msgstr "Serwery SSL"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Unknown command."
 msgstr "Nieznane polecenie."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "That buddy is not on the same protocol as this chat."
 msgstr "Wybrana osoba nie jest połączona tym samym protokołem co konferencja."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid ""
 "You are not currently signed on with an account that can invite that buddy."
 msgstr ""
 "Żadne z używanych w chwili obecnej kont nie ma możliwości zapraszania "
 "znajomych do konferencji"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Invite Buddy Into Chat Room"
 msgstr "Zaproszenie użytkownika do pokoju konferencyjnego"
 
 #. Put our happy label in it.
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid ""
 "Please enter the name of the user you wish to invite, along with an optional "
 "invite message."
 msgstr "Wpisz kogo chcesz zaprosić, dodatkowo można podać tekst zaproszenia."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "_Buddy:"
 msgstr "_Użytkownik:"
 
-#: ../pidgin/gtkconv.c:1 ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtkconv.c:1 ../pidgin/gtksavedstatuses.c:1
 msgid "_Message:"
 msgstr "_Wiadomość:"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 #, c-format
 msgid "<h1>Conversation with %s</h1>\n"
 msgstr "<h1>Rozmowa z %s</h1>\n"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Save Conversation"
 msgstr "Zapisz rozmowę"
 
-#: ../pidgin/gtkconv.c:1 ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkconv.c:1 ../pidgin/gtkdebug.c:1
 msgid "Find"
 msgstr "Szukaj"
 
-#: ../pidgin/gtkconv.c:1 ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkconv.c:1 ../pidgin/gtkdebug.c:1
 msgid "_Search for:"
 msgstr "_Poszukiwane wyrażenie:"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Un-Ignore"
 msgstr "Odwołanie ignorowania"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 #, fuzzy
 msgid "Get Away Message"
 msgstr "Wysyłane wiadomości"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Last said"
 msgstr "Ostatnio powiedziane"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Unable to save icon file to disk."
 msgstr "Nie można zapisać wybranej ikonki na dysk."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Save Icon"
 msgstr "Zapisz ikonę"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Animate"
 msgstr "Animuj"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Hide Icon"
 msgstr "Ukryj ikonę"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Save Icon As..."
 msgstr "Zapisz ikonę jako..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Set Custom Icon..."
 msgstr "Ustaw ikonkę..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Remove Custom Icon"
 msgstr "Usunięcie ikonki"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 #, fuzzy
 msgid "Show All"
 msgstr "Pokaż"
 
 #. Conversation menu
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/_Conversation"
 msgstr "/_Rozmowa"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/New Instant _Message..."
 msgstr "/Rozmowa/Nowa _wiadomość..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/_Find..."
 msgstr "/Rozmowa/_Szukaj..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/View _Log"
 msgstr "/Rozmowa/Wyświetl _dziennik rozmów"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/_Save As..."
 msgstr "/Rozmowa/Z_apisz jako..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Clea_r Scrollback"
 msgstr "/Rozmowa/Wyczyść okno"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Se_nd File..."
 msgstr "/Rozmowa/_Wyślij plik..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Add Buddy _Pounce..."
 msgstr "/Rozmowa/Dodaj przechwytywanie _zdarzeń..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/_Get Info"
 msgstr "/Rozmowy/_Dane osoby"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/In_vite..."
 msgstr "/Rozmowa/Z_aproś..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/M_ore"
 msgstr "/Rozmowa/Więcej"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Al_ias..."
 msgstr "/Rozmowy/_Alias..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/_Block..."
 msgstr "/Rozmowa/Za_blokuj..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/_Unblock..."
 msgstr "/Rozmowa/Odblokuj..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/_Add..."
 msgstr "/Rozmowa/D_odaj..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/_Remove..."
 msgstr "/Rozmowa/_Usuń..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Insert Lin_k..."
 msgstr "/Rozmowa/Wstaw od_nośnik..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Insert Imag_e..."
 msgstr "/Rozmowa/Wstaw o_braz..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/_Close"
 msgstr "/Rozmowa/_Zamknij"
 
 #. Options
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/_Options"
 msgstr "/_Opcje"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options/Enable _Logging"
 msgstr "/Opcje/_Zapis do dziennika"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options/Enable _Sounds"
 msgstr "/Opcje/_Dźwięki"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options/Show Formatting _Toolbars"
 msgstr "/Opcje/Pokaż pasek narzędzi do _formatowania tekstu"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options/Show Ti_mestamps"
 msgstr "/Opcje/Pokaż _datownik"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/More"
 msgstr "/Rozmowa/_Więcej"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options"
 msgstr "/Opcje"
 
@@ -13839,97 +13829,97 @@ msgstr "/Opcje"
 #. Make sure the 'Conversation -> More' menuitems are regenerated whenever
 #. * the 'Conversation' menu pops up because the entries can change after the
 #. * conversation is created.
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation"
 msgstr "/Rozmowa"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/View Log"
 msgstr "/Rozmowa/Wyświetl dziennik rozmów"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Send File..."
 msgstr "/Rozmowa/Wyślij plik..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Add Buddy Pounce..."
 msgstr "/Rozmowa/Dodaj przechwytywanie zdarzeń..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Get Info"
 msgstr "/Rozmowa/Dane osoby"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Invite..."
 msgstr "/Rozmowa/Zaproś..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Alias..."
 msgstr "/Rozmowa/Alias..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Block..."
 msgstr "/Rozmowa/Zablokuj..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Unblock..."
 msgstr "/Rozmowa/Odblokuj..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Add..."
 msgstr "/Rozmowa/Dodaj..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Remove..."
 msgstr "/Rozmowa/Usuń..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Insert Link..."
 msgstr "/Rozmowa/Wstaw odnośnik..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Conversation/Insert Image..."
 msgstr "/Rozmowa/Wstaw obraz..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options/Enable Logging"
 msgstr "/Opcje/Zapis do dziennika"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options/Enable Sounds"
 msgstr "/Opcje/Włącz dźwięki"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options/Show Formatting Toolbars"
 msgstr "/Opcje/Pokaż pasek narzędzi do formatowania tekstu"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "/Options/Show Timestamps"
 msgstr "/Opcje/Pokaż datownik"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "User is typing..."
 msgstr "Użytkownik coś pisze..."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "User has typed something and stopped"
 msgstr "Użytkownik coś napisał"
 
 #. Build the Send To menu
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "S_end To"
 msgstr "_Wyślij do"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "_Send"
 msgstr "_Wyślij"
 
 #. Setup the label telling how many people are in the room.
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "0 people in room"
 msgstr "Brak osób w pokoju"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 #, c-format
 msgid "%d person in room"
 msgid_plural "%d people in room"
@@ -13937,475 +13927,475 @@ msgstr[0] "%d osoba w pokoju"
 msgstr[1] "%d osoby w pokoju"
 msgstr[2] "%d osób w pokoju"
 
-#: ../pidgin/gtkconv.c:1 ../pidgin/gtkstatusbox.c:1
+#: ../carrier/gtkconv.c:1 ../pidgin/gtkstatusbox.c:1
 msgid "Typing"
 msgstr "Wpisujesz"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Stopped Typing"
 msgstr "Zakończył(a) pisanie"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 #, fuzzy
 msgid "Nick Said"
 msgstr "Ksywka"
 
-#: ../pidgin/gtkconv.c:1 ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkconv.c:1 ../pidgin/gtkdocklet.c:1
 msgid "Unread Messages"
 msgstr "Nieprzeczytane wiadomości"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "New Event"
 msgstr "Nowe zdarzenie"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "clear: Clears all conversation scrollbacks."
 msgstr "clear: Czyści okno rozmowy."
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Confirm close"
 msgstr "Potwierdzenie zamknięcia"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "You have unread messages. Are you sure you want to close the window?"
 msgstr ""
 "W oknie które chcesz zamknąć znajdują się nieprzeczytane przez Ciebie "
 "wiadomości. Czy na pewno chcesz zamknąć to okno?"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Close other tabs"
 msgstr "Zamknij pozostałe zakładki"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Close all tabs"
 msgstr "Zamknij wszystkie zakładki"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Detach this tab"
 msgstr "Odłącz tę zakładkę"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Close this tab"
 msgstr "Zamknij tę zakładkę"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Close conversation"
 msgstr "Zamyka rozmowę"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Last created window"
 msgstr "Ostatnio utworzone okno"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "Separate IM and Chat windows"
 msgstr "Oddzielne okno dla konferencji"
 
-#: ../pidgin/gtkconv.c:1 ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkconv.c:1 ../pidgin/gtkprefs.c:1
 msgid "New window"
 msgstr "Nowe okno"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "By group"
 msgstr "Wg grupy"
 
-#: ../pidgin/gtkconv.c:1
+#: ../carrier/gtkconv.c:1
 msgid "By account"
 msgstr "Wg konta"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Save Debug Log"
 msgstr "Zapis komunikatów diagnostycznych"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Invert"
 msgstr "Odwrócony filtr"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Highlight matches"
 msgstr "Podświetlanie szukanych słów"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "_Icon Only"
 msgstr "Tylko i_konki"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "_Text Only"
 msgstr "Tylko _tekst"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "_Both Icon & Text"
 msgstr "_Ikonki i tekst"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Filter"
 msgstr "Filtr"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Right click for more options."
 msgstr ""
 "kliknięcie prawym przyciskiem myszy wyświetli więcej opcji wyszukiwania."
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Level "
 msgstr "Poziom"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Select the debug filter level."
 msgstr "Wybierz filtr debugera."
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "All"
 msgstr "Wszystko"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Misc"
 msgstr "Misc"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Error "
 msgstr "Błąd "
 
-#: ../pidgin/gtkdebug.c:1
+#: ../carrier/gtkdebug.c:1
 msgid "Fatal Error"
 msgstr "Błąd wewnętrzny"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "lead developer"
 msgstr "główny programista"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "developer"
 msgstr "programista"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "support"
 msgstr "wsparcie"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, fuzzy
 msgid "support/QA"
 msgstr "wsparcie"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "developer & webmaster"
 msgstr "programista i webmaster"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Senior Contributor/QA"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "win32 port"
 msgstr "wersja win32"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "maintainer"
 msgstr "opiekun"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, fuzzy
 msgid "libfaim maintainer"
 msgstr "opiekun"
 
 #. If "lazy bum" translates literally into a serious insult, use something else or omit it.
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "hacker and designated driver [lazy bum]"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "XMPP developer"
 msgstr "programista XMPP"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "original author"
 msgstr "autor pierwszych wersji"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Afrikaans"
 msgstr "Afrykańsko-burski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Arabic"
 msgstr "Arabski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Belarusian Latin"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Bulgarian"
 msgstr "Bułgarski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Bengali"
 msgstr "Bengalski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Bosnian"
 msgstr "Bośniacki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Catalan"
 msgstr "Kataloński"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Valencian-Catalan"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Czech"
 msgstr "Czeski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Danish"
 msgstr "Duński"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "German"
 msgstr "Niemiecki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Dzongkha"
 msgstr "Dzongka"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Greek"
 msgstr "Grecki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Australian English"
 msgstr "Australijski Angielski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Canadian English"
 msgstr "Kanadyjski Angielski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "British English"
 msgstr "Brytyjski Angielski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Spanish"
 msgstr "Hiszpański"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, fuzzy
 msgid "Estonian"
 msgstr "Bośniacki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Euskera(Basque)"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Persian"
 msgstr "Perski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Finnish"
 msgstr "Fiński"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "French"
 msgstr "Francuski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Galician"
 msgstr "Galicyjski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Gujarati"
 msgstr "Gudżaracki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Gujarati Language Team"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Hebrew"
 msgstr "Hebrajski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Hindi"
 msgstr "Hinduski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Hungarian"
 msgstr "Węgierski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Indonesian"
 msgstr "Indonezyjski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Italian"
 msgstr "Włoski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Japanese"
 msgstr "Japoński"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Georgian"
 msgstr "Gruziński"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, fuzzy
 msgid "Ubuntu Georgian Translators"
 msgstr "Aktualni tłumacze"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Kannada"
 msgstr "Kannada"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Kannada Translation team"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Korean"
 msgstr "Koreański"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Kurdish"
 msgstr "Kurdyjski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, fuzzy
 msgid "Lao"
 msgstr "Lew"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Lithuanian"
 msgstr "Litewski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Macedonian"
 msgstr "Macedoński"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Bokmål Norwegian"
 msgstr "Norweski Bokmål"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Nepali"
 msgstr "Nepalski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Dutch, Flemish"
 msgstr "Holenderski, Flamandzki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Norwegian Nynorsk"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Punjabi"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Polish"
 msgstr "Polski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Portuguese"
 msgstr "Portugalski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Portuguese-Brazil"
 msgstr "Portugalski - Brazylia"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, fuzzy
 msgid "Pashto"
 msgstr "Zdjęcie"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Romanian"
 msgstr "Rumuński"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Russian"
 msgstr "Rosyjski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Slovak"
 msgstr "Słowacki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Slovenian"
 msgstr "Słoweński"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Albanian"
 msgstr "Albański"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Serbian"
 msgstr "Serbski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Swedish"
 msgstr "Szwedzki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Tamil"
 msgstr "Tamilski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Telugu"
 msgstr "Telugu"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Thai"
 msgstr "Tajlandzki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Turkish"
 msgstr "Turecki"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Urdu"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Vietnamese"
 msgstr "Wietnamski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "T.M.Thanh and the Gnome-Vi Team"
 msgstr "T.M. Thanh i Zespół Gnome-Vi"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Simplified Chinese"
 msgstr "Chiński uproszczony"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Hong Kong Chinese"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Traditional Chinese"
 msgstr "Chiński tradycyjny"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Amharic"
 msgstr "Amharski"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid "About %s"
 msgstr "O programie %s"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid ""
 "%s is a graphical modular messaging client based on libpurple which is "
@@ -14419,67 +14409,67 @@ msgid ""
 "<BR><BR>"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid "<FONT SIZE=\"4\">IRC:</FONT> #pidgin on irc.freenode.net<BR><BR>"
 msgstr "<FONT SIZE=\"4\">IRC:</FONT> #pidgin na irc.freenode.net<BR><BR>"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Current Developers"
 msgstr "Programiści aktywnie uczestniczący w projekcie"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Crazy Patch Writers"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Retired Developers"
 msgstr "Poprzedni programiści"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Retired Crazy Patch Writers"
 msgstr ""
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Artists"
 msgstr "Artyści"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Current Translators"
 msgstr "Aktualni tłumacze"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Past Translators"
 msgstr "Poprzedni tłumacze"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Debugging Information"
 msgstr "Informacje przydatne przy debugowaniu"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "_Name"
 msgstr "_Nazwa"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "_Account"
 msgstr "_Konto"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Get User Info"
 msgstr "Pobranie informacji o użytkowniku"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid ""
 "Please enter the screen name or alias of the person whose info you would "
 "like to view."
 msgstr ""
 "Podaj identyfikator lub alias osoby, której informacje chcesz obejrzeć."
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "View User Log"
 msgstr "Dziennik rozmów użytkownika"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid ""
 "Please enter the screen name or alias of the person whose log you would like "
 "to view."
@@ -14487,32 +14477,32 @@ msgstr ""
 "Proszę podać identyfikator lub alias osoby, której dziennik rozmów chcesz "
 "zobaczyć."
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Alias Contact"
 msgstr "Alias kontaktu"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Enter an alias for this contact."
 msgstr "Wprowadź alias dla tego kontaktu."
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid "Enter an alias for %s."
 msgstr "Wprowadź alias dla %s."
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Alias Buddy"
 msgstr "Alias znajomego"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Alias Chat"
 msgstr "Alias konferencji"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Enter an alias for this chat."
 msgstr "Wprowadź alias dla tej konferencji."
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid ""
 "You are about to remove the contact containing %s and %d other buddy from "
@@ -14530,15 +14520,15 @@ msgstr[2] ""
 "Zamierzasz usunąć kontakt zawierający %s i %d innych kontaktów z listy "
 "znajomych. Czy chcesz kontynuować?"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Remove Contact"
 msgstr "Usunięcie kontaktu"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "_Remove Contact"
 msgstr "_Usuń kontakt"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid ""
 "You are about to merge the group called %s into the group called %s. Do you "
@@ -14546,15 +14536,15 @@ msgid ""
 msgstr ""
 "Zamierzasz połączyć grupę o nazwie %s z grupą %s. Czy chcesz kontynuować?"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Merge Groups"
 msgstr "Połącz grupy"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "_Merge Groups"
 msgstr "_Połącz grupy"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid ""
 "You are about to remove the group %s and all its members from your buddy "
@@ -14563,30 +14553,30 @@ msgstr ""
 "Zamierzasz usunąć grupę %s i wszystkie znajdujące się tam osoby ze swojej "
 "listy. Czy chcesz kontynuować?"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Remove Group"
 msgstr "Usunięcie grupy"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "_Remove Group"
 msgstr "_Usunięcie Grupy"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid ""
 "You are about to remove %s from your buddy list.  Do you want to continue?"
 msgstr ""
 "Zamierzasz usunąć %s ze swojej listy znajomych. Czy chcesz kontynuować?"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Remove Buddy"
 msgstr "Usunięcie znajomego"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "_Remove Buddy"
 msgstr "_Usunięcie znajomego"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 #, c-format
 msgid ""
 "You are about to remove the chat %s from your buddy list.  Do you want to "
@@ -14595,167 +14585,167 @@ msgstr ""
 "Zamierzasz usunąć konferencję %s ze swojej listy znajomych. Czy chcesz "
 "kontynuować?"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "Remove Chat"
 msgstr "Usunięcie konferencji"
 
-#: ../pidgin/gtkdialogs.c:1
+#: ../carrier/gtkdialogs.c:1
 msgid "_Remove Chat"
 msgstr "Usunięcie _konferencji"
 
-#: ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkdocklet.c:1
 msgid "Right-click for more unread messages...\n"
 msgstr ""
 "kliknięcie prawym przyciskiem myszy wyświetli więcej nieprzeczytanych "
 "wiadomości...\n"
 
-#: ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkdocklet.c:1
 msgid "Change Status"
 msgstr "Zmiana Statusu"
 
-#: ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkdocklet.c:1
 msgid "Show Buddy List"
 msgstr "Pokazywanie listy znajomych"
 
-#: ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkdocklet.c:1
 msgid "New Message..."
 msgstr "Nowa wiadomość..."
 
-#: ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkdocklet.c:1
 msgid "Mute Sounds"
 msgstr "Wyłączenie dźwięków"
 
-#: ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkdocklet.c:1
 msgid "Blink on New Message"
 msgstr "Migotanie przy nowej wiadomości"
 
-#: ../pidgin/gtkdocklet.c:1
+#: ../carrier/gtkdocklet.c:1
 msgid "Quit"
 msgstr "Zakończ"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "Not started"
 msgstr "Nie rozpoczęto przesyłania"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "<b>Receiving As:</b>"
 msgstr "<b>Odbieranie jako:</b>"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "<b>Receiving From:</b>"
 msgstr "<b>Odbieranie od:</b>"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "<b>Sending To:</b>"
 msgstr "<b>Wysyłanie do:</b>"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "<b>Sending As:</b>"
 msgstr "<b>Wysyłanie z konta:</b>"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "There is no application configured to open this type of file."
 msgstr "Żadna aplikacja nie jest skonfigurowana do obsługi tego typu plików."
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "An error occurred while opening the file."
 msgstr "Wystąpił błąd podczas otwierania pliku."
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 #, c-format
 msgid "Error launching %s: %s"
 msgstr "Błąd uruchamiania %s: %s."
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 #, c-format
 msgid "Error running %s"
 msgstr "Błąd uruchamiania %s"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 #, c-format
 msgid "Process returned error code %d"
 msgstr "Proces zwrócił kod błędu %d"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "Filename:"
 msgstr "Nazwa pliku:"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "Local File:"
 msgstr "Lokalna nazwa pliku:"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "Speed:"
 msgstr "Szybkość:"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "Time Elapsed:"
 msgstr "Upłynęło:"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "Time Remaining:"
 msgstr "Pozostało:"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "Close this window when all transfers _finish"
 msgstr "Zamknij to okno, po zakończeniu wszystkich transferow"
 
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "C_lear finished transfers"
 msgstr "Wyczyść ukończone transfery"
 
 #. "Download Details" arrow
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "File transfer _details"
 msgstr "Szczegóły transfery plików"
 
 #. Pause button
-#: ../pidgin/gtkft.c:1 ../pidgin/pidginstock.c:1
+#: ../carrier/gtkft.c:1 ../pidgin/pidginstock.c:1
 msgid "_Pause"
 msgstr "_Wstrzymaj"
 
 #. Resume button
-#: ../pidgin/gtkft.c:1
+#: ../carrier/gtkft.c:1
 msgid "_Resume"
 msgstr "_Kontynuuj"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid "Paste as Plain _Text"
 msgstr "Wklej jako _czysty tekst"
 
-#: ../pidgin/gtkimhtml.c:1 ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtml.c:1 ../pidgin/gtkimhtmltoolbar.c:1
 msgid "_Reset formatting"
 msgstr "Wyczyść _formatowanie"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid "Hyperlink color"
 msgstr "Kolor odnośnika"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid "Color to draw hyperlinks."
 msgstr "Kolor wyświetlania odnośników."
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid "Hyperlink prelight color"
 msgstr "Kolor podświetlonego odnośnika"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid "Color to draw hyperlinks when mouse is over them."
 msgstr "Kolor odnośników pod kursorem myszki."
 
-#: ../pidgin/gtkimhtml.c:1
-msgid "_Copy E-Mail Address"
-msgstr "Skopiuj a_dres e-mail"
+#: ../carrier/gtkimhtml.c:1
+msgid "_Copy Email Address"
+msgstr "Skopiuj a_dres email"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid "_Open Link in Browser"
 msgstr "_Otwórz odnośnik w przeglądarce"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid "_Copy Link Location"
 msgstr "_Skopiuj adres odnośnika"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid ""
 "<span size='larger' weight='bold'>Unrecognized file type</span>\n"
 "\n"
@@ -14765,7 +14755,7 @@ msgstr ""
 "\n"
 "Przyjmujemy, że jest w formacie PNG."
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid ""
 "Unrecognized file type\n"
 "\n"
@@ -14775,7 +14765,7 @@ msgstr ""
 "\n"
 "Przyjmujemy, że jest w formacie PNG."
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 #, c-format
 msgid ""
 "<span size='larger' weight='bold'>Error saving image</span>\n"
@@ -14786,7 +14776,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 #, c-format
 msgid ""
 "Error saving image\n"
@@ -14797,196 +14787,196 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 msgid "Save Image"
 msgstr "Zapis obrazu"
 
-#: ../pidgin/gtkimhtml.c:1
+#: ../carrier/gtkimhtml.c:1
 #, c-format
 msgid "_Save Image..."
 msgstr "Zapisz _obraz..."
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Select Font"
 msgstr "Wybór czcionki"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Select Text Color"
 msgstr "Wybór koloru tekstu"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Select Background Color"
 msgstr "Wybór koloru tła"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_URL"
 msgstr "Adres _URL"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Description"
 msgstr "_Opis"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid ""
 "Please enter the URL and description of the link that you want to insert. "
 "The description is optional."
 msgstr ""
 "Podaj adres URL i opis wstawianego odnośnika. Opis nie jest obowiązkowy."
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Please enter the URL of the link that you want to insert."
 msgstr "Wpisz adres URL wstawianego odnośnika."
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Insert Link"
 msgstr "Wstaw odnośnik"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Insert"
 msgstr "_Wstaw"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 #, c-format
 msgid "Failed to store image: %s\n"
 msgstr "Nie można zapisać obrazu: %s\n"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Insert Image"
 msgstr "Wstaw obraz"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "This theme has no available smileys."
 msgstr "Ten temat nie zawiera żadnych emotikonek."
 
 #. show everything
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Smile!"
 msgstr "Uśmiech!"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Font"
 msgstr "_Font"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 #, fuzzy
 msgid "Group Items"
 msgstr "ID Grupy"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Ungroup Items"
 msgstr ""
 
-#: ../pidgin/gtkimhtmltoolbar.c:1 ../pidgin/plugins/convcolors.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1 ../pidgin/plugins/convcolors.c:1
 msgid "Bold"
 msgstr "Pogrubienie"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1 ../pidgin/plugins/convcolors.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1 ../pidgin/plugins/convcolors.c:1
 msgid "Italic"
 msgstr "Pochylenie"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1 ../pidgin/plugins/convcolors.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1 ../pidgin/plugins/convcolors.c:1
 msgid "Underline"
 msgstr "Podkreślenie"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Strikethrough"
 msgstr "Przekreślenie"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Increase Font Size"
 msgstr "Zwiększ rozmiar czcionki"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Decrease Font Size"
 msgstr "Zmniejsz rozmiar czcionki"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Font Face"
 msgstr "_Krój czcionki"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Background Color"
 msgstr "Kolor tła"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Foreground Color"
 msgstr "Kolor pisma"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 #, fuzzy
 msgid "Reset Formatting"
 msgstr "Wyczyść _formatowanie"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 #, fuzzy
 msgid "Insert IM Image"
 msgstr "Wstaw obraz"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 #, fuzzy
 msgid "Insert Smiley"
 msgstr "Wstaw obraz"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "<b>_Bold</b>"
 msgstr "<b>_Pogrubiony</b>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "<i>_Italic</i>"
 msgstr " <i>P_ochylony</i>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "<u>_Underline</u>"
 msgstr "<u>Po_dkreślony</u>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "<span strikethrough='true'>Strikethrough</span>"
 msgstr "<span size='larger' weight='bold'>Przekreślenie</span>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "<span size='larger'>_Larger</span>"
 msgstr "<span size='larger' weight='bold'>Większy</span>"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Normal"
 msgstr "_Normalny"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "<span size='smaller'>_Smaller</span>"
 msgstr "<span size='smaller'>_Mniejszy</span>"
 
 #. If we want to show the formatting for the following items, we would
 #. * need to update them when formatting changes. The above items don't need
 #. * no updating nor nothin'
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Font face"
 msgstr "_Krój"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Foreground _color"
 msgstr "Kolor pisma"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "Bac_kground color"
 msgstr "Kolor tła"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Image"
 msgstr "_Obrazek"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Link"
 msgstr "Łą_cze"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Horizontal rule"
 msgstr "Linia pozioma"
 
-#: ../pidgin/gtkimhtmltoolbar.c:1
+#: ../carrier/gtkimhtmltoolbar.c:1
 msgid "_Smile!"
 msgstr "_Uśmiech!"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the log of the conversation with "
@@ -14994,35 +14984,35 @@ msgid ""
 msgstr ""
 "Na pewno chcesz usunąć zapis rozmowy z %s, która ma datę rozpoczęcia %s ?"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the log of the conversation in %"
 "s which started at %s?"
 msgstr "Na pewno chcesz usunąć zapis rozmowy w %s datowaną na %s?"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 #, fuzzy, c-format
 msgid ""
 "Are you sure you want to permanently delete the system log which started at %"
 "s?"
 msgstr "Na pewno chcesz usunąć zapis rozmowy w %s datowaną na %s?"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 #, c-format
 msgid "<span size='larger' weight='bold'>Conversation in %s on %s</span>"
 msgstr "<span size='larger' weight='bold'>Rozmowa w %s z dnia %s</span>"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 #, c-format
 msgid "<span size='larger' weight='bold'>Conversation with %s on %s</span>"
 msgstr "<span size='larger' weight='bold'>Rozmowa z %s dnia %s</span>"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 msgid "%B %Y"
 msgstr "%B %Y"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 msgid ""
 "System events will only be logged if the \"Log all status changes to system "
 "log\" preference is enabled."
@@ -15030,7 +15020,7 @@ msgstr ""
 "Zdarzenia systemowe będą zapisywane jeżeli opcja \"Zapis zmian statusu do "
 "dziennika systemowego\" jest włączona."
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 msgid ""
 "Instant messages will only be logged if the \"Log all instant messages\" "
 "preference is enabled."
@@ -15038,46 +15028,46 @@ msgstr ""
 "Przychodzące wiadomości będą zapisywane jeżeli opcja \"Zapis wszystkich "
 "wiadomości\" jest włączona."
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 msgid ""
 "Chats will only be logged if the \"Log all chats\" preference is enabled."
 msgstr ""
 "Konferencje będą zapisywane, jeżeli opcja \"Zapis wszystkich konferencji\" "
 "jest włączona."
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 msgid "No logs were found"
 msgstr "Nie znaleziono zapisanego dziennika rozmów"
 
 #. Steal the "HELP" response and use it to trigger browsing to the logs folder
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 msgid "_Browse logs folder"
 msgstr "_Przeglądaj katalog z dziennikami rozmów"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 msgid "Total log size:"
 msgstr "Całkowity rozmiar dziennika rozmów:"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 #, c-format
 msgid "Conversations in %s"
 msgstr "Rozmowy w %s"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 #, c-format
 msgid "Conversations with %s"
 msgstr "Rozmowy z %s"
 
-#: ../pidgin/gtklog.c:1
+#: ../carrier/gtklog.c:1
 msgid "System Log"
 msgstr "Dziennik systemowy"
 
-#: ../pidgin/gtkmain.c:1
+#: ../carrier/gtkmain.c:1
 #, c-format
 msgid "%s %s. Try `%s -h' for more information.\n"
 msgstr "%s %s. Napisz \"%s -h\" aby uzyskać więcej informacji.\n"
 
-#: ../pidgin/gtkmain.c:1
+#: ../carrier/gtkmain.c:1
 #, fuzzy, c-format
 msgid ""
 "%s %s\n"
@@ -15103,7 +15093,7 @@ msgstr ""
 "  -n, --nologin       wyłącza automatyczne logowanie\n"
 "  -v, --version       wyświetla numer aktualnej wersji\n"
 
-#: ../pidgin/gtkmain.c:1
+#: ../carrier/gtkmain.c:1
 #, c-format
 msgid ""
 "%s %s has segfaulted and attempted to dump a core file.\n"
@@ -15127,19 +15117,19 @@ msgstr ""
 
 #. Translators may want to transliterate the name.
 #. It is not to be translated.
-#: ../pidgin/gtkmain.c:1 ../pidgin/pidgin.h:1
+#: ../carrier/gtkmain.c:1 ../pidgin/pidgin.h:1
 msgid "Pidgin"
 msgstr "Pidgin"
 
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 msgid "Open All Messages"
 msgstr "Otwórz wszystkie wiadomości"
 
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 msgid "<span weight=\"bold\" size=\"larger\">You have mail!</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Masz wiadomość e-mail!</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Masz wiadomość email!</span>"
 
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 #, c-format
 msgid "%s has %d new message."
 msgid_plural "%s has %d new messages."
@@ -15147,58 +15137,58 @@ msgstr[0] "%s ma %d nową wiadomość."
 msgstr[1] "%s ma %d nowe wiadomości."
 msgstr[2] "%s ma %d nowych wiadomości."
 
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 #, c-format
-msgid "<b>%d new e-mail.</b>"
-msgid_plural "<b>%d new e-mails.</b>"
-msgstr[0] "<b>Masz %d nowy e-mail.</b>"
-msgstr[1] "<b>Masz %d nowe e-maile.</b>"
-msgstr[2] "<b>Masz %d nowych e-maili.</b>"
+msgid "<b>%d new email.</b>"
+msgid_plural "<b>%d new emails.</b>"
+msgstr[0] "<b>Masz %d nowy email.</b>"
+msgstr[1] "<b>Masz %d nowe emaile.</b>"
+msgstr[2] "<b>Masz %d nowych emaili.</b>"
 
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 #, c-format
 msgid "The browser command \"%s\" is invalid."
 msgstr "Polecenie przeglądarki \"%s\" jest niepoprawne."
 
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 msgid "Unable to open URL"
 msgstr "Nie można otworzyć adresu URL"
 
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 #, c-format
 msgid "Error launching \"%s\": %s"
 msgstr "Błąd uruchamiania \"%s\": %s"
 
-#: ../pidgin/gtknotify.c:1
+#: ../carrier/gtknotify.c:1
 msgid ""
 "The 'Manual' browser command has been chosen, but no command has been set."
 msgstr ""
 "Wybrano \"ręczne\" polecenie przeglądarki, lecz nie ustawiono polecenia."
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 msgid "The following plugins will be unloaded."
 msgstr "Następujące wtyczki zostaną wyłączone."
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 msgid "Multiple plugins will be unloaded."
 msgstr "Kilka wtyczek zostanie wyłączonych."
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 msgid "Unload Plugins"
 msgstr "Odłącz wtyczki"
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 #, fuzzy
 msgid "Could not unload plugin"
 msgstr "Nie można wczytać klucza publicznego"
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 msgid ""
 "The plugin could not be unloaded now, but will be disabled at the next "
 "startup."
 msgstr ""
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 #, c-format
 msgid ""
 "%s%s<span weight=\"bold\">Written by:</span>\t%s\n"
@@ -15209,7 +15199,7 @@ msgstr ""
 "<span weight=\"bold\">Strona domowa:</span>\t\t%s\n"
 "<span weight=\"bold\">Nazwa pliku:</span>\t\t%s"
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 #, c-format
 msgid ""
 "%s\n"
@@ -15220,125 +15210,125 @@ msgstr ""
 "<span foreground=\"#ff0000\" weight=\"bold\">Błąd: %s\n"
 "Sprawdź na stronie autora wtyczki czy jest dostępna nowa wersja.</span>"
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 msgid "Configure Pl_ugin"
 msgstr "Konfiguruj wtyczkę"
 
-#: ../pidgin/gtkplugin.c:1
+#: ../carrier/gtkplugin.c:1
 msgid "<b>Plugin Details</b>"
 msgstr "<b>Szczegółowe informacje o wtyczce</b>"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Select a file"
 msgstr "Wybierz plik"
 
 #. Create the "Pounce on Whom" frame.
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Pounce on Whom"
 msgstr "Źródło zdarzeń"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "_Buddy name:"
 msgstr "_Nazwa użytkownika:"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Si_gns on"
 msgstr "Z_alogowanie"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Signs o_ff"
 msgstr "_Wylogowanie"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Goes a_way"
 msgstr "Zmiana statusu na _zajęty"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Ret_urns from away"
 msgstr "Powrót z zajętości"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Becomes _idle"
 msgstr "Przejście w stan bezczynności"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Is no longer i_dle"
 msgstr "Powrót ze stanu bezczynności"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Starts _typing"
 msgstr "Rozpoczęcie _pisania"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "P_auses while typing"
 msgstr "Wstrzymanie pisania"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Stops t_yping"
 msgstr "Zakończenie _pisania"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Sends a _message"
 msgstr "Wysyłanie wiadomości"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Ope_n an IM window"
 msgstr "Otworzenie okna rozmowy"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "_Pop up a notification"
 msgstr "_Wyświetlenie okna z powiadomieniem"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Send a _message"
 msgstr "Wysłanie wiado_mości"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "E_xecute a command"
 msgstr "Wyko_nanie polecenie"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "P_lay a sound"
 msgstr "O_dtworzenie dźwięku"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Brows_e..."
 msgstr "_Przeglądaj..."
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Br_owse..."
 msgstr "Prz_eglądaj..."
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Pre_view"
 msgstr "Podg_ląd"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "P_ounce only when my status is not Available"
 msgstr "Aktywne tylko gdy jestem dostępny"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "_Recurring"
 msgstr "_Powtarzanie"
 
-#: ../pidgin/gtkpounce.c:1
+#: ../carrier/gtkpounce.c:1
 msgid "Pounce Target"
 msgstr "Źródło zdarzeń"
 
-#: ../pidgin/gtkprefs.c:1
-#: ../pidgin/pixmaps/emotes/default/24/default.theme.in.h:1
+#: ../carrier/gtkprefs.c:1
+#: ../carrier/pixmaps/emotes/default/24/default.theme.in.h:1
 msgid "Default"
 msgstr "Domyślny"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Smiley theme failed to unpack."
 msgstr "Nie udało się rozpakować zestawu emotkionek."
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Install Theme"
 msgstr "Instalowanie emotikonek"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid ""
 "Select a smiley theme that you would like to use from the list below. New "
 "themes can be installed by dragging and dropping them onto the theme list."
@@ -15346,137 +15336,137 @@ msgstr ""
 "Wybierz zestaw emotikonek z poniższej listy. Nowe ikonki można zainstalować "
 "przeciągając je na listę motywów."
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Icon"
 msgstr "Ikonka"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "System Tray Icon"
 msgstr "Ikona obszaru powiadamiania"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Show system tray icon:"
 msgstr "Pokazywanie ikony obszaru powiadamiania:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "On unread messages"
 msgstr "Gdy są nieprzeczytane wiadomości"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Conversation Window Hiding"
 msgstr "Ukrywanie okien rozmów"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Hide new IM conversations:"
 msgstr "_Ukrywanie nowych rozmów:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "When away"
 msgstr "Podczas nieobecności"
 
 #. All the tab options!
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Tabs"
 msgstr "Zakładki (Karty)"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Show IMs and chats in _tabbed windows"
 msgstr "_Wiadomości i konferencje w oknach z zakładkami"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Show close b_utton on tabs"
 msgstr "Wyświetlanie przycisku _zamknij na zakładkach"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Placement:"
 msgstr "_Pozycja zakładek:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Top"
 msgstr "Góra"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Bottom"
 msgstr "Dół"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Left"
 msgstr "Lewo"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Right"
 msgstr "Prawo"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Left Vertical"
 msgstr "Pionowo z lewej"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Right Vertical"
 msgstr "Pionowo z prawej"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "N_ew conversations:"
 msgstr "Nowe _rozmowy:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Show _formatting on incoming messages"
 msgstr "Pokazywanie formatowanego tekstu w przychodzących wiadomościach"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Close IMs immediately when the tab is closed"
 msgstr "Wyłącz IM'y od razu po zamknięciu zakładki"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Show _detailed information"
 msgstr "Pokazywanie _szczegółowych informacji"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Enable buddy ic_on animation"
 msgstr "Anima_cja ikon znajomych"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Notify buddies that you are typing to them"
 msgstr "_Informowanie rozmówców pisaniu"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Highlight _misspelled words"
 msgstr "Podkreślanie błędnie napisanych słów"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Use smooth-scrolling"
 msgstr "Używanie płynnego przewijania"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "F_lash window when IMs are received"
 msgstr "_Migotanie okna po odebraniu wiadomości"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, fuzzy
 msgid "Minimi_ze new conversation windows"
 msgstr "Przeniesienia okna rozmów na _wierzch"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Font"
 msgstr "Font"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Use document font from _theme"
 msgstr "Używanie fontu dokumentu z aktualnego _tematu"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Use font from _theme"
 msgstr "Używanie fontu z aktualnego _tematu"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Conversation _font:"
 msgstr "Font w oknie rozmowy:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Default Formatting"
 msgstr "Domyślne formatowanie"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid ""
 "This is how your outgoing message text will appear when you use protocols "
 "that support formatting."
@@ -15485,60 +15475,60 @@ msgstr ""
 "napisane przez Ciebie wiadomości jeżeli będzie używany protokół obsługujący "
 "formatowanie tekstu."
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Cannot start proxy configuration program."
 msgstr "Nie można uruchomić aplikacji konfigurującej proxy."
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, fuzzy
 msgid "Cannot start browser configuration program."
 msgstr "Nie można uruchomić aplikacji konfigurującej proxy."
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "ST_UN server:"
 msgstr "Serwer _STUN:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "<span style=\"italic\">Example: stunserver.org</span>"
 msgstr "<span style=\"italic\">Przykład: stunserver.org</span>"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Autodetect IP address"
 msgstr "_Automatyczne wykrywanie adresu IP"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Public _IP:"
 msgstr "Publiczne _IP:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Ports"
 msgstr "Porty"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Manually specify range of ports to listen on"
 msgstr "_Ręcznie określony zakres portów na których będzie nasłuchiwał program"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Start port:"
 msgstr "Początkowy zakres portów:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_End port:"
 msgstr "Końcowy zakres portów:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Proxy Server &amp; Browser"
 msgstr "Serwer pośredniczący i przeglądarka"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "<b>Proxy configuration program was not found.</b>"
 msgstr "<b>Aplikacja konfigurująca proxy nie została znaleziona.</b>"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "<b>Browser configuration program was not found.</b>"
 msgstr "<b>Aplikacja konfigurująca przeglądarkę nie została znaleziona.</b>"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid ""
 "Proxy & Browser preferences are configured\n"
 "in GNOME Preferences"
@@ -15546,95 +15536,95 @@ msgstr ""
 "Konfiguracja proxy i przeglądarki jest ustawiana\n"
 "w oknie preferencji GNOME"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Configure _Proxy"
 msgstr "_Konfiguruj proxy"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Configure _Browser"
 msgstr "_Konfiguruj przeglądarkę"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Proxy Server"
 msgstr "Serwer pośredniczący"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "No proxy"
 msgstr "Bez pośrednika"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_User:"
 msgstr "_Użytkownik:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Seamonkey"
 msgstr "Seamonkey"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Opera"
 msgstr "Opera"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Netscape"
 msgstr "Netscape"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Mozilla"
 msgstr "Mozilla"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Konqueror"
 msgstr "Konqueror"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "GNOME Default"
 msgstr "Domyślnej przeglądarki z GNOME"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Galeon"
 msgstr "Galeon"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Firefox"
 msgstr "Firefox"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Firebird"
 msgstr "Firebird"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Epiphany"
 msgstr "Epiphany"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Manual"
 msgstr "Wybrana ręcznie"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Browser Selection"
 msgstr "Wybór przeglądarki"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Browser:"
 msgstr "_Przeglądarka:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Open link in:"
 msgstr "_Otwarcie odnośnika w:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Browser default"
 msgstr "Domyślnej przeglądarce"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Existing window"
 msgstr "Istniejącym oknie"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "New tab"
 msgstr "Nowej zakładce"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid ""
 "_Manual:\n"
@@ -15643,69 +15633,69 @@ msgstr ""
 "_Ręcznie:\n"
 "(%s dla URL)"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Log _format:"
 msgstr "Format dziennika:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Log all _instant messages"
 msgstr "Zapis wszystkich _wiadomości"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Log all c_hats"
 msgstr "Zapis wszystkich _konferencji"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Log all _status changes to system log"
 msgstr "Zapis zmian statusu do dziennika systemowego"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Sound Selection"
 msgstr "Wybór dźwięków"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid "Quietest"
 msgstr "Najciszej"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid "Quieter"
 msgstr "Ciszej"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid "Quiet"
 msgstr "Cicho"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid "Loud"
 msgstr "Głośno"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid "Louder"
 msgstr "Głośniej"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid "Loudest"
 msgstr "Najgłośniej"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Method:"
 msgstr "_Metoda:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Console beep"
 msgstr "Sygnał konsoli"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "No sounds"
 msgstr "Wyłączenie dźwięków"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 #, c-format
 msgid ""
 "Sound c_ommand:\n"
@@ -15714,277 +15704,277 @@ msgstr ""
 "P_olecenie odtworzenia dźwięku\n"
 "(%s dla nazwy pliku)"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Sounds when conversation has _focus"
 msgstr "_Dźwięki w aktywnym oknie rozmowy"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Enable sounds:"
 msgstr "Włącz dźwięki:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Volume:"
 msgstr "Głośność:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Play"
 msgstr "Odtwarzanie"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Report idle time:"
 msgstr "Sposób wyznaczania bezczynności:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Based on keyboard or mouse use"
 msgstr "Na podstawie ruchów myszki i klaw."
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Auto-reply:"
 msgstr "_Automatyczna odpowiedź:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "When both away and idle"
 msgstr "Podczas nieobecności z powodu bezczynności"
 
 #. Auto-away stuff
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Auto-away"
 msgstr "Automatyczna nieobecność"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Change status when _idle"
 msgstr "Zmiana Statusu po wykryciu bezczynności"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "_Minutes before becoming idle:"
 msgstr "_Czas (w minutach) do zmiany statusu:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Change _status to:"
 msgstr "Zmiana _statusu na:"
 
 #. Signon status stuff
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Status at Startup"
 msgstr "Status ustawiany po starcie programu"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Use status from last _exit at startup"
 msgstr "Użycie statusu z ostatniej sesji programu"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Status to a_pply at startup:"
 msgstr "Status, który zostanie ustawiony zaraz po starcie:"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Interface"
 msgstr "Interfejs"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Smiley Themes"
 msgstr "Emotikony"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Browser"
 msgstr "Przeglądarka"
 
-#: ../pidgin/gtkprefs.c:1
+#: ../carrier/gtkprefs.c:1
 msgid "Status / Idle"
 msgstr "Status / Bezczynność"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Allow all users to contact me"
 msgstr "Zezwolenie wszystkim użytkownikom na kontakt"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Allow only the users on my buddy list"
 msgstr "Zezwolenie użytkownikom tylko z listy znajomych"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Allow only the users below"
 msgstr "Zezwolenie użytkownikom tylko z poniższej listy"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Block all users"
 msgstr "Blokada wszystkich użytkowników"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Block only the users below"
 msgstr "Blokowanie użytkowników tylko z poniższej listy"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Privacy"
 msgstr "Prywatność"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Changes to privacy settings take effect immediately."
 msgstr "Zmiany ustawień prywatności zaczynają działać natychmiast."
 
 #. "Set privacy for:" label
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Set privacy for:"
 msgstr "Ustawienie prywatności dla:"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Permit User"
 msgstr "Zezwolenie dla użytkownika"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Type a user you permit to contact you."
 msgstr "Podaj użytkownika, który ma pozwolenie na kontakt."
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Please enter the name of the user you wish to be able to contact you."
 msgstr ""
 "Podaj identyfikator użytkownika, który ma mieć możliwość kontaktowania się z "
 "Tobą."
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "_Permit"
 msgstr "_Zezowlenie"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 #, c-format
 msgid "Allow %s to contact you?"
 msgstr "Zezwolić %s na kontaktowanie się?"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 #, c-format
 msgid "Are you sure you wish to allow %s to contact you?"
 msgstr "Czy na pewno zezwolić %s kontaktowanie się?"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Block User"
 msgstr "Blokowanie użytkownika"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Type a user to block."
 msgstr "Podaj użytkownika do zablokowania."
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 msgid "Please enter the name of the user you wish to block."
 msgstr "Podaj nazwę użytkownika którego należy zablokować."
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 #, c-format
 msgid "Block %s?"
 msgstr "Zablokować %s?"
 
-#: ../pidgin/gtkprivacy.c:1
+#: ../carrier/gtkprivacy.c:1
 #, c-format
 msgid "Are you sure you want to block %s?"
 msgstr "Czy na pewno zablokować %s?"
 
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Apply"
 msgstr "Zastosuj"
 
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "That file already exists"
 msgstr "Ten plik już istnieje"
 
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Would you like to overwrite it?"
 msgstr "Czy nadpisać plik?"
 
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Overwrite"
 msgstr "Nadpisz"
 
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Choose New Name"
 msgstr "Wybierz nową nazwę"
 
-#: ../pidgin/gtkrequest.c:1
+#: ../carrier/gtkrequest.c:1
 msgid "Select Folder..."
 msgstr "Wybierz katalog..."
 
 #. Create the window.
-#: ../pidgin/gtkroomlist.c:1
+#: ../carrier/gtkroomlist.c:1
 msgid "Room List"
 msgstr "Lista pokoi"
 
 #. list button
-#: ../pidgin/gtkroomlist.c:1
+#: ../carrier/gtkroomlist.c:1
 msgid "_Get List"
 msgstr "_Pobierz listę"
 
 #. add button
-#: ../pidgin/gtkroomlist.c:1
+#: ../carrier/gtkroomlist.c:1
 msgid "_Add Chat"
 msgstr "_Dodaj konferencję"
 
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "Are you sure you want to delete the selected saved statuses?"
 msgstr "Na pewno chcesz usunąć wybrane statusy"
 
 #. Use button
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "_Use"
 msgstr "_Użyj"
 
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "Title already in use.  You must choose a unique title."
 msgstr "Ten tytuł został już użyty. Musisz wymyślić inną nazwę."
 
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "Different"
 msgstr "Inna"
 
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "_Title:"
 msgstr "_Tytuł:"
 
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "_Status:"
 msgstr "_Status:"
 
 #. Different status message expander
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "Use a _different status for some accounts"
 msgstr "Używaj innych statusów dla poszczególnych kont"
 
 #. Save & Use button
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 msgid "Sa_ve & Use"
 msgstr "Z_apisz i użyj"
 
-#: ../pidgin/gtksavedstatuses.c:1
+#: ../carrier/gtksavedstatuses.c:1
 #, c-format
 msgid "Status for %s"
 msgstr "Status dla %s"
 
-#: ../pidgin/gtkstatusbox.c:1
+#: ../carrier/gtkstatusbox.c:1
 msgid "Waiting for network connection"
 msgstr "Oczekiwanie na połączenie sieciowe"
 
-#: ../pidgin/gtkstatusbox.c:1
+#: ../carrier/gtkstatusbox.c:1
 msgid "New status..."
 msgstr "Nowy status..."
 
-#: ../pidgin/gtkstatusbox.c:1
+#: ../carrier/gtkstatusbox.c:1
 msgid "Saved statuses..."
 msgstr "Zapisane statusy"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Google Talk"
 msgstr "Google Talk"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 #, c-format
 msgid "The following error has occurred loading %s: %s"
 msgstr "Wystąpił następujący błąd podczas wczytywania %s: %s"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Failed to load image"
 msgstr "Nie udało się wczytać obrazka"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 #, c-format
 msgid "Cannot send folder %s."
 msgstr "Nie można wysłać katalogu %s."
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 #, c-format
 msgid ""
 "%s cannot transfer a folder. You will need to send the files within "
@@ -15992,11 +15982,11 @@ msgid ""
 msgstr ""
 "%s nie mógł wysłać katalogu. Będziesz musiała/musiał wysłać pliki pojedynczo."
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "You have dragged an image"
 msgstr "Upuściłaś/Upuściłeś obrazek"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid ""
 "You can send this image as a file transfer, embed it into this message, or "
 "use it as the buddy icon for this user."
@@ -16004,23 +15994,23 @@ msgstr ""
 "Możesz przesłać ten obrazek do danej osoby, wstawić go jako część "
 "wiadomości, albo użyć jej jako ikonki dla tego użytkownika."
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Set as buddy icon"
 msgstr "Ustaw jako ikonkę użytkownika"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Send image file"
 msgstr "Wyślij plik z obrazkiem"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Insert in message"
 msgstr "Wstaw do rozmowy"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Would you like to set it as the buddy icon for this user?"
 msgstr "Czy chcesz użyć tego obrazka jako ikony użytkownika dla tej osoby?"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid ""
 "You can send this image as a file transfer, or use it as the buddy icon for "
 "this user."
@@ -16028,7 +16018,7 @@ msgstr ""
 "Możesz przesłać ten obrazek do danej osoby, wstawić go jako część "
 "wiadomości, albo użyć jej jako ikonki dla tego użytkownika."
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid ""
 "You can insert this image into this message, or use it as the buddy icon for "
 "this user"
@@ -16041,11 +16031,11 @@ msgstr ""
 #. * send.  The only logical one is "Application," but do we really want to send a binary and nothing else?
 #. * Probably not.  I'll just give an error and return.
 #. The original patch sent the icon used by the launcher.  That's probably wrong
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Cannot send launcher"
 msgstr "Nie można wysłać odnośnika z pulpitu"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid ""
 "You dragged a desktop launcher. Most likely you wanted to send whatever this "
 "launcher points to instead of this launcher itself."
@@ -16053,7 +16043,7 @@ msgstr ""
 "Upuściłaś/Upuściłeś element pulpitu. Prawdopodobnie zamierzałaś/zamierzałeś "
 "przesłać obiekt na, który wskazuje ten element."
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 #, c-format
 msgid ""
 "<b>File:</b> %s\n"
@@ -16064,25 +16054,25 @@ msgstr ""
 "<b>Rozmiar pliku:</b> %s\n"
 "<b>Rozmiar obrazu:</b> %dx%d"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 #, c-format
 msgid "The file '%s' is too large for %s.  Please try a smaller image.\n"
 msgstr "Plik '%s' jest zbyt duży jak na %s.  Spróbuj mniejszego obrazka.\n"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Icon Error"
 msgstr "Błąd Ikonki"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 msgid "Could not set icon"
 msgstr "Nie można ustawić ikonki"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Nie można odczytać pliku '%s': %s"
 
-#: ../pidgin/gtkutils.c:1
+#: ../carrier/gtkutils.c:1
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -16090,82 +16080,82 @@ msgstr ""
 "Nie można odczytać obrazka '%s': przyczyna nieznana, prawdopodobnie "
 "uszkodzony plik"
 
-#: ../pidgin/gtkwhiteboard.c:1
+#: ../carrier/gtkwhiteboard.c:1
 msgid "Save File"
 msgstr "Zapisz plik"
 
-#: ../pidgin/gtkwhiteboard.c:1
+#: ../carrier/gtkwhiteboard.c:1
 msgid "Select color"
 msgstr "Wybierz kolor"
 
-#: ../pidgin/pidginstock.c:1
+#: ../carrier/pidginstock.c:1
 msgid "_Alias"
 msgstr "_Alias"
 
-#: ../pidgin/pidginstock.c:1
+#: ../carrier/pidginstock.c:1
 msgid "Close _tabs"
 msgstr "Zamknij wszystkie _zakładki"
 
-#: ../pidgin/pidginstock.c:1
+#: ../carrier/pidginstock.c:1
 msgid "_Get Info"
 msgstr "Pobierz _informacje"
 
-#: ../pidgin/pidginstock.c:1
+#: ../carrier/pidginstock.c:1
 msgid "_Invite"
 msgstr "_Zaproś"
 
-#: ../pidgin/pidginstock.c:1
+#: ../carrier/pidginstock.c:1
 msgid "_Modify"
 msgstr "_Modyfikuj"
 
-#: ../pidgin/pidginstock.c:1
+#: ../carrier/pidginstock.c:1
 msgid "_Open Mail"
 msgstr "_Otwórz pocztę"
 
-#: ../pidgin/pixmaps/emotes/default/24/default.theme.in.h:1
+#: ../carrier/pixmaps/emotes/default/24/default.theme.in.h:1
 msgid "Pidgin smileys"
 msgstr "Emotikonki Pidgina"
 
-#: ../pidgin/pixmaps/emotes/none/none.theme.in.h:1
+#: ../carrier/pixmaps/emotes/none/none.theme.in.h:1
 msgid "Penguin Pimps"
 msgstr "Pingwinki"
 
-#: ../pidgin/pixmaps/emotes/none/none.theme.in.h:1
+#: ../carrier/pixmaps/emotes/none/none.theme.in.h:1
 msgid "Selecting this disables graphical emoticons."
 msgstr "Wybranie tego zestawy wyłącza emotikonki."
 
-#: ../pidgin/pixmaps/emotes/none/none.theme.in.h:1
+#: ../carrier/pixmaps/emotes/none/none.theme.in.h:1
 msgid "none"
 msgstr "brak"
 
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid "Display Statistics"
 msgstr "Wyświetl Statystyki"
 
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid "Response Probability:"
 msgstr "Prawdopodobieństwo odpowiedzi:"
 
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid "Statistics Configuration"
 msgstr "Konfiguracja statystyk"
 
 #. msg_difference spinner
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid "Maximum response timeout:"
 msgstr "Maksymalny czas na odpowiedź:"
 
-#: ../pidgin/plugins/cap/cap.c:1 ../pidgin/plugins/timestamp.c:1
+#: ../carrier/plugins/cap/cap.c:1 ../pidgin/plugins/timestamp.c:1
 msgid "minutes"
 msgstr "minut"
 
 #. last_seen spinner
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid "Maximum last-seen difference:"
 msgstr ""
 
 #. threshold spinner
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid "Threshold:"
 msgstr "Próg:"
 
@@ -16175,18 +16165,18 @@ msgstr "Próg:"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid "Contact Availability Prediction"
 msgstr "Przewidywanie dostępności kontaktu"
 
 #. *< name
 #. *< version
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid "Contact Availability Prediction plugin."
 msgstr "Przewiduje prawdopodobieństwo odpowiedzi, przez znajomych."
 
 #. *  summary
-#: ../pidgin/plugins/cap/cap.c:1
+#: ../carrier/plugins/cap/cap.c:1
 msgid ""
 "The contact availability plugin (cap) is used to display statistical "
 "information about buddies in a users contact list."
@@ -16194,32 +16184,32 @@ msgstr ""
 "Przewiduje i wyświetla informacje o prawdopodobieństwie odpowiedzi przez "
 "znajomego."
 
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Buddy is idle"
 msgstr "Znajomy jest bezczynny"
 
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Buddy is away"
 msgstr "Użytkownik jest zajęty"
 
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Buddy is \"extended\" away"
 msgstr "Użytkownik ma status \"wrócę później\""
 
 #. Not used yet.
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Buddy is mobile"
 msgstr "Znajomy korzysta z telefonu komórkowego"
 
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Buddy is offline"
 msgstr "Użytkownik jest rozłączony"
 
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Point values to use when..."
 msgstr "Wskaż wartości używane gdy..."
 
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid ""
 "The buddy with the <i>largest score</i> is the buddy who will have priority "
 "in the contact.\n"
@@ -16227,11 +16217,11 @@ msgstr ""
 "Znajomy z <i>największą ilością punktów</i> będzie traktowany priorytetowo "
 "przy nawiązywaniu kontaktu.\n"
 
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Use last buddy when scores are equal"
 msgstr "Używaj ostatniego znajomego w przypadku takiej samej ilości punktów."
 
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Point values to use for account..."
 msgstr "Wskaż wartości używane dla konta..."
 
@@ -16241,21 +16231,21 @@ msgstr "Wskaż wartości używane dla konta..."
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid "Contact Priority"
 msgstr "Priorytet kontaktu"
 
 #. *< name
 #. *< version
 #. *< summary
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid ""
 "Allows for controlling the values associated with different buddy states."
 msgstr ""
 "Pozwala na kontrolowanie wartości związanych z różnymi stanami znajomych."
 
 #. *< description
-#: ../pidgin/plugins/contact_priority.c:1
+#: ../carrier/plugins/contact_priority.c:1
 msgid ""
 "Allows for changing the point values of idle/away/offline states for buddies "
 "in contact priority computations."
@@ -16263,62 +16253,62 @@ msgstr ""
 "Pozwala na zmianę wartości punktowych stanów bezczynny/nieobecny/poza siecią "
 "przy obliczeniach priorytetu kontaktu."
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "Conversation Colors"
 msgstr "Kolorowanie rozmów"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "Customize colors in the conversation window"
 msgstr "Umożliwia ustawienie własnych kolorów w oknach rozmów"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "Error Messages"
 msgstr "Informacje o błędach"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 #, fuzzy
 msgid "Highlighted Messages"
 msgstr "Podświetlanie szukanych słów"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "System Messages"
 msgstr "Dziennik systemowy"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "Sent Messages"
 msgstr "Wysyłane wiadomości"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "Received Messages"
 msgstr "Odebrane wiadomości"
 
-#: ../pidgin/plugins/convcolors.c:1 ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/convcolors.c:1 ../pidgin/plugins/pidginrc.c:1
 #, c-format
 msgid "Select Color for %s"
 msgstr "Wybór koloru dla %s"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "Ignore incoming format"
 msgstr "Ignorowanie formatowania w wiadomościach przychodzących"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "Apply in Chats"
 msgstr "Stosowanie w konferencjach"
 
-#: ../pidgin/plugins/convcolors.c:1
+#: ../carrier/plugins/convcolors.c:1
 msgid "Apply in IMs"
 msgstr "Stosowanie w wiadomościach"
 
-#: ../pidgin/plugins/extplacement.c:1
+#: ../carrier/plugins/extplacement.c:1
 msgid "By conversation count"
 msgstr "W zależności od ilości rozmów"
 
-#: ../pidgin/plugins/extplacement.c:1
+#: ../carrier/plugins/extplacement.c:1
 msgid "Conversation Placement"
 msgstr "Umieszczanie rozmów"
 
 #. Translators: "New conversations" should match the text in the preferences dialog and "By conversation count" should be the same text used above
-#: ../pidgin/plugins/extplacement.c:1
+#: ../carrier/plugins/extplacement.c:1
 msgid ""
 "Note: The preference for \"New conversations\" must be set to \"By "
 "conversation count\"."
@@ -16326,11 +16316,11 @@ msgstr ""
 "Uwaga: Aby ta wtyczka funkcjonowała w ustawieniach należy opcję \"Nowe "
 "rozmowy\" ustawić na \"W zależności od ilości rozmów\"."
 
-#: ../pidgin/plugins/extplacement.c:1
+#: ../carrier/plugins/extplacement.c:1
 msgid "Number of conversations per window"
 msgstr "Ilość rozmów w jednym oknie"
 
-#: ../pidgin/plugins/extplacement.c:1
+#: ../carrier/plugins/extplacement.c:1
 msgid "Separate IM and Chat windows when placing by number"
 msgstr ""
 "Konferencje i wiadomości w oddzielnych oknach przy rozmieszczaniu po liczbie"
@@ -16341,19 +16331,19 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/extplacement.c:1
+#: ../carrier/plugins/extplacement.c:1
 msgid "ExtPlacement"
 msgstr "Rozszerzone rozmieszczanie"
 
 #. *< name
 #. *< version
-#: ../pidgin/plugins/extplacement.c:1
+#: ../carrier/plugins/extplacement.c:1
 msgid "Extra conversation placement options."
 msgstr "Dodatkowe opcje rozmieszczania rozmów."
 
 #. *< summary
 #. *  description
-#: ../pidgin/plugins/extplacement.c:1
+#: ../carrier/plugins/extplacement.c:1
 msgid ""
 "Restrict the number of conversations per windows, optionally separating IMs "
 "and Chats"
@@ -16362,20 +16352,20 @@ msgstr ""
 "wiadomości i konferencje"
 
 #. Configuration frame
-#: ../pidgin/plugins/gestures/gestures.c:1
+#: ../carrier/plugins/gestures/gestures.c:1
 msgid "Mouse Gestures Configuration"
 msgstr "Konfiguracja gestów myszy"
 
-#: ../pidgin/plugins/gestures/gestures.c:1
+#: ../carrier/plugins/gestures/gestures.c:1
 msgid "Middle mouse button"
 msgstr "Środkowy przycisk myszy"
 
-#: ../pidgin/plugins/gestures/gestures.c:1
+#: ../carrier/plugins/gestures/gestures.c:1
 msgid "Right mouse button"
 msgstr "Prawy przycisk myszy"
 
 #. "Visual gesture display" checkbox
-#: ../pidgin/plugins/gestures/gestures.c:1
+#: ../carrier/plugins/gestures/gestures.c:1
 msgid "_Visual gesture display"
 msgstr "_Wyświetlanie gestów"
 
@@ -16385,19 +16375,19 @@ msgstr "_Wyświetlanie gestów"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/gestures/gestures.c:1
+#: ../carrier/plugins/gestures/gestures.c:1
 msgid "Mouse Gestures"
 msgstr "Gesty myszy"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/gestures/gestures.c:1
+#: ../carrier/plugins/gestures/gestures.c:1
 msgid "Provides support for mouse gestures"
 msgstr "Dostarcza obsługę gestów myszy"
 
 #. *  description
-#: ../pidgin/plugins/gestures/gestures.c:1
+#: ../carrier/plugins/gestures/gestures.c:1
 msgid ""
 "Allows support for mouse gestures in conversation windows.\n"
 "Drag the middle mouse button to perform certain actions:\n"
@@ -16413,35 +16403,35 @@ msgstr ""
 "W górę a potem w lewo - przełącza na poprzednią rozmowę.\n"
 "W górę a potem w prawo - przełącza na następną rozmowę."
 
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:1
 msgid "Instant Messaging"
 msgstr "Komunikatory"
 
 #. Add the label.
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:1
 msgid "Select a person from your address book below, or add a new person."
 msgstr ""
 "Wybierz osobę ze swojej książki adresowej poniżej, lub dodaj nową osobę."
 
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "Group:"
 msgstr "Grupa:"
 
 #. "New Person" button
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:1
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:1
+#: ../carrier/plugins/gevolution/assoc-buddy.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "New Person"
 msgstr "Nowa osoba"
 
 #. "Select Buddy" button
-#: ../pidgin/plugins/gevolution/add_buddy_dialog.c:1
+#: ../carrier/plugins/gevolution/add_buddy_dialog.c:1
 msgid "Select Buddy"
 msgstr "Wybór znajomego"
 
 #. Add the label.
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:1
+#: ../carrier/plugins/gevolution/assoc-buddy.c:1
 msgid ""
 "Select a person from your address book to add this buddy to, or create a new "
 "person."
@@ -16449,42 +16439,42 @@ msgstr ""
 "Wybierz osobę którą chcesz dodać z książki adresowej, albo utwórz nowy wpis."
 
 #. Add the expander
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:1
+#: ../carrier/plugins/gevolution/assoc-buddy.c:1
 msgid "User _details"
 msgstr "Szczegóły dotyczące _użytkownika"
 
 #. "Associate Buddy" button
-#: ../pidgin/plugins/gevolution/assoc-buddy.c:1
+#: ../carrier/plugins/gevolution/assoc-buddy.c:1
 msgid "_Associate Buddy"
 msgstr "_Skojarzenie kontaktu"
 
-#: ../pidgin/plugins/gevolution/gevolution.c:1
-msgid "Unable to send e-mail"
-msgstr "Wysłanie wiadomości e-mail nie powiodło się."
+#: ../carrier/plugins/gevolution/gevolution.c:1
+msgid "Unable to send email"
+msgstr "Wysłanie wiadomości email nie powiodło się."
 
-#: ../pidgin/plugins/gevolution/gevolution.c:1
+#: ../carrier/plugins/gevolution/gevolution.c:1
 msgid "The evolution executable was not found in the PATH."
 msgstr "Plik wykonywalny programu evolution nie znajduje się w zmiennej PATH."
 
-#: ../pidgin/plugins/gevolution/gevolution.c:1
-msgid "An e-mail address was not found for this buddy."
-msgstr "Nie znaleziono adresu e-mail dla tego znajomego."
+#: ../carrier/plugins/gevolution/gevolution.c:1
+msgid "An email address was not found for this buddy."
+msgstr "Nie znaleziono adresu email dla tego znajomego."
 
-#: ../pidgin/plugins/gevolution/gevolution.c:1
+#: ../carrier/plugins/gevolution/gevolution.c:1
 msgid "Add to Address Book"
 msgstr "Dodaj do książki adresowej"
 
-#: ../pidgin/plugins/gevolution/gevolution.c:1
-msgid "Send E-Mail"
-msgstr "Wyślij E-mail"
+#: ../carrier/plugins/gevolution/gevolution.c:1
+msgid "Send Email"
+msgstr "Wyślij Email"
 
 #. Configuration frame
-#: ../pidgin/plugins/gevolution/gevolution.c:1
+#: ../carrier/plugins/gevolution/gevolution.c:1
 msgid "Evolution Integration Configuration"
 msgstr "Konfiguracja integracji z Evolution"
 
 #. Label
-#: ../pidgin/plugins/gevolution/gevolution.c:1
+#: ../carrier/plugins/gevolution/gevolution.c:1
 msgid "Select all accounts that buddies should be auto-added to."
 msgstr ""
 "Zaznacz konta dla których chcesz użyć automatycznego dodawania znajomych."
@@ -16495,7 +16485,7 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/gevolution/gevolution.c:1
+#: ../carrier/plugins/gevolution/gevolution.c:1
 msgid "Evolution Integration"
 msgstr "Integracja z Evolution"
 
@@ -16503,38 +16493,38 @@ msgstr "Integracja z Evolution"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/gevolution/gevolution.c:1
+#: ../carrier/plugins/gevolution/gevolution.c:1
 msgid "Provides integration with Evolution."
 msgstr "Umożliwia integrację z programem Evolution."
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "Please enter the person's information below."
 msgstr "Wprowadź informacje o użytkowniku."
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "Please enter the buddy's screen name and account type below."
 msgstr "Podaj identyfikator znajomego oraz nazwę konta."
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "Account type:"
 msgstr "Rodzaj konta:"
 
 #. Optional Information section
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "Optional information:"
 msgstr "Dodatkowe informacje:"
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "First name:"
 msgstr "Imię:"
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
 msgid "Last name:"
 msgstr "Nazwisko:"
 
-#: ../pidgin/plugins/gevolution/new_person_dialog.c:1
-msgid "E-mail:"
-msgstr "E-mail:"
+#: ../carrier/plugins/gevolution/new_person_dialog.c:1
+msgid "Email:"
+msgstr "Email:"
 
 #. *< type
 #. *< ui_requirement
@@ -16542,7 +16532,7 @@ msgstr "E-mail:"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/gtk-signals-test.c:1
+#: ../carrier/plugins/gtk-signals-test.c:1
 msgid "GTK Signals Test"
 msgstr "Test sygnałów GTK"
 
@@ -16550,18 +16540,18 @@ msgstr "Test sygnałów GTK"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/gtk-signals-test.c:1
+#: ../carrier/plugins/gtk-signals-test.c:1
 msgid "Test to see that all ui signals are working properly."
 msgstr "Test sprawdzający czy wszystkie sygnały interfejsu działają poprawnie."
 
-#: ../pidgin/plugins/gtkbuddynote.c:1
+#: ../carrier/plugins/gtkbuddynote.c:1
 #, fuzzy, c-format
 msgid ""
 "\n"
 "<b>Buddy Note</b>: %s"
 msgstr "Notatki"
 
-#: ../pidgin/plugins/history.c:1
+#: ../carrier/plugins/history.c:1
 msgid "History"
 msgstr "Historia"
 
@@ -16571,7 +16561,7 @@ msgstr "Historia"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/iconaway.c:1
+#: ../carrier/plugins/iconaway.c:1
 msgid "Iconify on Away"
 msgstr "Zwijanie do ikony"
 
@@ -16579,46 +16569,46 @@ msgstr "Zwijanie do ikony"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/iconaway.c:1
+#: ../carrier/plugins/iconaway.c:1
 msgid "Iconifies the buddy list and your conversations when you go away."
 msgstr ""
 "Minimalizuje do ikony listę znajomych i okna rozmów gdy użytkownika nie ma "
 "przy komputerze."
 
-#: ../pidgin/plugins/mailchk.c:1
+#: ../carrier/plugins/mailchk.c:1
 msgid "Mail Checker"
 msgstr "Sprawdzanie poczty"
 
-#: ../pidgin/plugins/mailchk.c:1
+#: ../carrier/plugins/mailchk.c:1
 msgid "Checks for new local mail."
 msgstr "Sprawdza czy jest nowa lokalna poczta."
 
-#: ../pidgin/plugins/mailchk.c:1
+#: ../carrier/plugins/mailchk.c:1
 msgid "Adds a small box to the buddy list that shows if you have new mail."
 msgstr ""
 "Dodaje do listy znajomych mały wskaźnik informujący o nowej lokalnej poczcie."
 
-#: ../pidgin/plugins/markerline.c:1
+#: ../carrier/plugins/markerline.c:1
 msgid "Markerline"
 msgstr "Odkreślenie"
 
-#: ../pidgin/plugins/markerline.c:1
+#: ../carrier/plugins/markerline.c:1
 msgid "Draw a line to indicate new messages in a conversation."
 msgstr "Rysuje linię odkreślającą nowe wiadomości w rozmowie."
 
-#: ../pidgin/plugins/markerline.c:1
+#: ../carrier/plugins/markerline.c:1
 msgid "Draw Markerline in "
 msgstr "Odkreślenie nowych wiadomości"
 
-#: ../pidgin/plugins/markerline.c:1 ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/markerline.c:1 ../pidgin/plugins/notify.c:1
 msgid "_IM windows"
 msgstr "Stosowanie w _rozmowach"
 
-#: ../pidgin/plugins/markerline.c:1 ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/markerline.c:1 ../pidgin/plugins/notify.c:1
 msgid "C_hat windows"
 msgstr "Stosowanie w _konferencjach"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid ""
 "A music messaging session has been requested. Please click the MM icon to "
 "accept."
@@ -16626,36 +16616,36 @@ msgstr ""
 "Zażądano sesji wiadomości muzycznych. Proszę kliknąć w ikonę MM, aby "
 "zaakceptować."
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "Music messaging session confirmed."
 msgstr "Potwierdzono sesję wiadomości muzycznych."
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "Music Messaging"
 msgstr "Wiadomości muzyczne"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "There was a conflict in running the command:"
 msgstr "Nastąpił konflikt podczas uruchamiania polecenia:"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "Error Running Editor"
 msgstr "Błąd podczas uruchamiania edytora"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "The following error has occurred:"
 msgstr "Wystąpił następujący błąd:"
 
 #. Configuration frame
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "Music Messaging Configuration"
 msgstr "Konfiguracja wiadomości muzycznych"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "Score Editor Path"
 msgstr "Ścieżka do edytora nut"
 
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "_Apply"
 msgstr "_Zastosuj"
 
@@ -16667,12 +16657,12 @@ msgstr "_Zastosuj"
 #. *< id
 #. *< name
 #. *< version
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid "Music Messaging Plugin for collaborative composition."
 msgstr "Wtyczka do grupowego komponowania utworów muzycznych."
 
 #. *  summary
-#: ../pidgin/plugins/musicmessaging/musicmessaging.c:1
+#: ../carrier/plugins/musicmessaging/musicmessaging.c:1
 msgid ""
 "The Music Messaging Plugin allows a number of users to simultaneously work "
 "on a piece of music by editting a common score in real-time."
@@ -16681,74 +16671,74 @@ msgstr ""
 "muzycznym poprzez edycję nut w czasie rzeczywistym."
 
 #. ---------- "Notify For" ----------
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Notify For"
 msgstr "Powiadamianie o zmianach w"
 
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "\t_Only when someone says your screen name"
 msgstr "\t_Tylko gdy ktoś wymawia Twoje imię"
 
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "_Focused windows"
 msgstr "Oknach _aktywnych"
 
 #. ---------- "Notification Methods" ----------
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Notification Methods"
 msgstr "Metody powiadamiania"
 
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Prepend _string into window title:"
 msgstr "Poprzedzanie tytułu okna _napisem:"
 
 #. Count method button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Insert c_ount of new messages into window title"
 msgstr "Wstawianie _liczby wiadomości do tytułu okna"
 
 #. Count xprop method button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Insert count of new message into _X property"
 msgstr "Wstawianie _liczby wiadomości do właściwości X"
 
 #. Urgent method button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Set window manager \"_URGENT\" hint"
 msgstr "_Ustawienie podpowiedzi \"PILNY\" menedżera okien"
 
 #. Raise window method button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "R_aise conversation window"
 msgstr "Przeniesienia okna rozmów na _wierzch"
 
 #. ---------- "Notification Removals" ----------
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Notification Removal"
 msgstr "Likwidowanie powiadomienia"
 
 #. Remove on focus button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Remove when conversation window _gains focus"
 msgstr "Usunięcie po _aktywacji okna rozmowy"
 
 #. Remove on click button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Remove when conversation window _receives click"
 msgstr "Usunięcie po _kliknięciu okna rozmowy"
 
 #. Remove on type button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Remove when _typing in conversation window"
 msgstr "Usunięcie po wpisaniu _tekstu w oknie rozmowy"
 
 #. Remove on message send button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Remove when a _message gets sent"
 msgstr "Usunięcie po _wysłaniu wiadomości"
 
 #. Remove on conversation switch button
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Remove on switch to conversation ta_b"
 msgstr "Usunięcie po p_rzełączeniu na zakładkę rozmowy"
 
@@ -16758,7 +16748,7 @@ msgstr "Usunięcie po p_rzełączeniu na zakładkę rozmowy"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Message Notification"
 msgstr "Powiadamianie o zdarzeniach"
 
@@ -16766,7 +16756,7 @@ msgstr "Powiadamianie o zdarzeniach"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/notify.c:1
+#: ../carrier/plugins/notify.c:1
 msgid "Provides a variety of ways of notifying you of unread messages."
 msgstr ""
 "Dostarcza wiele sposobów na powiadomienie o nieprzeczytanych wiadomościach."
@@ -16777,19 +16767,19 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/pidgininc.c:1
+#: ../carrier/plugins/pidgininc.c:1
 msgid "Pidgin Demonstration Plugin"
 msgstr "Wtyczka demonstracyjna Pidgina"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/pidgininc.c:1
+#: ../carrier/plugins/pidgininc.c:1
 msgid "An example plugin that does stuff - see the description."
 msgstr "Przykładowa wtyczka która coś robi - patrz opis."
 
 #. *  description
-#: ../pidgin/plugins/pidgininc.c:1
+#: ../carrier/plugins/pidgininc.c:1
 msgid ""
 "This is a really cool plugin that does a lot of stuff:\n"
 "- It tells you who wrote the program when you log in\n"
@@ -16801,53 +16791,53 @@ msgstr ""
 "- Wypisuje przychodzący tekst od tyłu\n"
 "- Wysyła wiadomość do osób na liście w momencie ich zalogowania"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Cursor Color"
 msgstr "Kolor kursora"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Secondary Cursor Color"
 msgstr "Kolor drugiego kursora"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Hyperlink Color"
 msgstr "Kolor odnośnika"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "GtkTreeView Horizontal Separation"
 msgstr "Poziome odstępy w GtkTreeView"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Conversation Entry"
 msgstr "Pole do wprowadzania tekstu przy rozmowie"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Request Dialog"
 msgstr "Okno dialogowe z żądaniem"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Notify Dialog"
 msgstr "Informacyjne okno dialogowe"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Select Color"
 msgstr "Wybierz kolor"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 #, c-format
 msgid "Select Interface Font"
 msgstr "Wybór czcionki dla interfejsu"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 #, c-format
 msgid "Select Font for %s"
 msgstr "Wybór czcionki dla %s"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "GTK+ Interface Font"
 msgstr "Czcionka interfejsu GTK+"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "GTK+ Text Shortcut Theme"
 msgstr "Zestaw skrótów klawiszowych GTK+"
 
@@ -16871,49 +16861,49 @@ msgstr "Zestaw skrótów klawiszowych GTK+"
 #. widget_bool_widgets[i]);
 #. }
 #. 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Interface colors"
 msgstr "Kolory interfejsu"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Widget Sizes"
 msgstr "Rozmiar Widgetów"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Fonts"
 msgstr "Czcionki"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Gtkrc File Tools"
 msgstr "Narzędzia plików gtkrc"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 #, c-format
 msgid "Write settings to %s%sgtkrc-2.0"
 msgstr "Zapis ustawień do %s%sgtkrc-2.0"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Re-read gtkrc files"
 msgstr "Odczytaj ustawienia z plików gtkrc"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Pidgin GTK+ Theme Control"
 msgstr "Kontrola tematów GTK+ w Pidgin"
 
-#: ../pidgin/plugins/pidginrc.c:1
+#: ../carrier/plugins/pidginrc.c:1
 msgid "Provides access to commonly used gtkrc settings."
 msgstr "Umożliwia modyfikację często używanych opcji gtkrc."
 
-#: ../pidgin/plugins/raw.c:1
+#: ../carrier/plugins/raw.c:1
 msgid "Raw"
 msgstr "Surowy"
 
-#: ../pidgin/plugins/raw.c:1
+#: ../carrier/plugins/raw.c:1
 msgid "Lets you send raw input to text-based protocols."
 msgstr ""
 "Pozwala na wysyłanie niesformatowanego strumienia w protokołach tekstowych."
 
-#: ../pidgin/plugins/raw.c:1
+#: ../carrier/plugins/raw.c:1
 msgid ""
 "Lets you send raw input to text-based protocols (XMPP, MSN, IRC, TOC). Hit "
 "'Enter' in the entry box to send. Watch the debug window."
@@ -16922,19 +16912,19 @@ msgstr ""
 "(Jabber, MSN, IRC, TOC). Naciśnij \"Enter\" w polu do wprowadzania tekstu "
 "aby wysłać tekst. Obserwuj okno debugera."
 
-#: ../pidgin/plugins/relnot.c:1
+#: ../carrier/plugins/relnot.c:1
 #, c-format
 msgid ""
 "You are using %s version %s.  The current version is %s.  You can get it "
 "from <a href=\"%s\">%s</a><hr>"
 msgstr ""
 
-#: ../pidgin/plugins/relnot.c:1
+#: ../carrier/plugins/relnot.c:1
 #, c-format
 msgid "<b>ChangeLog:</b><br>%s"
 msgstr "<b>Lista zmian:</b><br>%s"
 
-#: ../pidgin/plugins/relnot.c:1
+#: ../carrier/plugins/relnot.c:1
 msgid "New Version Available"
 msgstr "Dostępna jest nowa wersja"
 
@@ -16944,19 +16934,19 @@ msgstr "Dostępna jest nowa wersja"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/relnot.c:1
+#: ../carrier/plugins/relnot.c:1
 msgid "Release Notification"
 msgstr "Powiadomienie o wydaniu"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/relnot.c:1
+#: ../carrier/plugins/relnot.c:1
 msgid "Checks periodically for new releases."
 msgstr "Sprawdza okresowo czy wydana została nowa wersja programu."
 
 #. *  description
-#: ../pidgin/plugins/relnot.c:1
+#: ../carrier/plugins/relnot.c:1
 msgid ""
 "Checks periodically for new releases and notifies the user with the "
 "ChangeLog."
@@ -16964,68 +16954,68 @@ msgstr ""
 "Sprawdza okresowo czy wydano nową wersję programu, oraz powiadamia "
 "użytkownika wyświetlając listę zmian."
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Duplicate Correction"
 msgstr "Poprawianie duplikatów"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "The specified word already exists in the correction list."
 msgstr "Wybrane słowo już istnieje w liście słów korygujących."
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Text Replacements"
 msgstr "Zastępowanie tekstu"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "You type"
 msgstr "Wpisanie"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "You send"
 msgstr "Wysyła"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Whole words only"
 msgstr "Tylko całe słowa"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Case sensitive"
 msgstr "Rozróżnianie wielkości liter"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Add a new text replacement"
 msgstr "Dodaj nowe zastąpienie tekstu"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "You _type:"
 msgstr "_Wpisanie:"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "You _send:"
 msgstr "Wy_słanie:"
 
 #. Created here so it can be passed to whole_words_button_toggled.
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "_Exact case match (uncheck for automatic case handling)"
 msgstr "_Rozróżnianie wielkości liter"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Only replace _whole words"
 msgstr "Zastępowanie wyłącznie całych słów"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "General Text Replacement Options"
 msgstr "Ogólne opcje zastępowania tekstu"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Enable replacement of last word on send"
 msgstr "Włącz zastępowanie ostatniego słowa przy wysyłaniu"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Text replacement"
 msgstr "Zastępowanie tekstu"
 
-#: ../pidgin/plugins/spellchk.c:1
+#: ../carrier/plugins/spellchk.c:1
 msgid "Replaces text in outgoing messages according to user-defined rules."
 msgstr ""
 "Zastępuje tekst w wychodzących wiadomościach zgodnie z określonymi regułami."
@@ -17036,7 +17026,7 @@ msgstr ""
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/ticker/ticker.c:1
+#: ../carrier/plugins/ticker/ticker.c:1
 msgid "Buddy Ticker"
 msgstr "Przewijana lista znajomych"
 
@@ -17044,11 +17034,11 @@ msgstr "Przewijana lista znajomych"
 #. *< version
 #. *  summary
 #. *  description
-#: ../pidgin/plugins/ticker/ticker.c:1
+#: ../carrier/plugins/ticker/ticker.c:1
 msgid "A horizontal scrolling version of the buddy list."
 msgstr "Lista znajomych przesuwająca się w poziomie."
 
-#: ../pidgin/plugins/timestamp.c:1
+#: ../carrier/plugins/timestamp.c:1
 msgid "Display Timestamps Every"
 msgstr "Wyświetlanie datownika co"
 
@@ -17058,48 +17048,48 @@ msgstr "Wyświetlanie datownika co"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/timestamp.c:1
+#: ../carrier/plugins/timestamp.c:1
 msgid "Timestamp"
 msgstr "Datownik"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/timestamp.c:1
+#: ../carrier/plugins/timestamp.c:1
 msgid "Display iChat-style timestamps"
 msgstr "Wyświetla datownik w stylu iChat-a"
 
 #. *  description
-#: ../pidgin/plugins/timestamp.c:1
+#: ../carrier/plugins/timestamp.c:1
 msgid "Display iChat-style timestamps every N minutes."
 msgstr "Dodaje daty w stylu iChat-a do rozmowy co N minut."
 
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid "Timestamp Format Options"
 msgstr "Format znacznika czasu - opcje"
 
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 #, c-format
 msgid "_Force 24-hour time format"
 msgstr "_Używaj 24-godzinnego formatu czasu"
 
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid "Show dates in..."
 msgstr "Wyświetlanie dat w..."
 
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid "Co_nversations:"
 msgstr "_Rozmowach:"
 
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid "For delayed messages"
 msgstr "Dla opóźnionych wiadomości"
 
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid "For delayed messages and in chats"
 msgstr "Dla opóźnionych wiadomości w konferencjach"
 
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid "_Message Logs:"
 msgstr "_Dzienniku wiadomości"
 
@@ -17109,19 +17099,19 @@ msgstr "_Dzienniku wiadomości"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid "Message Timestamp Formats"
 msgstr "Format znacznika czasu w wiadomościach"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid "Customizes the message timestamp formats."
 msgstr "Zmień format znacznika czasu w wiadomościach."
 
 #. *  description
-#: ../pidgin/plugins/timestamp_format.c:1
+#: ../carrier/plugins/timestamp_format.c:1
 msgid ""
 "This plugin allows the user to customize conversation and logging message "
 "timestamp formats."
@@ -17129,41 +17119,41 @@ msgstr ""
 "Umożliwia dostosowanie znacznika czasu wyświetlanego przy rozmowach i "
 "zapisywanego w dzienniku rozmów."
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "Opacity:"
 msgstr "Nieprzezroczystość:"
 
 #. IM Convo trans options
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "IM Conversation Windows"
 msgstr "Okna rozmów"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "_IM window transparency"
 msgstr "Przezroczystość okien _wiadomości"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "_Show slider bar in IM window"
 msgstr "Wyświetlanie _suwaka przezroczystości w oknie wiadomości"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "Remove IM window transparency on focus"
 msgstr "Usuń przezroczystość okien wiadomości, po ich aktywacji"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "Always on top"
 msgstr "Zawsze na wierzchu"
 
 #. Buddy List trans options
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "Buddy List Window"
 msgstr "Okno listy znajomych"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "_Buddy List window transparency"
 msgstr "_Przezroczystość okna listy znajomych"
 
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "Remove Buddy List window transparency on focus"
 msgstr "Wyłączenie przezroczystości okna listy znajomych gdy jest aktywne"
 
@@ -17173,19 +17163,19 @@ msgstr "Wyłączenie przezroczystości okna listy znajomych gdy jest aktywne"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "Transparency"
 msgstr "Przezroczystość"
 
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid "Variable Transparency for the buddy list and conversations."
 msgstr "Zmienna przezroczystość listy znajomych i rozmów."
 
 #. *  description
-#: ../pidgin/plugins/win32/transparency/win2ktrans.c:1
+#: ../carrier/plugins/win32/transparency/win2ktrans.c:1
 msgid ""
 "This plugin enables variable alpha transparency on conversation windows and "
 "the buddy list.\n"
@@ -17197,54 +17187,54 @@ msgstr ""
 "\n"
 "* Uwaga: Wtyczka wymaga Win2000 lub WinXP."
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "GTK+ Runtime Version"
 msgstr "Wersja biblioteki GTK+"
 
 #. Autostart
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "Startup"
 msgstr "Uruchomienie"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 #, c-format
 msgid "_Start %s on Windows startup"
 msgstr "_Uruchomienie %s podczas startu systemu windows"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "_Dockable Buddy List"
 msgstr "_Zakotwiczenie listy znajomych"
 
 #. Blist On Top
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "_Keep Buddy List window on top:"
 msgstr "O_kno listy znajomych zawsze na wierzchu"
 
 #. XXX: Did this ever work?
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "Only when docked"
 msgstr "Tylko gdy jest zadokowane"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "_Flash window when chat messages are received"
 msgstr "_Migotanie okna po odebraniu wiadomości"
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "Windows Pidgin Options"
 msgstr "Pidgwin - Opcje "
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid "Options specific to Pidgin for Windows."
 msgstr "Opcje specyficzne dla wersji dla Windows."
 
-#: ../pidgin/plugins/win32/winprefs/winprefs.c:1
+#: ../carrier/plugins/win32/winprefs/winprefs.c:1
 msgid ""
 "Provides options specific to Pidgin for Windows , such as buddy list docking."
 msgstr ""
 "Umożliwia kontrolę nad parametrami specyficznymi dla Windows jak np. "
 "dokowanie listy znajomych."
 
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 msgid "<font color='#777777'>Logged out.</font>"
 msgstr "<font color='#777777'>Wylogowany.</font>"
 
@@ -17254,27 +17244,27 @@ msgstr "<font color='#777777'>Wylogowany.</font>"
 #. *< dependencies
 #. *< priority
 #. *< id
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 msgid "XMPP Console"
 msgstr "Konsola XMPP"
 
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 msgid "Account: "
 msgstr "Konto:"
 
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 msgid "<font color='#777777'>Not connected to XMPP</font>"
 msgstr "<font color='#777777'>Nie połączony z XMPP</font>"
 
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 msgid "Insert an <iq/> stanza."
 msgstr "Wstaw stanzę <iq/>."
 
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 msgid "Insert a <presence/> stanza."
 msgstr "Wstaw stanzę <presence/>."
 
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 #, fuzzy
 msgid "Insert a <message/> stanza."
 msgstr "Wstaw stanzę <presence/>."
@@ -17282,7 +17272,7 @@ msgstr "Wstaw stanzę <presence/>."
 #. *< name
 #. *< version
 #. *  summary
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 msgid "Send and receive raw XMPP stanzas."
 msgstr "Wysyłaj i odbieraj surowe stanzy XMPP"
 
@@ -17290,7 +17280,7 @@ msgid "Chat _name:"
 msgstr "Nazwa ko_nferencji:"
 
 #. *  description
-#: ../pidgin/plugins/xmppconsole.c:1
+#: ../carrier/plugins/xmppconsole.c:1
 msgid "This plugin is useful for debbuging XMPP servers or clients."
 msgstr "Ta wtyczka jest przydatna do debugowania klientów i serwerów XMPP."
 
