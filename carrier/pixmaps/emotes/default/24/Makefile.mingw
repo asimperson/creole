@@ -13,9 +13,9 @@ datadir = $(PIDGIN_INSTALL_DIR)
 .PHONY: install clean
 
 install: ./Makefile.am.mingw theme
-	if test '$(carriersmileypix_DATA)'; then \
-	  mkdir -p $(carriersmileypixdir); \
-	  cp $(carriersmileypix_DATA) $(carriersmileypixdir); \
+	if test '$(pidginsmileypix_DATA)'; then \
+	  mkdir -p $(pidginsmileypixdir); \
+	  cp $(pidginsmileypix_DATA) $(pidginsmileypixdir); \
 	fi;
 
 clean:

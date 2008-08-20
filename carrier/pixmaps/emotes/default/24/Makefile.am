@@ -191,11 +191,11 @@ SMILEYS = 	act-up.png \
     yin-yang.png
 
 
-carriersmileypix_in_files = default.theme.in
+pidginsmileypix_in_files = default.theme.in
 
 if INSTALL_PIXMAPS
-carriersmileypixdir = $(datadir)/pixmaps/carrier/emotes/default
-carriersmileypix_DATA = \
+pidginsmileypixdir = $(datadir)/pixmaps/pidgin/emotes/default
+pidginsmileypix_DATA = \
         $(SMILEYS) \
         theme
 
@@ -206,4 +206,4 @@ theme: default.theme.in
 	$< > $@
 endif
 
-EXTRA_DIST = $(SMILEYS) $(carriersmileypix_in_files) theme
+EXTRA_DIST = $(SMILEYS) $(pidginsmileypix_in_files) theme
