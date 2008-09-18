@@ -10,7 +10,7 @@ EXTRA_DIST = \
 		win32/IdleTracker/idletrack.h \
 		win32/MinimizeToTray.h \
 		win32/MinimizeToTray.c \
-		win32/carrier_dll_rc.rc.in \
+		win32/pidgin.dll_rc.rc.in \
 		win32/carrier_exe_rc.rc.in \
 		win32/gtkdocklet-win32.c \
 		win32/gtkwin32dep.c \

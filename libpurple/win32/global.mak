@@ -53,7 +53,7 @@ PURPLE_PURPLE_H := $(PURPLE_TOP)/purple.h
 PURPLE_VERSION_H := $(PURPLE_TOP)/version.h
 PURPLE_DLL := $(PURPLE_TOP)/libpurple.dll
 PURPLE_PERL_DLL := $(PURPLE_PERL_TOP)/perl.dll
-PIDGIN_DLL := $(PIDGIN_TOP)/carrier.dll
+PIDGIN_DLL := $(PIDGIN_TOP)/pidgin.dll
 PIDGIN_EXE := $(PIDGIN_TOP)/carrier.exe
 PIDGIN_PORTABLE_EXE := $(PIDGIN_TOP)/carrier-portable.exe
 

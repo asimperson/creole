@@ -793,7 +793,7 @@ Section Uninstall
     Delete "$INSTDIR\nspr4.dll"
     Delete "$INSTDIR\nss3.dll"
     Delete "$INSTDIR\nssckbi.dll"
-    Delete "$INSTDIR\carrier.dll"
+    Delete "$INSTDIR\pidgin.dll"
     Delete "$INSTDIR\carrier.exe"
     Delete "$INSTDIR\plc4.dll"
     Delete "$INSTDIR\plds4.dll"

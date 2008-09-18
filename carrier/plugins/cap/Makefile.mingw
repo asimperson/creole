@@ -53,7 +53,7 @@ LIBS =			-lgtk-win32-2.0 \
 			-lgobject-2.0 \
 			-lintl \
 			-lpurple \
-			-lcarrier
+			-lpidgin
 
 include $(PIDGIN_COMMON_RULES)
 

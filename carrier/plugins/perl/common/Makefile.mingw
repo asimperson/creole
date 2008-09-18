@@ -74,7 +74,7 @@ OBJECTS = $(C_FILES:%.c=%.o)
 LIBS =			-lperl510 \
 			-lperl \
 			-lpurple \
-			-lcarrier \
+			-lpidgin \
 			-lglib-2.0
 
 include $(PIDGIN_COMMON_RULES)
