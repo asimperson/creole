@@ -601,7 +601,7 @@ pidgin_create_prpl_icon_from_prpl(PurplePlugin *prpl, PidginPrplIconSize size, P
 	 */
 	tmp = g_strconcat(protoname, ".png", NULL);
 
-	filename = g_build_filename(DATADIR, "pixmaps", "carrier", "protocols",
+	filename = g_build_filename(DATADIR, "pixmaps", "pidgin", "protocols",
 				    size == PIDGIN_PRPL_ICON_SMALL ? "16" :
 				    size == PIDGIN_PRPL_ICON_MEDIUM ? "22" : "48",
 				    tmp, NULL);
@@ -692,7 +692,7 @@ create_protocols_menu(const char *default_proto_id)
 		prpl_info = PURPLE_PLUGIN_PROTOCOL_INFO(plugin);
 
 		if (gtalk_name && strcmp(gtalk_name, plugin->info->name) < 0) {
-			char *filename = g_build_filename(DATADIR, "pixmaps", "carrier", "protocols",
+			char *filename = g_build_filename(DATADIR, "pixmaps", "pidgin", "protocols",
 			                                  "16", "google-talk.png", NULL);
 			GtkWidget *item;
 

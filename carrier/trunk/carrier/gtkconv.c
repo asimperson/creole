@@ -4028,7 +4028,7 @@ get_chat_buddy_status_icon(PurpleConvChat *chat, const char *name, PurpleConvCha
 
 	if (flags && purple_conv_chat_is_user_ignored(chat, name)) {
 /* TODO: the .../status/default directory isn't installed, should it be? */
-		filename = g_build_filename(DATADIR, "pixmaps", "carrier", "status", "default", "ignored.png", NULL);
+		filename = g_build_filename(DATADIR, "pixmaps", "pidgin", "status", "default", "ignored.png", NULL);
 		pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
 		g_free(filename);
 		scale2 = gdk_pixbuf_scale_simple(pixbuf, 16, 16, GDK_INTERP_BILINEAR);

@@ -8,7 +8,7 @@ musicmessaging_la_LDFLAGS = -module -avoid-version
 if PLUGINS
 if ENABLE_DBUS
 
-musicmessagingpixdir = $(datadir)/pixmaps/carrier/buttons
+musicmessagingpixdir = $(datadir)/pixmaps/pidgin/buttons
 musicmessagingpix_DATA = music.png
 
 musicmessaging_LTLIBRARIES = musicmessaging.la
