@@ -1,7 +1,7 @@
 carriersmileypix_in_files = none.theme.in
 
 if INSTALL_PIXMAPS
-carriersmileypixdir = $(datadir)/pixmaps/carrier/emotes/none
+carriersmileypixdir = $(datadir)/pixmaps/pidgin/emotes/none
 carriersmileypix_DATA = theme
 
 theme: none.theme.in

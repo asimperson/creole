@@ -125,7 +125,7 @@ clean:
 	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) clean
 	$(MAKE) -C $(PURPLE_TOP) -f $(MINGW_MAKEFILE) clean
 	rm -f $(PIDGIN_CONFIG_H) ./VERSION carrier-$(PIDGIN_VERSION)*.exe carrier-$(PIDGIN_VERSION)-win32-bin.zip
-	rm -rf doc/html Doxyfile.mingw
+	rm -rf doc/html Doxyfile.mingw win32-install-dir
 
 uninstall:
 	rm -rf $(PURPLE_INSTALL_PERLMOD_DIR) $(PIDGIN_INSTALL_PLUGINS_DIR) $(PURPLE_INSTALL_PO_DIR) $(PIDGIN_INSTALL_DIR) $(STRIPPED_RELEASE_DIR)

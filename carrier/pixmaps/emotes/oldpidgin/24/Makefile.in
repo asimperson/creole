@@ -487,7 +487,7 @@ SMILEYS = act-up.png \
     yin-yang.png
 
 carriersmileypix_in_files = oldpidgin.theme.in
-@INSTALL_PIXMAPS_TRUE@carriersmileypixdir = $(datadir)/pixmaps/carrier/emotes/oldpidgin
+@INSTALL_PIXMAPS_TRUE@carriersmileypixdir = $(datadir)/pixmaps/pidgin/emotes/oldpidgin
 @INSTALL_PIXMAPS_TRUE@carriersmileypix_DATA = \
 @INSTALL_PIXMAPS_TRUE@        $(SMILEYS) \
 @INSTALL_PIXMAPS_TRUE@        theme

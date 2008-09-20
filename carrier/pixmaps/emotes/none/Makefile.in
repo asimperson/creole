@@ -316,7 +316,7 @@ target_vendor = @target_vendor@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 carriersmileypix_in_files = none.theme.in
-@INSTALL_PIXMAPS_TRUE@carriersmileypixdir = $(datadir)/pixmaps/carrier/emotes/none
+@INSTALL_PIXMAPS_TRUE@carriersmileypixdir = $(datadir)/pixmaps/pidgin/emotes/none
 @INSTALL_PIXMAPS_TRUE@carriersmileypix_DATA = theme
 EXTRA_DIST = \
 	$(carriersmileypix_in_files) \
