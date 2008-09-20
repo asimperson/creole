@@ -13,7 +13,7 @@ NEEDED_DLLS = $(GTKSPELL_TOP)/gtkspell/libgtkspell.dll
 ## VARIABLE DEFINITIONS
 ##
 EXE_TARGET := carrier
-PIDGIN_TARGET := carrier
+PIDGIN_TARGET := pidgin
 EXE_NAME := $(EXE_TARGET).exe
 
 WINAPP := -mwindows
@@ -101,7 +101,7 @@ PIDGIN_C_SRC =	\
 			win32/untar.c \
 			win32/wspell.c
 
-PIDGIN_RC_SRC = win32/pidgin.dll_rc.rc
+PIDGIN_RC_SRC = win32/pidgin_dll_rc.rc
 PIDGIN_OBJECTS = $(PIDGIN_C_SRC:%.c=%.o) $(PIDGIN_RC_SRC:%.rc=%.o)
 
 EXE_RC_SRC = win32/carrier_exe_rc.rc
@@ -152,7 +152,7 @@ install: install_shallow all
 	$(MAKE) -C $(PIDGIN_PIXMAPS_TOP) -f $(MINGW_MAKEFILE) install
 	$(MAKE) -C $(PIDGIN_IDLETRACK_TOP) -f $(MINGW_MAKEFILE) install
 
-win32/pidgin.dll_rc.rc: win32/pidgin.dll_rc.rc.in $(PIDGIN_TREE_TOP)/VERSION
+win32/pidgin_dll_rc.rc: win32/pidgin_dll_rc.rc.in $(PIDGIN_TREE_TOP)/VERSION
 	sed -e 's/@PIDGIN_VERSION@/$(PIDGIN_VERSION)/g' \
 	    $@.in > $@
 
