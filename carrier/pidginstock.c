@@ -73,7 +73,7 @@ static struct StockIcon
 	{ PIDGIN_STOCK_OPEN_MAIL,       NULL,      GTK_STOCK_JUMP_TO          },
 	{ PIDGIN_STOCK_SIGN_ON,         NULL,      GTK_STOCK_EXECUTE          },
 	{ PIDGIN_STOCK_SIGN_OFF,        NULL,      GTK_STOCK_CLOSE            },
-	{ PIDGIN_STOCK_TYPED,           "carrier",  "typed.png"                },
+	{ PIDGIN_STOCK_TYPED,           "pidgin",  "typed.png"                },
 	{ PIDGIN_STOCK_UPLOAD,          NULL,      GTK_STOCK_GO_UP            },
 #if GTK_CHECK_VERSION(2,8,0)
 	{ PIDGIN_STOCK_INFO,            NULL,      GTK_STOCK_INFO             },
@@ -189,11 +189,11 @@ find_file(const char *dir, const char *base)
 	if (base == NULL)
 		return NULL;
 
-	if (!strcmp(dir, "carrier"))
-		filename = g_build_filename(DATADIR, "pixmaps", "carrier", base, NULL);
+	if (!strcmp(dir, "pidgin"))
+		filename = g_build_filename(DATADIR, "pixmaps", "pidgin", base, NULL);
 	else
 	{
-		filename = g_build_filename(DATADIR, "pixmaps", "carrier", dir,
+		filename = g_build_filename(DATADIR, "pixmaps", "pidgin", dir,
 									base, NULL);
 	}
 
@@ -207,7 +207,7 @@ add_sized_icon(GtkIconSet *iconset, GtkIconSize sizeid, const char *dir,
 	char *filename;
 	GtkIconSource *source;	
 
-	filename = g_build_filename(DATADIR, "pixmaps", "carrier", dir, size, file, NULL);
+	filename = g_build_filename(DATADIR, "pixmaps", "pidgin", dir, size, file, NULL);
 	source = gtk_icon_source_new();
         gtk_icon_source_set_filename(source, filename);
 	gtk_icon_source_set_direction(source, GTK_TEXT_DIR_LTR);
@@ -231,7 +231,7 @@ add_sized_icon(GtkIconSet *iconset, GtkIconSize sizeid, const char *dir,
         g_free(filename);
 
        if (rtl) {
-		filename = g_build_filename(DATADIR, "pixmaps", "carrier", dir, size, "rtl", file, NULL);
+		filename = g_build_filename(DATADIR, "pixmaps", "pidgin", dir, size, "rtl", file, NULL);
                 source = gtk_icon_source_new();
                 gtk_icon_source_set_filename(source, filename);
                 gtk_icon_source_set_direction(source, GTK_TEXT_DIR_RTL);
@@ -293,7 +293,7 @@ add_translucent_sized_icon(GtkIconSet *iconset, GtkIconSize sizeid, const char *
 	GtkIconSource *source;	
 	GdkPixbuf *pixbuf;
 
-	filename = g_build_filename(DATADIR, "pixmaps", "carrier", dir, size, file, NULL);
+	filename = g_build_filename(DATADIR, "pixmaps", "pidgin", dir, size, file, NULL);
 	pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
 	do_alphashift(pixbuf, pixbuf);
 
@@ -321,7 +321,7 @@ add_translucent_sized_icon(GtkIconSet *iconset, GtkIconSize sizeid, const char *
 	g_object_unref(pixbuf);
 
        if (rtl) {
-		filename = g_build_filename(DATADIR, "pixmaps", "carrier", dir, size, "rtl", file, NULL);
+		filename = g_build_filename(DATADIR, "pixmaps", "pidgin", dir, size, "rtl", file, NULL);
  		pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
 		do_alphashift(pixbuf, pixbuf);
 		source = gtk_icon_source_new();

@@ -372,7 +372,7 @@ void pidgin_themes_smiley_theme_probe()
 
 	pidgin_smiley_themes_remove_non_existing();
 
-	probedirs[0] = g_build_filename(DATADIR, "pixmaps", "carrier", "emotes", NULL);
+	probedirs[0] = g_build_filename(DATADIR, "pixmaps", "pidgin", "emotes", NULL);
 	probedirs[1] = g_build_filename(purple_user_dir(), "smileys", NULL);
 	probedirs[2] = 0;
 	for (l=0; probedirs[l]; l++) {

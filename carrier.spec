@@ -377,7 +377,7 @@ fi
 %attr(755, root, root) %{perl_vendorarch}/auto/Carrier
 
 %{_bindir}/carrier
-%{_datadir}/pixmaps/carrier
+%{_datadir}/pixmaps/pidgin
 %{_datadir}/icons/hicolor/*/apps/carrier.*
 %{_datadir}/applications/*
 %{_sysconfdir}/gconf/schemas/purple.schemas

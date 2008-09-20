@@ -4,7 +4,7 @@ cap_la_LDFLAGS = -module -avoid-version
 
 if PLUGINS
 
-cappixdir = $(datadir)/pixmaps/carrier/buttons
+cappixdir = $(datadir)/pixmaps/pidgin/buttons
 
 cap_LTLIBRARIES = cap.la
 

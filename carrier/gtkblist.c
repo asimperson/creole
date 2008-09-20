@@ -3618,7 +3618,7 @@ pidgin_blist_get_emblem(PurpleBlistNode *node)
 		gtkbuddynode = node->ui_data;
 		p = purple_buddy_get_presence(buddy);
 		if (purple_presence_is_status_primitive_active(p, PURPLE_STATUS_MOBILE)) {
-			path = g_build_filename(DATADIR, "pixmaps", "carrier", "emblems",
+			path = g_build_filename(DATADIR, "pixmaps", "pidgin", "emblems",
 						"16", "mobile.png", NULL);
 			return _pidgin_blist_get_cached_emblem(path);
 		}
@@ -3635,18 +3635,18 @@ pidgin_blist_get_emblem(PurpleBlistNode *node)
 	g_return_val_if_fail(buddy != NULL, NULL);
 
 	if (!purple_privacy_check(buddy->account, purple_buddy_get_name(buddy))) {
-		path = g_build_filename(DATADIR, "pixmaps", "carrier", "emblems", "16", "blocked.png", NULL);
+		path = g_build_filename(DATADIR, "pixmaps", "pidgin", "emblems", "16", "blocked.png", NULL);
 		return _pidgin_blist_get_cached_emblem(path);
 	}
 
 	p = purple_buddy_get_presence(buddy);
 	if (purple_presence_is_status_primitive_active(p, PURPLE_STATUS_MOBILE)) {
-		path = g_build_filename(DATADIR, "pixmaps", "carrier", "emblems", "16", "mobile.png", NULL);
+		path = g_build_filename(DATADIR, "pixmaps", "pidgin", "emblems", "16", "mobile.png", NULL);
 		return _pidgin_blist_get_cached_emblem(path);
 	}
 
 	if (purple_presence_is_status_primitive_active(p, PURPLE_STATUS_TUNE)) {
-		path = g_build_filename(DATADIR, "pixmaps", "carrier", "emblems", "16", "music.png", NULL);
+		path = g_build_filename(DATADIR, "pixmaps", "pidgin", "emblems", "16", "music.png", NULL);
 		return _pidgin_blist_get_cached_emblem(path);
 	}
 
@@ -3663,7 +3663,7 @@ pidgin_blist_get_emblem(PurpleBlistNode *node)
 
 	filename = g_strdup_printf("%s.png", name);
 
-	path = g_build_filename(DATADIR, "pixmaps", "carrier", "emblems", "16", filename, NULL);
+	path = g_build_filename(DATADIR, "pixmaps", "pidgin", "emblems", "16", filename, NULL);
 	g_free(filename);
 
 	/* _pidgin_blist_get_cached_emblem() assumes ownership of path */
