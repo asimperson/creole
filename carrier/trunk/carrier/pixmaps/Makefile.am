@@ -1,4 +1,4 @@
-carrierpixmapdir = $(datadir)/pixmaps/carrier
+carrierpixmapdir = $(datadir)/pixmaps/pidgin
 carriericonsdir = $(datadir)
 
 SUBDIRS = buddy_icons/qq emotes/default/24 emotes/oldpidgin/24 emotes/none
@@ -864,10 +864,10 @@ EXTRA_DIST = \
 		$(TRAY_16_SCALABLE)	\
 		$(TRAY_22_SCALABLE)
 
-carrierbuttonpixdir = $(datadir)/pixmaps/carrier/buttons
+carrierbuttonpixdir = $(datadir)/pixmaps/pidgin/buttons
 carrierbuttonpix_DATA = edit.png pause.png info.png
 
-carrierdistpixdir = $(datadir)/pixmaps/carrier
+carrierdistpixdir = $(datadir)/pixmaps/pidgin
 carrierdistpix_DATA = logo.png arrow-down.xpm arrow-left.xpm arrow-right.xpm arrow-up.xpm
 
 nobase_dist_carrierpixmap_DATA = \

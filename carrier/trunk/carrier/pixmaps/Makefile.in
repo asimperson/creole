@@ -442,7 +442,7 @@ target_os = @target_os@
 target_vendor = @target_vendor@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-carrierpixmapdir = $(datadir)/pixmaps/carrier
+carrierpixmapdir = $(datadir)/pixmaps/pidgin
 carriericonsdir = $(datadir)
 SUBDIRS = buddy_icons/qq emotes/default/24 emotes/oldpidgin/24 emotes/none
 @INSTALL_PIXMAPS_TRUE@MAKEFILE_MINGW = \
@@ -1300,9 +1300,9 @@ SUBDIRS = buddy_icons/qq emotes/default/24 emotes/oldpidgin/24 emotes/none
 @INSTALL_PIXMAPS_TRUE@		$(TRAY_16_SCALABLE)	\
 @INSTALL_PIXMAPS_TRUE@		$(TRAY_22_SCALABLE)
 
-@INSTALL_PIXMAPS_TRUE@carrierbuttonpixdir = $(datadir)/pixmaps/carrier/buttons
+@INSTALL_PIXMAPS_TRUE@carrierbuttonpixdir = $(datadir)/pixmaps/pidgin/buttons
 @INSTALL_PIXMAPS_TRUE@carrierbuttonpix_DATA = edit.png pause.png info.png
-@INSTALL_PIXMAPS_TRUE@carrierdistpixdir = $(datadir)/pixmaps/carrier
+@INSTALL_PIXMAPS_TRUE@carrierdistpixdir = $(datadir)/pixmaps/pidgin
 @INSTALL_PIXMAPS_TRUE@carrierdistpix_DATA = logo.png arrow-down.xpm arrow-left.xpm arrow-right.xpm arrow-up.xpm
 @INSTALL_PIXMAPS_TRUE@nobase_dist_carrierpixmap_DATA = \
 @INSTALL_PIXMAPS_TRUE@		$(ANIMATIONS_16) \

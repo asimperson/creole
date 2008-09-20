@@ -173,7 +173,7 @@ SMILEYS = 	act-up.png \
 carriersmileypix_in_files = oldpidgin.theme.in
 
 if INSTALL_PIXMAPS
-carriersmileypixdir = $(datadir)/pixmaps/carrier/emotes/oldpidgin
+carriersmileypixdir = $(datadir)/pixmaps/pidgin/emotes/oldpidgin
 carriersmileypix_DATA = \
         $(SMILEYS) \
         theme
