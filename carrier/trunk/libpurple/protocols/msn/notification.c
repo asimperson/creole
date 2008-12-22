@@ -306,7 +306,7 @@ ver_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 	 * to see the Local ID
 	 */
 	msn_cmdproc_send(cmdproc, "CVR",
-					"0x0409 winnt 5.1 i386 MSNMSGR 8.5.1288 msmsgs %s",
+					"0x0409 winnt 5.1 i386 MSNMSGR 8.5.1302 BC01 %s",
 					 purple_account_get_username(account));
 }
 
@@ -491,7 +491,7 @@ ubm_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 	 * command and we are processing it */
 	if (cmd->payload == NULL) {
 		cmdproc->last_cmd->payload_cb = msg_cmd_post;
-		cmd->payload_len = atoi(cmd->params[4]);
+		cmd->payload_len = atoi(cmd->params[3]);
 	} else {
 		g_return_if_fail(cmd->payload_cb != NULL);
 
@@ -578,7 +578,7 @@ msn_add_contact_xml(MsnSession *session, xmlnode *mlNode,const char *passport, M
 		g_snprintf(fmt_str, sizeof(fmt_str), "%d", MSN_NETWORK_PASSPORT);
 
 	/*mobile*/
-	//type_str = g_strdup_printf("4");
+	/*type_str = g_strdup_printf("4");*/
 	xmlnode_set_attrib(c_node, "t", fmt_str);
 
 	xmlnode_insert_child(d_node, c_node);
@@ -613,11 +613,14 @@ msn_notification_dump_contact(MsnSession *session)
 	xmlnode_set_attrib(adl_node, "l", "1");
 
 	/*get the userlist*/
-	for (l = session->userlist->users; l != NULL; l = l->next){
+	for (l = session->userlist->users; l != NULL; l = l->next) {
 		user = l->data;
 
 		/* skip RL & PL during initial dump */
 		if (!(user->list_op & MSN_LIST_OP_MASK))
+			continue;
+
+		if (user->passport && !strcmp(user->passport, "messenger@microsoft.com"))
 			continue;
 
 		msn_add_contact_xml(session, adl_node, user->passport,
@@ -753,31 +756,128 @@ adl_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 }
 
 static void
+adl_error_parse(MsnCmdProc *cmdproc, MsnCommand *cmd, char *payload, size_t len)
+{
+	MsnSession *session;
+	PurpleAccount *account;
+	PurpleConnection *gc;
+	/*char *adl = g_strndup(payload, len);*/
+	char *reason = g_strdup_printf(_("Unknown error (%d)"),
+		GPOINTER_TO_INT(cmd->payload_cbdata)/*, adl*/);
+	/*g_free(adl);*/
+
+	session = cmdproc->session;
+	account = session->account;
+	gc = purple_account_get_connection(account);
+
+	purple_notify_error(gc, NULL, _("Unable to add user"), reason);
+	g_free(reason);
+}
+
+static void
 adl_error(MsnCmdProc *cmdproc, MsnTransaction *trans, int error)
 {
 	MsnSession *session;
 	PurpleAccount *account;
 	PurpleConnection *gc;
-	char *reason = NULL;
+	MsnCommand *cmd = cmdproc->last_cmd;
 
 	session = cmdproc->session;
 	account = session->account;
 	gc = purple_account_get_connection(account);
 
 	purple_debug_error("msn", "ADL error\n");
-	reason = g_strdup_printf(_("Unknown error (%d)"), error);
-	purple_notify_error(gc, NULL, _("Unable to add user"), reason);
-	g_free(reason);
+	if (cmd->param_count > 1) {
+		cmd->payload_cb = adl_error_parse;
+		cmd->payload_len = atoi(cmd->params[1]);
+		cmd->payload_cbdata = GINT_TO_POINTER(error);
+	} else {
+		char *reason = g_strdup_printf(_("Unknown error (%d)"), error);
+		purple_notify_error(gc, NULL, _("Unable to add user"), reason);
+		g_free(reason);
+	}
+}
+
+static void
+adl_241_error_cmd_post(MsnCmdProc *cmdproc, MsnCommand *cmd, char *payload,
+	size_t len)
+{
+	/* khc: some googling suggests that error 241 means the buddy is somehow
+	   in the local list, but not the server list, and that we should add
+	   those buddies to the addressbook. For now I will just notify the user
+	   about the raw payload, because I am lazy */
+	MsnSession *session;
+	PurpleAccount *account;
+	PurpleConnection *gc;
+	xmlnode *adl;
+	xmlnode *domain;
+	GString *emails;
+
+	session = cmdproc->session;
+	account = session->account;
+	gc = purple_account_get_connection(account);
+
+	adl = xmlnode_from_str(payload, len);
+	emails = g_string_new(NULL);
+
+	domain = xmlnode_get_child(adl, "d");
+	while (domain) {
+		const char *domain_str = xmlnode_get_attrib(domain, "n");
+		xmlnode *contact = xmlnode_get_child(domain, "c");
+		while (contact) {
+			g_string_append_printf(emails, "%s@%s\n",
+				xmlnode_get_attrib(contact, "n"), domain_str);
+			contact = xmlnode_get_next_twin(contact);
+		}
+		domain = xmlnode_get_next_twin(domain);
+	}
+
+	purple_notify_error(gc, NULL,
+		_("The following users are missing from your addressbook"), emails->str);
+	g_string_free(emails, TRUE);
+	xmlnode_free(adl);
+}
+
+static void
+adl_241_error_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
+{
+	cmdproc->last_cmd->payload_cb = adl_241_error_cmd_post;
+	cmd->payload_len = atoi(cmd->params[1]);
 }
 
 static void
 fqy_cmd_post(MsnCmdProc *cmdproc, MsnCommand *cmd, char *payload,
 			 size_t len)
 {
-	purple_debug_info("msn", "FQY payload:\n%s\n", payload);
-	g_return_if_fail(cmdproc->session != NULL);
-/*	msn_notification_post_adl(cmdproc, payload, len); */
-/*	msn_get_address_book(cmdproc->session, MSN_AB_SAVE_CONTACT, NULL, NULL); */
+	MsnUserList *userlist;
+	xmlnode *ml, *d, *c;
+	const char *domain;
+	const char *local;
+	const char *type;
+	char *passport;
+	MsnNetwork network = MSN_NETWORK_PASSPORT;
+
+	userlist = cmdproc->session->userlist;
+
+	/* FQY response:
+	    <ml><d n="domain.com"><c n="local-node" t="network" /></d></ml> */
+	ml = xmlnode_from_str(payload, len);
+	d = xmlnode_get_child(ml, "d");
+	c = xmlnode_get_child(d, "c");
+	domain = xmlnode_get_attrib(d, "n");
+	local = xmlnode_get_attrib(c, "n");
+	type = xmlnode_get_attrib(c, "t");
+
+	passport = g_strdup_printf("%s@%s", local, domain);
+
+	if (type != NULL)
+		network = (MsnNetwork)strtoul(type, NULL, 10);
+	purple_debug_info("msn", "FQY response says %s is from network %d\n",
+	                  passport, network);
+	msn_userlist_add_pending_buddy(userlist, passport, network);
+
+	g_free(passport);
+	xmlnode_free(ml);
 }
 
 static void
@@ -947,10 +1047,11 @@ iln_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 	PurpleAccount *account;
 	PurpleConnection *gc;
 	MsnUser *user;
-	MsnObject *msnobj;
+	MsnObject *msnobj = NULL;
 	unsigned long clientid;
-	int networkid;
-	const char *state, *passport, *friendly;
+	int networkid = 0;
+	const char *state, *passport;
+	char *friendly;
 
 	session = cmdproc->session;
 	account = session->account;
@@ -958,23 +1059,47 @@ iln_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 
 	state    = cmd->params[1];
 	passport = cmd->params[2];
-	/*if a contact is actually on the WLM part or the yahoo part*/
-	networkid = atoi(cmd->params[3]);
-	friendly = purple_url_decode(cmd->params[4]);
 
 	user = msn_userlist_find_user(session->userlist, passport);
+	if (user == NULL)
+		/* Where'd this come from? */
+		return;
 
-	serv_got_alias(gc, passport, friendly);
-
-	msn_user_set_friendly_name(user, friendly);
-
-	if (cmd->param_count == 7)
-	{
+	if (cmd->param_count == 7) {
+		/* MSNP14+ with Display Picture object */
+		networkid = atoi(cmd->params[3]);
+		friendly = g_strdup(purple_url_decode(cmd->params[4]));
+		clientid = strtoul(cmd->params[5], NULL, 10);
 		msnobj = msn_object_new_from_string(purple_url_decode(cmd->params[6]));
-		msn_user_set_object(user, msnobj);
+	} else if (cmd->param_count == 6) {
+		/* Yes, this is 5. The friendly name could start with a number,
+		   but the display picture object can't... */
+		if (isdigit(cmd->params[5][0])) {
+			/* MSNP14 without Display Picture object */
+			networkid = atoi(cmd->params[3]);
+			friendly = g_strdup(purple_url_decode(cmd->params[4]));
+			clientid = strtoul(cmd->params[5], NULL, 10);
+		} else {
+			/* MSNP8+ with Display Picture object */
+			friendly = g_strdup(purple_url_decode(cmd->params[3]));
+			clientid = strtoul(cmd->params[4], NULL, 10);
+			msnobj = msn_object_new_from_string(purple_url_decode(cmd->params[5]));
+		}
+	} else if (cmd->param_count == 5) {
+		/* MSNP8+ without Display Picture object */
+		friendly = g_strdup(purple_url_decode(cmd->params[3]));
+		clientid = strtoul(cmd->params[4], NULL, 10);
+	} else {
+		purple_debug_warning("msn", "Received ILN with unknown number of parameters.\n");
+		return;
 	}
 
-	clientid = strtoul(cmd->params[5], NULL, 10);
+	serv_got_alias(gc, passport, friendly);
+	msn_user_set_friendly_name(user, friendly);
+	g_free(friendly);
+
+	msn_user_set_object(user, msnobj);
+
 	user->mobile = (clientid & MSN_CLIENT_CAP_MSNMOBILE) || (user->phone.mobile && user->phone.mobile[0] == '+');
 	msn_user_set_clientid(user, clientid);
 	msn_user_set_network(user, networkid);
@@ -988,7 +1113,8 @@ ipg_cmd_post(MsnCmdProc *cmdproc, MsnCommand *cmd, char *payload, size_t len)
 {
 	PurpleConnection *gc;
 	MsnUserList *userlist;
-	char *who = NULL, *text = NULL;
+	const char *who = NULL;
+	char *text = NULL;
 	const char *id = NULL;
 	xmlnode *payloadNode, *from, *msg, *textNode;
 
@@ -1032,13 +1158,18 @@ ipg_cmd_post(MsnCmdProc *cmdproc, MsnCommand *cmd, char *payload, size_t len)
 	   </NOTIFICATION>
 	*/
 
-	if (!(payloadNode = xmlnode_from_str(payload, len)) ||
-		!(from = xmlnode_get_child(payloadNode, "FROM")) ||
-		!(msg = xmlnode_get_child(payloadNode, "MSG")) ||
-		!(textNode = xmlnode_get_child(msg, "BODY/TEXT")))
+	payloadNode = xmlnode_from_str(payload, len);
+	if (!payloadNode)
 		return;
 
-	who = g_strdup(xmlnode_get_attrib(from, "name"));
+	if (!(from = xmlnode_get_child(payloadNode, "FROM")) ||
+		!(msg = xmlnode_get_child(payloadNode, "MSG")) ||
+		!(textNode = xmlnode_get_child(msg, "BODY/TEXT"))) {
+		xmlnode_free(payloadNode);
+		return;
+	}
+
+	who = xmlnode_get_attrib(from, "name");
 	if (!who) return;
 
 	text = xmlnode_get_data(textNode);
@@ -1049,10 +1180,8 @@ ipg_cmd_post(MsnCmdProc *cmdproc, MsnCommand *cmd, char *payload, size_t len)
 		MsnUser *user =
 			msn_userlist_find_user_with_mobile_phone(userlist, who + 4);
 
-		if(user && user->passport) {
-			g_free(who);
-			who = g_strdup(user->passport);
-		}
+		if (user && user->passport)
+			who = user->passport;
 	}
 
 	id = xmlnode_get_attrib(msg, "id");
@@ -1071,7 +1200,6 @@ ipg_cmd_post(MsnCmdProc *cmdproc, MsnCommand *cmd, char *payload, size_t len)
 	}
 
 	g_free(text);
-	g_free(who);
 	xmlnode_free(payloadNode);
 }
 
@@ -1104,6 +1232,7 @@ nln_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 	friendly = purple_url_decode(cmd->params[3]);
 
 	user = msn_userlist_find_user(session->userlist, passport);
+	if (user == NULL) return;
 
 	old_friendly = msn_user_get_friendly_name(user);
 	if (!old_friendly || (old_friendly && (!friendly || strcmp(old_friendly, friendly))))
@@ -1474,13 +1603,20 @@ ubx_cmd_post(MsnCmdProc *cmdproc, MsnCommand *cmd, char *payload,
 	MsnUser *user;
 	const char *passport;
 	char *psm_str, *str;
-	CurrentMedia media = {NULL, NULL, NULL};
+	CurrentMedia media = {CURRENT_MEDIA_UNKNOWN, NULL, NULL, NULL};
 
 	session = cmdproc->session;
 	account = session->account;
 
 	passport = cmd->params[0];
 	user = msn_userlist_find_user(session->userlist, passport);
+	if (user == NULL) {
+		char *str = g_strndup(payload, len);
+		purple_debug_info("msn", "unknown user %s, payload is %s",
+			passport, str);
+		g_free(str);
+		return;
+	}
 
 	psm_str = msn_get_psm(cmd->payload,len);
 	msn_user_set_statusline(user, psm_str);
@@ -1822,7 +1958,7 @@ system_msg(MsnCmdProc *cmdproc, MsnMessage *msg)
 
 void
 msn_notification_add_buddy_to_list(MsnNotification *notification, MsnListId list_id,
-							  const char *who)
+							  MsnUser *user)
 {
 	MsnCmdProc *cmdproc;
 	MsnListOp list_op = 1 << list_id;
@@ -1835,8 +1971,8 @@ msn_notification_add_buddy_to_list(MsnNotification *notification, MsnListId list
 	adl_node = xmlnode_new("ml");
 	adl_node->child = NULL;
 
-	msn_add_contact_xml(notification->session, adl_node, who, list_op,
-						MSN_NETWORK_PASSPORT);
+	msn_add_contact_xml(notification->session, adl_node, user->passport,
+	                    list_op, user->networkid);
 
 	payload = xmlnode_to_str(adl_node,&payload_len);
 	xmlnode_free(adl_node);
@@ -1848,7 +1984,7 @@ msn_notification_add_buddy_to_list(MsnNotification *notification, MsnListId list
 
 void
 msn_notification_rem_buddy_from_list(MsnNotification *notification, MsnListId list_id,
-						   const char *who)
+						   MsnUser *user)
 {
 	MsnCmdProc *cmdproc;
 	MsnTransaction *trans;
@@ -1862,7 +1998,8 @@ msn_notification_rem_buddy_from_list(MsnNotification *notification, MsnListId li
 	rml_node = xmlnode_new("ml");
 	rml_node->child = NULL;
 
-	msn_add_contact_xml(notification->session, rml_node, who, list_op, MSN_NETWORK_PASSPORT);
+	msn_add_contact_xml(notification->session, rml_node, user->passport,
+	                    list_op, user->networkid);
 
 	payload = xmlnode_to_str(rml_node, &payload_len);
 	xmlnode_free(rml_node);
@@ -1925,6 +2062,8 @@ msn_notification_init(void)
 	msn_table_add_cmd(cbs_table, NULL, "URL", url_cmd);
 
 	msn_table_add_cmd(cbs_table, "fallback", "XFR", xfr_cmd);
+
+	msn_table_add_cmd(cbs_table, NULL, "241", adl_241_error_cmd);
 
 	msn_table_add_error(cbs_table, "ADD", add_error);
 	msn_table_add_error(cbs_table, "ADL", adl_error);

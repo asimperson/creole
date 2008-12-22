@@ -42,6 +42,7 @@
 #include "auth.h"
 #include "buddy.h"
 #include "chat.h"
+#include "data.h"
 #include "disco.h"
 #include "google.h"
 #include "iq.h"
@@ -56,6 +57,7 @@
 #include "xdata.h"
 #include "pep.h"
 #include "adhoccommands.h"
+
 
 #define JABBER_CONNECT_STEPS (js->gsc ? 9 : 5)
 
@@ -129,6 +131,9 @@ static void jabber_bind_result_cb(JabberStream *js, xmlnode *packet,
 			}
 			if((my_jb = jabber_buddy_find(js, full_jid, TRUE)))
 				my_jb->subscription |= JABBER_SUB_BOTH;
+
+			purple_connection_set_display_name(js->gc, full_jid);
+
 			g_free(full_jid);
 		}
 	} else {
@@ -141,10 +146,37 @@ static void jabber_bind_result_cb(JabberStream *js, xmlnode *packet,
 	jabber_session_init(js);
 }
 
+static char *jabber_prep_resource(char *input) {
+	char hostname[256]; /* current hostname */
+
+	/* Empty resource == don't send any */
+	if (*input == '\0')
+		return NULL;
+
+	if (strstr(input, "__HOSTNAME__") == NULL)
+		return g_strdup(input);
+
+	/* Replace __HOSTNAME__ with hostname */
+	if (gethostname(hostname, sizeof(hostname) - 1)) {
+		purple_debug_warning("jabber", "gethostname: %s\n", g_strerror(errno));
+		/* according to glibc doc, the only time an error is returned
+		   is if the hostname is longer than the buffer, in which case
+		   glibc 2.2+ would still fill the buffer with partial
+		   hostname, so maybe we want to detect that and use it
+		   instead
+		*/
+		strcpy(hostname, "localhost");
+	}
+	hostname[sizeof(hostname) - 1] = '\0';
+
+	return purple_strreplace(input, "__HOSTNAME__", hostname);
+}
+
 static void jabber_stream_features_parse(JabberStream *js, xmlnode *packet)
 {
 	if(xmlnode_get_child(packet, "starttls")) {
 		if(jabber_process_starttls(js, packet))
+	
 			return;
 	} else if(purple_account_get_bool(js->gc->account, "require_tls", FALSE) && !js->gsc) {
 		purple_connection_error_reason (js->gc,
@@ -159,11 +191,17 @@ static void jabber_stream_features_parse(JabberStream *js, xmlnode *packet)
 		jabber_auth_start(js, packet);
 	} else if(xmlnode_get_child(packet, "bind")) {
 		xmlnode *bind, *resource;
+		char *requested_resource;
 		JabberIq *iq = jabber_iq_new(js, JABBER_IQ_SET);
 		bind = xmlnode_new_child(iq->node, "bind");
 		xmlnode_set_namespace(bind, "urn:ietf:params:xml:ns:xmpp-bind");
-		resource = xmlnode_new_child(bind, "resource");
-		xmlnode_insert_data(resource, js->user->resource, -1);
+		requested_resource = jabber_prep_resource(js->user->resource);
+
+		if (requested_resource != NULL) {
+			resource = xmlnode_new_child(bind, "resource");
+			xmlnode_insert_data(resource, requested_resource, -1);
+			g_free(requested_resource);
+		}
 
 		jabber_iq_set_callback(iq, jabber_bind_result_cb, NULL);
 
@@ -640,7 +678,8 @@ jabber_login(PurpleAccount *account)
 	JabberStream *js;
 	JabberBuddy *my_jb = NULL;
 
-	gc->flags |= PURPLE_CONNECTION_HTML;
+	gc->flags |= PURPLE_CONNECTION_HTML |
+		PURPLE_CONNECTION_ALLOW_CUSTOM_SMILEY;
 	js = gc->proto_data = g_new0(JabberStream, 1);
 	js->gc = gc;
 	js->fd = -1;
@@ -673,19 +712,6 @@ jabber_login(PurpleAccount *account)
 		return;
 	}
 	
-	if(!js->user->resource) {
-		char *me;
-		js->user->resource = g_strdup("Home");
-		if(!js->user->node) {
-			js->user->node = js->user->domain;
-			js->user->domain = g_strdup("jabber.org");
-		}
-		me = g_strdup_printf("%s@%s/%s", js->user->node, js->user->domain,
-				js->user->resource);
-		purple_account_set_username(account, me);
-		g_free(me);
-	}
-
 	if((my_jb = jabber_buddy_find(js, purple_account_get_username(account), TRUE)))
 		my_jb->subscription |= JABBER_SUB_BOTH;
 
@@ -1153,19 +1179,6 @@ void jabber_register_account(PurpleAccount *account)
 
 	js->write_buffer = purple_circ_buffer_new(512);
 
-	if(!js->user->resource) {
-		char *me;
-		js->user->resource = g_strdup("Home");
-		if(!js->user->node) {
-			js->user->node = js->user->domain;
-			js->user->domain = g_strdup("jabber.org");
-		}
-		me = g_strdup_printf("%s@%s/%s", js->user->node, js->user->domain,
-				js->user->resource);
-		purple_account_set_username(account, me);
-		g_free(me);
-	}
-
 	if((my_jb = jabber_buddy_find(js, purple_account_get_username(account), TRUE)))
 		my_jb->subscription |= JABBER_SUB_BOTH;
 
@@ -1400,6 +1413,15 @@ void jabber_stream_set_state(JabberStream *js, JabberStreamState state)
 			if(js->protocol_version == JABBER_PROTO_0_9 && js->registration) {
 				jabber_register_start(js);
 			} else if(js->auth_type == JABBER_AUTH_IQ_AUTH) {
+				/* with dreamhost's xmpp server at least, you have to
+				   specify a resource or you will get a "406: Not
+				   Acceptable"
+				*/
+				if(!js->user->resource || *js->user->resource == '\0') {
+					g_free(js->user->resource);
+					js->user->resource = g_strdup("Home");
+				}
+
 				jabber_auth_start_old(js);
 			}
 			break;
@@ -1723,7 +1745,7 @@ GList *jabber_status_types(PurpleAccount *account)
 	types = g_list_append(types, type);
 
 	type = purple_status_type_new_with_attrs(PURPLE_STATUS_TUNE,
-			"tune", NULL, TRUE, TRUE, TRUE,
+			"tune", NULL, FALSE, TRUE, TRUE,
 			PURPLE_TUNE_ARTIST, _("Tune Artist"), purple_value_new(PURPLE_TYPE_STRING),
 			PURPLE_TUNE_TITLE, _("Tune Title"), purple_value_new(PURPLE_TYPE_STRING),
 			PURPLE_TUNE_ALBUM, _("Tune Album"), purple_value_new(PURPLE_TYPE_STRING),
@@ -1899,7 +1921,7 @@ void jabber_convo_closed(PurpleConnection *gc, const char *who)
 	JabberID *jid;
 	JabberBuddy *jb;
 	JabberBuddyResource *jbr;
-
+	
 	if(!(jid = jabber_id_new(who)))
 		return;
 

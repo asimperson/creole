@@ -122,11 +122,8 @@ void yahoo_process_picture(PurpleConnection *gc, struct yahoo_packet *pkt)
 		struct yahoo_fetch_picture_data *data;
 		PurpleBuddy *b = purple_find_buddy(gc->account, who);
 		const char *locksum = NULL;
-		gboolean use_whole_url = FALSE;
-
 		/* use whole URL if using HTTP Proxy */
-		if ((gc->account->proxy_info) && (gc->account->proxy_info->type == PURPLE_PROXY_HTTP))
-		    use_whole_url = TRUE;
+		gboolean use_whole_url = yahoo_account_use_http_proxy(gc);
 
 		/* FIXME: Cleanup this strtol() stuff if possible. */
 		if (b && (locksum = purple_buddy_icons_get_checksum_for_user(b)) != NULL && 
@@ -411,8 +408,10 @@ static void yahoo_buddy_icon_upload_reading(gpointer data, gint source, PurpleIn
 	if (ret < 0 && errno == EAGAIN)
 		return;
 	else if (ret <= 0) {
-		purple_debug_info("yahoo", "Buddy icon upload response (%d) bytes (> ~400 indicates failure):\n%.*s\n",
-			d->str->len, d->str->len, d->str->str);
+		/* There are other problems if d->str->len overflows, so shut up the
+		 * warning on 64-bit. */
+		purple_debug_info("yahoo", "Buddy icon upload response (%" G_GSIZE_FORMAT ") bytes (> ~400 indicates failure):\n%.*s\n",
+			d->str->len, (guint)d->str->len, d->str->str);
 
 		yahoo_buddy_icon_upload_data_free(d);
 		return;
@@ -463,7 +462,8 @@ static void yahoo_buddy_icon_upload_connected(gpointer data, gint source, const 
 	PurpleConnection *gc = d->gc;
 	PurpleAccount *account;
 	struct yahoo_data *yd;
-	gboolean use_whole_url = FALSE;
+	/* use whole URL if using HTTP Proxy */
+	gboolean use_whole_url = yahoo_account_use_http_proxy(gc);
 
 	account = purple_connection_get_account(gc);
 	yd = gc->proto_data;
@@ -476,10 +476,6 @@ static void yahoo_buddy_icon_upload_connected(gpointer data, gint source, const 
 		yahoo_buddy_icon_upload_data_free(d);
 		return;
 	}
-	/* use whole URL if using HTTP Proxy */
-	if ((gc->account->proxy_info)
-	    	&& (gc->account->proxy_info->type == PURPLE_PROXY_HTTP))
-		use_whole_url = TRUE;
 
 	pkt = yahoo_packet_new(YAHOO_SERVICE_PICTURE_UPLOAD, YAHOO_STATUS_AVAILABLE, yd->session_id);
 
@@ -523,7 +519,8 @@ static void yahoo_buddy_icon_upload_connected(gpointer data, gint source, const 
 	g_string_prepend(d->str, header);
 	g_free(header);
 
-	purple_debug_info("yahoo", "Buddy icon upload data:\n%.*s\n", d->str->len, d->str->str);
+	/* There are other problems if we're uploading over 4GB of data */
+	purple_debug_info("yahoo", "Buddy icon upload data:\n%.*s\n", (guint)d->str->len, d->str->str);
 
 	d->fd = source;
 	d->watcher = purple_input_add(d->fd, PURPLE_INPUT_WRITE, yahoo_buddy_icon_upload_pending, d);
