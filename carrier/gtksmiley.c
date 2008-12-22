@@ -224,6 +224,13 @@ static void do_add(GtkWidget *widget, PidginSmiley *s)
 	PurpleSmiley *emoticon;
 
 	entry = gtk_entry_get_text(GTK_ENTRY(s->smile));
+	if (!entry || !*entry) {
+		purple_notify_error(s->parent, _("Custom Smiley"),
+				_("More Data needed"),
+				_("Please provide a shortcut to associate with the smiley."));
+		return;
+	}
+
 	emoticon = purple_smileys_find_by_shortcut(entry);
 	if (emoticon && emoticon != s->smiley) {
 		purple_notify_error(s->parent, _("Custom Smiley"),
@@ -265,11 +272,25 @@ static void do_add(GtkWidget *widget, PidginSmiley *s)
 			gchar *buffer = NULL;
 			gsize size = 0;
 			gchar *filename;
+			const gchar *dirname = purple_smileys_get_storing_dir();
+			
+			/* since this may be called before purple_smiley_new_* has ever been
+			 called, we create the storing dir, if it doesn't exist yet, to be
+			 able to save the pixbuf before adding the smiley */
+			if (!g_file_test(dirname, G_FILE_TEST_IS_DIR)) {
+				purple_debug_info("gtksmiley", "Creating smileys directory.\n");
 
-			gdk_pixbuf_save_to_bufferv(s->custom_pixbuf, &buffer, &size,
-									   "png", NULL, NULL, NULL);
+				if (g_mkdir(dirname, S_IRUSR | S_IWUSR | S_IXUSR) < 0) {
+					purple_debug_error("gtksmiley",
+			                   "Unable to create directory %s: %s\n",
+			                   dirname, g_strerror(errno));
+				}
+			}
+			
+			gdk_pixbuf_save_to_buffer(s->custom_pixbuf, &buffer, &size,
+				"png", NULL, "compression", "9", NULL, NULL);
 			filename = purple_util_get_image_filename(buffer, size);
-			s->filename = g_build_filename(purple_smileys_get_storing_dir(), filename, NULL);
+			s->filename = g_build_filename(dirname, filename, NULL);
 			purple_util_write_data_to_file_absolute(s->filename, buffer, size);
 			g_free(filename);
 			g_free(buffer);
@@ -346,7 +367,7 @@ pidgin_smiley_edit(GtkWidget *widget, PurpleSmiley *smiley)
 	window = gtk_dialog_new_with_buttons(smiley ? _("Edit Smiley") : _("Add Smiley"),
 			widget ? GTK_WINDOW(widget) : NULL,
 			GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
-			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,							 
+			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 			smiley ? GTK_STOCK_SAVE : GTK_STOCK_ADD, GTK_RESPONSE_ACCEPT,
 			NULL);
 	s->parent = window;
