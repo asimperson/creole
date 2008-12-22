@@ -50,7 +50,6 @@ typedef struct
 	PurpleAccount *account;
 	char *url;
 	GtkWidget *label;
-	GtkTreeIter iter;
 	int count;
 	gboolean purple_has_handle;
 } PidginNotifyMailData;
@@ -128,7 +127,10 @@ email_response_cb(GtkDialog *dlg, gint id, PidginMailDialog *dialog)
 			purple_notify_uri(NULL, data->url);
 
 			gtk_tree_store_remove(dialog->treemodel, &iter);
-			purple_notify_close(PURPLE_NOTIFY_EMAILS, data);
+			if (data->purple_has_handle)
+				purple_notify_close(PURPLE_NOTIFY_EMAILS, data);
+			else
+				pidgin_close_notify(PURPLE_NOTIFY_EMAILS, data);
 
 			if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(mail_dialog->treemodel), &iter))
 				return;
@@ -362,6 +364,10 @@ pidgin_get_mail_dialog(void)
 		button = gtk_dialog_add_button(GTK_DIALOG(dialog),
 						 PIDGIN_STOCK_OPEN_MAIL, GTK_RESPONSE_YES);
 
+		/* make "Open All Messages" the default response */
+		gtk_dialog_set_default_response(GTK_DIALOG(dialog),
+						GTK_RESPONSE_ACCEPT);
+
 		/* Setup the dialog */
 		gtk_container_set_border_width(GTK_CONTAINER(dialog), PIDGIN_HIG_BOX_SPACE);
 		gtk_container_set_border_width(GTK_CONTAINER(GTK_DIALOG(dialog)->vbox), PIDGIN_HIG_BOX_SPACE);
@@ -483,13 +489,9 @@ pidgin_notify_add_mail(GtkTreeStore *treemodel, PurpleAccount *account, char *no
 								PIDGIN_MAIL_TEXT, notification,
 								PIDGIN_MAIL_DATA, data,
 								-1);
-	data->iter = iter;              /* XXX: Do we use this for something? */
 	data->account = account;
 	data->count = count;
 
-	/* Why is this necessary?*/
-	gtk_tree_model_get(GTK_TREE_MODEL(treemodel), &iter,
-						PIDGIN_MAIL_DATA, &data, -1);
 	if (icon)
 		g_object_unref(icon);
 
@@ -701,7 +703,7 @@ pidgin_notify_formatted(const char *title, const char *primary,
 	gtk_widget_grab_focus(button);
 
 	g_signal_connect_swapped(G_OBJECT(button), "clicked",
-							 G_CALLBACK(gtk_widget_destroy), window);
+							 G_CALLBACK(formatted_close_cb), window);
 	g_signal_connect(G_OBJECT(window), "key_press_event",
 					 G_CALLBACK(formatted_input_cb), NULL);
 
@@ -728,16 +730,12 @@ pidgin_notify_searchresults_new_rows(PurpleConnection *gc, PurpleNotifySearchRes
 	GtkListStore *model = data->model;
 	GtkTreeIter iter;
 	GdkPixbuf *pixbuf;
-	guint col_num;
 	GList *row, *column;
 	guint n;
 
 	gtk_list_store_clear(data->model);
 
 	pixbuf = pidgin_create_prpl_icon(purple_connection_get_account(gc), 0.5);
-
-	/* +1 is for the automagically created Status column. */
-	col_num = g_list_length(results->columns) + 1;
 
 	for (row = results->rows; row != NULL; row = row->next) {
 
@@ -774,6 +772,7 @@ pidgin_notify_searchresults(PurpleConnection *gc, const char *title,
 	guint col_num;
 	GList *columniter;
 	guint i;
+	GList *l;
 
 	GtkWidget *vbox;
 	GtkWidget *label;
@@ -867,8 +866,8 @@ pidgin_notify_searchresults(PurpleConnection *gc, const char *title,
 		i++;
 	}
 
-	for (i = 0; i < g_list_length(results->buttons); i++) {
-		PurpleNotifySearchButton *b = g_list_nth_data(results->buttons, i);
+	for (l = results->buttons; l; l = l->next) {
+		PurpleNotifySearchButton *b = l->data;
 		GtkWidget *button = NULL;
 		switch (b->type) {
 			case PURPLE_NOTIFY_BUTTON_LABELED:

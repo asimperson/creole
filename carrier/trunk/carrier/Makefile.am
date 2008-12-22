@@ -187,6 +187,7 @@ carrier_DEPENDENCIES = @LIBOBJS@
 carrier_LDFLAGS = -export-dynamic
 carrier_LDADD = \
 	@LIBOBJS@ \
+	$(GLIB_LIBS) \
 	$(DBUS_LIBS) \
 	$(GSTREAMER_LIBS) \
 	$(XSS_LIBS) \
