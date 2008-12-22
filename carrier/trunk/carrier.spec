@@ -36,6 +36,7 @@ BuildRequires: gtk2-devel
 %{!?_without_gtkspell:BuildRequires: gtkspell-devel}
 %{?_with_meanwhile:BuildRequires: meanwhile-devel}
 %{?_with_mono:BuildRequires: mono-devel}
+%{?_with_webkit:BuildRequires: WebKit-gtk-devel}
 %{?_with_sasl:BuildRequires: cyrus-sasl-devel >= 2}
 %{!?_without_silc:BuildRequires: /usr/include/silc/silcclient.h}
 %{!?_without_tcl:BuildRequires: tcl, tk, /usr/include/tcl.h}
@@ -74,8 +75,9 @@ Obsoletes:  libgaim-remote0
 # let's assume RH & FC1 are the only brain-dead distros missing the
 # perl-XML-Parser dependency on intltool and that other RH/FC releases
 # don't care if we specify it here
+BuildRequires: perl-ExtUtils-Embed
 BuildRequires: perl-XML-Parser
-BuildRequires: mozilla-nss-devel
+BuildRequires: nss-devel
 %endif
 %endif
 
@@ -228,6 +230,7 @@ CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} \
                                     --disable-schemas-install \
                                     %{!?_with_dbus:--disable-dbus} \
                                     %{!?_with_avahi:--disable-avahi} \
+                                    %{?_with_webkit:--enable-webkit} \
                                     %{!?_with_meanwhile:--disable-meanwhile} \
                                     %{?_without_gstreamer:--disable-gstreamer} \
                                     %{?_without_gtkspell:--disable-gtkspell} \

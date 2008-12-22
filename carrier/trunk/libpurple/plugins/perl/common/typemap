@@ -141,6 +141,7 @@ Purple::Ssl::Ops				T_PurpleObj
 
 Purple::Presence				T_PurpleObj
 Purple::PresenceContext			T_IV
+Purple::Smiley				T_PurpleObj
 Purple::Status				T_PurpleObj
 Purple::StatusAttr			T_PurpleObj
 Purple::StatusPrimitive			T_IV
@@ -163,6 +164,14 @@ XMLNode::Type				T_IV
 
 /* enums */
 
+/* certificate.h */
+Purple::Certificate				T_PurpleObj
+Purple::Certificate::Pool			T_PurpleObj
+Purple::Certificate::Scheme			T_PurpleObj
+Purple::Certificate::Verifier			T_PurpleObj
+Purple::Certificate::VerificationRequest	T_PurpleObj
+Purple::Certificate::VerificationStatus		T_IV
+
 /* cipher.h */
 Purple::Cipher::BatchMode	T_IV
 
@@ -182,6 +191,9 @@ Purple::UnseenState			T_IV
 /* connection.h */
 Purple::ConnectionFlags			T_IV
 Purple::ConnectionState			T_IV
+
+/* whiteboard.h */
+Purple::Whiteboard			T_PurpleObj
 
 INPUT
 

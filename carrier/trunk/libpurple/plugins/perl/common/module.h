@@ -84,6 +84,14 @@ typedef PurpleGroup *			Purple__BuddyList__Group;
 /* buddyicon.h */
 typedef PurpleBuddyIcon *			Purple__Buddy__Icon;
 
+/* certificate.h */
+typedef PurpleCertificate *			Purple__Certificate;
+typedef PurpleCertificatePool *			Purple__Certificate__Pool;
+typedef PurpleCertificateScheme *		Purple__Certificate__Scheme;
+typedef PurpleCertificateVerifier *		Purple__Certificate__Verifier;
+typedef PurpleCertificateVerificationRequest *	Purple__Certificate__VerificationRequest;
+typedef PurpleCertificateVerificationStatus	Purple__Certificate__VerificationStatus;
+
 /* cipher.h */
 typedef PurpleCipher *			Purple__Cipher;
 typedef PurpleCipherCaps			Purple__CipherCaps;
@@ -237,6 +245,9 @@ typedef PurpleRoomlistRoomType		Purple__RoomlistRoomType;
 typedef PurpleSavedStatus *		Purple__SavedStatus;
 typedef PurpleSavedStatusSub *		Purple__SavedStatus__Sub;
 
+/* smiley.h */
+typedef PurpleSmiley *		Purple__Smiley;
+
 /* sound.h */
 typedef PurpleSoundEventID		Purple__SoundEventID;
 
@@ -264,6 +275,9 @@ typedef PurpleMenuAction *		Purple__Menu__Action;
 
 /* value.h */
 typedef PurpleValue *			Purple__Value;
+
+/* whiteboard.h */
+typedef PurpleWhiteboard *		Purple__Whiteboard;
 
 /* xmlnode.h */
 typedef xmlnode *			Purple__XMLNode;
