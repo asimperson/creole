@@ -1,0 +1,252 @@
+AIM Kick/Ban/Unban Functionality by echoline < http://developer.pidgin.im/ticket/1251 >
+
+Index: carrier/libpurple/protocols/oscar/family_chat.c
+===================================================================
+--- carrier.orig/libpurple/protocols/oscar/family_chat.c
++++ carrier/libpurple/protocols/oscar/family_chat.c
+@@ -591,6 +591,62 @@ snachandler(OscarData *od, FlapConnectio
+ 	return 0;
+ }
+ 
++/*
++ * Subtype 0x0024 - Ban a user from a chat.
++ */
++int
++aim_chat_ban(OscarData *od, FlapConnection *conn, const char *sn)
++{
++	FlapFrame *fr;
++	aim_snacid_t snacid;
++	guint8 sn_length;
++
++	sn_length = strlen(sn);
++
++	if (!od || !conn || !sn || !sn_length)
++		return 0;
++
++	if (!(fr = flap_frame_new(od, 0x02, 11+sn_length)))
++		return -ENOMEM;
++
++	snacid = aim_cachesnac(od, 0x000e, 0x0024, 0x0000, NULL, 0);
++	aim_putsnac(&fr->data, 0x000e, 0x0024, 0x0000, snacid);
++	byte_stream_put8(&fr->data, sn_length);
++	byte_stream_putraw(&fr->data, (void*)sn, sn_length);
++	
++	flap_connection_send(conn, fr);
++
++	return 0;
++}
++
++/*
++ * Subtype 0x0025 - Unban a user from a chat.
++ */
++int
++aim_chat_unban(OscarData *od, FlapConnection *conn, const char *sn)
++{
++	FlapFrame *fr;
++	aim_snacid_t snacid;
++	guint8 sn_length;
++
++	sn_length = strlen(sn);
++
++	if (!od || !conn || !sn || !sn_length)
++		return 0;
++
++	if (!(fr = flap_frame_new(od, 0x02, 11+sn_length)))
++		return -ENOMEM;
++
++	snacid = aim_cachesnac(od, 0x000e, 0x0025, 0x0000, NULL, 0);
++	aim_putsnac(&fr->data, 0x000e, 0x0025, 0x0000, snacid);
++	byte_stream_put8(&fr->data, sn_length);
++	byte_stream_putraw(&fr->data, (void*)sn, sn_length);
++	
++	flap_connection_send(conn, fr);
++	
++	return 0;
++}
++
+ int
+ chat_modfirst(OscarData *od, aim_module_t *mod)
+ {
+Index: carrier/libpurple/protocols/oscar/oscar.c
+===================================================================
+--- carrier.orig/libpurple/protocols/oscar/oscar.c
++++ carrier/libpurple/protocols/oscar/oscar.c
+@@ -34,6 +34,7 @@
+ #include "accountopt.h"
+ #include "buddyicon.h"
+ #include "cipher.h"
++#include "cmds.h"
+ #include "conversation.h"
+ #include "core.h"
+ #include "debug.h"
+@@ -6845,6 +6846,136 @@ static gboolean oscar_uri_handler(const 
+ 	return FALSE;
+ }
+ 
++int oscar_chat_ban(PurpleConnection *gc, int id, const char *screenname) {
++	OscarData *od = (OscarData *)gc->proto_data;
++	PurpleConversation *conv = NULL;
++	struct chat_connection *c = NULL;
++
++	if (!(conv = purple_find_chat(gc, id)))
++		return -EINVAL;
++
++	if (!(c = find_oscar_chat_by_conv(gc, conv)))
++		return -EINVAL;
++
++	aim_chat_ban(od, c->conn, screenname);
++
++	return 0;
++}
++
++static PurpleCmdRet
++ban_command_cb(PurpleConversation *conv, const gchar *cmd,
++		gchar **args, gchar **error, void *data)
++{
++	PurpleConnection *gc = NULL;
++	char *screenname;
++	int id;
++
++	if (!(gc = purple_conversation_get_gc(conv)))
++		return PURPLE_CMD_RET_FAILED;
++
++	if (!(id = purple_conv_chat_get_id(conv->u.chat)))
++		return PURPLE_CMD_RET_FAILED;
++
++	screenname = purple_markup_strip_html(args[0]);
++
++	if (oscar_chat_ban(gc, id, screenname) != 0)
++		return PURPLE_CMD_RET_FAILED;
++
++	return PURPLE_CMD_RET_OK;
++}
++
++int oscar_chat_unban(PurpleConnection *gc, int id, const char *screenname) {
++	OscarData *od = (OscarData *)gc->proto_data;
++	PurpleConversation *conv = NULL;
++	struct chat_connection *c = NULL;
++
++	if (!(conv = purple_find_chat(gc, id)))
++		return -EINVAL;
++
++	if (!(c = find_oscar_chat_by_conv(gc, conv)))
++		return -EINVAL;
++
++	aim_chat_unban(od, c->conn, screenname);
++
++	return 0;
++}
++
++static PurpleCmdRet
++unban_command_cb(PurpleConversation *conv, const gchar *cmd,
++		gchar **args, gchar **error, void *data)
++{
++	PurpleConnection *gc = NULL;
++	char *screenname;
++	int id;
++
++	if (!(gc = purple_conversation_get_gc(conv)))
++		return PURPLE_CMD_RET_FAILED;
++
++	if (!(id = purple_conv_chat_get_id(conv->u.chat)))
++		return PURPLE_CMD_RET_FAILED;
++
++	screenname = purple_markup_strip_html(args[0]);
++
++	if (oscar_chat_unban(gc, id, screenname) != 0)
++		return PURPLE_CMD_RET_FAILED;
++
++	return PURPLE_CMD_RET_OK;
++}
++
++int oscar_chat_kick(PurpleConnection *gc, int id, const char *screenname) {
++	OscarData *od = (OscarData *)gc->proto_data;
++	PurpleConversation *conv = NULL;
++	struct chat_connection *c = NULL;
++
++	if (!(conv = purple_find_chat(gc, id)))
++		return -EINVAL;
++
++	if (!(c = find_oscar_chat_by_conv(gc, conv)))
++		return -EINVAL;
++
++	aim_chat_ban(od, c->conn, screenname);
++	aim_chat_unban(od, c->conn, screenname);
++
++	return 0;
++}
++
++static PurpleCmdRet
++kick_command_cb(PurpleConversation *conv, const gchar *cmd,
++		gchar **args, gchar **error, void *data)
++{
++	PurpleConnection *gc = NULL;
++	char *screenname;
++	int id;
++
++	if (!(gc = purple_conversation_get_gc(conv)))
++		return PURPLE_CMD_RET_FAILED;
++
++	if (!(id = purple_conv_chat_get_id(conv->u.chat)))
++		return PURPLE_CMD_RET_FAILED;
++
++	screenname = purple_markup_strip_html(args[0]);
++
++	if (oscar_chat_kick(gc, id, screenname) != 0)
++		return PURPLE_CMD_RET_FAILED;
++
++	return PURPLE_CMD_RET_OK;
++}
++
++static void
++oscar_register_cmds(void) {
++	purple_cmd_register("ban", "S", PURPLE_CMD_P_PRPL,
++			  PURPLE_CMD_FLAG_CHAT, "prpl-oscar",
++			  ban_command_cb, _("ban &lt;screenname&gt;:  Ban someone from a chat if you created it."), NULL);
++
++	purple_cmd_register("unban", "S", PURPLE_CMD_P_PRPL,
++			  PURPLE_CMD_FLAG_CHAT, "prpl-oscar",
++			  unban_command_cb, _("unban &lt;screenname&gt;:  Unban someone from a chat if you created it."), NULL);
++
++	purple_cmd_register("kick", "S", PURPLE_CMD_P_PRPL,
++			  PURPLE_CMD_FLAG_CHAT, "prpl-oscar",
++			  kick_command_cb, _("kick &lt;screenname&gt;:  Kick someone from a chat if you created it."), NULL);
++}
++
+ void oscar_init(PurplePluginProtocolInfo *prpl_info)
+ {
+ 	PurpleAccountOption *option;
+@@ -6879,5 +7010,8 @@ void oscar_init(PurplePluginProtocolInfo
+ 	/* TODO: figure out a good instance to use here */
+ 	purple_signal_connect(purple_get_core(), "uri-handler", &init,
+ 		PURPLE_CALLBACK(oscar_uri_handler), NULL);
++
++	/* slash commands */
++	oscar_register_cmds();
+ }
+ 
+Index: carrier/libpurple/protocols/oscar/oscar.h
+===================================================================
+--- carrier.orig/libpurple/protocols/oscar/oscar.h
++++ carrier/libpurple/protocols/oscar/oscar.h
+@@ -1637,6 +1637,9 @@ int aim_chat_readroominfo(ByteStream *bs
+ 
+ void flap_connection_destroy_chat(OscarData *od, FlapConnection *conn);
+ 
++int aim_chat_unban(OscarData *od, FlapConnection *conn, const char *sn);
++int aim_chat_ban(OscarData *od, FlapConnection *conn, const char *sn);
++
+ #ifdef __cplusplus
+ }
+ #endif
+Index: carrier/libpurple/protocols/oscar/oscarcommon.h
+===================================================================
+--- carrier.orig/libpurple/protocols/oscar/oscarcommon.h
++++ carrier/libpurple/protocols/oscar/oscarcommon.h
+@@ -90,3 +90,6 @@ PurpleXfer *oscar_new_xfer(PurpleConnect
+ gboolean oscar_offline_message(const PurpleBuddy *buddy);
+ GList *oscar_actions(PurplePlugin *plugin, gpointer context);
+ void oscar_init(PurplePluginProtocolInfo *prpl_info);
++int oscar_chat_ban(PurpleConnection *gc, int id, const char *screenname);
++int oscar_chat_unban(PurpleConnection *gc, int id, const char *screenname);
++int oscar_chat_kick(PurpleConnection *gc, int id, const char *screenname);
