@@ -1,0 +1,13 @@
+Bonus Patches (09.01.09 - Maxious <maxious@lambdacomplex.org>)
+
+Releases of Carrier now include some extra patches that are not applied 
+directly to the source code as is. Some users may wish to use an 
+unmodified libpurple for distribution or stablility reasons.
+
+To use the patch series, you must have the quilt tool which is 
+available at http://savannah.nongnu.org/projects/quilt or through most
+package managers.
+
+You then do a "quilt push -a", "sh autogen.sh" and compile as usual.
+
+
