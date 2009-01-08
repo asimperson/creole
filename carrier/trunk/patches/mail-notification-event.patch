@@ -1,0 +1,180 @@
+Mail Notification Event patch by bl4 < http://developer.pidgin.im/ticket/780 >
+
+==================================================================
+Index: carrier/gtknotify.c
+===================================================================
+--- carrier/gtknotify.c.orig
++++ carrier/gtknotify.c
+@@ -38,6 +38,7 @@
+ #include "gtkimhtml.h"
+ #include "gtknotify.h"
+ #include "gtkutils.h"
++#include "gtkdocklet.h"
+ 
+ typedef struct
+ {
+@@ -94,6 +95,7 @@ struct _PidginMailDialog
+ };
+ 
+ static PidginMailDialog *mail_dialog = NULL;
++static gboolean new_mail = FALSE;
+ 
+ static void *pidgin_notify_emails(PurpleConnection *gc, size_t count, gboolean detailed,
+ 									const char **subjects,
+@@ -336,6 +338,8 @@ static int
+ mail_window_focus_cb(GtkWidget *widget, GdkEventFocus *focus, gpointer null)
+ {
+ 	pidgin_set_urgent(GTK_WINDOW(widget), FALSE);
++	new_mail = FALSE;
++	pidgin_docklet_update_icon(); /* restore tray icon */
+ 	return 0;
+ }
+ 
+@@ -516,6 +520,8 @@ pidgin_notify_emails(PurpleConnection *g
+ 		return NULL;
+ 
+ 	account = purple_connection_get_account(gc);
++	new_mail = TRUE;
++	pidgin_docklet_update_icon(); /* change tray icon */
+ 	dialog = pidgin_get_mail_dialog();  /* This creates mail_dialog if necessary */
+ 
+ 	mail_dialog->total_count += count;
+@@ -1256,3 +1262,9 @@ pidgin_notify_get_ui_ops(void)
+ {
+ 	return &ops;
+ }
++
++gboolean
++pidgin_notify_is_new_mail(void)
++{
++	return new_mail;
++}
+Index: carrier/gtknotify.h
+===================================================================
+--- carrier/gtknotify.h.orig
++++ carrier/gtknotify.h
+@@ -34,5 +34,6 @@
+  * @return The GTK+ UI notify operations structure.
+  */
+ PurpleNotifyUiOps *pidgin_notify_get_ui_ops(void);
++gboolean pidgin_notify_is_new_mail(void);
+ 
+ #endif /* _PIDGINNOTIFY_H_ */
+Index: carrier/gtkdocklet.c
+===================================================================
+--- carrier/gtkdocklet.c.orig
++++ carrier/gtkdocklet.c
+@@ -43,6 +43,7 @@
+ #include "pidginstock.h"
+ #include "gtkdocklet.h"
+ #include "gtkdialogs.h"
++#include "gtknotify.h"
+ 
+ #ifndef DOCKLET_TOOLTIP_LINE_LIMIT
+ #define DOCKLET_TOOLTIP_LINE_LIMIT 5
+@@ -759,8 +760,13 @@ docklet_menu(void)
+ void
+ pidgin_docklet_update_icon()
+ {
+-	if (ui_ops && ui_ops->update_icon)
+-		ui_ops->update_icon(status, connecting, pending);
++	if (ui_ops && ui_ops->update_icon) {
++		if (pidgin_notify_is_new_mail() == TRUE) {
++			ui_ops->update_icon(status, FALSE, TRUE);
++		} else {
++			ui_ops->update_icon(status, connecting, pending);
++		}
++	}
+ }
+ 
+ void
+Index: carrier/gtksound.c
+===================================================================
+--- carrier/gtksound.c.orig
++++ carrier/gtksound.c
+@@ -71,6 +71,8 @@ static const struct pidgin_sound_event s
+ 	/* this isn't a terminator, it's the buddy pounce default sound event ;-) */
+ 	{NULL, "pounce_default", "alert.wav"},
+ 	{N_("Someone says your username in chat"), "nick_said", "alert.wav"}
++	{N_("Mail received"), "mail_recv", "receive.wav"}
++
+ };
+ 
+ static gboolean
+@@ -215,6 +217,22 @@ chat_msg_received_cb(PurpleAccount *acco
+ 		play_conv_event(conv, event);
+ }
+ 
++static void
++email_received_cb(const char *subject, const char *from,
++				  const char *to, const char *url,
++				  PurpleSoundEventID event)
++{
++	purple_sound_play_event(event, NULL);
++}
++
++static void
++emails_received_cb(const char **subjects, const char **froms,
++				  const char **tos, const char **urls,
++				  PurpleSoundEventID event)
++{
++	purple_sound_play_event(event, NULL);
++}
++
+ /*
+  * We mute sounds for the 10 seconds after you log in so that
+  * you don't get flooded with sounds when the blist shows all
+@@ -261,6 +279,7 @@ pidgin_sound_init(void)
+ 	void *gtk_sound_handle = pidgin_sound_get_handle();
+ 	void *blist_handle = purple_blist_get_handle();
+ 	void *conv_handle = purple_conversations_get_handle();
++	void *notify_handle = purple_notify_get_handle();
+ #ifdef USE_GSTREAMER
+ 	GError *error = NULL;
+ #endif
+@@ -292,6 +311,8 @@ pidgin_sound_init(void)
+ 	purple_prefs_add_path(PIDGIN_PREFS_ROOT "/sound/file/chat_msg_recv", "");
+ 	purple_prefs_add_bool(PIDGIN_PREFS_ROOT "/sound/enabled/nick_said", FALSE);
+ 	purple_prefs_add_path(PIDGIN_PREFS_ROOT "/sound/file/nick_said", "");
++	purple_prefs_add_bool(PIDGIN_PREFS_ROOT "/sound/enabled/mail_recv", TRUE);
++	purple_prefs_add_path(PIDGIN_PREFS_ROOT "/sound/file/mail_recv", "");
+ 	purple_prefs_add_bool(PIDGIN_PREFS_ROOT "/sound/enabled/pounce_default", TRUE);
+ 	purple_prefs_add_path(PIDGIN_PREFS_ROOT "/sound/file/pounce_default", "");
+ 	purple_prefs_add_bool(PIDGIN_PREFS_ROOT "/sound/conv_focus", TRUE);
+@@ -340,6 +361,12 @@ pidgin_sound_init(void)
+ 	purple_signal_connect(conv_handle, "received-chat-msg",
+ 						gtk_sound_handle, PURPLE_CALLBACK(chat_msg_received_cb),
+ 						GINT_TO_POINTER(PURPLE_SOUND_CHAT_SAY));
++	purple_signal_connect(notify_handle, "displaying-email-notification",
++						gtk_sound_handle, PURPLE_CALLBACK(email_received_cb),
++						GINT_TO_POINTER(PURPLE_SOUND_MAIL_RECEIVE));
++	purple_signal_connect(notify_handle, "displaying-emails-notification",
++						gtk_sound_handle, PURPLE_CALLBACK(emails_received_cb),
++						GINT_TO_POINTER(PURPLE_SOUND_MAIL_RECEIVE));
+ }
+ 
+ static void
+Index: libpurple/sound.h
+===================================================================
+--- libpurple/sound.h.orig
++++ libpurple/sound.h
+@@ -51,6 +51,7 @@ typedef enum _PurpleSoundEventID
+ 	PURPLE_SOUND_CHAT_SAY,         /**< Someone else says somthing in a chat. */
+ 	PURPLE_SOUND_POUNCE_DEFAULT,   /**< Default sound for a buddy pounce.     */
+ 	PURPLE_SOUND_CHAT_NICK,        /**< Someone says your name in a chat.     */
++	PURPLE_SOUND_MAIL_RECEIVE,     /**< Receive a mail.                       */
+ 	PURPLE_NUM_SOUNDS              /**< Total number of sounds.               */
+ 
+ } PurpleSoundEventID;
+Index: finch/gntsound.c
+===================================================================
+--- finch/gntsound.c.orig
++++ finch/gntsound.c
+@@ -104,6 +104,7 @@ static FinchSoundEvent sounds[PURPLE_NUM
+ 	{PURPLE_SOUND_CHAT_SAY,     N_("Others talk in chat"), "chat_msg_recv", "receive.wav", NULL},
+ 	{PURPLE_SOUND_POUNCE_DEFAULT, NULL, "pounce_default", "alert.wav", NULL},
+ 	{PURPLE_SOUND_CHAT_NICK,    N_("Someone says your username in chat"), "nick_said", "alert.wav", NULL}
++	{PURPLE_SOUND_MAIL_RECEIVE,    N_("Mail received"), "mail_recv", "receive.wav", NULL}
+ };
+ 
+ const char *
