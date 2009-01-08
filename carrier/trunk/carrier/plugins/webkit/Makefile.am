@@ -1,19 +1,19 @@
 
 webkittemplatedir = $(datadir)/carrier/webkit
-nobase_webkittemplate_DATA = Template.html \
-	defaultstyle/Contents/Resources/background.png \
-	defaultstyle/Contents/Resources/main.css \
-	defaultstyle/Contents/Resources/Status.html \
-	defaultstyle/Contents/Resources/Incoming/buddy_icon.png \
-	defaultstyle/Contents/Resources/Incoming/Content.html \
-	defaultstyle/Contents/Resources/Incoming/Context.html \
-	defaultstyle/Contents/Resources/Incoming/NextContent.html \
-	defaultstyle/Contents/Resources/Incoming/NextContext.html \
-	defaultstyle/Contents/Resources/Outgoing/buddy_icon.png \
-	defaultstyle/Contents/Resources/Outgoing/Content.html \
-	defaultstyle/Contents/Resources/Outgoing/Context.html \
-	defaultstyle/Contents/Resources/Outgoing/NextContent.html \
-	defaultstyle/Contents/Resources/Outgoing/NextContext.html
+nobase_webkittemplate_DATA = Cloudbourne.AdiumMessageStyle/Contents/Resources/background.png \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/main.css \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Status.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Template.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Incoming/buddy_icon.png \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Incoming/Content.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Incoming/Context.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Incoming/NextContent.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Incoming/NextContext.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Outgoing/buddy_icon.png \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Outgoing/Content.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Outgoing/Context.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Outgoing/NextContent.html \
+	Cloudbourne.AdiumMessageStyle/Contents/Resources/Outgoing/NextContext.html
 
 
 webkitdir = $(libdir)/pidgin
@@ -27,7 +27,7 @@ if PLUGINS
 
 webkit_LTLIBRARIES = webkit.la
 
-webkit_la_SOURCES = webkit.c
+webkit_la_SOURCES = webkit.c prefs.c
 
 endif
 
