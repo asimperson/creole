@@ -79,7 +79,7 @@ Index: carrier/libpurple/protocols/oscar/oscar.c
  #include "conversation.h"
  #include "core.h"
  #include "debug.h"
-@@ -6845,6 +6846,136 @@ static gboolean oscar_uri_handler(const 
+@@ -6849,6 +6850,136 @@ static gboolean oscar_uri_handler(const 
  	return FALSE;
  }
  
@@ -216,7 +216,7 @@ Index: carrier/libpurple/protocols/oscar/oscar.c
  void oscar_init(PurplePluginProtocolInfo *prpl_info)
  {
  	PurpleAccountOption *option;
-@@ -6879,5 +7010,8 @@ void oscar_init(PurplePluginProtocolInfo
+@@ -6883,5 +7014,8 @@ void oscar_init(PurplePluginProtocolInfo
  	/* TODO: figure out a good instance to use here */
  	purple_signal_connect(purple_get_core(), "uri-handler", &init,
  		PURPLE_CALLBACK(oscar_uri_handler), NULL);
