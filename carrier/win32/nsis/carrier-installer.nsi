@@ -128,7 +128,7 @@ ReserveFile "${NSISDIR}\Plugins\System.dll"
   !define MUI_FINISHPAGE_RUN			"$INSTDIR\carrier.exe"
   !define MUI_FINISHPAGE_RUN_NOTCHECKED
   !define MUI_FINISHPAGE_LINK			$(PIDGIN_FINISH_VISIT_WEB_SITE)
-  !define MUI_FINISHPAGE_LINK_LOCATION		"http://pidgin.im"
+  !define MUI_FINISHPAGE_LINK_LOCATION	"http://funpidgin.sourceforge.net"
 
 ;--------------------------------
 ;Pages

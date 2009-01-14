@@ -17,11 +17,11 @@ VS_VERSION_INFO VERSIONINFO
     BEGIN
       BLOCK "040904B0"
       BEGIN
-        VALUE "CompanyName", "The Pidgin developer community"
+        VALUE "CompanyName", "The Carrier developer community"
         VALUE "FileDescription", "Carrier"
         VALUE "FileVersion", "@PIDGIN_VERSION@"
         VALUE "InternalName", "carrier"
-        VALUE "LegalCopyright", "Copyright (C) 1998-2007 The Pidgin developer community (See the COPYRIGHT file in the source distribution)."
+        VALUE "LegalCopyright", "Copyright (C) 1998-2009 The Pidgin and Carrier developer communities (See the COPYRIGHT file in the source distribution)."
         VALUE "OriginalFilename", "@ORIGINAL_FILENAME@"
         VALUE "ProductName", "Carrier"
         VALUE "ProductVersion", "@PIDGIN_VERSION@"
