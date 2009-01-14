@@ -864,7 +864,7 @@ Index: libpurple/protocols/jabber/disco.c
  	const char *from = xmlnode_get_attrib(packet, "from");
  	const char *type = xmlnode_get_attrib(packet, "type");
  
-@@ -549,4 +555,300 @@ void jabber_disco_info_do(JabberStream *
+@@ -556,4 +562,300 @@ void jabber_disco_info_do(JabberStream *
  	jabber_iq_send(iq);
  }
  
@@ -1182,15 +1182,14 @@ Index: libpurple/protocols/jabber/jabber.h
 ===================================================================
 --- libpurple/protocols/jabber/jabber.h.orig
 +++ libpurple/protocols/jabber/jabber.h
-@@ -43,6 +43,8 @@ typedef enum {
+@@ -43,6 +43,7 @@ typedef enum {
  	JABBER_CAP_PING			  = 1 << 11,
  	JABBER_CAP_ADHOC		  = 1 << 12,
- 	
-+	JABBER_CAP_ITEMS          = 1 << 13,
-+
+ 	JABBER_CAP_BLOCKING       = 1 << 13,
++	JABBER_CAP_ITEMS          = 1 << 14,
+ 
  	JABBER_CAP_RETRIEVED      = 1 << 31
  } JabberCapabilities;
- 
 Index: libpurple/protocols/jabber/libxmpp.c
 ===================================================================
 --- libpurple/protocols/jabber/libxmpp.c.orig
@@ -1296,7 +1295,7 @@ Index: carrier/gtkblist.c
  	{ N_("/Tools/R_oom List"), NULL, pidgin_roomlist_dialog_show, 0, "<Item>", NULL },
  	{ N_("/Tools/System _Log"), NULL, gtk_blist_show_systemlog_cb, 3, "<Item>", NULL },
  	{ "/Tools/sep3", NULL, NULL, 0, "<Separator>", NULL },
-@@ -4160,6 +4162,9 @@ update_menu_bar(PidginBuddyList *gtkblis
+@@ -4159,6 +4161,9 @@ update_menu_bar(PidginBuddyList *gtkblis
  
  	widget = gtk_item_factory_get_widget(gtkblist->ift, N_("/Tools/Room List"));
  	gtk_widget_set_sensitive(widget, pidgin_roomlist_is_showable());
