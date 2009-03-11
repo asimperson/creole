@@ -24,7 +24,7 @@ Release:    0%{?beta:.beta%{beta}}
 License:    GPL
 Group:      Applications/Internet
 URL:        http://pidgin.im/
-Source:     %{name}-2.5.4.tar.bz2
+Source:     %{name}-2.5.5.tar.bz2
 BuildRoot:  %{_tmppath}/%{name}-%{version}-root
 
 # Generic build requirements
@@ -215,7 +215,7 @@ and plugins.
 %endif
 
 %prep
-%setup -q -n %{name}-2.5.4
+%setup -q -n %{name}-2.5.5
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} \
