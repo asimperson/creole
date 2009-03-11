@@ -34,6 +34,9 @@ Novell GroupWise, Lotus Sametime, Zephyr, Gadu-Gadu, and QQ all at once. It has
 many common features found in other clients, as well as many unique features.
 Carrier is not endorsed by or affiliated with America Online, ICQ, Microsoft, or
 Yahoo.
+.PP
+Pidgin can be extended by plugins written in multiple programming languages and
+controlled through DBus or \fBpurple-remote\fR.
 
 .SH OPTIONS
 The following options are provided by Carrier using the standard GNU
@@ -642,8 +645,6 @@ Pidgin's active developers are:
 
 Our crazy patch writers include:
 .br
-  Felipe 'shx' Contreras
-.br
   Marcus 'malu' Lundblad
 .br
   Dennis 'EvilDennisR' Ristuccia
@@ -685,6 +686,8 @@ Our retired developers are:
 
 
 Our retired crazy patch writers include:
+.br
+  Felipe 'shx' Contreras
 .br
   Decklin Foster
 .br

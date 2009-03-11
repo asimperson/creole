@@ -106,6 +106,9 @@
 /* Define to 1 if you have the <gnutls/gnutls.h> header file. */
 #undef HAVE_GNUTLS_GNUTLS_H
 
+/* Define if your gnutls has gnutls_priority_set_direct and friends */
+#undef HAVE_GNUTLS_PRIORITY_FUNCS
+
 /* Define to 1 if you have the `inet_ntop' function. */
 #undef HAVE_INET_NTOP
 
