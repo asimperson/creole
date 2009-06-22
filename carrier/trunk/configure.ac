@@ -73,7 +73,7 @@ spaces and run configure again.
 fi
 
 AC_CANONICAL_SYSTEM
-AM_CONFIG_HEADER(config.h)
+AM_CONFIG_HEADER([config.h])
 AM_INIT_AUTOMAKE([1.9 -Wno-portability dist-bzip2])
 
 PURPLE_MAJOR_VERSION=purple_major_version
