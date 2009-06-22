@@ -9,13 +9,13 @@
 #define beta 7
 
 %if 0%{?beta}
-%define carrierver %(echo "2.5.4"|sed -e 's/dev.*//; s/beta.*//')
+%define carrierver %(echo "2.5.7"|sed -e 's/dev.*//; s/beta.*//')
 %else
-%define carrierver 2.5.4
+%define carrierver 2.5.7
 %endif
 
 # define the minimum API version required, so we can use it for plugin deps
-%define apiver %(echo "2.5.4"|awk -F. '{print $1"."$2}')
+%define apiver %(echo "2.5.7"|awk -F. '{print $1"."$2}')
 
 Summary:    A GTK+ based multiprotocol instant messaging client
 Name:       carrier
@@ -23,8 +23,8 @@ Version:    %carrierver
 Release:    0%{?beta:.beta%{beta}}
 License:    GPL
 Group:      Applications/Internet
-URL:        http://pidgin.im/
-Source:     %{name}-2.5.5.tar.bz2
+URL:        http://carrier.im/
+Source:     %{name}-2.5.7.tar.bz2
 BuildRoot:  %{_tmppath}/%{name}-%{version}-root
 
 # Generic build requirements
@@ -215,7 +215,7 @@ and plugins.
 %endif
 
 %prep
-%setup -q -n %{name}-2.5.5
+%setup -q -n %{name}-2.5.7
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} \
