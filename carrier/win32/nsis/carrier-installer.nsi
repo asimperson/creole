@@ -813,7 +813,7 @@ Section Uninstall
 
     ; Shortcuts..
     Delete "$DESKTOP\Carrier.lnk"
-
+    Delete "$SMPROGRAMS\Carrier.lnk"
     Goto done
 
   cant_uninstall:
