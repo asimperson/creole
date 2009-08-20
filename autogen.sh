@@ -1110,7 +1110,7 @@ if [ "x$HAVE_AUTORECONF" = "xyes" ] ; then
 	$ECHO "Warning: $AUTORECONF failed"
 
 	if test -f ltmain.sh ; then
-	    $ECHO "libtoolize being run by autoreconf is not creating ltmain.sh in the auxillary directory like it should"
+	    $ECHO "libtoolize being run by autoreconf is not creating ltmain.sh in the auxillary directory like it should. Maybe you need to run intltoolize from the intltool package"
 	fi
 
 	$ECHO "Attempting to run the preparation steps individually"

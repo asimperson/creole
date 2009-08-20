@@ -1,3 +1,2 @@
 aim-chat-ban-unban.patch
-jabber-service-discovery.patch -p0
 mail-notification-event.patch -p0
