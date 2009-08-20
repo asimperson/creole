@@ -1,3 +1,6 @@
+2009.04.23 - flos <lonicerae(at)gmail.com>
+	* Fixed a bug of updating buddy who is not in user's buddy list
+
 2009.02.25 - flos <lonicerae(at)gmail.com>
 	* Changed text 'ZipCode' to 'Postal Code'
 
@@ -198,7 +201,7 @@
 	* Filter chars 0x01-0x20 in nickname
 
 2008.09.05 - ccpaging <ccpaging(at)gmail.com>
-	* Fixed compilation even carrier-udp-patch not applied
+	* Fixed compilation even pidgin-udp-patch not applied
 	* Place and analysis 'before login packet' after login. packages will be updated slowly and server may send lots of 'server command packet', while 'before login packet' is placed after 'finished update'
 
 2008.09.02 - ccpaging <ccpaging(at)gmail.com>
