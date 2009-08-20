@@ -23,22 +23,21 @@ PERL_LIB_TOP ?= $(WIN32_DEV_TOP)/perl-5.10.0
 SILC_TOOLKIT ?= $(WIN32_DEV_TOP)/silc-toolkit-1.1.8
 TCL_LIB_TOP ?= $(WIN32_DEV_TOP)/tcl-8.4.5
 GSTREAMER_TOP ?= $(WIN32_DEV_TOP)/gstreamer-0.10.13
-WEBKIT_TOP ?= $(WIN32_DEV_TOP)/webkit-1.0
 
 # Where we installing this stuff to?
 PIDGIN_INSTALL_DIR := $(PIDGIN_TREE_TOP)/win32-install-dir
 PURPLE_INSTALL_DIR := $(PIDGIN_TREE_TOP)/win32-install-dir
-PIDGIN_INSTALL_PERLMOD_DIR := $(PIDGIN_INSTALL_DIR)/perlmod
 PIDGIN_INSTALL_PLUGINS_DIR := $(PIDGIN_INSTALL_DIR)/plugins
-PURPLE_INSTALL_PERLMOD_DIR := $(PURPLE_INSTALL_DIR)/perlmod
+PIDGIN_INSTALL_PERL_DIR := $(PIDGIN_INSTALL_PLUGINS_DIR)/perl
 PURPLE_INSTALL_PLUGINS_DIR := $(PURPLE_INSTALL_DIR)/plugins
+PURPLE_INSTALL_PERL_DIR := $(PURPLE_INSTALL_PLUGINS_DIR)/perl
 PURPLE_INSTALL_PO_DIR := $(PURPLE_INSTALL_DIR)/locale
 
 # Important (enough) locations in our source code
 PURPLE_TOP := $(PIDGIN_TREE_TOP)/libpurple
 PURPLE_PLUGINS_TOP := $(PURPLE_TOP)/plugins
 PURPLE_PERL_TOP := $(PURPLE_PLUGINS_TOP)/perl
-PIDGIN_TOP := $(PIDGIN_TREE_TOP)/carrier
+PIDGIN_TOP := $(PIDGIN_TREE_TOP)/pidgin
 PIDGIN_IDLETRACK_TOP := $(PIDGIN_TOP)/win32/IdleTracker
 PIDGIN_PIXMAPS_TOP := $(PIDGIN_TOP)/pixmaps
 PIDGIN_PLUGINS_TOP := $(PIDGIN_TOP)/plugins
@@ -48,14 +47,16 @@ PURPLE_PROTOS_TOP := $(PURPLE_TOP)/protocols
 # Locations of important (in-tree) build targets
 PIDGIN_CONFIG_H := $(PIDGIN_TREE_TOP)/config.h
 PURPLE_CONFIG_H := $(PIDGIN_TREE_TOP)/config.h
+PIDGIN_REVISION_H := $(PIDGIN_TREE_TOP)/package_revision.h
+PIDGIN_REVISION_RAW_TXT := $(PIDGIN_TREE_TOP)/package_revision_raw.txt
 PIDGIN_IDLETRACK_DLL := $(PIDGIN_IDLETRACK_TOP)/idletrack.dll
 PURPLE_PURPLE_H := $(PURPLE_TOP)/purple.h
 PURPLE_VERSION_H := $(PURPLE_TOP)/version.h
 PURPLE_DLL := $(PURPLE_TOP)/libpurple.dll
 PURPLE_PERL_DLL := $(PURPLE_PERL_TOP)/perl.dll
 PIDGIN_DLL := $(PIDGIN_TOP)/pidgin.dll
-PIDGIN_EXE := $(PIDGIN_TOP)/carrier.exe
-PIDGIN_PORTABLE_EXE := $(PIDGIN_TOP)/carrier-portable.exe
+PIDGIN_EXE := $(PIDGIN_TOP)/pidgin.exe
+PIDGIN_PORTABLE_EXE := $(PIDGIN_TOP)/pidgin-portable.exe
 
 GCCWARNINGS ?= -Waggregate-return -Wcast-align -Wdeclaration-after-statement -Werror-implicit-function-declaration -Wextra -Wno-sign-compare -Wno-unused-parameter -Winit-self -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wundef
 
@@ -85,7 +86,6 @@ DEFINES += -DHAVE_CYRUS_SASL
 endif
 
 DEFINES += -DHAVE_CONFIG_H
-DEFINES += -DPIDGIN_DATADIR="﻿﻿../../../win32-install-dir"
 
 # Use -g flag when building debug version of Pidgin (including plugins).
 # Use -fnative-struct instead of -mms-bitfields when using mingw 1.1
@@ -105,6 +105,7 @@ ifeq "$(origin CC)" "default"
 endif
 GMSGFMT ?= $(GTK_BIN)/msgfmt
 MAKENSIS ?= makensis.exe
+MAKENSISOPT ?= /
 PERL ?= /cygdrive/c/perl/bin/perl
 WINDRES ?= windres
 STRIP ?= strip
