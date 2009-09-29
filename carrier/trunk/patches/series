@@ -1,2 +1,3 @@
 aim-chat-ban-unban.patch
 mail-notification-event.patch -p0
+ssl-strong-ciphers.patch

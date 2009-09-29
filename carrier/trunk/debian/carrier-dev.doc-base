@@ -1,0 +1,9 @@
+Document: carrier-dev
+Title: carrier/libpurple API Manual
+Abstract: This manual describes the carrier programming interface
+ for use by carrier/libpurple plugins and scripts.
+Section: Applications/Network/Communication
+
+Format: HTML
+Index: /usr/share/doc/carrier-dev/html/index.html
+Files: /usr/share/doc/carrier-dev/html/*.html

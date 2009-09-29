@@ -1,0 +1,2 @@
+version=3
+http://carrier.im/download/source/ .*/carrier-([\d.]+)\.tar\.bz2
