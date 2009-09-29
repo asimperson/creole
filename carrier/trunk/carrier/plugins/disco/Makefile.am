@@ -1,4 +1,4 @@
-plugindir = $(libdir)/pidgin
+plugindir = $(libdir)/carrier
 
 xmppdisco_la_LDFLAGS = -module -avoid-version
 
@@ -23,6 +23,6 @@ AM_CPPFLAGS = \
 	-DDATADIR=\"$(datadir)\" \
 	-I$(top_srcdir)/libpurple \
 	-I$(top_builddir)/libpurple \
-	-I$(top_srcdir)/pidgin \
+	-I$(top_srcdir)/carrier \
 	$(DEBUG_CFLAGS) \
 	$(GTK_CFLAGS)
