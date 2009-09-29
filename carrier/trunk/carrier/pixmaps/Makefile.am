@@ -1,4 +1,4 @@
-carrierpixmapdir = $(datadir)/pixmaps/carrier
+carrierpixmapdir = $(datadir)/pixmaps/pidgin
 carriericonsdir = $(datadir)
 
 SUBDIRS = emotes/default/24 emotes/oldpidgin/24 emotes/none emotes/small/16
