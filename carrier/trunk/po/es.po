@@ -1269,10 +1269,6 @@ msgstr "Mostrar _siempre las solapas"
 msgid "Use protocol _icons as status icons (requires restart)"
 msgstr "Usar el icono del protocolo en el icono de estado (requiere reinicio)"
 
-#: ../finch/gtkprefs.c:2108
-msgid "_Buddy icon size:"
-msgstr "Tamaño del icono de amigo:"
-
 msgid "Conversations"
 msgstr "Conversaciones"
 
@@ -15253,9 +15249,6 @@ msgstr "Este complemento es útil para depurar clientes o servidores XMPP."
 #~ msgid "Invalid screen name"
 #~ msgstr "Nombre de usuario no válido"
 
-#~ msgid "Screen _name:"
-#~ msgstr "_Nombre de usuario:"
-
 #~ msgid ""
 #~ "%s%s<span weight=\"bold\">Written by:</span>\t%s\n"
 #~ "<span weight=\"bold\">Website:</span>\t\t%s\n"
@@ -15279,11 +15272,6 @@ msgstr "Este complemento es útil para depurar clientes o servidores XMPP."
 #: ../pidgin/plugins/manualsize.c:353
 msgid "Entry area manual sizing"
 msgstr "Redimensionado manual del área de escritura"
-
-#. *< summary
-#: ../pidgin/plugins/manualsize.c:356
-msgid "Allows you to change entry area height"
-msgstr "Permite cambiar la altura del área de escritura"
 
 #. *< description
 #: ../pidgin/plugins/manualsize.c:357
