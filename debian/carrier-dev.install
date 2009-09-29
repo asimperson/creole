@@ -1,0 +1,4 @@
+build/doc/html/*.{html,gif,png} usr/share/doc/carrier-dev/html
+debian/tmp/usr/include/carrier
+debian/tmp/usr/lib/pkgconfig/carrier.pc
+debian/dh_carrier usr/bin

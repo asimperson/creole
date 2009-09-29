@@ -1,0 +1,7 @@
+debian/tmp/etc/gconf
+debian/tmp/usr/bin/carrier
+debian/tmp/usr/lib/carrier
+debian/tmp/usr/share/applications
+debian/tmp/usr/share/man/*/carrier.*
+debian/tmp/usr/share/man/*/Carrier.*
+debian/lintian-override/carrier usr/share/lintian/overrides

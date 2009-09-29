@@ -1,0 +1,4 @@
+?package(carrier):needs="X11" section="Applications/Network/Communication" \
+  title="Carrier" command="/usr/bin/carrier" \
+  longtitle="Multi-protocol Instant Messaging Client" \
+  icon="/usr/share/pixmaps/carrier-menu.xpm"

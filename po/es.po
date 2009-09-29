@@ -8,6 +8,9 @@
 # Copyright (C) June 2002, April 2003, January 2004, March 2004, September 2004,
 # 	      January 2005, 2006-2008, July 2009
 # 		Javier Fernández-Sanguino Peña  <jfs@debian.org>
+# ---
+# 12 May 2008, Add new funpidgin features translation. J.A Nache <nache.nache@gmail.com>
+# ---
 #
 # Agradecemos la ayuda de revisión realizada por:
 # Nathaniel Case, Santiago Erquicia, Francisco Javier F. Serrador,
@@ -1238,6 +1241,38 @@ msgstr "Minutos antes de cambiar el estado"
 msgid "Change status to"
 msgstr "Cambiar estado a"
 
+#: ../finch/gtkprefs.c:2108
+msgid "_Buddy icon size:"
+msgstr "_Tamaño del icono de amigo:"
+
+#: ../finch/gtkprefs.c:2086
+msgid "Show inline typing _notifications"
+msgstr "Mostrar _notificaciones en la linea de escritura"
+
+#: ../finch/gtkprefs.c:2088
+msgid "_Show send button in conversations"
+msgstr "_Mostrar boton enviar en las conversaciones"
+
+#: ../finch/gtkprefs.c:2090
+msgid "_Contrast group titles with background color (requires restart)"
+msgstr "_Resaltar los titulos de grupo con un color de fondo (requiere reinicio)"
+
+#: ../finch/gtkprefs.c:2092
+msgid "_Use native icons wherever possible"
+msgstr "_Usar iconos nativos siempre que sea posible"
+
+#: ../finch/gtkprefs.c:2094
+msgid "_Always show tabs"
+msgstr "Mostrar _siempre las solapas"
+
+#: ../finch/gtkprefs.c:2096
+msgid "Use protocol _icons as status icons (requires restart)"
+msgstr "Usar el icono del protocolo en el icono de estado (requiere reinicio)"
+
+#: ../finch/gtkprefs.c:2108
+msgid "_Buddy icon size:"
+msgstr "Tamaño del icono de amigo:"
+
 msgid "Conversations"
 msgstr "Conversaciones"
 
@@ -1533,7 +1568,7 @@ msgid "<b>Conversation with %s on %s:</b><br>"
 msgstr "<b>Conversación con %s sobre %s:</b><br>"
 
 msgid "History Plugin Requires Logging"
-msgstr "Debe estar conectad para utilizar el complemento de histórico"
+msgstr "Debe estar conectado/a para utilizar el complemento de histórico"
 
 msgid ""
 "Logging can be enabled from Tools -> Preferences -> Logging.\n"
@@ -15218,9 +15253,6 @@ msgstr "Este complemento es útil para depurar clientes o servidores XMPP."
 #~ msgid "Invalid screen name"
 #~ msgstr "Nombre de usuario no válido"
 
-#~ msgid "Invalid screen name."
-#~ msgstr "Nombre de usuario no válido"
-
 #~ msgid "Screen _name:"
 #~ msgstr "_Nombre de usuario:"
 
@@ -15240,6 +15272,23 @@ msgstr "Este complemento es útil para depurar clientes o servidores XMPP."
 #~ "El complemento de disponibilidad de contactos («cap») se utiliza para "
 #~ "mostrar información estadística sobre los amigos en la lista de contactos "
 #~ "de un usuario."
+
+#. *< id
+#. *< name
+#. *< version
+#: ../pidgin/plugins/manualsize.c:353
+msgid "Entry area manual sizing"
+msgstr "Redimensionado manual del área de escritura"
+
+#. *< summary
+#: ../pidgin/plugins/manualsize.c:356
+msgid "Allows you to change entry area height"
+msgstr "Permite cambiar la altura del área de escritura"
+
+#. *< description
+#: ../pidgin/plugins/manualsize.c:357
+msgid "Allows you to change entry area height"
+msgstr "Permite cambiar la altura del área de escritura"
 
 #~ msgid "Pounce only when my status is not available"
 #~ msgstr "Sólo avisar cuando mi estado es «no disponible»"
