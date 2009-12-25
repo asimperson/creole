@@ -7,22 +7,22 @@ EXTRA_DIST = \
 		Makefile.mingw \
 		PLUGIN_HOWTO \
 		README.MTN \
-  		README.mingw \
-  		config.h.mingw \
-  		doxy2devhelp.xsl \
- 		fix-casts.sh \
-  		gaim.pc.in \
-  		gaim-uninstalled.pc.in \
-  		intltool-extract.in \
-  		intltool-merge.in \
-  		intltool-update.in \
- 		package_revision.h \
-  		pidgin.apspec.in \
-  		pidgin.spec.in \
-  		pidgin.desktop.in \
-  		po/Makefile.mingw \
-  		valgrind-suppressions
-  
+		README.mingw \
+		config.h.mingw \
+		doxy2devhelp.xsl \
+		fix-casts.sh \
+		gaim.pc.in \
+		gaim-uninstalled.pc.in \
+		intltool-extract.in \
+		intltool-merge.in \
+		intltool-update.in \
+		package_revision.h \
+		carrier.apspec.in \
+		carrier.spec.in \
+		carrier.desktop.in \
+		po/Makefile.mingw \
+		valgrind-suppressions
+
 noinst_HEADERS = config.h package_revision.h
 
 dist-hook: carrier.spec
@@ -100,13 +100,13 @@ package_revision_raw.txt:
 	|| (cd $(srcdir) && mtn --root=. automate get_base_revision_id) 2>/dev/null >$@ \
 	|| rm -f $@
 package_revision.h: package_revision_raw.txt
-	if [ -f $< ]; then \
-	  sed 's/^\(.\+\)$$/#define REVISION "\1"/' $< > $@; \
+	if test -f $<; then \
+	  echo "#define REVISION \"`cat $<`\"" > $@; \
 	fi
-	if [ ! -f $@ -a -f $(srcdir)/$@ ]; then \
+	if test ! -f $@ -a -f $(srcdir)/$@; then \
 	  cp $(srcdir)/$@ $@; \
 	fi
-	[ -f $@ ] || echo "#define REVISION \"unknown\"" > $@
+	test -f $@ || echo "#define REVISION \"unknown\"" > $@
 
 # This is a magic directive copy-and-pasted, then modified, from the
 # automake 1.9 manual, section 13.4, "Checking the distribution".

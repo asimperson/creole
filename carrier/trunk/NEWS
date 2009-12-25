@@ -2,6 +2,41 @@ Pidgin and Finch: The Pimpin' Penguin IM Clients That're Good for the Soul
 
 Our development blog is available at: http://planet.pidgin.im
 
+2.6.4 (11/29/2009):
+	John:  It's release time again.  Lots of bug fixes this time around, as
+	well as a new protocol plugin developed and maintained by the MXit folks
+	folks.  Elliott and I also did a ton of work on the Preferences window,
+	which will now hopefully fit on most people's small screens.  Enjoy!
+
+	Elliott: This release has been in the works for so long, I don't really
+	remember doing any work on it.  But I do know the MSN servers gave us a
+	little bit of trouble this time around, forgetting people's friendly
+	names.  Nothing too problematic, just a touch annoying.  Also, we've got
+	a nice new Preferences dialog.  You can thank John for that mostly, with
+	a couple of tweaks by me.
+
+	Sadrul: A lot of little fixes for a lot of things! Among them, a fix
+	for a long standing issue with displaying unicode in non-utf8 locale in
+	finch. We also have a new prpl for MXit. This release is very very cool
+	altogether. Enjoy!
+
+2.6.3 (10/16/2009):
+	Mark: Someone reported a fairly serious bug in our AIM/ICQ code
+	so we're releasing a special "severe bug fix only" build.  See the
+	ChangeLog for details.  Enjoy!
+
+2.6.2 (09/05/2009):
+	Mark: Woo boy it's been a busy two weeks.  There was a lot of new code
+	in 2.6.0, and with new code comes new bugs.  The cadre of relentless
+	developers responsible for Pidgin have been hard at work, and I believe
+	they have fixed all the major bugs that cropped up.  My thanks to all
+	those names listed as Current Developers in Pidgin's 'About' window.
+
+	Elliott: Well now, just as Mark said, there was a lot of new stuff that
+	probably came up with tons of bugs.  So I can't say I wrote anything
+	super-awesome, but I definitely fixed quite a few of those itty-bitty
+	why-didn't-this-work-this-way sort of bugs.
+
 2.6.1 (08/18/2009):
 	Mark: There were a lot of changes in 2.6.0, and so a few major bugs
 	crept in.  This is a very minor release to fix those bugs.  Sorry for

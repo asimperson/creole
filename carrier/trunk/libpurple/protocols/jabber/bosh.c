@@ -1,7 +1,9 @@
 /*
  * purple - Jabber Protocol Plugin
  *
- * Copyright (C) 2008, Tobias Markmann <tmarkmann@googlemail.com>
+ * Purple is the legal property of its developers, whose names are too numerous
+ * to list here.  Please refer to the COPYRIGHT file distributed with this
+ * source distribution.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -68,7 +70,6 @@ struct _PurpleBOSHConnection {
 
 	gboolean pipelining;
 	gboolean ssl;
-	gboolean needs_restart;
 
 	enum {
 		BOSH_CONN_OFFLINE,
@@ -195,7 +196,6 @@ jabber_bosh_connection_init(JabberStream *js, const char *url)
 	conn->path = g_strdup_printf("/%s", path);
 	g_free(path);
 	conn->pipelining = TRUE;
-	conn->needs_restart = FALSE;
 
 	if ((user && user[0] != '\0') || (passwd && passwd[0] != '\0')) {
 		purple_debug_info("jabber", "Ignoring unexpected username and password "
@@ -369,16 +369,16 @@ jabber_bosh_connection_send(PurpleBOSHConnection *conn,
 	                "sid='%s' "
 	                "to='%s' "
 	                "xml:lang='en' "
-	                "xmlns='http://jabber.org/protocol/httpbind' "
-	                "xmlns:xmpp='urn:xmpp:xbosh'",
+	                "xmlns='" NS_BOSH "' "
+	                "xmlns:xmpp='" NS_XMPP_BOSH "'",
 	                ++conn->rid,
 	                conn->sid,
 	                conn->js->user->domain);
 
-	if (conn->needs_restart) {
+	if (conn->js->reinit) {
 		packet = g_string_append(packet, " xmpp:restart='true'/>");
 		/* TODO: Do we need to wait for a response? */
-		conn->needs_restart = FALSE;
+		conn->js->reinit = FALSE;
 	} else {
 		gsize read_amt;
 		if (type == PACKET_TERMINATE)
@@ -401,13 +401,8 @@ jabber_bosh_connection_send(PurpleBOSHConnection *conn,
 
 void jabber_bosh_connection_close(PurpleBOSHConnection *conn)
 {
-	jabber_bosh_connection_send(conn, PACKET_TERMINATE, NULL);
-}
-
-static void jabber_bosh_connection_stream_restart(PurpleBOSHConnection *conn)
-{
-	conn->needs_restart = TRUE;
-	jabber_bosh_connection_send(conn, PACKET_NORMAL, NULL);
+	if (conn->state == BOSH_CONN_ONLINE)
+		jabber_bosh_connection_send(conn, PACKET_TERMINATE, NULL);
 }
 
 static gboolean jabber_bosh_connection_error_check(PurpleBOSHConnection *conn, xmlnode *node) {
@@ -488,35 +483,8 @@ static void jabber_bosh_connection_received(PurpleBOSHConnection *conn, xmlnode 
 	}
 }
 
-static void auth_response_cb(PurpleBOSHConnection *conn, xmlnode *node) {
-	xmlnode *child;
-
-	g_return_if_fail(node != NULL);
-	if (jabber_bosh_connection_error_check(conn, node))
-		return;
-
-	child = node->child;
-	while(child != NULL && child->type != XMLNODE_TYPE_TAG) {
-		child = child->next;
-	}
-
-	/* We're only expecting one XML node here, so only process the first one */
-	if (child != NULL && child->type == XMLNODE_TYPE_TAG) {
-		JabberStream *js = conn->js;
-		if (!strcmp(child->name, "success")) {
-			jabber_bosh_connection_stream_restart(conn);
-			jabber_process_packet(js, &child);
-			conn->receive_cb = jabber_bosh_connection_received;
-		} else {
-			js->state = JABBER_STREAM_AUTHENTICATING;
-			jabber_process_packet(js, &child);
-		}
-	} else {
-		purple_debug_warning("jabber", "Received unexepcted empty BOSH packet.\n");
-	}
-}
-
 static void boot_response_cb(PurpleBOSHConnection *conn, xmlnode *node) {
+	JabberStream *js = conn->js;
 	const char *sid, *version;
 	const char *inactivity, *requests;
 	xmlnode *packet;
@@ -534,7 +502,7 @@ static void boot_response_cb(PurpleBOSHConnection *conn, xmlnode *node) {
 	if (sid) {
 		conn->sid = g_strdup(sid);
 	} else {
-		purple_connection_error_reason(conn->js->gc,
+		purple_connection_error_reason(js->gc,
 		        PURPLE_CONNECTION_ERROR_NETWORK_ERROR,
 		        _("No session ID given"));
 		return;
@@ -551,7 +519,7 @@ static void boot_response_cb(PurpleBOSHConnection *conn, xmlnode *node) {
 			minor = atoi(dot + 1);
 
 		if (major != 1 || minor < 6) {
-			purple_connection_error_reason(conn->js->gc,
+			purple_connection_error_reason(js->gc,
 			        PURPLE_CONNECTION_ERROR_NETWORK_ERROR,
 			        _("Unsupported version of BOSH protocol"));
 			return;
@@ -581,11 +549,13 @@ static void boot_response_cb(PurpleBOSHConnection *conn, xmlnode *node) {
 	if (requests)
 		conn->max_requests = atoi(requests);
 
+	jabber_stream_set_state(js, JABBER_STREAM_AUTHENTICATING);
+
 	/* FIXME: Depending on receiving features might break with some hosts */
 	packet = xmlnode_get_child(node, "features");
 	conn->state = BOSH_CONN_ONLINE;
-	conn->receive_cb = auth_response_cb;
-	jabber_stream_features_parse(conn->js, packet);
+	conn->receive_cb = jabber_bosh_connection_received;
+	jabber_stream_features_parse(js, packet);
 }
 
 static void jabber_bosh_connection_boot(PurpleBOSHConnection *conn) {
@@ -597,13 +567,13 @@ static void jabber_bosh_connection_boot(PurpleBOSHConnection *conn) {
 	                "xml:lang='en' "
 	                "xmpp:version='1.0' "
 	                "ver='1.6' "
-	                "xmlns:xmpp='urn:xmpp:bosh' "
+	                "xmlns:xmpp='" NS_XMPP_BOSH "' "
 	                "rid='%" G_GUINT64_FORMAT "' "
 /* TODO: This should be adjusted/adjustable automatically according to
  * realtime network behavior */
 	                "wait='60' "
 	                "hold='1' "
-	                "xmlns='http://jabber.org/protocol/httpbind'/>",
+	                "xmlns='" NS_BOSH "'/>",
 	                conn->js->user->domain,
 	                ++conn->rid);
 
@@ -661,8 +631,8 @@ connection_common_established_cb(PurpleHTTPConnection *conn)
 	conn->headers_done = FALSE;
 	conn->handled_len = conn->body_len = 0;
 
-	if (conn->bosh->needs_restart)
-		jabber_bosh_connection_stream_restart(conn->bosh);
+	if (conn->bosh->js->reinit)
+		jabber_bosh_connection_send(conn->bosh, PACKET_NORMAL, NULL);
 	else if (conn->bosh->state == BOSH_CONN_ONLINE) {
 		purple_debug_info("jabber", "BOSH session already exists. Trying to reuse it.\n");
 		if (conn->bosh->requests == 0 || conn->bosh->pending->bufused > 0) {

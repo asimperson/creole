@@ -10,7 +10,7 @@ EXTRA_DIST = \
 		win32/IdleTracker/idletrack.h \
 		win32/MinimizeToTray.h \
 		win32/MinimizeToTray.c \
-		win32/pidgin.dll_rc.rc.in \
+		win32/pidgin_dll_rc.rc.in \
 		win32/carrier_exe_rc.rc.in \
 		win32/gtkdocklet-win32.c \
 		win32/gtkwin32dep.c \
@@ -214,7 +214,6 @@ INTGG_CFLAGS = -DUSE_INTERNAL_LIBGADU
 endif
 
 AM_CPPFLAGS = \
-	-DBR_PTHREADS=0 \
 	-DDATADIR=\"$(datadir)\" \
 	-DLIBDIR=\"$(libdir)/pidgin/\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \

@@ -1,4 +1,4 @@
-package Carrier;
+package Pidgin;
 
 use 5.008;
 use strict;
@@ -10,34 +10,34 @@ our $VERSION = '0.01';
 use Purple;
 
 require XSLoader;
-XSLoader::load('Carrier', $VERSION);
+XSLoader::load('Pidgin', $VERSION);
 
 1;
 __END__
 
 =head1 NAME
 
-Carrier - Perl extension for the Carrier instant messenger.
+Pidgin - Perl extension for the Pidgin instant messenger.
 
 =head1 SYNOPSIS
 
-    use Carrier;
+    use Pidgin;
 
 =head1 ABSTRACT
 
     This module provides the interface for using perl scripts as plugins in
-    Carrier, with access to the Carrier Gtk interface functions.
+    Pidgin, with access to the Pidgin Gtk interface functions.
 
 =head1 DESCRIPTION
 
-This module provides the interface for using perl scripts as plugins in Carrier,
-with access to the Carrier Gtk interface functions. With this, developers can
-write perl scripts that can be loaded in Carrier as plugins. The script can
-interact with IMs, chats, accounts, the buddy list, carrier signals, and more.
+This module provides the interface for using perl scripts as plugins in Pidgin,
+with access to the Pidgin Gtk interface functions. With this, developers can
+write perl scripts that can be loaded in Pidgin as plugins. The script can
+interact with IMs, chats, accounts, the buddy list, pidgin signals, and more.
 
-The API for the perl interface is very similar to that of the Carrier C API,
+The API for the perl interface is very similar to that of the Pidgin C API,
 which can be viewed at http://developer.pidgin.im/doxygen/ or in the header files
-in the Carrier source tree.
+in the Pidgin source tree.
 
 =head1 FUNCTIONS
 
@@ -46,9 +46,9 @@ in the Carrier source tree.
 =back
 
 =head1 SEE ALSO
-Carrier C API documentation - http://developer.pidgin.im/doxygen/
+Pidgin C API documentation - http://developer.pidgin.im/doxygen/
 
-The Carrier perl module.
+The Pidgin perl module.
 
 Pidgin website - http://pidgin.im/
 

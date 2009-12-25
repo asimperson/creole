@@ -3,7 +3,9 @@
  *
  * purple
  *
- * Copyright (C) 2003 Nathan Walp <faceprint@faceprint.com>
+ * Purple is the legal property of its developers, whose names are too numerous
+ * to list here.  Please refer to the COPYRIGHT file distributed with this
+ * source distribution.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -121,6 +123,7 @@ void jabber_buddy_remove_all_pending_buddy_info_requests(JabberStream *js);
 
 void jabber_vcard_fetch_mine(JabberStream *js);
 
+gboolean jabber_resource_know_capabilities(const JabberBuddyResource *jbr);
 gboolean jabber_resource_has_capability(const JabberBuddyResource *jbr,
 										const gchar *cap);
 gboolean jabber_buddy_has_capability(const JabberBuddy *jb, const gchar *cap);

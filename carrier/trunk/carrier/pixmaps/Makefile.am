@@ -205,11 +205,7 @@ EMOTES_DEFAULT_24_SCALABLE = \
 		emotes/default/24/scalable/tv.svg \
 		emotes/default/24/scalable/umbrella.svg \
 		emotes/default/24/scalable/watermelon.svg \
-  		emotes/default/24/scalable/yin-yang.svg
-
-EMOTES_SMALL_16_SCALABLE = \
-		emotes/small/16/scalable/carrier-emotes.svg
-
+		emotes/default/24/scalable/yin-yang.svg
 
 EMOTES_OLDPIDGIN_24_SCALABLE = \
 		emotes/oldpidgin/24/scalable/act-up.svg \
@@ -402,6 +398,9 @@ EMOTES_OLDPIDGIN_24_SCALABLE = \
 		emotes/oldpidgin/24/scalable/yawn.svg \
 		emotes/oldpidgin/24/scalable/yin-yang.svg
 
+EMOTES_SMALL_16_SCALABLE = \
+		emotes/small/16/scalable/carrier-emotes.svg
+
 PROTOCOLS_16_SCALABLE = \
 		protocols/16/scalable/aim.svg \
 		protocols/16/scalable/bonjour.svg \
@@ -429,6 +428,7 @@ PROTOCOLS_16 = \
 		protocols/16/jabber.png \
 		protocols/16/meanwhile.png \
 		protocols/16/msn.png \
+		protocols/16/mxit.png \
 		protocols/16/myspace.png \
 		protocols/16/qq.png \
 		protocols/16/silc.png \
@@ -501,6 +501,7 @@ PROTOCOLS_48 = \
 		protocols/48/jabber.png \
 		protocols/48/meanwhile.png \
 		protocols/48/msn.png \
+		protocols/48/mxit.png \
 		protocols/48/myspace.png \
 		protocols/48/qq.png \
 		protocols/48/silc.png \
@@ -519,6 +520,7 @@ PROTOCOLS_SCALABLE = \
 		protocols/scalable/jabber.svg \
 		protocols/scalable/meanwhile.svg \
 		protocols/scalable/msn.svg \
+		protocols/scalable/mxit.svg \
 		protocols/scalable/qq.svg \
 		protocols/scalable/silc.svg \
 		protocols/scalable/simple.svg \
@@ -641,28 +643,28 @@ TOOLBAR_16 = \
 TOOLBAR_22_SCALABLE = \
 		toolbar/22/scalable/select-avatar.svg \
 		toolbar/22/scalable/video-call.svg \
-		toolbar/22/scalable/voice-call.svg
+		toolbar/22/scalable/audio-call.svg
 
 TOOLBAR_22 = \
 		toolbar/22/select-avatar.png \
 		toolbar/22/video-call.png \
-		toolbar/22/voice-call.png
+		toolbar/22/audio-call.png
 
 TOOLBAR_32_SCALABLE = \
 		toolbar/32/scalable/video-call.svg \
-		toolbar/32/scalable/voice-call.svg
+		toolbar/32/scalable/audio-call.svg
 
 TOOLBAR_32 = \
 		toolbar/32/video-call.png \
-		toolbar/32/voice-call.png
+		toolbar/32/audio-call.png
 
 TOOLBAR_48_SCALABLE = \
 		toolbar/48/scalable/video-call.svg \
-		toolbar/48/scalable/voice-call.svg
+		toolbar/48/scalable/audio-call.svg
 
 TOOLBAR_48 = \
 		toolbar/48/video-call.png \
-		toolbar/48/voice-call.png
+		toolbar/48/audio-call.png
 
 TRAY_16_ICO = \
 		tray/16/available_4bit.ico \
@@ -729,20 +731,20 @@ EXTRA_DIST = \
 		arrow-up.xpm		\
 		arrow-right.xpm		\
 		arrow-left.xpm		\
-		pidgin.ico		\
 		Makefile.mingw			\
-  		$(MAKEFILE_MINGW)	\
-  		$(DIALOGS_16_SCALABLE)	\
-  		$(ICONS_16_SCALABLE)	\
-  		$(ICONS_24_SCALABLE)	\
-  		$(ICONS_32_SCALABLE)	\
-  		$(EMOTES_DEFAULT_24_SCALABLE)	\
-  		$(PROTOCOLS_16_SCALABLE)	\
-  		$(PROTOCOLS_22_SCALABLE)	\
-  		$(TOOLBAR_16_SCALABLE)	\
- 		$(TOOLBAR_22_SCALABLE)	\
- 		$(TOOLBAR_32_SCALABLE)	\
- 		$(TOOLBAR_48_SCALABLE)
+		carrier.ico		\
+		$(MAKEFILE_MINGW)	\
+		$(DIALOGS_16_SCALABLE)	\
+		$(ICONS_16_SCALABLE)	\
+		$(ICONS_24_SCALABLE)	\
+		$(ICONS_32_SCALABLE)	\
+		$(EMOTES_DEFAULT_24_SCALABLE)	\
+		$(PROTOCOLS_16_SCALABLE)	\
+		$(PROTOCOLS_22_SCALABLE)	\
+		$(TOOLBAR_16_SCALABLE)	\
+		$(TOOLBAR_22_SCALABLE)	\
+		$(TOOLBAR_32_SCALABLE)	\
+		$(TOOLBAR_48_SCALABLE)
 
 carrierbuttonpixdir = $(datadir)/pixmaps/pidgin/buttons
 carrierbuttonpix_DATA = edit.png pause.png info.png

@@ -97,15 +97,15 @@ create_release_install_dir: install
 
 installer: create_release_install_dir
 	$(MAKENSIS) $(MAKENSISOPT)V3 $(MAKENSISOPT)DPIDGIN_VERSION="$(PIDGIN_VERSION)" $(MAKENSISOPT)DPIDGIN_PRODUCT_VERSION="$(PIDGIN_PRODUCT_VERSION)" $(MAKENSISOPT)DWITH_GTK $(MAKENSISOPT)DPIDGIN_INSTALL_DIR="$(STRIPPED_RELEASE_DIR)" $(MAKENSISOPT)DGTK_INSTALL_VERSION="$(GTK_INSTALL_VERSION)" carrier/win32/nsis/carrier-installer.nsi
-	mv carrier/win32/nsis/carrier-$(PIDGIN_VERSION).exe ./
+	mv pidgin/win32/nsis/carrier-$(PIDGIN_VERSION).exe ./
 
 installer_nogtk: create_release_install_dir
 	$(MAKENSIS) $(MAKENSISOPT)V3 $(MAKENSISOPT)DPIDGIN_VERSION="$(PIDGIN_VERSION)" $(MAKENSISOPT)DPIDGIN_PRODUCT_VERSION="$(PIDGIN_PRODUCT_VERSION)" $(MAKENSISOPT)DPIDGIN_INSTALL_DIR="$(STRIPPED_RELEASE_DIR)" $(MAKENSISOPT)DGTK_INSTALL_VERSION="$(GTK_INSTALL_VERSION)" carrier/win32/nsis/carrier-installer.nsi
-	mv carrier/win32/nsis/carrier-$(PIDGIN_VERSION)-no-gtk.exe ./
+	mv pidgin/win32/nsis/carrier-$(PIDGIN_VERSION)-no-gtk.exe ./
 
 installer_debug: install
 	$(MAKENSIS) $(MAKENSISOPT)V3 $(MAKENSISOPT)DPIDGIN_VERSION="$(PIDGIN_VERSION)" $(MAKENSISOPT)DPIDGIN_PRODUCT_VERSION="$(PIDGIN_PRODUCT_VERSION)" $(MAKENSISOPT)DPIDGIN_INSTALL_DIR="$(PIDGIN_INSTALL_DIR)" $(MAKENSISOPT)DDEBUG $(MAKENSISOPT)DGTK_INSTALL_VERSION="$(GTK_INSTALL_VERSION)" carrier/win32/nsis/carrier-installer.nsi
-	mv carrier/win32/nsis/carrier-$(PIDGIN_VERSION)-debug.exe ./
+	mv pidgin/win32/nsis/carrier-$(PIDGIN_VERSION)-debug.exe ./
 
 installer_zip: create_release_install_dir
 	rm -f carrier-$(PIDGIN_VERSION)-win32-bin.zip
@@ -125,11 +125,13 @@ clean:
 	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) clean
 	$(MAKE) -C $(PURPLE_TOP) -f $(MINGW_MAKEFILE) clean
 	$(MAKE) -C share/ca-certs -f $(MINGW_MAKEFILE) clean
-	rm -f $(PIDGIN_CONFIG_H) ./VERSION carrier-$(PIDGIN_VERSION)*.exe carrier-$(PIDGIN_VERSION)-win32-bin.zip
-	rm -rf doc/html Doxyfile.mingw win32-install-dir
+	rm -f $(PIDGIN_CONFIG_H) $(PIDGIN_REVISION_H) $(PIDGIN_REVISION_RAW_TXT) ./VERSION carrier-$(PIDGIN_VERSION)*.exe carrier-$(PIDGIN_VERSION)-win32-bin.zip
+	rm -rf doc/html Doxyfile.mingw
 
 uninstall:
-	rm -rf $(PURPLE_INSTALL_PERLMOD_DIR) $(PIDGIN_INSTALL_PLUGINS_DIR) $(PURPLE_INSTALL_PO_DIR) $(PIDGIN_INSTALL_DIR) $(STRIPPED_RELEASE_DIR)
+	rm -rf $(PURPLE_INSTALL_PERL_DIR) $(PIDGIN_INSTALL_PLUGINS_DIR) $(PURPLE_INSTALL_PO_DIR) $(PIDGIN_INSTALL_DIR) $(STRIPPED_RELEASE_DIR)
 	rm -f ./VERSION
 
 include $(PIDGIN_COMMON_TARGETS)
+
+.PHONY: $(PIDGIN_REVISION_H) $(PIDGIN_REVISION_RAW_TXT)

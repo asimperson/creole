@@ -245,7 +245,7 @@ purple_gnome_proxy_get_info(void)
 		return &info;
 	}
 
-	if (purple_strequal(tmp, "manual\n")) {
+	if (!purple_strequal(tmp, "manual\n")) {
 		/* Unknown setting.  Fallback to using our global proxy settings. */
 		g_free(tmp);
 		return purple_global_proxy_get_info();
@@ -1098,36 +1098,6 @@ http_start_connect_tunneling(PurpleProxyConnectData *connect_data) {
 			"CONNECT %s:%d HTTP/1.1\r\nHost: %s:%d\r\n",
 			connect_data->host, connect_data->port,
 			connect_data->host, connect_data->port);
-
-	if (purple_proxy_info_get_username(connect_data->gpi) != NULL)
-	{
-		char *t1, *t2, *ntlm_type1;
-		char hostname[256];
-
-		ret = gethostname(hostname, sizeof(hostname));
-		hostname[sizeof(hostname) - 1] = '\0';
-		if (ret < 0 || hostname[0] == '\0') {
-			purple_debug_warning("proxy", "gethostname() failed -- is your hostname set?");
-			strcpy(hostname, "localhost");
-		}
-
-		t1 = g_strdup_printf("%s:%s",
-			purple_proxy_info_get_username(connect_data->gpi),
-			purple_proxy_info_get_password(connect_data->gpi) ?
-				purple_proxy_info_get_password(connect_data->gpi) : "");
-		t2 = purple_base64_encode((const guchar *)t1, strlen(t1));
-		g_free(t1);
-
-		ntlm_type1 = purple_ntlm_gen_type1(hostname, "");
-
-		g_string_append_printf(request,
-			"Proxy-Authorization: Basic %s\r\n"
-			"Proxy-Authorization: NTLM %s\r\n"
-			"Proxy-Connection: Keep-Alive\r\n",
-			t2, ntlm_type1);
-		g_free(ntlm_type1);
-		g_free(t2);
-	}
 
 	g_string_append(request, "\r\n");
 
