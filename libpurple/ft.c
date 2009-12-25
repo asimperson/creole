@@ -229,7 +229,7 @@ void purple_xfer_conversation_write(PurpleXfer *xfer, char *message, gboolean is
 	escaped = g_markup_escape_text(message, -1);
 
 	if (is_error)
-		flags = PURPLE_MESSAGE_ERROR;
+		flags |= PURPLE_MESSAGE_ERROR;
 
 	purple_conversation_write(conv, NULL, escaped, flags, time(NULL));
 	g_free(escaped);
@@ -1030,7 +1030,7 @@ do_transfer(PurpleXfer *xfer)
 				 * watcher.
 				 */
 				if (xfer->watcher != 0) {
-					purple_timeout_remove(xfer->watcher);
+					purple_input_remove(xfer->watcher);
 					xfer->watcher = 0;
 				}
 
@@ -1313,7 +1313,7 @@ purple_xfer_cancel_local(PurpleXfer *xfer)
 
 	if (purple_xfer_get_filename(xfer) != NULL)
 	{
-		msg = g_strdup_printf(_("You canceled the transfer of %s"),
+		msg = g_strdup_printf(_("You cancelled the transfer of %s"),
 							  purple_xfer_get_filename(xfer));
 	}
 	else
@@ -1376,12 +1376,12 @@ purple_xfer_cancel_remote(PurpleXfer *xfer)
 
 	if (purple_xfer_get_filename(xfer) != NULL)
 	{
-		msg = g_strdup_printf(_("%s canceled the transfer of %s"),
+		msg = g_strdup_printf(_("%s cancelled the transfer of %s"),
 				buddy ? purple_buddy_get_alias(buddy) : xfer->who, purple_xfer_get_filename(xfer));
 	}
 	else
 	{
-		msg = g_strdup_printf(_("%s canceled the file transfer"),
+		msg = g_strdup_printf(_("%s cancelled the file transfer"),
 				buddy ? purple_buddy_get_alias(buddy) : xfer->who);
 	}
 	purple_xfer_conversation_write(xfer, msg, TRUE);

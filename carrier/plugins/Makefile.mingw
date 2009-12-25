@@ -11,7 +11,6 @@ include $(PIDGIN_TREE_TOP)/libpurple/win32/global.mak
 DISCO_PLUGIN := ./disco
 GTKPERL_PLUGIN := ./perl
 TICKER_PLUGIN := ./ticker
-WEBKIT_PLUGIN := ./webkit
 TRANSPARENCY_PLUGIN := ./win32/transparency
 WINPREFS_PLUGIN := ./win32/winprefs
 
@@ -22,7 +21,6 @@ WINPREFS_PLUGIN := ./win32/winprefs
 ## INCLUDE PATHS
 ##
 INCLUDE_PATHS +=	\
-			-I$(WEBKIT_TOP)/include \
 			-I$(GTK_TOP)/include \
 			-I$(GTK_TOP)/include/gtk-2.0 \
 			-I$(GTK_TOP)/include/glib-2.0 \
@@ -38,7 +36,6 @@ INCLUDE_PATHS +=	\
 			-I$(PIDGIN_TOP)/win32
 
 LIB_PATHS +=		-L$(GTK_TOP)/lib \
-			-L$(WEBKIT_TOP) \
 			-L$(PURPLE_TOP) \
 			-L$(PIDGIN_TOP)
 
@@ -52,7 +49,6 @@ LIBS =			-lgtk-win32-2.0 \
 			-lgmodule-2.0 \
 			-lgdk_pixbuf-2.0 \
 			-lpango-1.0 \
-			-lWebKit \
 			-lintl \
 			-lws2_32 \
 			-lpurple \
@@ -67,7 +63,6 @@ all: plugins
 	$(MAKE) -C $(DISCO_PLUGIN) -f $(MINGW_MAKEFILE)
 	$(MAKE) -C $(GTKPERL_PLUGIN) -f $(MINGW_MAKEFILE)
 	$(MAKE) -C $(TICKER_PLUGIN) -f $(MINGW_MAKEFILE)
-	$(MAKE) -C $(WEBKIT_PLUGIN) -f $(MINGW_MAKEFILE)
 	$(MAKE) -C $(TRANSPARENCY_PLUGIN) -f $(MINGW_MAKEFILE)
 	$(MAKE) -C $(WINPREFS_PLUGIN) -f $(MINGW_MAKEFILE)
 
@@ -75,7 +70,6 @@ install: all $(PIDGIN_INSTALL_PLUGINS_DIR)
 	$(MAKE) -C $(DISCO_PLUGIN) -f $(MINGW_MAKEFILE) install
 	$(MAKE) -C $(GTKPERL_PLUGIN) -f $(MINGW_MAKEFILE) install
 	$(MAKE) -C $(TICKER_PLUGIN) -f $(MINGW_MAKEFILE) install
-	$(MAKE) -C $(WEBKIT_PLUGIN) -f $(MINGW_MAKEFILE) install
 	$(MAKE) -C $(TRANSPARENCY_PLUGIN) -f $(MINGW_MAKEFILE) install
 	$(MAKE) -C $(WINPREFS_PLUGIN) -f $(MINGW_MAKEFILE) install
 	cp *.dll $(PIDGIN_INSTALL_PLUGINS_DIR)
@@ -108,7 +102,6 @@ clean:
 	$(MAKE) -C $(DISCO_PLUGIN) -f $(MINGW_MAKEFILE) clean
 	$(MAKE) -C $(GTKPERL_PLUGIN) -f $(MINGW_MAKEFILE) clean
 	$(MAKE) -C $(TICKER_PLUGIN) -f $(MINGW_MAKEFILE) clean
-	$(MAKE) -C $(WEBKIT_PLUGIN) -f $(MINGW_MAKEFILE) clean
 	$(MAKE) -C $(TRANSPARENCY_PLUGIN) -f $(MINGW_MAKEFILE) clean
 	$(MAKE) -C $(WINPREFS_PLUGIN) -f $(MINGW_MAKEFILE) clean
 

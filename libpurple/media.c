@@ -21,10 +21,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA
  */
-
-#include <string.h>
 
 #include "internal.h"
 
@@ -103,6 +101,8 @@ struct _PurpleMediaStream
 	gboolean initiator;
 	gboolean accepted;
 	gboolean candidates_prepared;
+	gboolean held;
+	gboolean paused;
 
 	GList *active_local_candidates;
 	GList *active_remote_candidates;
@@ -281,7 +281,7 @@ purple_media_info_type_get_type()
 			{ PURPLE_MEDIA_INFO_HOLD,
 					"PURPLE_MEDIA_INFO_HOLD", "hold" },
 			{ PURPLE_MEDIA_INFO_UNHOLD,
-					"PURPLE_MEDIA_INFO_HOLD", "unhold" },
+					"PURPLE_MEDIA_INFO_UNHOLD", "unhold" },
 			{ 0, NULL, NULL }
 		};
 		type = g_enum_register_static("PurpleMediaInfoType", values);
@@ -2046,13 +2046,32 @@ media_bus_call(GstBus *bus, GstMessage *msg, PurpleMedia *media)
 				FsError error_no;
 				gst_structure_get_enum(msg->structure, "error-no",
 						FS_TYPE_ERROR, (gint*)&error_no);
-				/*
-				 * Unknown CName is only a problem for the
-				 * multicast transmitter which isn't used.
-				 */
-				if (error_no != FS_ERROR_UNKNOWN_CNAME)
-					purple_debug_error("media", "farsight-error: %i: %s\n", error_no,
-						  	gst_structure_get_string(msg->structure, "error-msg"));
+				switch (error_no) {
+					case FS_ERROR_NO_CODECS:
+						purple_media_error(media, _("No codecs found. Install some GStreamer codecs found in GStreamer plugins packages."));
+						purple_media_end(media, NULL, NULL);
+						break;
+					case FS_ERROR_NO_CODECS_LEFT:
+						purple_media_error(media, _("No codecs left. Your codec preferences in fs-codecs.conf are too strict."));
+						purple_media_end(media, NULL, NULL);
+						break;
+					case FS_ERROR_UNKNOWN_CNAME:
+					/*
+					 * Unknown CName is only a problem for the
+					 * multicast transmitter which isn't used.
+					 * It is also deprecated.
+					 */
+						break;
+					default:
+						purple_debug_error("media", "farsight-error: %i: %s\n", error_no,
+							  	gst_structure_get_string(msg->structure, "error-msg"));
+						break;
+				}
+
+				if (FS_ERROR_IS_FATAL(error_no)) {
+					purple_media_error(media, _("A non-recoverable Farsight2 error has occurred."));
+					purple_media_end(media, NULL, NULL);
+				}
 			} else if (gst_structure_has_name(msg->structure,
 					"farsight-new-local-candidate")) {
 				FsStream *stream = g_value_get_object(gst_structure_get_value(msg->structure, "stream"));
@@ -2128,6 +2147,35 @@ media_bus_call(GstBus *bus, GstMessage *msg, PurpleMedia *media)
 				}
 			}
 			break;
+		}
+		case GST_MESSAGE_ERROR: {
+			GstElement *element = GST_ELEMENT(GST_MESSAGE_SRC(msg));
+			GstElement *lastElement = NULL;
+			while (!GST_IS_PIPELINE(element)) {
+				if (element == media->priv->confbin) {
+					purple_media_error(media, _("Conference error"));
+					purple_media_end(media, NULL, NULL);
+					break;
+				}
+				lastElement = element;
+				element = GST_ELEMENT_PARENT(element);
+			}
+			if (GST_IS_PIPELINE(element)) {
+				GList *sessions = g_hash_table_get_values(media->priv->sessions);
+				for (; sessions; sessions = g_list_delete_link(sessions, sessions)) {
+					PurpleMediaSession *session = sessions->data;
+
+					if (session->src == lastElement) {
+						if (session->type & PURPLE_MEDIA_AUDIO)
+							purple_media_error(media, _("Error with your microphone"));
+						else
+							purple_media_error(media, _("Error with your webcam"));
+						purple_media_end(media, NULL, NULL);
+						break;
+					}
+				}
+				g_list_free(sessions);
+			}
 		}
 		default:
 			break;
@@ -2230,6 +2278,19 @@ purple_media_stream_info(PurpleMedia *media, PurpleMediaInfoType type,
 					purple_media_to_fs_stream_direction(
 					stream->session->type), NULL);
 			stream->accepted = TRUE;
+
+			if (stream->remote_candidates != NULL &&
+					stream->initiator == FALSE) {
+				GError *err = NULL;
+				fs_stream_set_remote_candidates(stream->stream,
+						stream->remote_candidates, &err);
+
+				if (err) {
+					purple_debug_error("media", "Error adding remote"
+							" candidates: %s\n", err->message);
+					g_error_free(err);
+				}
+			}
 		}
 	} else if (local == TRUE && (type == PURPLE_MEDIA_INFO_MUTE ||
 			type == PURPLE_MEDIA_INFO_UNMUTE)) {
@@ -2270,11 +2331,46 @@ purple_media_stream_info(PurpleMedia *media, PurpleMediaInfoType type,
 		for (; streams; streams = g_list_delete_link(streams, streams)) {
 			PurpleMediaStream *stream = streams->data;
 			if (stream->session->type & PURPLE_MEDIA_SEND_VIDEO) {
+				stream->paused = active;
+
+				if (!stream->held)
+					g_object_set(stream->stream, "direction",
+							purple_media_to_fs_stream_direction(
+							stream->session->type & ((active) ?
+							~PURPLE_MEDIA_SEND_VIDEO :
+							PURPLE_MEDIA_VIDEO)), NULL);
+			}
+		}
+	} else if (local == TRUE && (type == PURPLE_MEDIA_INFO_HOLD ||
+			type == PURPLE_MEDIA_INFO_UNHOLD)) {
+		GList *streams;
+		gboolean active = (type == PURPLE_MEDIA_INFO_HOLD);
+
+		g_return_if_fail(PURPLE_IS_MEDIA(media));
+
+		streams = purple_media_get_streams(media,
+				session_id, participant);
+		for (; streams; streams = g_list_delete_link(streams, streams)) {
+			PurpleMediaStream *stream = streams->data;
+			stream->held = active;
+			if (stream->session->type & PURPLE_MEDIA_VIDEO) {
+				FsStreamDirection direction;
+
+				direction = ((active) ?
+						~PURPLE_MEDIA_VIDEO :
+						PURPLE_MEDIA_VIDEO);
+				if (!active && stream->paused)
+					direction &= ~PURPLE_MEDIA_SEND_VIDEO;
+
+				g_object_set(stream->stream, "direction",
+						purple_media_to_fs_stream_direction(
+						stream->session->type & direction), NULL);
+			} else if (stream->session->type & PURPLE_MEDIA_AUDIO) {
 				g_object_set(stream->stream, "direction",
 						purple_media_to_fs_stream_direction(
 						stream->session->type & ((active) ?
-						~PURPLE_MEDIA_SEND_VIDEO :
-						PURPLE_MEDIA_VIDEO)), NULL);
+						~PURPLE_MEDIA_AUDIO :
+						PURPLE_MEDIA_AUDIO)), NULL);
 			}
 		}
 	}
@@ -2541,7 +2637,7 @@ purple_media_add_stream(PurpleMedia *media, const gchar *sess_id,
 				media->priv->conference, media_type, &err);
 
 		if (err != NULL) {
-			purple_media_error(media, "Error creating session: %s\n", err->message);
+			purple_media_error(media, _("Error creating session: %s"), err->message);
 			g_error_free(err);
 			g_free(session);
 			return FALSE;
@@ -2719,21 +2815,26 @@ purple_media_add_stream(PurpleMedia *media, const gchar *sess_id,
 			}
 
 			fsstream = fs_session_new_stream(session->session,
-					participant, type_direction &
-					FS_DIRECTION_RECV, transmitter,
+					participant, initiator == TRUE ?
+					type_direction : (type_direction &
+					FS_DIRECTION_RECV), transmitter,
 					new_num_params, param, &err);
 			g_free(param);
 		} else {
 			fsstream = fs_session_new_stream(session->session,
-					participant, type_direction &
-					FS_DIRECTION_RECV, transmitter,
+					participant, initiator == TRUE ?
+					type_direction : (type_direction &
+					FS_DIRECTION_RECV), transmitter,
 					num_params, params, &err);
 		}
 
-		if (err) {
-			purple_debug_error("media", "Error creating stream: %s\n",
-					   err->message);
-			g_error_free(err);
+		if (fsstream == NULL) {
+			purple_debug_error("media",
+					"Error creating stream: %s\n",
+					err && err->message ?
+					err->message : "NULL");
+			if (err)
+				g_error_free(err);
 			g_object_unref(participant);
 			g_hash_table_remove(media->priv->participants, who);
 			purple_media_remove_session(media, session);
@@ -2852,13 +2953,15 @@ purple_media_add_remote_candidates(PurpleMedia *media, const gchar *sess_id,
 	stream->remote_candidates = g_list_concat(stream->remote_candidates,
 			purple_media_candidate_list_to_fs(remote_candidates));
 
-	fs_stream_set_remote_candidates(stream->stream,
-			stream->remote_candidates, &err);
+	if (stream->initiator == TRUE || stream->accepted == TRUE) {
+		fs_stream_set_remote_candidates(stream->stream,
+				stream->remote_candidates, &err);
 
-	if (err) {
-		purple_debug_error("media", "Error adding remote"
-				" candidates: %s\n", err->message);
-		g_error_free(err);
+		if (err) {
+			purple_debug_error("media", "Error adding remote"
+					" candidates: %s\n", err->message);
+			g_error_free(err);
+		}
 	}
 #endif
 }

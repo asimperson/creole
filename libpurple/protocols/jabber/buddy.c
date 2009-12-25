@@ -1,7 +1,9 @@
 /*
  * purple - Jabber Protocol Plugin
  *
- * Copyright (C) 2003, Nathan Walp <faceprint@faceprint.com>
+ * Purple is the legal property of its developers, whose names are too numerous
+ * to list here.  Please refer to the COPYRIGHT file distributed with this
+ * source distribution.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,6 +38,7 @@
 #include "xdata.h"
 #include "pep.h"
 #include "adhoccommands.h"
+#include "google.h"
 
 typedef struct {
 	long idle_seconds;
@@ -578,8 +581,7 @@ jabber_format_info(PurpleConnection *gc, PurpleRequestFields *fields)
 		if (text != NULL && *text != '\0') {
 			xmlnode *xp;
 
-			purple_debug(PURPLE_DEBUG_INFO, "jabber",
-					"Setting %s to '%s'\n", vc_tp->tag, text);
+			purple_debug_info("jabber", "Setting %s to '%s'\n", vc_tp->tag, text);
 
 			if ((xp = insert_tag_to_parent_tag(vc_node,
 											   NULL, vc_tp->tag)) != NULL) {
@@ -749,7 +751,9 @@ add_jbr_info(JabberBuddyInfo *jbi, const char *resource,
 		const char *status_name = jabber_buddy_state_get_name(jbr->state);
 
 		if (jbr->status) {
-			purdy = purple_strdup_withhtml(jbr->status);
+			tmp = purple_markup_escape_text(jbr->status, -1);
+			purdy = purple_strdup_withhtml(tmp);
+			g_free(tmp);
 
 			if (purple_strequal(status_name, purdy))
 				status_name = NULL;
@@ -908,17 +912,19 @@ static void jabber_vcard_save_mine(JabberStream *js, const char *from,
 	             (binval = xmlnode_get_child(photo, "BINVAL"))) {
 		gsize size;
 		char *bintext = xmlnode_get_data(binval);
-		guchar *data = purple_base64_decode(bintext, &size);
-		g_free(bintext);
+		if (bintext) {
+			guchar *data = purple_base64_decode(bintext, &size);
+			g_free(bintext);
 
-		if (data) {
-			vcard_hash = jabber_calculate_data_sha1sum(data, size);
-			g_free(data);
+			if (data) {
+				vcard_hash = jabber_calculate_data_sha1sum(data, size);
+				g_free(data);
+			}
 		}
 	}
 
 	/* Republish our vcard if the photo is different than the server's */
-	if (!purple_strequal(vcard_hash, js->initial_avatar_hash)) {
+	if (js->initial_avatar_hash && !purple_strequal(vcard_hash, js->initial_avatar_hash)) {
 		/*
 		 * Google Talk has developed the behavior that it will not accept
 		 * a vcard set in the first 10 seconds (or so) of the connection;
@@ -930,9 +936,13 @@ static void jabber_vcard_save_mine(JabberStream *js, const char *from,
 			                                             js);
 		else
 			jabber_set_info(js->gc, purple_account_get_user_info(account));
-	} else if (js->initial_avatar_hash) {
-		/* Our photo is in the vcard, so advertise vcard-temp updates */
-		js->avatar_hash = g_strdup(js->initial_avatar_hash);
+	} else if (vcard_hash) {
+		/* A photo is in the vCard. Advertise its hash */
+		js->avatar_hash = vcard_hash;
+		vcard_hash = NULL;
+
+		/* Send presence to update vcard-temp:x:update */
+		jabber_presence_send(js, FALSE);
 	}
 
 	g_free(vcard_hash);
@@ -1143,9 +1153,8 @@ static void jabber_vcard_parse(JabberStream *js, const char *from,
 				char *bintext = NULL;
 				xmlnode *binval;
 
-				if( ((binval = xmlnode_get_child(child, "BINVAL")) &&
-						(bintext = xmlnode_get_data(binval))) ||
-						(bintext = xmlnode_get_data(child))) {
+				if ((binval = xmlnode_get_child(child, "BINVAL")) &&
+						(bintext = xmlnode_get_data(binval))) {
 					gsize size;
 					guchar *data;
 					gboolean photo = (strcmp(child->name, "PHOTO") == 0);
@@ -1457,7 +1466,7 @@ static gboolean _client_is_blacklisted(JabberBuddyResource *jbr, const char *ns)
 	if(!jbr->client.name)
 		return FALSE;
 
-	if(!strcmp(ns, "jabber:iq:last")) {
+	if(!strcmp(ns, NS_LAST_ACTIVITY)) {
 		if(!strcmp(jbr->client.name, "Trillian")) {
 			/* verified by nwalp 2007/05/09 */
 			if(!strcmp(jbr->client.version, "3.1.0.121") ||
@@ -1503,8 +1512,8 @@ dispatch_queries_for_resource(JabberStream *js, JabberBuddyInfo *jbi,
 	 * respond (with an error or otherwise) to jabber:iq:last
 	 * requests.  There are a number of Trillian users in my
 	 * office. */
-	if(!_client_is_blacklisted(jbr, "jabber:iq:last")) {
-		iq = jabber_iq_new_query(js, JABBER_IQ_GET, "jabber:iq:last");
+	if(!_client_is_blacklisted(jbr, NS_LAST_ACTIVITY)) {
+		iq = jabber_iq_new_query(js, JABBER_IQ_GET, NS_LAST_ACTIVITY);
 		xmlnode_set_attrib(iq->node, "to", to);
 		jabber_iq_set_callback(iq, jabber_last_parse, jbi);
 		jbi->ids = g_slist_prepend(jbi->ids, g_strdup(iq->id));
@@ -1513,12 +1522,12 @@ dispatch_queries_for_resource(JabberStream *js, JabberBuddyInfo *jbi,
 
 	if (jbr->tz_off == PURPLE_NO_TZ_OFF &&
 			(!jbr->caps.info ||
-			 	jabber_resource_has_capability(jbr, "urn:xmpp:time"))) {
+			 	jabber_resource_has_capability(jbr, NS_ENTITY_TIME))) {
 		xmlnode *child;
 		iq = jabber_iq_new(js, JABBER_IQ_GET);
 		xmlnode_set_attrib(iq->node, "to", to);
 		child = xmlnode_new_child(iq->node, "time");
-		xmlnode_set_namespace(child, "urn:xmpp:time");
+		xmlnode_set_namespace(child, NS_ENTITY_TIME);
 		jabber_iq_set_callback(iq, jabber_time_parse, jbi);
 		jbi->ids = g_slist_prepend(jbi->ids, g_strdup(iq->id));
 		jabber_iq_send(iq);
@@ -1581,7 +1590,7 @@ static void jabber_buddy_get_info_for_jid(JabberStream *js, const char *jid)
 
 	if (!jb->resources && is_bare_jid) {
 		/* user is offline, send a jabber:iq:last to find out last time online */
-		iq = jabber_iq_new_query(js, JABBER_IQ_GET, "jabber:iq:last");
+		iq = jabber_iq_new_query(js, JABBER_IQ_GET, NS_LAST_ACTIVITY);
 		xmlnode_set_attrib(iq->node, "to", jid);
 		jabber_iq_set_callback(iq, jabber_last_offline_parse, jbi);
 		jbi->ids = g_slist_prepend(jbi->ids, g_strdup(iq->id));
@@ -1675,21 +1684,42 @@ static void jabber_buddy_make_visible(PurpleBlistNode *node, gpointer data)
 	jabber_buddy_set_invisibility(js, purple_buddy_get_name(buddy), FALSE);
 }
 
-static void jabber_buddy_cancel_presence_notification(PurpleBlistNode *node,
-		gpointer data)
+static void cancel_presence_notification(gpointer data)
 {
 	PurpleBuddy *buddy;
 	PurpleConnection *gc;
 	JabberStream *js;
 
-	g_return_if_fail(PURPLE_BLIST_NODE_IS_BUDDY(node));
-
-	buddy = (PurpleBuddy *) node;
+	buddy = data;
 	gc = purple_account_get_connection(purple_buddy_get_account(buddy));
 	js = purple_connection_get_protocol_data(gc);
 
-	/* I wonder if we should prompt the user before doing this */
 	jabber_presence_subscription_set(js, purple_buddy_get_name(buddy), "unsubscribed");
+}
+
+static void
+jabber_buddy_cancel_presence_notification(PurpleBlistNode *node,
+                                          gpointer data)
+{
+	PurpleBuddy *buddy;
+	PurpleAccount *account;
+	PurpleConnection *gc;
+	const gchar *name;
+	char *msg;
+
+	g_return_if_fail(PURPLE_BLIST_NODE_IS_BUDDY(node));
+
+	buddy = (PurpleBuddy *) node;
+	name = purple_buddy_get_name(buddy);
+	account = purple_buddy_get_account(buddy);
+	gc = purple_account_get_connection(account);
+
+	msg = g_strdup_printf(_("%s will no longer be able to see your status "
+	                        "updates.  Do you want to continue?"), name);
+	purple_request_yes_no(gc, NULL, _("Cancel Presence Notification"),
+	                      msg, 0 /* Yes */, account, name, NULL, buddy,
+	                      cancel_presence_notification, NULL /* Do nothing */);
+	g_free(msg);
 }
 
 static void jabber_buddy_rerequest_auth(PurpleBlistNode *node, gpointer data)
@@ -1812,6 +1842,13 @@ static GList *jabber_buddy_menu(PurpleBuddy *buddy)
 		   removed? */
 		act = purple_menu_action_new(_("Unsubscribe"),
 		                           PURPLE_CALLBACK(jabber_buddy_unsubscribe),
+		                           NULL, NULL);
+		m = g_list_append(m, act);
+	}
+
+	if (js->googletalk) {
+		act = purple_menu_action_new(_("Initiate _Chat"),
+		                           PURPLE_CALLBACK(google_buddy_node_chat),
 		                           NULL, NULL);
 		m = g_list_append(m, act);
 	}
@@ -2305,6 +2342,12 @@ void jabber_user_search_begin(PurplePluginAction *action)
 			_("Cancel"), NULL,
 			NULL, NULL, NULL,
 			js);
+}
+
+gboolean
+jabber_resource_know_capabilities(const JabberBuddyResource *jbr)
+{
+	return jbr->caps.info != NULL;
 }
 
 gboolean

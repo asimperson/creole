@@ -7,7 +7,7 @@ WriteMakefile(
     'VERSION_FROM'     => '@srcdir@/Carrier.pm', # finds $VERSION
     ($] >= 5.005 ? ## Add these new keywords supported since 5.005
       ('ABSTRACT_FROM' => '@srcdir@/Carrier.pm', # finds $ABSTRACT
-       'AUTHOR'        => 'Carrier <http://pidgin.im/>') :  ()),
+       'AUTHOR'        => 'Carrier <http://funpidgin.sourceforge.net/>') :  ()),
     'DEFINE'        => '@DEBUG_CFLAGS@',
     'INC'           => '-I. -I@srcdir@ -I@top_srcdir@ -I@top_srcdir@/libpurple -I@top_srcdir@/carrier @GTK_CFLAGS@',
     'OBJECT'        => '$(O_FILES)', # link all the C files too

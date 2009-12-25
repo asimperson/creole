@@ -15,12 +15,12 @@ VS_VERSION_INFO VERSIONINFO
     BEGIN
       BLOCK "040904B0"
       BEGIN
-        VALUE "CompanyName", "The Pidgin developer community"
+        VALUE "CompanyName", "The Carrier developer community"
         VALUE "FileDescription", "GTK+ Carrier Library"
         VALUE "FileVersion", "@PIDGIN_VERSION@"
-        VALUE "InternalName", "libcarrier"
+        VALUE "InternalName", "libpidgin"
         VALUE "LegalCopyright", "Copyright (C) 1998-2007 The Pidgin developer community (See the COPYRIGHT file in the source distribution)."
-        VALUE "OriginalFilename", "carrier.dll"
+        VALUE "OriginalFilename", "pidgin.dll"
         VALUE "ProductName", "Carrier"
         VALUE "ProductVersion", "@PIDGIN_VERSION@"
       END

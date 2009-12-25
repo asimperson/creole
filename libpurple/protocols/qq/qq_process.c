@@ -22,9 +22,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA
  */
 
+#include "internal.h"
 #include "cipher.h"
 #include "debug.h"
-#include "internal.h"
 
 #include "buddy_info.h"
 #include "buddy_list.h"
@@ -426,7 +426,7 @@ static void do_server_notice(PurpleConnection *gc, gchar *from, gchar *to,
 	if (qd->is_show_notice) {
 		qq_got_message(gc, content);
 	} else {
-		purple_debug_info("QQ", "QQ Server notice from %s:\n%s", from, msg_utf8);
+		purple_debug_info("QQ", "QQ Server notice from %s:\n%s\n", from, msg_utf8);
 	}
 	g_free(msg_utf8);
 	g_free(title);

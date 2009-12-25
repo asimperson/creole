@@ -130,38 +130,38 @@ static void
 do_check(void)
 {
 	int last_check = purple_prefs_get_int("/plugins/gtk/relnot/last_check");
- 	if(!last_check || time(NULL) - last_check > MIN_CHECK_INTERVAL) {
-	gchar *url, *request;
-	const char *host = "funpidgin.sf.net";
-	
-	url = g_strdup_printf("http://%s/version.php?version=%s&build=%s",
-			host,
-			purple_core_get_version(),
+	if(!last_check || time(NULL) - last_check > MIN_CHECK_INTERVAL) {
+		gchar *url, *request;
+		const char *host = "funpidgin.sf.net";
+		
+		url = g_strdup_printf("http://%s/version.php?version=%s&build=%s",
+				host,
+				purple_core_get_version(),
 #ifdef _WIN32
-			"purple-win32"
+				"purple-win32"
 #else
-			"purple"
+				"purple"
 #endif
-  		);
- 
-	request = g_strdup_printf(
-			"GET %s HTTP/1.0\r\n"
-			"Connection: close\r\n"
-			"Accept: */*\r\n"
-			"Host: %s\r\n\r\n",
-			url,
-			host);
+		);
 
-	purple_util_fetch_url_request_len(url, TRUE, NULL, FALSE,
-		request, TRUE, -1, version_fetch_cb, NULL);
+		request = g_strdup_printf(
+				"GET %s HTTP/1.0\r\n"
+				"Connection: close\r\n"
+				"Accept: */*\r\n"
+				"Host: %s\r\n\r\n",
+				url,
+				host);
 
-	g_free(request);
-	g_free(url);
+		purple_util_fetch_url_request_len(url, TRUE, NULL, FALSE,
+			request, TRUE, -1, version_fetch_cb, NULL);
 
-	purple_prefs_set_int("/plugins/gtk/relnot/last_check", time(NULL));
+		g_free(request);
+		g_free(url);
+
+		purple_prefs_set_int("/plugins/gtk/relnot/last_check", time(NULL));
 
 	}
-  }
+}
 
 static void
 signed_on_cb(PurpleConnection *gc, void *data) {

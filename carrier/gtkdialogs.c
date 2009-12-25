@@ -73,69 +73,70 @@ struct artist {
 
 /* Order: Alphabetical by Last Name */
 static const struct developer developers[] = {
-	{"Daniel 'datallah' Atallah",	NULL, NULL},
-	{"Paul 'darkrain42' Aurich",	NULL, NULL },
-	{"John 'rekkanoryo' Bailey",	N_("bug master"), NULL},
-	{"Ethan 'Paco-Paco' Blanton",	NULL, NULL},
-	{"Hylke Bons",			N_("artist"), "hylkebons@gmail.com"},
-	{"Thomas Butter",				NULL, NULL},
+	{"Daniel 'datallah' Atallah",          NULL,                  NULL},
+	{"Paul 'darkrain42' Aurich",           NULL,                  NULL},
+	{"John 'rekkanoryo' Bailey",           N_("bug master"),      NULL},
+	{"Ethan 'Paco-Paco' Blanton",          NULL,                  NULL},
+	{"Hylke Bons",                         N_("artist"),          "hylkebons@gmail.com"},
+	{"Thomas Butter",                      NULL,                  NULL},
 	/* feel free to not translate this */
-	{N_("Ka-Hing Cheung"),			NULL, NULL},
-	{"Sadrul Habib Chowdhury",		NULL, NULL},
-	{"Mark 'KingAnt' Doliner",		NULL, "mark@kingant.net"},
-	{"Sean Egan",					NULL, "sean.egan@gmail.com"},
-	{"Casey Harkins",               NULL,   NULL},
-	{"Gary 'grim' Kramlich",		NULL, "grim@pidgin.im"},
-	{"Richard 'rlaager' Laager",	NULL, "rlaager@pidgin.im"},
-	{"Richard 'wabz' Nelson",		NULL, NULL},
-	{"Christopher 'siege' O'Brien", NULL, "taliesein@users.sf.net"},
-	{"Bartosz Oler",		NULL, NULL},
-	{"Etan 'deryni' Reisner",       NULL, NULL},
-	{"Tim 'marv' Ringenbach",		NULL, NULL},
-	{"Michael 'Maiku' Ruprecht",	N_("voice and video"), NULL},
-	{"Elliott 'QuLogic' Sales de Andrade",	NULL,	NULL},
-	{"Luke 'LSchiere' Schierer",	N_("support"), "lschiere@users.sf.net"},
-	{"Evan Schoenberg",		NULL, NULL},
-	{"Kevin 'SimGuy' Stange",	N_("webmaster"),	NULL},
-	{"Will 'resiak' Thompson",	NULL,	NULL},
-	{"Stu 'nosnilmot' Tomlinson",	NULL, NULL},
+	{N_("Ka-Hing Cheung"),                 NULL,                  NULL},
+	{"Sadrul Habib Chowdhury",             NULL,                  NULL},
+	{"Mark 'KingAnt' Doliner",             NULL,                  "mark@kingant.net"},
+	{"Sean Egan",                          NULL,                  "sean.egan@gmail.com"},
+	{"Casey Harkins",                      NULL,                  NULL},
+	{"Gary 'grim' Kramlich",               NULL,                  "grim@pidgin.im"},
+	{"Richard 'rlaager' Laager",           NULL,                  "rlaager@pidgin.im"},
+	{"Sulabh 'sulabh_m' Mahajan",          NULL,                  NULL},
+	{"Richard 'wabz' Nelson",              NULL,                  NULL},
+	{"Christopher 'siege' O'Brien",        NULL,                  "taliesein@users.sf.net"},
+	{"Bartosz Oler",                       NULL,                  NULL},
+	{"Etan 'deryni' Reisner",              NULL,                  NULL},
+	{"Tim 'marv' Ringenbach",              NULL,                  NULL},
+	{"Michael 'Maiku' Ruprecht",           N_("voice and video"), NULL},
+	{"Elliott 'QuLogic' Sales de Andrade", NULL,                  NULL},
+	{"Luke 'LSchiere' Schierer",           N_("support"),         "lschiere@users.sf.net"},
+	{"Evan Schoenberg",                    NULL,                  NULL},
+	{"Kevin 'SimGuy' Stange",              N_("webmaster"),       NULL},
+	{"Will 'resiak' Thompson",             NULL,                  NULL},
+	{"Stu 'nosnilmot' Tomlinson",          NULL,                  NULL},
 	{NULL, NULL, NULL}
 };
 
 /* Order: Alphabetical by Last Name */
 static const struct developer patch_writers[] = {
-	{"Marcus 'malu' Lundblad", NULL, NULL},
-	{"Dennis 'EvilDennisR' Ristuccia",	N_("Senior Contributor/QA"),	NULL},
-	{"Peter 'Fmoo' Ruibal",		NULL,	NULL},
-	{"Gabriel 'Nix' Schulhof", 	NULL, 	NULL},
-	{"Jorge 'Masca' Villaseñor", 	NULL, 	NULL},
+	{"Marcus 'malu' Lundblad",         NULL,                        NULL},
+	{"Dennis 'EvilDennisR' Ristuccia", N_("Senior Contributor/QA"), NULL},
+	{"Peter 'Fmoo' Ruibal",            NULL,                        NULL},
+	{"Gabriel 'Nix' Schulhof",         NULL,                        NULL},
+	{"Jorge 'Masca' Villaseñor",       NULL,                        NULL},
 	{NULL, NULL, NULL}
 };
 
 /* Order: Alphabetical by Last Name */
 static const struct developer retired_developers[] = {
-	{"Herman Bloggs",		N_("win32 port"), "herman@bluedigits.com"},
-	{"Jim Duchek",			N_("maintainer"), "jim@linuxpimps.com"},
-	{"Rob Flynn",			N_("maintainer"), NULL},
-	{"Adam Fritzler",		N_("libfaim maintainer"), NULL},
-	{"Christian 'ChipX86' Hammond",	N_("webmaster"), NULL},
+	{"Herman Bloggs",               N_("win32 port"),          "herman@bluedigits.com"},
+	{"Jim Duchek",                  N_("maintainer"),          "jim@linuxpimps.com"},
+	{"Rob Flynn",                   N_("maintainer"),          NULL},
+	{"Adam Fritzler",               N_("libfaim maintainer"),  NULL},
+	{"Christian 'ChipX86' Hammond", N_("webmaster"),           NULL},
 	/* If "lazy bum" translates literally into a serious insult, use something else or omit it. */
-	{"Syd Logan",			N_("hacker and designated driver [lazy bum]"), NULL},
-	{"Megan 'Cae' Schneider",       N_("support/QA"), NULL},
-	{"Jim Seymour",			N_("XMPP"), NULL},
-	{"Mark Spencer",		N_("original author"), "markster@marko.net"},
-	{"Nathan 'faceprint' Walp",		NULL, NULL},
-	{"Eric Warmenhoven",	N_("lead developer"), "warmenhoven@yahoo.com"},
+	{"Syd Logan",                   N_("hacker and designated driver [lazy bum]"), NULL},
+	{"Megan 'Cae' Schneider",       N_("support/QA"),          NULL},
+	{"Jim Seymour",                 N_("XMPP"),                NULL},
+	{"Mark Spencer",                N_("original author"),     "markster@marko.net"},
+	{"Nathan 'faceprint' Walp",     NULL,                      NULL},
+	{"Eric Warmenhoven",            N_("lead developer"),      "warmenhoven@yahoo.com"},
 	{NULL, NULL, NULL}
 };
 
 /* Order: Alphabetical by Last Name */
 static const struct developer retired_patch_writers[] = {
-	{"Felipe 'shx' Contreras",		NULL,	NULL},
-	{"Decklin Foster",				NULL,	NULL},
-	{"Peter 'Bleeter' Lawler",      NULL,   NULL},
-	{"Robert 'Robot101' McQueen",	NULL,	NULL},
-	{"Benjamin Miller",				NULL,	NULL},
+	{"Felipe 'shx' Contreras",    NULL, NULL},
+	{"Decklin Foster",            NULL, NULL},
+	{"Peter 'Bleeter' Lawler",    NULL, NULL},
+	{"Robert 'Robot101' McQueen", NULL, NULL},
+	{"Benjamin Miller",           NULL, NULL},
 	{NULL, NULL, NULL}
 };
 
@@ -170,9 +171,7 @@ static const struct translator translators[] = {
 	{N_("Esperanto"),           "eo", "Stéphane Fillod", "fillods@users.sourceforge.net"},
 	{N_("Spanish"),             "es", "Javier Fernández-Sanguino Peña", "jfs@debian.org"},
 	{N_("Estonian"),            "et", "Ivar Smolin", "okul@linux.ee"},
-	{N_("Euskera(Basque)"),     "eu", "Mikel Pascual Aldabaldetreku", "mikel.paskual@gmail.com"},
-	{N_("Euskera(Basque)"),     "eu", "Iñaki Larrañaga Murgoitio", "dooteo@zundan.com"},
-	{N_("Euskera(Basque)"),     "eu", "Hizkuntza Politikarako Sailburuordetza", "hizkpol@ej-gv.es"},
+	{N_("Basque"),              "eu", "Mikel Pascual Aldabaldetreku", "mikel.paskual@gmail.com"},
 	{N_("Persian"),             "fa", "Elnaz Sarbar", "elnaz@farsiweb.info"},
 	{N_("Persian"),             "fa", "Meelad Zakaria", "meelad@farsiweb.info"},
 	{N_("Persian"),             "fa", "Roozbeh Pournader ", "roozbeh@farsiweb.info"},
@@ -203,6 +202,7 @@ static const struct translator translators[] = {
 	{N_("Macedonian"),          "mk", "Ivana Kirkovska", "ivana.kirkovska@gmail.com"},
 	{N_("Macedonian"),          "mk", "Jovan Naumovski", "jovan@lugola.net"},
 	{N_("Mongolian"),           "mn", "gooyo", NULL},
+	{N_("Malay"),               "ms_MY", "Muhammad Najmi bin Ahmad Zabidi", "najmi.zabidi@gmail.com"},
 	{N_("Bokmål Norwegian"),    "nb", "Hans Fredrik Nordhaug", "hans@nordhaug.priv.no"},
 	{N_("Nepali"),              "ne", "Shyam Krishna Bal", "shyamkrishna_bal@yahoo.com"},
 	{N_("Dutch, Flemish"),      "nl", "Vincent van Adrighem", "V.vanAdrighem@dirck.mine.nu"},
@@ -230,9 +230,10 @@ static const struct translator translators[] = {
 	{N_("Telugu"),              "te", "Mr. Subbaramaih", "info.gist@cdac.in"},
 	{N_("Thai"),                "th", "Isriya Paireepairit", "markpeak@gmail.com"},
 	{N_("Turkish"),             "tr", "Serdar Soytetir", "tulliana@gmail.com"},
+	{N_("Ukranian"),            "uk", "Oleksandr Kovalenko", "alx.kovalenko@gmail.com"},
 	{N_("Urdu"),                "ur", "RKVS Raman", "rkvsraman@gmail.com"},
 	{N_("Vietnamese"),          "vi", N_("T.M.Thanh and the Gnome-Vi Team"), "gnomevi-list@lists.sf.net"},
-	{N_("Simplified Chinese"),  "zh_CN", "Aron Xu", "aronmalache@163.com"},
+	{N_("Simplified Chinese"),  "zh_CN", "Aron Xu", "happyaron.xu@gmail.com"},
 	{N_("Hong Kong Chinese"),   "zh_HK", "Abel Cheung", "abelindsay@gmail.com"},
 	{N_("Hong Kong Chinese"),   "zh_HK", "Ambrose C. Li", "acli@ada.dhs.org"},
 	{N_("Hong Kong Chinese"),   "zh_HK", "Paladin R. Liu", "paladin@ms1.hinet.net"},
@@ -257,6 +258,8 @@ static const struct translator past_translators[] = {
 	{N_("Spanish"),             "es", "Nicolás Lichtmaier", NULL},
 	{N_("Spanish"),             "es", "Amaya Rodrigo", NULL},
 	{N_("Spanish"),             "es", "Alejandro G Villar", NULL},
+	{N_("Basque"),              "eu", "Iñaki Larrañaga Murgoitio", "dooteo@zundan.com"},
+	{N_("Basque"),              "eu", "Hizkuntza Politikarako Sailburuordetza", "hizkpol@ej-gv.es"},
 	{N_("Finnish"),             "fi", "Arto Alakulju", NULL},
 	{N_("Finnish"),             "fi", "Tero Kuusela", NULL},
 	{N_("French"),              "fr", "Sébastien François", NULL},
@@ -470,9 +473,15 @@ void pidgin_dialogs_about()
 	g_string_append_printf(str, _("<FONT SIZE=\"4\">FAQ:</FONT> <A HREF=\""
 				"http://developer.pidgin.im/wiki/FAQ\">"
 				"http://developer.pidgin.im/wiki/FAQ</A><BR/><BR/>"));
-	g_string_append_printf(str, _("<FONT SIZE=\"4\">Help via e-mail:</FONT>"
-				" <A HREF=\"mailto:support@pidgin.im\">support@pidgin.im</A>"
-				"<BR/><BR/>"));
+	g_string_append_printf(str,
+			_("<font size=\"4\">Help from other Pidgin users:</font> "
+			"<a href=\"mailto:support@pidgin.im\">support@pidgin.im</a><br/>"
+			"This is a <b>public</b> mailing list! "
+			"(<a href=\"http://pidgin.im/pipermail/support/\">archive</a>)<br/>"
+			"We can't help with 3rd party protocols or plugins!<br/>"
+			"This list's primary language is <b>English</b>.  You are "
+			"welcome to post in another language, but the responses may "
+			"be less helpful.<br/><br/>"));
 	g_string_append_printf(str, _("<FONT SIZE=\"4\">IRC Channel:</FONT> "
 				"#pidgin on irc.freenode.net<BR><BR>"));
 	g_string_append_printf(str, _("<FONT SIZE=\"4\">XMPP MUC:</FONT> "
@@ -650,6 +659,12 @@ if (purple_plugins_find_with_id("core-tcl") != NULL) {
 	g_string_append(str, "    <b>Tcl:</b> Disabled<br/>");
 	g_string_append(str, "    <b>Tk:</b> Disabled<br/>");
 }
+
+#ifdef USE_IDN
+	g_string_append(str, "    <b>UTF-8 DNS (IDN):</b> Enabled<br/>");
+#else
+	g_string_append(str, "    <b>UTF-8 DNS (IDN):</b> Disabled<br/>");
+#endif
 
 #ifdef USE_VV
 	g_string_append(str, "    <b>Voice and Video:</b> Enabled<br/>");

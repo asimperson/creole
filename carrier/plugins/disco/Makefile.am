@@ -1,4 +1,4 @@
-plugindir = $(libdir)/carrier
+plugindir = $(libdir)/pidgin
 
 xmppdisco_la_LDFLAGS = -module -avoid-version
 

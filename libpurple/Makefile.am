@@ -32,7 +32,7 @@ endif
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = purple.pc
 
-SUBDIRS = $(GCONF_DIR) plugins protocols tests . example
+SUBDIRS = $(GCONF_DIR) plugins protocols . tests example
 
 purple_coresources = \
 	account.c \
@@ -299,7 +299,6 @@ libpurple_la_LIBADD = \
 	-lm
 
 AM_CPPFLAGS = \
-	-DBR_PTHREADS=0 \
 	-DDATADIR=\"$(datadir)\" \
 	-DLIBDIR=\"$(libdir)/purple-$(PURPLE_MAJOR_VERSION)/\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \

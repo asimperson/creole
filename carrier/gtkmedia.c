@@ -20,12 +20,11 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA
  */
 
-#include <string.h>
-#include "debug.h"
 #include "internal.h"
+#include "debug.h"
 #include "connection.h"
 #include "media.h"
 #include "mediamanager.h"
@@ -34,6 +33,7 @@
 
 #include "gtkmedia.h"
 #include "gtkutils.h"
+#include "pidginstock.h"
 
 #ifdef USE_VV
 #include "media-gst.h"
@@ -88,6 +88,7 @@ struct _PidginMediaPrivate
 	GtkWidget *menubar;
 	GtkWidget *statusbar;
 
+	GtkWidget *hold;
 	GtkWidget *mute;
 	GtkWidget *pause;
 
@@ -183,6 +184,15 @@ pidgin_media_class_init (PidginMediaClass *klass)
 			G_PARAM_CONSTRUCT_ONLY | G_PARAM_READWRITE));
 
 	g_type_class_add_private(klass, sizeof(PidginMediaPrivate));
+}
+
+static void
+pidgin_media_hold_toggled(GtkToggleButton *toggle, PidginMedia *media)
+{
+	purple_media_stream_info(media->priv->media,
+			gtk_toggle_button_get_active(toggle) ?
+			PURPLE_MEDIA_INFO_HOLD : PURPLE_MEDIA_INFO_UNHOLD,
+			NULL, NULL, TRUE);
 }
 
 static void
@@ -499,13 +509,14 @@ pidgin_request_timeout_cb(PidginMedia *gtkmedia)
 	}
 
 	gtkmedia->priv->request_type = PURPLE_MEDIA_NONE;
-
-	purple_request_accept_cancel(gtkmedia, _("Incoming Call"),
-			message, NULL, PURPLE_DEFAULT_ACTION_NONE,
-			(void*)account, gtkmedia->priv->screenname, NULL,
-			gtkmedia->priv->media,
-			pidgin_media_accept_cb,
-			pidgin_media_reject_cb);
+	if (!purple_media_accepted(gtkmedia->priv->media, NULL, NULL)) {
+		purple_request_accept_cancel(gtkmedia, _("Incoming Call"),
+				message, NULL, PURPLE_DEFAULT_ACTION_NONE,
+				(void*)account, gtkmedia->priv->screenname,
+				NULL, gtkmedia->priv->media,
+				pidgin_media_accept_cb,
+				pidgin_media_reject_cb);
+	}
 	pidgin_media_emit_message(gtkmedia, message);
 	g_free(message);
 	return FALSE;
@@ -609,6 +620,7 @@ pidgin_media_ready_cb(PurpleMedia *media, PidginMedia *gtkmedia, const gchar *si
 	GtkWidget *send_widget = NULL, *recv_widget = NULL, *button_widget = NULL;
 	PurpleMediaSessionType type =
 			purple_media_get_session_type(media, sid);
+	GdkPixbuf *icon = NULL;
 
 	if (gtkmedia->priv->recv_widget == NULL
 			&& type & (PURPLE_MEDIA_RECV_VIDEO |
@@ -630,6 +642,16 @@ pidgin_media_ready_cb(PurpleMedia *media, PidginMedia *gtkmedia, const gchar *si
 				FALSE, FALSE, 0);
 		gtk_widget_show(GTK_WIDGET(button_widget));
 		gtk_widget_show(send_widget);
+
+		/* Hold button */
+		gtkmedia->priv->hold =
+				gtk_toggle_button_new_with_mnemonic("_Hold");
+		g_signal_connect(gtkmedia->priv->hold, "toggled",
+				G_CALLBACK(pidgin_media_hold_toggled),
+				gtkmedia);
+		gtk_box_pack_end(GTK_BOX(button_widget), gtkmedia->priv->hold,
+				FALSE, FALSE, 0);
+		gtk_widget_show(gtkmedia->priv->hold);
 	} else {
 		send_widget = gtkmedia->priv->send_widget;
 		button_widget = gtkmedia->priv->button_widget;
@@ -742,6 +764,22 @@ pidgin_media_ready_cb(PurpleMedia *media, PidginMedia *gtkmedia, const gchar *si
 				gtkmedia);
 	}
 
+	/* set the window icon according to the type */
+	if (type & PURPLE_MEDIA_VIDEO) {
+		icon = gtk_widget_render_icon(GTK_WIDGET(gtkmedia),
+			PIDGIN_STOCK_TOOLBAR_VIDEO_CALL,
+			gtk_icon_size_from_name(PIDGIN_ICON_SIZE_TANGO_LARGE), NULL);
+	} else if (type & PURPLE_MEDIA_AUDIO) {
+		icon = gtk_widget_render_icon(GTK_WIDGET(gtkmedia),
+			PIDGIN_STOCK_TOOLBAR_AUDIO_CALL,
+			gtk_icon_size_from_name(PIDGIN_ICON_SIZE_TANGO_LARGE), NULL);
+	}
+
+	if (icon) {
+		gtk_window_set_icon(GTK_WINDOW(gtkmedia), icon);
+		g_object_unref(icon);
+	}
+	
 	gtk_widget_show(gtkmedia->priv->display);
 }
 
@@ -772,6 +810,8 @@ pidgin_media_stream_info_cb(PurpleMedia *media, PurpleMediaInfoType type,
 		pidgin_media_emit_message(gtkmedia,
 				_("You have rejected the call."));
 	} else if (type == PURPLE_MEDIA_INFO_ACCEPT) {
+		if (local == TRUE)
+			purple_request_close_with_handle(gtkmedia);
 		pidgin_media_set_state(gtkmedia, PIDGIN_MEDIA_ACCEPTED);
 		pidgin_media_emit_message(gtkmedia, _("Call in progress."));
 		gtk_statusbar_push(GTK_STATUSBAR(gtkmedia->priv->statusbar),

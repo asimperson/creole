@@ -1,7 +1,9 @@
 /*
  * purple - Jabber Protocol Plugin
  *
- * Copyright (C) 2003, Nathan Walp <faceprint@faceprint.com>
+ * Purple is the legal property of its developers, whose names are too numerous
+ * to list here.  Please refer to the COPYRIGHT file distributed with this
+ * source distribution.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -93,7 +95,7 @@ static void jabber_oob_xfer_request_send(gpointer data, gint source, PurpleInput
 	if(len < 0 && errno == EAGAIN)
 		return;
 	else if(len < 0) {
-		purple_debug(PURPLE_DEBUG_ERROR, "jabber", "Write error on oob xfer!\n");
+		purple_debug_error("jabber", "Write error on oob xfer!\n");
 		purple_input_remove(jox->writeh);
 		purple_xfer_cancel_local(xfer);
 	}
@@ -148,7 +150,7 @@ static gssize jabber_oob_xfer_read(guchar **buffer, PurpleXfer *xfer) {
 		}
 		return 0;
 	} else if (errno != EAGAIN) {
-		purple_debug(PURPLE_DEBUG_ERROR, "jabber", "Read error on oob xfer!\n");
+		purple_debug_error("jabber", "Read error on oob xfer!\n");
 		purple_xfer_cancel_local(xfer);
 	}
 
@@ -168,11 +170,11 @@ static void jabber_oob_xfer_recv_error(PurpleXfer *xfer, const char *code) {
 	if(!strcmp(code, "406")) {
 		z = xmlnode_new_child(y, "not-acceptable");
 		xmlnode_set_attrib(y, "type", "modify");
-		xmlnode_set_namespace(z, "urn:ietf:params:xml:ns:xmpp-stanzas");
+		xmlnode_set_namespace(z, NS_XMPP_STANZAS);
 	} else if(!strcmp(code, "404")) {
 		z = xmlnode_new_child(y, "not-found");
 		xmlnode_set_attrib(y, "type", "cancel");
-		xmlnode_set_namespace(z, "urn:ietf:params:xml:ns:xmpp-stanzas");
+		xmlnode_set_namespace(z, NS_XMPP_STANZAS);
 	}
 	jabber_iq_send(iq);
 

@@ -3,6 +3,10 @@
  *
  * purple
  *
+ * Purple is the legal property of its developers, whose names are too numerous
+ * to list here.  Please refer to the COPYRIGHT file distributed with this
+ * source distribution.
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -356,11 +360,15 @@ jingle_session_get_pending_contents(JingleSession *session)
 JingleSession *
 jingle_session_find_by_sid(JabberStream *js, const gchar *sid)
 {
+	JingleSession *session = NULL;
+
+	if (js->sessions)
+		session = g_hash_table_lookup(js->sessions, sid);
+
 	purple_debug_info("jingle", "find_by_id %s\n", sid);
-	purple_debug_info("jingle", "lookup: %p\n", (js->sessions) ?
-			  g_hash_table_lookup(js->sessions, sid) : NULL);  
-	return (JingleSession *) (js->sessions) ?
-			  g_hash_table_lookup(js->sessions, sid) : NULL;
+	purple_debug_info("jingle", "lookup: %p\n", session);
+
+	return session;
 }
 
 #if GLIB_CHECK_VERSION(2,4,0)

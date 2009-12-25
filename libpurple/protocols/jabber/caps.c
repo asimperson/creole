@@ -1,7 +1,9 @@
 /*
  * purple - Jabber Protocol Plugin
  *
- * Copyright (C) 2007, Andreas Monitzer <andy@monitzer.com>
+ * Purple is the legal property of its developers, whose names are too numerous
+ * to list here.  Please refer to the COPYRIGHT file distributed with this
+ * source distribution.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +17,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA	 02111-1307	 USA
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA
  *
  */
 
@@ -438,7 +440,7 @@ jabber_caps_client_iqcb(JabberStream *js, const char *from, JabberIqType type,
                         const char *id, xmlnode *packet, gpointer data)
 {
 	xmlnode *query = xmlnode_get_child_with_namespace(packet, "query",
-		"http://jabber.org/protocol/disco#info");
+		NS_DISCO_INFO);
 	jabber_caps_cbplususerdata *userdata = data;
 	JabberCapsClientInfo *info = NULL, *value;
 	JabberCapsTuple key;
@@ -468,8 +470,10 @@ jabber_caps_client_iqcb(JabberStream *js, const char *from, JabberIqType type,
 		}
 
 		if (!hash || strcmp(hash, userdata->ver)) {
-			purple_debug_warning("jabber", "Could not validate caps info from %s\n",
-			                     xmlnode_get_attrib(packet, "from"));
+			purple_debug_warning("jabber", "Could not validate caps info from "
+			                     "%s. Expected %s, got %s\n",
+			                     xmlnode_get_attrib(packet, "from"),
+			                     userdata->ver, hash ? hash : "(null)");
 
 			userdata->cb(NULL, NULL, userdata->cb_data);
 			jabber_caps_client_info_destroy(info);
@@ -527,7 +531,7 @@ jabber_caps_ext_iqcb(JabberStream *js, const char *from, JabberIqType type,
                      const char *id, xmlnode *packet, gpointer data)
 {
 	xmlnode *query = xmlnode_get_child_with_namespace(packet, "query",
-		"http://jabber.org/protocol/disco#info");
+		NS_DISCO_INFO);
 	xmlnode *child;
 	ext_iq_data *userdata = data;
 	GList *features = NULL;
@@ -597,8 +601,8 @@ void jabber_caps_get_info(JabberStream *js, const char *who, const char *node,
 	jabber_caps_cbplususerdata *userdata;
 
 	if (exts && hash) {
-		purple_debug_info("jabber", "Ignoring exts in new-style caps from %s\n",
-		                     who);
+		purple_debug_misc("jabber", "Ignoring exts in new-style caps from %s\n",
+		                  who);
 		g_strfreev(exts);
 		exts = NULL;
 	}
@@ -634,10 +638,9 @@ void jabber_caps_get_info(JabberStream *js, const char *who, const char *node,
 		xmlnode *query;
 		char *nodever;
 
-		iq = jabber_iq_new_query(js, JABBER_IQ_GET,
-					"http://jabber.org/protocol/disco#info");
+		iq = jabber_iq_new_query(js, JABBER_IQ_GET, NS_DISCO_INFO);
 		query = xmlnode_get_child_with_namespace(iq->node, "query",
-					"http://jabber.org/protocol/disco#info");
+					NS_DISCO_INFO);
 		nodever = g_strdup_printf("%s#%s", node, ver);
 		xmlnode_set_attrib(query, "node", nodever);
 		g_free(nodever);
@@ -675,10 +678,9 @@ void jabber_caps_get_info(JabberStream *js, const char *who, const char *node,
 				cbdata->name = exts[i];
 				cbdata->data = cbplususerdata_ref(userdata);
 
-				iq = jabber_iq_new_query(js, JABBER_IQ_GET,
-				            "http://jabber.org/protocol/disco#info");
+				iq = jabber_iq_new_query(js, JABBER_IQ_GET, NS_DISCO_INFO);
 				query = xmlnode_get_child_with_namespace(iq->node, "query",
-				            "http://jabber.org/protocol/disco#info");
+				            NS_DISCO_INFO);
 				nodeext = g_strdup_printf("%s#%s", node, exts[i]);
 				xmlnode_set_attrib(query, "node", nodeext);
 				g_free(nodeext);
@@ -767,7 +769,7 @@ static JabberCapsClientInfo *jabber_caps_parse_client_info(xmlnode *query)
 	xmlnode *child;
 	JabberCapsClientInfo *info;
 
-	if (!query || strcmp(query->xmlns, "http://jabber.org/protocol/disco#info"))
+	if (!query || strcmp(query->xmlns, NS_DISCO_INFO))
 		return 0;
 
 	info = g_new0(JabberCapsClientInfo, 1);
@@ -971,7 +973,7 @@ void jabber_caps_calculate_own_hash(JabberStream *js) {
 	g_free(js->caps_hash);
 	js->caps_hash = jabber_caps_calculate_hash(&info, "sha1");
 	g_list_free(info.identities);
-	g_list_free(features);
+	g_list_free(info.features);
 }
 
 const gchar* jabber_caps_get_own_hash(JabberStream *js)
