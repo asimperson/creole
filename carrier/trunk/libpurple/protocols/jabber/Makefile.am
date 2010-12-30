@@ -10,6 +10,10 @@ JABBERSOURCES = \
 			  adhoccommands.h \
 			  auth.c \
 			  auth.h \
+			  auth_digest_md5.c \
+			  auth_plain.c \
+			  auth_scram.c \
+			  auth_scram.h \
 			  buddy.c \
 			  buddy.h \
 			  bosh.c \
@@ -22,8 +26,20 @@ JABBERSOURCES = \
 			  data.h \
 			  disco.c \
 			  disco.h \
-			  google.c \
-			  google.h \
+			  google/gmail.c \
+			  google/gmail.h \
+			  google/google.c \
+			  google/google.h \
+			  google/google_presence.c \
+			  google/google_presence.h \
+			  google/google_roster.c \
+			  google/google_roster.h \
+			  google/google_session.c \
+			  google/google_session.h \
+			  google/jingleinfo.c \
+			  google/jingleinfo.h \
+			  google/relay.c \
+			  google/relay.h \
 			  ibb.c \
 			  ibb.h \
 			  iq.c \
@@ -78,6 +94,10 @@ AM_CFLAGS = $(st)
 
 libxmpp_la_LDFLAGS = -module -avoid-version
 
+if USE_CYRUS_SASL
+JABBERSOURCES += auth_cyrus.c
+endif
+
 if STATIC_JABBER
 
 st = -DPURPLE_STATIC_PRPL
@@ -90,7 +110,10 @@ else
 st =
 pkg_LTLIBRARIES      = libjabber.la libxmpp.la
 libjabber_la_SOURCES = $(JABBERSOURCES)
-libjabber_la_LIBADD  = $(GLIB_LIBS) $(SASL_LIBS) $(LIBXML_LIBS) $(IDN_LIBS)
+libjabber_la_LIBADD  = $(GLIB_LIBS) $(SASL_LIBS) $(LIBXML_LIBS) $(IDN_LIBS)\
+	$(FARSIGHT_LIBS) \
+	$(GSTREAMER_LIBS) \
+	$(GSTINTERFACES_LIBS)
 
 libxmpp_la_SOURCES = libxmpp.c
 libxmpp_la_LIBADD = libjabber.la
@@ -103,4 +126,7 @@ AM_CPPFLAGS = \
 	$(DEBUG_CFLAGS) \
 	$(GLIB_CFLAGS) \
 	$(IDN_CFLAGS) \
-	$(LIBXML_CFLAGS)
+	$(LIBXML_CFLAGS) \
+	$(FARSIGHT_CFLAGS) \
+	$(GSTREAMER_CFLAGS) \
+	$(GSTINTERFACES_CFLAGS)

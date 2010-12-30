@@ -9,9 +9,9 @@
 #define beta 7
 
 %if 0%{?beta}
-%define carrierver %(echo "@VERSION@"|sed -e 's/dev.*//; s/beta.*//')
+%define pidginver %(echo "@VERSION@"|sed -e 's/dev.*//; s/beta.*//')
 %else
-%define carrierver @VERSION@
+%define pidginver @VERSION@
 %endif
 
 # define the minimum API version required, so we can use it for plugin deps
@@ -19,17 +19,17 @@
 
 Summary:    A GTK+ based multiprotocol instant messaging client
 Name:       @PACKAGE@
-Version:    %carrierver
+Version:    %pidginver
 Release:    0%{?beta:.beta%{beta}}
 License:    GPL
 Group:      Applications/Internet
-URL:        http://funpidgin.sourceforge.net/
+URL:        http://pidgin.im/
 Source:     %{name}-@VERSION@.tar.bz2
 BuildRoot:  %{_tmppath}/%{name}-%{version}-root
 
 # Generic build requirements
 BuildRequires: libtool, pkgconfig, intltool, gettext, libxml2-devel
-BuildRequires: gtk2-devel
+BuildRequires: gtk2-devel, libidn-devel
 
 %{!?_without_startupnotification:BuildRequires: startup-notification-devel}
 %{?_with_avahi:BuildRequires: avahi-glib-devel}
@@ -46,12 +46,14 @@ BuildRequires: gtk2-devel
 %if "%{_vendor}" == "suse"
 # For SuSE:
 BuildRequires: gnutls-devel
+%define sslopts --enable-gnutls=yes --enable-nss=no
 %{?_with_dbus:BuildRequires: dbus-1-devel >= 0.35}
 %{!?_without_gstreamer:BuildRequires: gstreamer010-devel >= 0.10}
 Requires(pre): gconf2
 Requires(post): gconf2
 Requires(preun): gconf2
 %else
+%define sslopts --enable-gnutls=no --enable-nss=yes
 %{?_with_dbus:BuildRequires: dbus-devel >= 0.35}
 %{!?_without_gstreamer:BuildRequires: gstreamer-devel >= 0.10}
 Requires(pre): GConf2
@@ -86,11 +88,13 @@ Requires: libpurple = %{version}
 
 Obsoletes: gaim
 Provides: gaim
+Obsoletes: pidgin-perl < %{version}
+Provides: pidgin-perl = %{version}-%{release}
 
 %package devel
-Summary:    Development headers, documentation, and libraries for Carrier
+Summary:    Development headers, documentation, and libraries for Pidgin
 Group:      Applications/Internet
-Requires:   carrier = %{version}, libpurple-devel = %{version}
+Requires:   pidgin = %{version}, libpurple-devel = %{version}
 Requires:   gtk2-devel
 Requires:   pkgconfig
 Obsoletes:  gaim-devel
@@ -104,6 +108,8 @@ Obsoletes:  gaim-tcl
 Obsoletes:  gaim-gadugadu
 Obsoletes:  pidgin-tcl < 2.0.0
 Obsoletes:  pidgin-silc < 2.0.0
+Obsoletes:  libpurple-perl < %{version}
+Provides:   libpurple-perl = %{version}-%{release}
 %{?_with_sasl:Requires:   cyrus-sasl-plain, cyrus-sasl-md5}
 
 %package -n libpurple-devel
@@ -120,28 +126,28 @@ Requires:   pkgconfig
 
 %if 0%{?_with_avahi:1}
 %package -n libpurple-bonjour
-Summary:    Bonjour plugin for Carrier
+Summary:    Bonjour plugin for Pidgin
 Group:      Applications/Internet
 Requires:   libpurple >= %{apiver}
 %endif
 
 %if 0%{?_with_meanwhile:1}
 %package -n libpurple-meanwhile
-Summary:    Lotus Sametime plugin for Carrier using the Meanwhile library
+Summary:    Lotus Sametime plugin for Pidgin using the Meanwhile library
 Group:      Applications/Internet
 Requires:   libpurple >= %{apiver}
 %endif
 
 %if 0%{?_with_mono:1}
 %package -n libpurple-mono
-Summary:    Mono .NET plugin support for Carrier
+Summary:    Mono .NET plugin support for Pidgin
 Group:      Applications/Internet
 Requires:   libpurple >= %{apiver}
 %endif
 
 %if 0%{!?_without_text:1}
 %package -n finch
-Summary:    A text-based user interface for Carrier
+Summary:    A text-based user interface for Pidgin
 Group:      Applications/Internet
 Requires:   libpurple = %{version}
 
@@ -154,22 +160,22 @@ Requires:   pkgconfig
 %endif
 
 %description
-Carrier allows you to talk to anyone using a variety of messaging
+Pidgin allows you to talk to anyone using a variety of messaging
 protocols including AIM, MSN, Yahoo!, XMPP, Bonjour, Gadu-Gadu,
 ICQ, IRC, Novell Groupwise, QQ, Lotus Sametime, SILC, Simple and
 Zephyr.  These protocols are implemented using a modular, easy to
 use design.  To use a protocol, just add an account using the
 account editor.
 
-Carrier supports many common features of other clients, as well as many
+Pidgin supports many common features of other clients, as well as many
 unique features, such as perl scripting, TCL scripting and C plugins.
 
-Carrier is not affiliated with or endorsed by America Online, Inc.,
+Pidgin is not affiliated with or endorsed by America Online, Inc.,
 Microsoft Corporation, Yahoo! Inc., or ICQ Inc.
 
 %description devel
-The carrier-devel package contains the header files, developer
-documentation, and libraries required for development of Carrier scripts
+The pidgin-devel package contains the header files, developer
+documentation, and libraries required for development of Pidgin scripts
 and plugins.
 
 %description -n libpurple
@@ -187,18 +193,18 @@ instant messaging clients or plugins for any libpurple based client.
 
 %if 0%{?_with_avahi:1}
 %description -n libpurple-bonjour
-Bonjour plugin for Carrier.
+Bonjour plugin for Pidgin.
 %endif
 
 %if 0%{?_with_meanwhile:1}
 %description -n libpurple-meanwhile
-Lotus Sametime plugin for Carrier using the Meanwhile library.
+Lotus Sametime plugin for Pidgin using the Meanwhile library.
 %endif
 
 %if 0%{?_with_mono:1}
 %description -n libpurple-mono
-Mono plugin loader for Carrier.  This package will allow you to write or
-use Carrier plugins written in the .NET programming language.
+Mono plugin loader for Pidgin.  This package will allow you to write or
+use Pidgin plugins written in the .NET programming language.
 %endif
 
 %if 0%{!?_without_text:1}
@@ -226,6 +232,8 @@ CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} \
                                     --mandir=%{_mandir} \
                                     --sysconfdir=%{_sysconfdir} \
                                     --disable-schemas-install \
+                                    %{sslopts} \
+                                    %{!?_with_vv:--disable-vv} \
                                     %{!?_with_dbus:--disable-dbus} \
                                     %{!?_with_avahi:--disable-avahi} \
                                     %{!?_with_meanwhile:--disable-meanwhile} \
@@ -236,7 +244,8 @@ CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} \
                                     %{?_with_mono:--enable-mono} \
                                     %{?_with_sasl:--enable-cyrus-sasl} \
                                     %{?_without_tcl:--disable-tcl} \
-                                    %{?_without_text:--disable-consoleui}
+                                    %{?_without_text:--disable-consoleui} \
+                                    %{?_with_trayiconcompat:--enable-trayicon-compat}
 
 make %{?_smp_mflags} LIBTOOL=/usr/bin/libtool
 
@@ -361,17 +370,16 @@ fi
 %doc README
 %doc README.MTN
 %doc doc/the_penguin.txt
-%doc %{_mandir}/man1/carrier.*
+%doc %{_mandir}/man1/pidgin.*
 %doc %{_mandir}/man3*/*
 
-%dir %{_libdir}/carrier
-%dir %{_libdir}/carrier/perl
-%dir %{_libdir}/carrier/perl/auto
-%dir %{_libdir}/carrier/perl/auto/Carrier
-
-%{_bindir}/carrier
+%dir %{_libdir}/pidgin
+%dir %{_libdir}/pidgin/perl
+%dir %{_libdir}/pidgin/perl/auto
+%dir %{_libdir}/pidgin/perl/auto/Pidgin
+%{_bindir}/pidgin
 %{_datadir}/pixmaps/pidgin
-%{_datadir}/icons/hicolor/*/apps/carrier.*
+%{_datadir}/icons/hicolor/*/apps/pidgin.*
 %{_datadir}/applications/*
 %{_sysconfdir}/gconf/schemas/purple.schemas
 
@@ -381,11 +389,11 @@ fi
 
 %{_libdir}/libpurple.so.*
 %dir %{_libdir}/purple-2
-%{_datadir}/purple
-%{_datadir}/sounds/purple
 %dir %{_libdir}/purple-2/perl
 %dir %{_libdir}/purple-2/perl/auto
 %dir %{_libdir}/purple-2/perl/auto/Purple
+%{_datadir}/purple
+%{_datadir}/sounds/purple
 
 %if 0%{?_with_dbus:1}
 %{_bindir}/purple-client-example
@@ -399,9 +407,9 @@ fi
 
 %files devel
 %defattr(-, root, root)
-%dir %{_includedir}/carrier
-%{_includedir}/carrier/*.h
-%{_libdir}/pkgconfig/carrier.pc
+%dir %{_includedir}/pidgin
+%{_includedir}/pidgin/*.h
+%{_libdir}/pkgconfig/pidgin.pc
 
 %files -n libpurple-devel
 %defattr(-, root, root)
@@ -411,7 +419,7 @@ fi
 %doc PLUGIN_HOWTO
 
 %dir %{_includedir}/libpurple
-%{_includedir}/libpurple/*.h
+%{_includedir}/libpurple/*
 %{_libdir}/libpurple.so
 %{_libdir}/pkgconfig/purple.pc
 %{_datadir}/aclocal/purple.m4
@@ -466,11 +474,25 @@ fi
 %endif
 
 %changelog
+* Wed Sep 01 2010 Stu Tomlinson <stu@nosnilmot.com>
+- Ensure predictable use of SSL libs
+
+* Wed Jun 02 2010 Stu Tomlinson <stu@nosnilmot.com>
+- add an option to build RPMs using --enable-trayicon-compat
+  (--with trayiconcompat)
+
+* Thu May 13 2010 Stu Tomlinson <stu@nosnilmot.com>
+- Include all libpurple headers in libpurple-devel
+
+* Sat Sep 05 2009 Stu Tomlinson <stu@nosnilmot.com>
+- Disable Voice & Video unless --with vv is used
+- Add BuildRequires for libidn-devel
+- Add Provides/Obsoletes to ease transition from Red Hat / Fedora RPMs
+
 * Sat Jul 11 2009 Stu Tomlinson <stu@nosnilmot.com>
 - Update to reflect changes in perl module installation directories
 
-* Mon May 19 2008 
-Stu Tomlinson <stu@nosnilmot.com>
+* Mon May 19 2008 Stu Tomlinson <stu@nosnilmot.com>
 - Fix building without meanwhile support
 
 * Fri May 16 2008 Stu Tomlinson <stu@nosnilmot.com>

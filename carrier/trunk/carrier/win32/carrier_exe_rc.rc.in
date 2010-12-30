@@ -19,7 +19,7 @@ VS_VERSION_INFO VERSIONINFO
         VALUE "FileDescription", "Carrier"
         VALUE "FileVersion", "@PIDGIN_VERSION@"
         VALUE "InternalName", "carrier"
-        VALUE "LegalCopyright", "Copyright (C) 1998-2007 The Pidgin developer community (See the COPYRIGHT file in the source distribution)."
+        VALUE "LegalCopyright", "Copyright (C) 1998-2010 The Pidgin developer community (See the COPYRIGHT file in the source distribution)."
         VALUE "OriginalFilename", "@ORIGINAL_FILENAME@"
         VALUE "ProductName", "Carrier"
         VALUE "ProductVersion", "@PIDGIN_VERSION@"

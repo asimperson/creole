@@ -7,7 +7,7 @@
 ;;   !include "pidgin-plugin.nsh"
 ;;
 
-!define PIDGIN_REG_KEY              "SOFTWARE\pidgin"
+!define PIDGIN_REG_KEY              "SOFTWARE\carrier"
 
 !define PIDGIN_VERSION_OK           0
 !define PIDGIN_VERSION_INCOMPATIBLE 1

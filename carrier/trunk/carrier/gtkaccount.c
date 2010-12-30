@@ -53,6 +53,7 @@ enum
 	COLUMN_BUDDYICON,
 	COLUMN_USERNAME,
 	COLUMN_ENABLED,
+	COLUMN_AUTOLOGIN,
 	COLUMN_PROTOCOL,
 	COLUMN_DATA,
 	NUM_COLUMNS
@@ -381,6 +382,7 @@ account_dnd_recv(GtkWidget *widget, GdkDragContext *dc, gint x, gint y,
 static void
 update_editable(PurpleConnection *gc, AccountPrefsDialog *dialog)
 {
+	GtkStyle *style;
 	gboolean set;
 	GList *l;
 
@@ -392,10 +394,21 @@ update_editable(PurpleConnection *gc, AccountPrefsDialog *dialog)
 
 	set = !(purple_account_is_connected(dialog->account) || purple_account_is_connecting(dialog->account));
 	gtk_widget_set_sensitive(dialog->protocol_menu, set);
-	gtk_widget_set_sensitive(dialog->username_entry, set);
+	gtk_editable_set_editable(GTK_EDITABLE(dialog->username_entry), set);
+	style = set ? NULL : gtk_widget_get_style(dialog->username_entry);
+	gtk_widget_modify_base(dialog->username_entry, GTK_STATE_NORMAL,
+			style ? &style->base[GTK_STATE_INSENSITIVE] : NULL);
 
-	for (l = dialog->user_split_entries ; l != NULL ; l = l->next)
-		gtk_widget_set_sensitive((GtkWidget *)l->data, set);
+	for (l = dialog->user_split_entries ; l != NULL ; l = l->next) {
+		if (GTK_IS_EDITABLE(l->data)) {
+			gtk_editable_set_editable(GTK_EDITABLE(l->data), set);
+			style = set ? NULL : gtk_widget_get_style(GTK_WIDGET(l->data));
+			gtk_widget_modify_base(GTK_WIDGET(l->data), GTK_STATE_NORMAL,
+					style ? &style->base[GTK_STATE_INSENSITIVE] : NULL);
+		} else {
+			gtk_widget_set_sensitive(GTK_WIDGET(l->data), set);
+		}
+	}
 }
 
 static void
@@ -462,9 +475,7 @@ add_login_options(AccountPrefsDialog *dialog, GtkWidget *parent)
 
 	/* Username */
 	dialog->username_entry = gtk_entry_new();
-#if GTK_CHECK_VERSION(2,10,0)
 	g_object_set(G_OBJECT(dialog->username_entry), "truncate-multiline", TRUE, NULL);
-#endif
 
 	add_pref_box(dialog, vbox, _("_Username:"), dialog->username_entry);
 
@@ -549,9 +560,13 @@ add_login_options(AccountPrefsDialog *dialog, GtkWidget *parent)
 		/* Google Talk default domain hackery! */
 		menu = gtk_option_menu_get_menu(GTK_OPTION_MENU(dialog->protocol_menu));
 		item = gtk_menu_get_active(GTK_MENU(menu));
-		if (value == NULL && g_object_get_data(G_OBJECT(item), "fake") &&
+		if (value == NULL && g_object_get_data(G_OBJECT(item), "fakegoogle") &&
 			!strcmp(purple_account_user_split_get_text(split), _("Domain")))
 			value = "gmail.com";
+
+		if (value == NULL && g_object_get_data(G_OBJECT(item), "fakefacebook") &&
+			!strcmp(purple_account_user_split_get_text(split), _("Domain")))
+			value = "chat.facebook.com";
 
 		if (value != NULL)
 			gtk_entry_set_text(GTK_ENTRY(entry), value);
@@ -748,7 +763,7 @@ add_protocol_options(AccountPrefsDialog *dialog)
 {
 	PurpleAccountOption *option;
 	PurpleAccount *account;
-	GtkWidget *vbox, *check, *entry, *combo;
+	GtkWidget *vbox, *check, *entry, *combo, *menu, *item;
 	GList *list, *node;
 	gint i, idx, int_value;
 	GtkListStore *model;
@@ -786,6 +801,9 @@ add_protocol_options(AccountPrefsDialog *dialog)
 	gtk_notebook_insert_page(GTK_NOTEBOOK(dialog->notebook), vbox,
 			gtk_label_new_with_mnemonic(_("Ad_vanced")), 1);
 	gtk_widget_show(vbox);
+
+	menu = gtk_option_menu_get_menu(GTK_OPTION_MENU(dialog->protocol_menu));
+	item = gtk_menu_get_active(GTK_MENU(menu));
 
 	for (l = dialog->prpl_info->protocol_options; l != NULL; l = l->next)
 	{
@@ -900,6 +918,10 @@ add_protocol_options(AccountPrefsDialog *dialog)
 				list = purple_account_option_get_list(option);
 				model = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_POINTER);
 				opt_entry->widget = combo = gtk_combo_box_new_with_model(GTK_TREE_MODEL(model));
+
+				if (g_object_get_data(G_OBJECT(item), "fakefacebook") &&
+					!strcmp(opt_entry->setting, "connection_security"))
+					str_value = "opportunistic_tls";
 
 				/* Loop through list of PurpleKeyValuePair items */
 				for (node = list; node != NULL; node = node->next) {
@@ -1880,6 +1902,31 @@ close_accounts_cb(GtkWidget *w, AccountsWindow *dialog)
 	pidgin_accounts_window_hide();
 }
 
+static void
+funpidgin_auto_cb(GtkCellRendererToggle *renderer, gchar *path_str,
+			   gpointer data)
+{
+	AccountsWindow *dialog = (AccountsWindow *)data;
+	PurpleAccount *account;
+	GtkTreeModel *model = GTK_TREE_MODEL(dialog->model);
+	GtkTreeIter iter;
+	gboolean autologin;
+	gboolean enabled;
+
+	gtk_tree_model_get_iter_from_string(model, &iter, path_str);
+	gtk_tree_model_get(model, &iter,
+					   COLUMN_DATA, &account,
+					   COLUMN_ENABLED, &enabled,
+					   COLUMN_AUTOLOGIN, &autologin,
+					   -1);
+	
+	purple_account_set_ui_bool(account, PIDGIN_UI, "auto-login", !autologin);
+	gtk_list_store_set(GTK_LIST_STORE(model), &iter, COLUMN_AUTOLOGIN, !autologin, -1);
+	
+	if (!autologin) {
+		gtk_list_store_set(GTK_LIST_STORE(model), &iter, COLUMN_ENABLED, !enabled, -1);
+	}
+}
 
 static void
 enabled_cb(GtkCellRendererToggle *renderer, gchar *path_str,
@@ -1889,6 +1936,7 @@ enabled_cb(GtkCellRendererToggle *renderer, gchar *path_str,
 	PurpleAccount *account;
 	GtkTreeModel *model = GTK_TREE_MODEL(dialog->model);
 	GtkTreeIter iter;
+	gboolean autologin;
 	gboolean enabled;
 	const PurpleSavedStatus *saved_status;
 
@@ -1896,6 +1944,7 @@ enabled_cb(GtkCellRendererToggle *renderer, gchar *path_str,
 	gtk_tree_model_get(model, &iter,
 					   COLUMN_DATA, &account,
 					   COLUMN_ENABLED, &enabled,
+					   COLUMN_AUTOLOGIN, &autologin,
 					   -1);
 
 	/*
@@ -1907,8 +1956,9 @@ enabled_cb(GtkCellRendererToggle *renderer, gchar *path_str,
 		saved_status = purple_savedstatus_get_current();
 		purple_savedstatus_activate_for_account(saved_status, account);
 	}
-
 	purple_account_set_enabled(account, PIDGIN_UI, !enabled);
+	gtk_list_store_set(GTK_LIST_STORE(model), &iter, COLUMN_ENABLED, !enabled, -1);
+	purple_account_set_ui_bool(account, PIDGIN_UI, "auto-login", autologin);
 }
 
 static void
@@ -1928,7 +1978,19 @@ add_columns(GtkWidget *treeview, AccountsWindow *dialog)
 
 	gtk_tree_view_column_set_resizable(column, FALSE);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
+	
+	/* Auto-login */
+	renderer = gtk_cell_renderer_toggle_new();
 
+	g_signal_connect(G_OBJECT(renderer), "toggled",
+			 G_CALLBACK(funpidgin_auto_cb), dialog);
+
+	column = gtk_tree_view_column_new_with_attributes(_("Auto-login"),
+			 renderer, "active", COLUMN_AUTOLOGIN, NULL);
+
+	gtk_tree_view_column_set_resizable(column, FALSE);
+	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
+	
 	/* Username column */
 	column = gtk_tree_view_column_new();
 	gtk_tree_view_column_set_title(column, _("Username"));
@@ -2014,7 +2076,8 @@ set_account(GtkListStore *store, GtkTreeIter *iter, PurpleAccount *account, GdkP
 			COLUMN_ICON, pixbuf,
 			COLUMN_BUDDYICON, buddyicon,
 			COLUMN_USERNAME, purple_account_get_username(account),
-			COLUMN_ENABLED, purple_account_get_enabled(account, PIDGIN_UI),
+			COLUMN_ENABLED, purple_account_is_connected(account),
+			COLUMN_AUTOLOGIN, purple_account_get_enabled(account, PIDGIN_UI),
 			COLUMN_PROTOCOL, purple_account_get_protocol_name(account),
 			COLUMN_DATA, account,
 			-1);
@@ -2069,25 +2132,12 @@ populate_accounts_list(AccountsWindow *dialog)
 	return ret;
 }
 
-#if !GTK_CHECK_VERSION(2,2,0)
-static void
-get_selected_helper(GtkTreeModel *model, GtkTreePath *path,
-					GtkTreeIter *iter, gpointer user_data)
-{
-	*((gboolean *)user_data) = TRUE;
-}
-#endif
-
 static void
 account_selected_cb(GtkTreeSelection *sel, AccountsWindow *dialog)
 {
 	gboolean selected = FALSE;
 
-#if GTK_CHECK_VERSION(2,2,0)
 	selected = (gtk_tree_selection_count_selected_rows(sel) > 0);
-#else
-	gtk_tree_selection_selected_foreach(sel, get_selected_helper, &selected);
-#endif
 
 	gtk_widget_set_sensitive(dialog->modify_button, selected);
 	gtk_widget_set_sensitive(dialog->delete_button, selected);
@@ -2189,6 +2239,7 @@ create_accounts_list(AccountsWindow *dialog)
 					GDK_TYPE_PIXBUF,   /* COLUMN_BUDDYICON */
 					G_TYPE_STRING,     /* COLUMN_USERNAME */
 					G_TYPE_BOOLEAN,    /* COLUMN_ENABLED */
+					G_TYPE_BOOLEAN,	   /* COLUMN_AUTOLOGIN */
 					G_TYPE_STRING,     /* COLUMN_PROTOCOL */
 					G_TYPE_POINTER     /* COLUMN_DATA */
 					);
@@ -2421,35 +2472,38 @@ pidgin_accounts_request_add(PurpleAccount *account, const char *remote_user,
 	g_free(buffer);
 }
 
-struct auth_and_add {
+struct auth_request
+{
 	PurpleAccountRequestAuthorizationCb auth_cb;
 	PurpleAccountRequestAuthorizationCb deny_cb;
 	void *data;
 	char *username;
 	char *alias;
 	PurpleAccount *account;
+	gboolean add_buddy_after_auth;
 };
 
 static void
-free_auth_and_add(struct auth_and_add *aa)
+free_auth_request(struct auth_request *ar)
 {
-	g_free(aa->username);
-	g_free(aa->alias);
-	g_free(aa);
+	g_free(ar->username);
+	g_free(ar->alias);
+	g_free(ar);
 }
 
 static void
-authorize_and_add_cb(struct auth_and_add *aa)
+authorize_and_add_cb(struct auth_request *ar)
 {
-	aa->auth_cb(aa->data);
-	purple_blist_request_add_buddy(aa->account, aa->username,
-	 	                    NULL, aa->alias);
+	ar->auth_cb(ar->data);
+	if (ar->add_buddy_after_auth) {
+		purple_blist_request_add_buddy(ar->account, ar->username, NULL, ar->alias);
+	}
 }
 
 static void
-deny_no_add_cb(struct auth_and_add *aa)
+deny_no_add_cb(struct auth_request *ar)
 {
-	aa->deny_cb(aa->data);
+	ar->deny_cb(ar->data);
 }
 
 static void *
@@ -2466,49 +2520,49 @@ pidgin_accounts_request_authorization(PurpleAccount *account,
 	char *buffer;
 	PurpleConnection *gc;
 	GtkWidget *alert;
+	GdkPixbuf *prpl_icon;
+	struct auth_request *aa;
+	gboolean have_valid_alias = alias && *alias;
 
 	gc = purple_account_get_connection(account);
 	if (message != NULL && *message == '\0')
 		message = NULL;
 
-	buffer = g_strdup_printf(_("%s%s%s%s wants to add %s to his or her buddy list%s%s"),
+	buffer = g_strdup_printf(_("%s%s%s%s wants to add you (%s) to his or her buddy list%s%s"),
 				remote_user,
-	 	                (alias != NULL ? " ("  : ""),
-		                (alias != NULL ? alias : ""),
-		                (alias != NULL ? ")"   : ""),
-		                (id != NULL
-		                ? id
-		                : (purple_connection_get_display_name(gc) != NULL
-		                ? purple_connection_get_display_name(gc)
-		                : purple_account_get_username(account))),
-		                (message != NULL ? ": " : "."),
-		                (message != NULL ? message  : ""));
+				(have_valid_alias ? " ("  : ""),
+				(have_valid_alias ? alias : ""),
+				(have_valid_alias ? ")"   : ""),
+				(id != NULL
+				? id
+				: (purple_connection_get_display_name(gc) != NULL
+				? purple_connection_get_display_name(gc)
+				: purple_account_get_username(account))),
+				(message != NULL ? ": " : "."),
+				(message != NULL ? message  : ""));
 
 
-	if (!on_list) {
-		struct auth_and_add *aa = g_new0(struct auth_and_add, 1);
-		aa->auth_cb = auth_cb;
-		aa->deny_cb = deny_cb;
-		aa->data = user_data;
-		aa->username = g_strdup(remote_user);
-		aa->alias = g_strdup(alias);
-		aa->account = account;
-		alert = pidgin_make_mini_dialog(gc, PIDGIN_STOCK_DIALOG_QUESTION,
-						  _("Authorize buddy?"), buffer, aa,
-						  _("Authorize"), authorize_and_add_cb,
-						  _("Deny"), deny_no_add_cb,
-						  NULL);
-		g_signal_connect_swapped(G_OBJECT(alert), "destroy", G_CALLBACK(free_auth_and_add), aa);
-	} else {
-		alert = pidgin_make_mini_dialog(gc, PIDGIN_STOCK_DIALOG_QUESTION,
-						  _("Authorize buddy?"), buffer, user_data,
-						  _("Authorize"), auth_cb,
-						  _("Deny"), deny_cb,
-						  NULL);
-	}
+	prpl_icon = pidgin_create_prpl_icon(account, PIDGIN_PRPL_ICON_SMALL);
+	
+	aa = g_new0(struct auth_request, 1);
+	aa->auth_cb = auth_cb;
+	aa->deny_cb = deny_cb;
+	aa->data = user_data;
+	aa->username = g_strdup(remote_user);
+	aa->alias = g_strdup(alias);
+	aa->account = account;
+	aa->add_buddy_after_auth = !on_list;
+	
+	alert = pidgin_make_mini_dialog_with_custom_icon(
+		gc, prpl_icon,
+		_("Authorize buddy?"), buffer, aa,
+		_("Authorize"), authorize_and_add_cb,
+		_("Deny"), deny_no_add_cb,
+		NULL);
+	
+	g_signal_connect_swapped(G_OBJECT(alert), "destroy", G_CALLBACK(free_auth_request), aa);
+	g_signal_connect(G_OBJECT(alert), "destroy", G_CALLBACK(purple_account_request_close), NULL);
 	pidgin_blist_add_alert(alert);
-	g_signal_connect(G_OBJECT(alert), "destroy",
-		G_CALLBACK(purple_account_request_close), NULL);
 
 	g_free(buffer);
 

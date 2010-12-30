@@ -1,9 +1,8 @@
 /*
  * WebKit message styles
  * Copyright (C) 2008 Simo Mattila
- * Copyright (C) 2007 Sean Egan (original version) 
+ * Copyright (C) 2007 Sean Egan (original version)
  *
- * Port to Carrier by Alex Sadleir <maxious@lambdacomplex.org>
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation; either version 2 of the
@@ -20,48 +19,36 @@
  * 02111-1307, USA.
  */
 
-/* This plugins is basically Sadrul's x-chat plugin, but with Webkit
- * instead of xtext.
- */
-
-#define PLUGIN_ID		"gtk-adium-ims"
-#define PLUGIN_NAME		"adium-ims"
-/* define PLUGIN_AUTHOR		"Sean Egan <seanegan@gmail.com>"
-   Change plugin author so that support requests don't go to 
-   someone who isn't responsible for all the dodgy hacks ;) */
-#define PLUGIN_AUTHOR          "Simo Mattila <simo.h.mattila@gmail.com> / Alex Sadleir <maxious@lambdacomplex.org>"
-#define PURPLE_PLUGINS          "Hell yeah"
+#define PLUGIN_ID		"adium-ims"
+#define PLUGIN_AUTHOR		"Simo Mattila <simo.h.mattila@gmail.com>"
 
 /* System headers */
 #include <string.h>
-#include <gdk/gdk.h>
 #include <gtk/gtk.h>
 
 /* Webkit headers */
-#include <webkit/webkitwebview.h>
-#include <webkit/webkitnetworkrequest.h>
+#include <webkit/webkit.h>
 
 /* Purple headers */
-#include <conversation.h>
-#include <notify.h>
-#include <util.h>
-#include <debug.h>
-#include <version.h>
-#include <gtkplugin.h>
+#include <purple.h>
 
 /* Pidgin headers */
 #include <gtkconv.h>
 #include <gtkimhtml.h>
+#include <gtkplugin.h>
+#include <gtkpluginpref.h>
+#include <gtkprefs.h>
+#include <gtkutils.h>
 
 /* Own includes */
 #include "webkit.h"
 #include "prefs.h"
 
-
 static PurpleConversationUiOps *uiops = NULL;
 
-static void (*default_write_conv)(PurpleConversation *conv, const char *name, const char *alias,
-						   const char *message, PurpleMessageFlags flags, time_t mtime);
+static void (*default_write_conv)(PurpleConversation *conv,
+	     const char *name, const char *alias,
+	     const char *message, PurpleMessageFlags flags, time_t mtime);
 static void (*default_create_conversation)(PurpleConversation *conv);
 
 static void (*default_destroy_conversation)(PurpleConversation *conv);
@@ -69,7 +56,8 @@ static void (*default_destroy_conversation)(PurpleConversation *conv);
 static void pidgin_webkit_prefs_variant_cb(const char *name, PurplePrefType type,
 						gconstpointer val, gpointer data);
 
-static GtkWidget* hack_and_get_widget(PidginConversation *gtkconv);
+static GtkWidget* hack_and_get_widget_im(PidginConversation *gtkconv);
+static GtkWidget* hack_and_get_widget_chat(PidginConversation *gtkconv);
 
 void pidgin_webkit_write_conv_cb(GtkWidget *webkit, char *script);
 
@@ -93,22 +81,27 @@ struct _pending_script
 	struct _pending_script *next;
 };
 
-
-static GHashTable *webkits = NULL;		/* Hashtable of webkits */
+static GHashTable *webkits = NULL;	/* Hashtable of webkits */
 static GHashTable *pending_scripts = NULL;	/* Hashtable of pending messages */
 
 /* Cache the contents of the HTML files */
-char *template_html = NULL;                 /* This is the skeleton: some basic javascript mostly */
-char *header_html = NULL;                   /* This is the first thing to be appended to any conversation */
-char *footer_html = NULL;		    /* This is the last thing appended to the conversation */
-char *incoming_content_html = NULL;         /* This is a received message */
-char *outgoing_content_html = NULL;         /* And a sent one */
-char *incoming_next_content_html = NULL;    /* The same things, but used when someone sends multiple subsequent */
-char *outgoing_next_content_html = NULL;    /* messages in a row */
-char *status_html = NULL;                   /* Non-IM status messages */
-char *basestyle_css = NULL;		    /* Shared CSS attributes */
+char *template_html = NULL;		/* This is the skeleton: some basic
+					   javascript mostly */
+char *header_html = NULL;		/* This is the first thing to be 
+					   appended to any conversation */
+char *footer_html = NULL;		/* This is the last thing appended
+					   to the conversation */
+char *incoming_content_html = NULL;	/* This is a received message */
+char *outgoing_content_html = NULL;	/* And a sent one */
+char *incoming_next_content_html = NULL;	/* The same things, but used
+						   when someone sends multiple
+						   subsequent */
+char *outgoing_next_content_html = NULL;	/* messages in a row */
+char *status_html = NULL;			/* Non-IM status messages */
+char *basestyle_css = NULL;			/* Shared CSS attributes */
 
-/* Cache their lenghts too, to pass into g_string_new_len, avoiding crazy allocation */
+/* Cache their lenghts too, to pass into g_string_new_len, avoiding crazy
+   allocation */
 gsize template_html_len = 0;
 gsize header_html_len = 0;
 gsize footer_html_len = 0;
@@ -126,10 +119,14 @@ char *template_path = NULL;
 char *base_href_path = NULL;
 char *css_path = NULL;
 
+/* signal handles */
+guint pref_style_handle, pref_variant_handle;
 
-static char 
-*replace_message_tokens(char *text, gsize len, PurpleConversation *conv, const char *name, const char *alias, 
-			     const char *message, PurpleMessageFlags flags, time_t mtime)
+
+char *replace_message_tokens(char *text, gsize len, PurpleConversation *conv,
+			     const char *name, const char *alias,
+			     const char *message, PurpleMessageFlags flags,
+			     time_t mtime)
 {
 	GString *str = g_string_new_len(NULL, len);
 	char *cur = text;
@@ -257,38 +254,91 @@ static char
 	return g_string_free(str, FALSE);
 }
 
-static char 
-*replace_header_tokens(char *text, gsize len, PurpleConversation *conv)
+char *replace_header_tokens(char *text, gsize len, PurpleConversation *conv)
 {
 	GString *str = g_string_new_len(NULL, len);
 	char *cur = text;
 	char *prev = cur;
 
+	purple_debug_info("WebKit","replace_header_tokens\n");
+
 	if (text == NULL)
 		return NULL;
 
 	while ((cur = strchr(cur, '%'))) {
-		const char *replace = NULL;
+		char *replace = NULL;
 		char *fin = NULL;
 
   		if (!strncmp(cur, "%chatName%", strlen("%chatName%"))) {
-			replace = conv->name;
-  		} else if (!strncmp(cur, "%sourceName%", strlen("%sourceName%"))) {
-			replace = purple_account_get_alias(conv->account);
-			if (replace == NULL)
-				replace = purple_account_get_username(conv->account);
-  		} else if (!strncmp(cur, "%destinationName%", strlen("%destinationName%"))) {
-			PurpleBuddy *buddy = purple_find_buddy(conv->account, conv->name);
+			PurpleBuddy *buddy = purple_find_buddy(conv->account,
+								conv->name);
 			if (buddy) {
-				replace = purple_buddy_get_alias(buddy);
+				replace = g_strdup(purple_buddy_get_alias(buddy));
 			} else {
-				replace = conv->name;
+				replace = g_strdup(conv->name);
+			}
+  		} else if (!strncmp(cur, "%sourceName%",
+					strlen("%sourceName%"))) {
+			replace = g_strdup(purple_account_get_alias(conv->account));
+			if (replace == NULL)
+				replace = g_strdup(purple_account_get_username(conv->account));
+  		} else if (!strncmp(cur, "%destinationName%",
+					strlen("%destinationName%")) ||
+				!strncmp(cur, "%destinationDisplayName%",
+					strlen("%destinationDisplayName%"))) {
+			PurpleBuddy *buddy = purple_find_buddy(conv->account,
+								conv->name);
+			if (buddy) {
+				replace = g_strdup(purple_buddy_get_alias(buddy));
+			} else {
+				replace = g_strdup(conv->name);
 			}
   		} else if (!strncmp(cur, "%incomingIconPath%", strlen("%incomingIconPath%"))) {
-			PurpleBuddyIcon *icon = purple_conv_im_get_icon(PURPLE_CONV_IM(conv));
-			replace = purple_buddy_icon_get_full_path(icon);
-  		} else if (!strncmp(cur, "%outgoingIconPath%", strlen("%outgoingIconPath%"))) {
-  		} else if (!strncmp(cur, "%timeOpened", strlen("%timeOpened"))) {
+			PurpleBuddy *buddy = purple_find_buddy(purple_conversation_get_account(conv), purple_conversation_get_name(conv));
+			if (buddy) {
+				PurpleContact *contact = purple_buddy_get_contact(buddy);
+				if (contact) {
+					PurpleStoredImage *custom_img = purple_buddy_icons_node_find_custom_icon((PurpleBlistNode*)contact);
+					if (custom_img) {
+						/* There is a custom icon for this user */
+						const char* file = purple_imgstore_get_filename(custom_img);
+						replace = g_build_filename(purple_user_dir(), "icons", file, NULL);
+						purple_debug_info("WebKit", "img filename: %s\n", replace);
+					}
+				}
+			}
+			if(replace == NULL || !g_file_test(replace, G_FILE_TEST_EXISTS)) {
+				PurpleBuddyIcon *icon = purple_conv_im_get_icon(PURPLE_CONV_IM(conv));
+					replace = purple_buddy_icon_get_full_path(icon);
+			}
+			if (replace == NULL || !g_file_test(replace, G_FILE_TEST_EXISTS)) {
+				replace = g_build_filename(style_dir,
+							"Contents",
+							"Resources",
+							"incoming_icon.png",
+							NULL);
+			}
+			purple_debug_info("WebKit", "userIconPath, incoming = \"%s\"\n", replace);
+ 		} else if (!strncmp(cur, "%outgoingIconPath%", strlen("%outgoingIconPath%"))) {
+			if (purple_account_get_bool(conv->account, "use-global-buddyicon", TRUE)) {
+				replace = g_strdup(purple_prefs_get_path(PIDGIN_PREFS_ROOT "/accounts/buddyicon"));
+			} else {
+				PurpleStoredImage *img = purple_buddy_icons_find_account_icon(conv->account);
+				const char *file = purple_imgstore_get_filename(img);
+				replace = g_build_filename(purple_user_dir(), "icons", file, NULL);
+				purple_debug_info("WebKit", "img filename: %s\n", replace);
+			}
+			if (replace == NULL || !g_file_test(replace,
+						G_FILE_TEST_EXISTS)) {
+				replace = g_build_filename(style_dir,
+							"Contents",
+							"Resources",
+							"outgoing_icon.png",
+							NULL);
+			}
+			purple_debug_info("WebKit", "userIconPath, outgoing = \"%s\"\n", replace);
+  		} else if (!strncmp(cur, "%timeOpened",
+					strlen("%timeOpened"))) {
 			char *format = NULL;
 			if (*(cur + strlen("%timeOpened")) == '{') {
 				char *start = cur + strlen("%timeOpened") + 1;
@@ -298,7 +348,7 @@ static char
 				format = g_strndup(start, end - start);
 				fin = end + 1;
 			} 
-			replace = purple_utf8_strftime(format ? format : "%X", NULL);
+			replace = g_strdup(purple_utf8_strftime(format ? format : "%X", NULL));
 			g_free(format);
 		} else {
 			continue;
@@ -307,6 +357,8 @@ static char
 		/* Here we have a replacement to make */
 		g_string_append_len(str, prev, cur - prev);
 		g_string_append(str, replace);
+
+		g_free(replace);
 
 		/* And update the pointers */
 		if (fin) {
@@ -321,42 +373,84 @@ static char
 	return g_string_free(str, FALSE);
 }
 
-static char 
-*replace_template_tokens(char *text, int len, char *header, char *footer) {
+char *replace_template_tokens(char *text, int len, char *header, char *footer) {
 	GString *str = g_string_new_len(NULL, len);
 
 	char **ms = g_strsplit(text, "%@", 6);
-	
-	if (ms[0] == NULL || ms[1] == NULL || ms[2] == NULL || ms[3] == NULL || ms[4] == NULL || ms[5] == NULL) {
+
+	purple_debug_info("WebKit","replace_template_tokens\n");
+
+	if (ms[0] == NULL || ms[1] == NULL || ms[2] == NULL || ms[3] == NULL ||
+	    ms[4] == NULL/* || ms[5] == NULL*/) {
+		purple_debug_info("WebKit","Error in template!\n");
 		g_strfreev(ms);
 		g_string_free(str, TRUE);
 		return NULL;
 	}
 
 	g_string_append(str, ms[0]);
-	g_string_append(str, base_href_path);
+	/* Root directory for the message style */
+	g_string_append(str, style_dir);
 	g_string_append(str, ms[1]);
-	if (basestyle_css)
-		g_string_append(str, basestyle_css);
-	g_string_append(str, ms[2]);
-	if (css_path)
-		g_string_append(str, css_path);
-	g_string_append(str, ms[3]);
-	if (header)
-		g_string_append(str, header);
-	g_string_append(str, ms[4]);
-	if (footer)
-		g_string_append(str, footer);
-	g_string_append(str, ms[5]);
+
+	if(ms[5] != NULL) {
+		/* Things are like in default template */
+		if (basestyle_css) {
+			/* main.css */
+			g_string_append(str, basestyle_css);
+		}
+		g_string_append(str, ms[2]);
+
+		if (css_path) {
+			/* Variant path */
+			g_string_append(str, css_path);
+		}
+		g_string_append(str, ms[3]);
+
+		if (header) {
+			/* Header html */
+			g_string_append(str, header);
+		}
+		g_string_append(str, ms[4]);
+
+		if (footer) {
+			/* Footer html */
+			g_string_append(str, footer);
+		}
+		g_string_append(str, ms[5]);
+	} else {
+		/* No place for basestyle_css, seen this in custom templates */
+		if (css_path) {
+			/* Variant path */
+			g_string_append(str, css_path);
+		}
+		g_string_append(str, ms[2]);
+
+		if (header) {
+			/* Header html */
+			g_string_append(str, header);
+		}
+		g_string_append(str, ms[3]);
+
+		if (footer) {
+			/* Footer html */
+			g_string_append(str, footer);
+		}
+		g_string_append(str, ms[4]);
+	}
 	
 	g_strfreev(ms);
 	return g_string_free(str, FALSE);
 }
 
-void pidgin_webkit_write_conv_cb(GtkWidget *webkit, char *script)
+/* 
+ * This callback forwards height of the webkit to the replaced imhtml
+ * to get entry box autoresizing working
+ */
+void
+pidgin_webkit_size_allocate_cb(GtkWidget *webkit, GtkAllocation *allocation, PidginWebkit *gx)
 {
-	purple_debug_info("WebKit","pidgin_webkit_write_conv_cb\n");
-	webkit_web_view_execute_script(WEBKIT_WEB_VIEW(webkit), script);
+	gx->imhtml->allocation.height = allocation->height;
 }
 
 void
@@ -408,23 +502,39 @@ webkit_load_finished_cb(WebKitWebView *web_view, WebKitWebFrame *frame)
 }
 
 
-static WebKitNavigationResponse
-webkit_navigation_requested_cb(WebKitWebView *web_view, WebKitWebFrame *frame,
-				WebKitNetworkRequest *request)
+static gboolean
+webkit_navigation_policy_decision_requested_cb(
+					WebKitWebView *web_view,
+					WebKitWebFrame *frame,
+					WebKitNetworkRequest *request, 
+					WebKitWebNavigationAction *action,
+					WebKitWebPolicyDecision *policy_decision, 
+					PidginWebkit *gx)
 {
+	char *uri;
 
 	purple_debug_info("WebKit","webkit_navigation_requested_cb\n");
 
-	/* TODO: Adium does not open file: URIs and allows WebKit to handle any
-	   navigation of type 'Other' */
-	purple_notify_uri(NULL, webkit_network_request_get_uri(request));
-	return WEBKIT_NAVIGATION_RESPONSE_IGNORE;
+	/* TODO: We allow WebKit to open only local file URIs, and pass all
+	   other navigation types to purple_notify_uri() */
+	uri = g_strdup(webkit_network_request_get_uri(request));
+	if (strstr(uri, "file://") || g_str_has_prefix(uri, "/")) {
+		g_free(uri);
+		return FALSE;
+	}
+
+	webkit_web_policy_decision_ignore(policy_decision);
+	purple_notify_uri(NULL, uri);
+
+	g_free(uri);
+	return TRUE;
 }
+
 static void pidgin_webkit_prefs_style_cb(const char *name, PurplePrefType type,
 					gconstpointer val, gpointer data)
 {
 	const char *message_style = purple_prefs_get_string(
-				"/plugins/gtk/gtk-simom-webkit/message-style");
+				"/plugins/gtk/adium-ims/message-style");
 	char *path, *script;
 	GList *list;
 	PidginWebkit *gx = NULL;
@@ -468,7 +578,7 @@ static void pidgin_webkit_prefs_variant_cb(const char *name, PurplePrefType type
 					gconstpointer val, gpointer data)
 {
 	const char *variant = purple_prefs_get_string(
-				"/plugins/gtk/gtk-simom-webkit/variant");
+				"/plugins/gtk/adium-ims/variant");
 	char *path, *script;
 	GList *list;
 	PidginWebkit *gx = NULL;
@@ -652,20 +762,22 @@ static void pidgin_webkit_conv_switched_cb(PurpleConversation *active_conv, gpoi
 						" with this contact\n");
 }
 
-static GtkWidget 
-*get_webkit(PurpleConversation *conv)
+GtkWidget *get_webkit(PurpleConversation *conv)
 {
 	PidginWebkit *gx;
-	/* if a WebKit view doesn't exist yet, we'll have to make one */
+	PurpleConversationType type;
+
+	purple_debug_info("WebKit","get_webkit\n");
+
 	if ((gx = g_hash_table_lookup(webkits, conv)) == NULL)
 	{
 		PidginConversation *gtkconv;
 		GtkWidget *webkit;
 		GtkWidget *imhtml = NULL;
 		char *header, *footer;
-		char *template;
+		char *template, *template_path_uri;	
 		pending_script *pendscript;
-		
+
 		gtkconv = PIDGIN_CONVERSATION(conv);
 		if (!gtkconv)
 			return NULL;
@@ -674,11 +786,17 @@ static GtkWidget
 		gx = g_new0(PidginWebkit, 1);
 		load_message_style();
 		webkit = webkit_web_view_new();
-		header = replace_header_tokens(header_html, header_html_len, conv);
-		footer = replace_header_tokens(footer_html, footer_html_len, conv);
-		template = replace_template_tokens(template_html, template_html_len + header_html_len, header, footer);
-		g_signal_connect(G_OBJECT(webkit), "navigation-requested",
-				G_CALLBACK(webkit_navigation_requested_cb), gx);
+
+		header = replace_header_tokens(header_html, header_html_len,
+						conv);
+		footer = replace_header_tokens(footer_html, footer_html_len,
+						conv);
+		template = replace_template_tokens(template_html,
+					template_html_len + header_html_len,
+					header, footer);
+
+		g_signal_connect(G_OBJECT(webkit), "navigation-policy-decision-requested",
+				G_CALLBACK(webkit_navigation_policy_decision_requested_cb), gx);
 		g_signal_connect(G_OBJECT(webkit), "load-started",
 				G_CALLBACK(webkit_load_started_cb), gx);
 		g_signal_connect(G_OBJECT(webkit), "load-finished",
@@ -689,15 +807,29 @@ static GtkWidget
 		pendscript = g_new0(pending_script, 1);
 		g_hash_table_insert(pending_scripts, webkit, pendscript);
 
+		template_path_uri = g_strdup_printf("file://%s", template_path);
 		webkit_web_view_load_string(WEBKIT_WEB_VIEW(webkit), template,
-					"text/html", "UTF-8", template_path);
+					"text/html", "UTF-8", template_path_uri);
 
 		gx->webkit = webkit;
-		gx->imhtml = hack_and_get_widget(gtkconv);
+
+		type = purple_conversation_get_type(conv);
+		if (type == PURPLE_CONV_TYPE_IM) {
+			gx->imhtml = hack_and_get_widget_im(gtkconv);
+		} else if (type == PURPLE_CONV_TYPE_CHAT) {
+			gx->imhtml = hack_and_get_widget_chat(gtkconv);
+		}
+
 		g_hash_table_insert(webkits, conv, gx);
 
 		g_free(header);
+		g_free(footer);
 		g_free(template);
+		g_free(template_path_uri);
+
+		/* For forwarding webkit height to imhtml */
+		g_signal_connect(gx->webkit, "size-allocate",
+				G_CALLBACK(pidgin_webkit_size_allocate_cb), gx);
 	}
 	return gx->webkit;
 }
@@ -849,10 +981,18 @@ char *escape_message(char *text, PidginWebkit *gx)
 	return g_string_free(str, FALSE);
 }
 
-static void 
-purple_webkit_write_conv(PurpleConversation *conv, const char *name, const char *alias,
-						   const char *message, PurpleMessageFlags flags, time_t mtime)
+void pidgin_webkit_write_conv_cb(GtkWidget *webkit, char *script)
 {
+	purple_debug_info("WebKit","pidgin_webkit_write_conv_cb\n");
+	webkit_web_view_execute_script(WEBKIT_WEB_VIEW(webkit), script);
+}
+
+
+static void pidgin_webkit_write_conv(PurpleConversation *conv, const char *name,
+					const char *alias, const char *message,
+					PurpleMessageFlags flags, time_t mtime)
+{
+
 	purple_debug_info("WebKit","pidgin_webkit_write_conv\n");
 
 	PurpleConversationType type;
@@ -1001,37 +1141,86 @@ purple_webkit_write_conv(PurpleConversation *conv, const char *name, const char 
 }
 
 static GtkWidget*
-hack_and_get_widget(PidginConversation *gtkconv)
+hack_and_get_widget_im(PidginConversation *gtkconv)
 {
 	GtkWidget *tab_cont, *pane, *vbox, *vpaned, *hpaned, *imhtml;
 	GList *list;
+
+	purple_debug_info("WebKit","hack_and_get_widget_im\n");
+
+	/* If you think this is ugly, you are right. */
 	
 	tab_cont = gtkconv->tab_cont;
-	purple_debug_info("adium-ims","Tab container %s hooked\n", G_OBJECT_TYPE_NAME(tab_cont));
+	purple_debug_info("WebKit","hack_and_get_widget_im: %s\n", G_OBJECT_TYPE_NAME(tab_cont));
 
 	list = gtk_container_get_children(GTK_CONTAINER(tab_cont));
-	
 	if (!(purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_auto_size"))) {
 		vpaned = list->data;
 		vbox = gtk_paned_get_child1(GTK_PANED(vpaned));
 	} else {	
 		vbox = list->data;
 	}
-	
 	g_list_free(list);
-        purple_debug_info("adium-ims","Vbox %s hooked\n", G_OBJECT_TYPE_NAME(vbox));
+	purple_debug_info("WebKit","hack_and_get_widget_im: %s\n", G_OBJECT_TYPE_NAME(vbox));
 
 	list = GTK_BOX(vbox)->children;
 	hpaned = ((GtkBoxChild*)list->next->data)->widget;
-	vbox = GTK_BIN(hpaned)->child;
-        purple_debug_info("adium-ims","Vbox %s hooked\n", G_OBJECT_TYPE_NAME(vbox));
-	
+	purple_debug_info("WebKit","hack_and_get_widget_im: %s\n", G_OBJECT_TYPE_NAME(vbox));
+
+	vbox = GTK_BIN(hpaned)->child;	
+	purple_debug_info("WebKit","hack_and_get_widget_im: %s\n", G_OBJECT_TYPE_NAME(vbox));
+
 	list = GTK_BOX(vbox)->children;
 	pane = ((GtkBoxChild*)list->data)->widget;
-        purple_debug_info("adium-ims","Pane %s hooked\n", G_OBJECT_TYPE_NAME(pane));
+	purple_debug_info("WebKit","hack_and_get_widget_im: %s\n", G_OBJECT_TYPE_NAME(pane));
 
 	imhtml = gtk_container_get_children(GTK_CONTAINER(pane))->data;
-	purple_debug_info("adium-ims","HTML Container %s hooked\n", G_OBJECT_TYPE_NAME(imhtml));
+	purple_debug_info("WebKit","hack_and_get_widget_im: %s\n", G_OBJECT_TYPE_NAME(imhtml));
+
+	purple_debug_info("WebKit","hack_and_get_widget_im done\n");
+	return imhtml;
+}
+
+static GtkWidget*
+hack_and_get_widget_chat(PidginConversation *gtkconv)
+{
+	GtkWidget *tab_cont, *vbox, *frame, *pane, *hpaned, *imhtml;
+	GList *list;
+
+	purple_debug_info("WebKit","hack_and_get_widget_chat\n");
+
+	/* If you think this is ugly, you are right. */
+	tab_cont = gtkconv->tab_cont;
+	purple_debug_info("WebKit","hack_and_get_widget_chat tab_cont: %s\n", G_OBJECT_TYPE_NAME(tab_cont));
+
+	list = gtk_container_get_children(GTK_CONTAINER(tab_cont));
+	vbox = list->data;
+	purple_debug_info("WebKit","hack_and_get_widget_chat vbox: %s\n", G_OBJECT_TYPE_NAME(vbox));
+
+	list = GTK_BOX(vbox)->children;
+	pane = ((GtkBoxChild*)list->next->data)->widget;
+	while (list) {
+		if (GTK_IS_PANED(((GtkBoxChild*)list->data)->widget))
+			break;
+		list = list->next;
+	}
+	hpaned = ((GtkBoxChild*)list->data)->widget;
+	purple_debug_info("WebKit","hack_and_get_widget_chat hpaned: %s\n", G_OBJECT_TYPE_NAME(hpaned));
+
+	frame = gtk_container_get_children(GTK_CONTAINER(hpaned))->data;
+	purple_debug_info("WebKit","hack_and_get_widget_chat frame: %s\n", G_OBJECT_TYPE_NAME(frame));
+
+	vbox = gtk_container_get_children(GTK_CONTAINER(frame))->data;
+	purple_debug_info("WebKit","hack_and_get_widget_chat vbox: %s\n", G_OBJECT_TYPE_NAME(vbox));
+
+	list = GTK_BOX(vbox)->children;
+	pane = ((GtkBoxChild*)list->data)->widget;
+	purple_debug_info("WebKit","hack_and_get_widget_chat pane: %s\n", G_OBJECT_TYPE_NAME(pane));
+
+	imhtml = gtk_container_get_children(GTK_CONTAINER(pane))->data;
+	purple_debug_info("WebKit","hack_and_get_widget_chat imhtml: %s\n", G_OBJECT_TYPE_NAME(imhtml));
+
+	purple_debug_info("WebKit","hack_and_get_widget_chat done\n");
 	return imhtml;
 }
 
@@ -1040,29 +1229,37 @@ purple_conversation_use_webkit(PurpleConversation *conv)
 {
 	PidginConversation *gtkconv;
 	GtkWidget *parent, *webkit, *frame;
-	if (purple_conversation_get_type(conv) != PURPLE_CONV_TYPE_IM)
-		return;
+	PurpleConversationType type;
+
+	purple_debug_info("WebKit","purple_conversation_use_webkit\n");
 
 	gtkconv = PIDGIN_CONVERSATION(conv);
 	if (!gtkconv)
 		return;
 
-	frame = hack_and_get_widget(gtkconv);
+	type = purple_conversation_get_type(conv);
+	if (type == PURPLE_CONV_TYPE_IM) {
+		frame = hack_and_get_widget_im(gtkconv);
+	} else if (type == PURPLE_CONV_TYPE_CHAT) {
+		frame = hack_and_get_widget_chat(gtkconv);
+	} else {
+		/* Not IM nor chat conversation */
+		/* TODO: How to handle this? */
+		return;
+	}
 	g_object_ref(frame);
 	webkit = get_webkit(conv);
-	
+		
 	parent = frame->parent;
 	gtk_container_remove(GTK_CONTAINER(parent), frame);
 	gtk_widget_hide_all(frame);
 
 	gtk_container_add(GTK_CONTAINER(parent), webkit);
-
-
 	gtk_widget_show(webkit);
 }
 
 static void
-purple_webkit_create_conv(PurpleConversation *conv)
+pidgin_webkit_create_conv(PurpleConversation *conv)
 {
 
 	purple_debug_info("WebKit","pidgin_webkit_create_conv\n");
@@ -1072,7 +1269,7 @@ purple_webkit_create_conv(PurpleConversation *conv)
 }
 
 static void
-purple_webkit_destroy_conv(PurpleConversation *conv)
+pidgin_webkit_destroy_conv(PurpleConversation *conv)
 {
 	PidginWebkit *gx;
 
@@ -1088,13 +1285,13 @@ purple_webkit_destroy_conv(PurpleConversation *conv)
 	}
 }
 
-gboolean purple_webkit_load_message_style(void)
+gboolean pidgin_webkit_load_message_style(void)
 {
 	char *file;
 	const char *message_style = purple_prefs_get_string(
-				"/plugins/gtk/gtk-simom-webkit/message-style");
+				"/plugins/gtk/adium-ims/message-style");
 	const char *variant = purple_prefs_get_string(
-				"/plugins/gtk/gtk-simom-webkit/variant");
+				"/plugins/gtk/adium-ims/variant");
 	
 	/* Message style root directory */
 	style_dir = g_build_filename(purple_user_dir(), "message_styles", message_style, NULL);
@@ -1218,7 +1415,7 @@ gboolean purple_webkit_load_message_style(void)
 }
 
 void
-purple_webkit_unload_message_style(void)
+pidgin_webkit_unload_message_style(void)
 {
 	g_free(template_html);
 	g_free(header_html);
@@ -1234,50 +1431,62 @@ purple_webkit_unload_message_style(void)
 	g_free(basestyle_css);
 }
 
+
 static gboolean
 plugin_load(PurplePlugin *plugin)
 {
 	GList *list;
-	if (load_message_style() == FALSE) return FALSE;
+
+	purple_debug_info("WebKit","plugin_load\n");
+
+	pidgin_webkit_load_message_style();
+
 	uiops = pidgin_conversations_get_conv_ui_ops();
 
-	if (uiops == NULL) {
-		purple_debug_error("adium-ims", "UI Ops not defined\n");
+	if (uiops == NULL)
 		return FALSE;
-	}
 
 	/* Use the oh-so-useful uiops. Signals? bleh. */
 	default_write_conv = uiops->write_conv;
-	uiops->write_conv = purple_webkit_write_conv;
+	uiops->write_conv = pidgin_webkit_write_conv;
 
 	default_create_conversation = uiops->create_conversation;
-	uiops->create_conversation = purple_webkit_create_conv;
+	uiops->create_conversation = pidgin_webkit_create_conv;
 
 	default_destroy_conversation = uiops->destroy_conversation;
-	uiops->destroy_conversation = purple_webkit_destroy_conv;
+	uiops->destroy_conversation = pidgin_webkit_destroy_conv;
 
 	webkits = g_hash_table_new(g_direct_hash, g_direct_equal);
 	pending_scripts = g_hash_table_new(g_direct_hash, g_direct_equal);
 
-	list = purple_get_chats();
+	list = purple_get_conversations();
 	while (list)
 	{
 		purple_conversation_use_webkit(list->data);
 		list = list->next;
 	}
-	g_free(list);
-	
+
+	pref_style_handle = purple_prefs_connect_callback(plugin,
+	                                    "/plugins/gtk/adium-ims/message-style",
+	                                    pidgin_webkit_prefs_style_cb, NULL);
+	pref_variant_handle = purple_prefs_connect_callback(plugin,
+	                                    "/plugins/gtk/adium-ims/variant",
+	                                    pidgin_webkit_prefs_variant_cb, NULL);
+									
 	purple_signal_connect(pidgin_conversations_get_handle(),
 	                      "conversation-switched", plugin,
 	                      PURPLE_CALLBACK(pidgin_webkit_conv_switched_cb), NULL);
-	return TRUE;
 
+
+	return TRUE;
 }
 
-static void 
-remove_webkit(PurpleConversation *conv, PidginWebkit *gx, gpointer null)
+static void remove_webkit(PurpleConversation *conv, PidginWebkit *gx,
+				gpointer null)
 {
 	GtkWidget *frame, *parent;
+
+	purple_debug_info("WebKit","remove_webkit\n");
 
 	frame = gx->webkit->parent;
 	parent = frame->parent;
@@ -1295,66 +1504,73 @@ remove_webkit(PurpleConversation *conv, PidginWebkit *gx, gpointer null)
 static gboolean
 plugin_unload(PurplePlugin *plugin)
 {
+
+	purple_debug_info("WebKit","plugin_unload\n");
+
 	/* Restore the default ui-ops */
 	uiops->write_conv = default_write_conv;
 	uiops->create_conversation = default_create_conversation;
 	uiops->destroy_conversation = default_destroy_conversation;
 	
 	/* Clear up everything */
+	g_hash_table_destroy(pending_scripts);
 	g_hash_table_foreach(webkits, (GHFunc)remove_webkit, NULL);
 	g_hash_table_destroy(webkits);
+
+	pidgin_webkit_unload_message_style();
+
+	purple_prefs_disconnect_callback(pref_style_handle);
+	purple_prefs_disconnect_callback(pref_variant_handle);
 
 	return TRUE;
 }
 
-
 static PidginPluginUiInfo ui_info = {
-        plugin_config_frame,
-        0 /* page_num (Reserved) */
+	plugin_config_frame,
+	0 /* page_num (Reserved) */
 };
-
 
 static PurplePluginInfo info =
 {
-	PURPLE_PLUGIN_MAGIC,		/* Magic			*/
-	PURPLE_MAJOR_VERSION,		/* Purple Major Version		*/
-	PURPLE_MINOR_VERSION,		/* Purple Minor Version		*/
-	PURPLE_PLUGIN_STANDARD,		/* plugin type			*/
-	PIDGIN_PLUGIN_TYPE,		/* ui requirement		*/
-	0,				/* flags			*/
-	NULL,				/* dependencies			*/
-	PURPLE_PRIORITY_DEFAULT,	/* priority			*/
+	PURPLE_PLUGIN_MAGIC,		/* Magic		*/
+	PURPLE_MAJOR_VERSION,		/* Purple Major Version	*/
+	PURPLE_MINOR_VERSION,		/* Purple Minor Version	*/
+	PURPLE_PLUGIN_STANDARD,		/* plugin type		*/
+	PIDGIN_PLUGIN_TYPE,		/* ui requirement	*/
+	0,				/* flags		*/
+	NULL,				/* dependencies		*/
+	PURPLE_PRIORITY_DEFAULT,	/* priority		*/
 
-	PLUGIN_ID,			/* plugin id			*/
-	NULL,				/* name				*/
-	"0.1",				/* version			*/
-	NULL,				/* summary			*/
-	NULL,				/* description			*/
-	PLUGIN_AUTHOR,			/* author			*/
-	"http://funpidgin.sf.net",	/* website			*/
+	PLUGIN_ID,			/* plugin id		*/
+	NULL,				/* name			*/
+	"0.1",				/* version		*/
+	NULL,				/* summary		*/
+	NULL,				/* description		*/
+	PLUGIN_AUTHOR,			/* author		*/
+	"http://pidgin.im",		/* website		*/
 
-	plugin_load,			/* load				*/
-	plugin_unload,			/* unload			*/
-	NULL,				/* destroy			*/
+	plugin_load,			/* load			*/
+	plugin_unload,			/* unload		*/
+	NULL,				/* destroy		*/
 
-	&ui_info,			/* ui_info			*/
-	NULL,				/* extra_info			*/
-	NULL,				/* prefs_info			*/
-	NULL,				/* actions			*/
-	NULL,				/* reserved 1			*/
-	NULL,				/* reserved 2			*/
-	NULL,				/* reserved 3			*/
-	NULL				/* reserved 4			*/
+	&ui_info,			/* ui_info		*/
+	NULL,				/* extra_info		*/
+	NULL,				/* prefs_info		*/
+	NULL,				/* actions		*/
+	NULL,				/* reserved 1		*/
+	NULL,				/* reserved 2		*/
+	NULL,				/* reserved 3		*/
+	NULL				/* reserved 4		*/
 };
 
 static void
-init_plugin(PurplePlugin *plugin) {        
+init_plugin(PurplePlugin *plugin) {
+	info.name = "WebKit message styles";
+	info.summary = "Adium-like message styles in Pidgin";
+	info.description = "Use Adium message styles in Pidgin";
 	purple_prefs_add_none("/plugins/gtk/adium-ims");
-	purple_prefs_add_string("/plugins/gtk/adium-ims/style","Cloudbourne.AdiumMessageStyle");
-	purple_prefs_add_string("/plugins/gtk/adium-ims/variant","");	
-	info.name = "Adium Message Styles (WebKit)";
-	info.summary = "Adium-like styled conversation windows";
-	info.description = "Chat using Adium's WebKit view.";
+	purple_prefs_add_string("/plugins/gtk/adium-ims/message-style", "default.AdiumMessageStyle");
+	purple_prefs_add_string("/plugins/gtk/adium-ims/variant", "");
 }
 
 PURPLE_INIT_PLUGIN(webkit, init_plugin, info)

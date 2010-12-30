@@ -597,9 +597,6 @@ void irc_msg_motd(struct irc_conn *irc, const char *name, const char *from, char
 	if (!args || !args[0])
 		return;
 
-	if (!irc->motd)
-		irc->motd = g_string_new("");
-
 	if (!strcmp(name, "375")) {
 		if (irc->motd)
 			g_string_free(irc->motd, TRUE);
@@ -608,6 +605,15 @@ void irc_msg_motd(struct irc_conn *irc, const char *name, const char *from, char
 	} else if (!strcmp(name, "376")) {
 		/* dircproxy 1.0.5 does not send 251 on reconnection, so
 		 * finalize the connection here if it is not already done. */
+		irc_connected(irc, args[0]);
+		return;
+	} else if (!strcmp(name, "422")) {
+		/* in case there is no 251, and no MOTD set, finalize the connection.
+		 * (and clear the motd for good measure). */
+		
+		if (irc->motd)
+			g_string_free(irc->motd, TRUE);
+		
 		irc_connected(irc, args[0]);
 		return;
 	}
@@ -851,7 +857,7 @@ void irc_msg_kick(struct irc_conn *irc, const char *name, const char *from, char
 	}
 
 	if (!convo) {
-		purple_debug(PURPLE_DEBUG_ERROR, "irc", "Recieved a KICK for unknown channel %s\n", args[0]);
+		purple_debug(PURPLE_DEBUG_ERROR, "irc", "Received a KICK for unknown channel %s\n", args[0]);
 		g_free(nick);
 		return;
 	}
@@ -1069,7 +1075,7 @@ void irc_msg_part(struct irc_conn *irc, const char *name, const char *from, char
 
 	nick = irc_mask_nick(from);
 	if (!purple_utf8_strcasecmp(nick, purple_connection_get_display_name(gc))) {
-		char *escaped = g_markup_escape_text(args[1], -1);
+		char *escaped = args[1] ? g_markup_escape_text(args[1], -1) : NULL;
 		msg = g_strdup_printf(_("You have parted the channel%s%s"),
 		                      (args[1] && *args[1]) ? ": " : "",
 		                      (escaped && *escaped) ? escaped : "");
