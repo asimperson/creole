@@ -23,6 +23,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02111-1301  USA
  */
+#include <internal.h>
+
 #include <gnt.h>
 #include <gntbox.h>
 #include <gntbutton.h>
@@ -32,7 +34,6 @@
 #include <gntutils.h>
 
 #include "finch.h"
-#include <internal.h>
 
 #include "debug.h"
 #include "notify.h"
@@ -497,7 +498,7 @@ process_pref_frame(PurplePluginPrefFrame *frame)
 						break;
 				}
 				stringlist = g_list_prepend(stringlist, value);
-				purple_request_field_list_add(field, label, value);
+				purple_request_field_list_add_icon(field, label, NULL, value);
 				if (strcmp(value, current_value) == 0)
 					purple_request_field_list_add_selected(field, label);
 				list = list->next->next;

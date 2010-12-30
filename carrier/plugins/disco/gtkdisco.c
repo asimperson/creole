@@ -225,8 +225,8 @@ static void browse_button_cb(GtkWidget *button, PidginDiscoDialog *dialog)
 		gtk_widget_set_sensitive(dialog->account_widget, FALSE);
 
 	username = purple_account_get_username(dialog->account);
-	at = g_utf8_strchr(username, -1, '@');
-	slash = g_utf8_strchr(username, -1, '/');
+	at = strchr(username, '@');
+	slash = strchr(username, '/');
 	if (at && !slash) {
 		server = g_strdup_printf("%s", at + 1);
 	} else if (at && slash && at + 1 < slash) {
@@ -430,7 +430,13 @@ static gboolean
 disco_paint_tooltip(GtkWidget *tipwindow, gpointer data)
 {
 	PangoLayout *layout = g_object_get_data(G_OBJECT(tipwindow), "tooltip-plugin");
+#if GTK_CHECK_VERSION(2,14,0)
+	gtk_paint_layout(gtk_widget_get_style(tipwindow),
+			gtk_widget_get_window(tipwindow),
+			GTK_STATE_NORMAL, FALSE,
+#else
 	gtk_paint_layout(tipwindow->style, tipwindow->window, GTK_STATE_NORMAL, FALSE,
+#endif
 			NULL, tipwindow, "tooltip",
 			6, 6, layout);
 	return TRUE;

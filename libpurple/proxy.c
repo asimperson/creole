@@ -379,11 +379,16 @@ _proxy_fill_hostinfo(PurpleProxyInfo *info, char *host, int default_port)
 	char *d;
 
 	d = g_strrstr(host, ":");
-	if (d)
+	if (d) {
 		*d = '\0';
-	d++;
-	if (*d)
-		sscanf(d, "%d", &port);
+
+		d++;
+		if (*d)
+			sscanf(d, "%d", &port);
+
+		if (port == 0)
+			port = default_port;
+	}
 
 	purple_proxy_info_set_host(info, host);
 	purple_proxy_info_set_port(info, port);
@@ -1018,7 +1023,7 @@ http_canread(gpointer data, gint source, PurpleInputCondition cond)
 
 				g_free(response);
 
-			} else if((header = g_strrstr((const char *)connect_data->read_buffer, "Proxy-Authenticate: Basic"))) {
+			} else if (g_strrstr((const char *)connect_data->read_buffer, "Proxy-Authenticate: Basic") != NULL) {
 				gchar *t1, *t2;
 				const char *username, *password;
 
@@ -1098,6 +1103,36 @@ http_start_connect_tunneling(PurpleProxyConnectData *connect_data) {
 			"CONNECT %s:%d HTTP/1.1\r\nHost: %s:%d\r\n",
 			connect_data->host, connect_data->port,
 			connect_data->host, connect_data->port);
+
+	if (purple_proxy_info_get_username(connect_data->gpi) != NULL)
+	{
+		char *t1, *t2, *ntlm_type1;
+		char hostname[256];
+
+		ret = gethostname(hostname, sizeof(hostname));
+		hostname[sizeof(hostname) - 1] = '\0';
+		if (ret < 0 || hostname[0] == '\0') {
+			purple_debug_warning("proxy", "gethostname() failed -- is your hostname set?");
+			strcpy(hostname, "localhost");
+		}
+
+		t1 = g_strdup_printf("%s:%s",
+			purple_proxy_info_get_username(connect_data->gpi),
+			purple_proxy_info_get_password(connect_data->gpi) ?
+				purple_proxy_info_get_password(connect_data->gpi) : "");
+		t2 = purple_base64_encode((const guchar *)t1, strlen(t1));
+		g_free(t1);
+
+		ntlm_type1 = purple_ntlm_gen_type1(hostname, "");
+
+		g_string_append_printf(request,
+			"Proxy-Authorization: Basic %s\r\n"
+			"Proxy-Authorization: NTLM %s\r\n"
+			"Proxy-Connection: Keep-Alive\r\n",
+			t2, ntlm_type1);
+		g_free(ntlm_type1);
+		g_free(t2);
+	}
 
 	g_string_append(request, "\r\n");
 
@@ -2070,8 +2105,12 @@ static void try_connect(PurpleProxyConnectData *connect_data)
 	addr = connect_data->hosts->data;
 	connect_data->hosts = g_slist_remove(connect_data->hosts, connect_data->hosts->data);
 #ifdef HAVE_INET_NTOP
-	inet_ntop(addr->sa_family, &((struct sockaddr_in *)addr)->sin_addr,
-			ipaddr, sizeof(ipaddr));
+	if (addr->sa_family == AF_INET)
+		inet_ntop(addr->sa_family, &((struct sockaddr_in *)addr)->sin_addr,
+				ipaddr, sizeof(ipaddr));
+	else if (addr->sa_family == AF_INET6)
+		inet_ntop(addr->sa_family, &((struct sockaddr_in6 *)addr)->sin6_addr,
+				ipaddr, sizeof(ipaddr));
 #else
 	memcpy(ipaddr, inet_ntoa(((struct sockaddr_in *)addr)->sin_addr),
 			sizeof(ipaddr));
