@@ -36,7 +36,7 @@ PURPLE_INSTALL_PO_DIR := $(PURPLE_INSTALL_DIR)/locale
 PURPLE_TOP := $(PIDGIN_TREE_TOP)/libpurple
 PURPLE_PLUGINS_TOP := $(PURPLE_TOP)/plugins
 PURPLE_PERL_TOP := $(PURPLE_PLUGINS_TOP)/perl
-PIDGIN_TOP := $(PIDGIN_TREE_TOP)/carrier
+PIDGIN_TOP := $(PIDGIN_TREE_TOP)/pidgin
 PIDGIN_PIXMAPS_TOP := $(PIDGIN_TOP)/pixmaps
 PIDGIN_PLUGINS_TOP := $(PIDGIN_TOP)/plugins
 PURPLE_PO_TOP := $(PIDGIN_TREE_TOP)/po
@@ -52,8 +52,8 @@ PURPLE_VERSION_H := $(PURPLE_TOP)/version.h
 PURPLE_DLL := $(PURPLE_TOP)/libpurple.dll
 PURPLE_PERL_DLL := $(PURPLE_PERL_TOP)/perl.dll
 PIDGIN_DLL := $(PIDGIN_TOP)/pidgin.dll
-PIDGIN_EXE := $(PIDGIN_TOP)/carrier.exe
-PIDGIN_PORTABLE_EXE := $(PIDGIN_TOP)/carrier-portable.exe
+PIDGIN_EXE := $(PIDGIN_TOP)/pidgin.exe
+PIDGIN_PORTABLE_EXE := $(PIDGIN_TOP)/pidgin-portable.exe
 
 GCCWARNINGS ?= -Waggregate-return -Wcast-align -Wdeclaration-after-statement -Werror-implicit-function-declaration -Wextra -Wno-sign-compare -Wno-unused-parameter -Winit-self -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wundef
 
