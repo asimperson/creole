@@ -18,7 +18,7 @@
 %define apiver %(echo "2.7.8"|awk -F. '{print $1"."$2}')
 
 Summary:    A GTK+ based multiprotocol instant messaging client
-Name:       pidgin
+Name:       carrier
 Version:    %pidginver
 Release:    0%{?beta:.beta%{beta}}
 License:    GPL
