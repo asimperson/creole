@@ -32,7 +32,7 @@ endif
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = purple.pc
 
-SUBDIRS = $(GCONF_DIR) plugins protocols . tests example
+SUBDIRS = $(GCONF_DIR) plugins protocols ciphers . tests example
 
 purple_coresources = \
 	account.c \
@@ -156,7 +156,6 @@ purple_coreheaders = \
 	theme-manager.h \
 	upnp.h \
 	util.h \
-	valgrind.h \
 	value.h \
 	xmlnode.h \
 	whiteboard.h
@@ -311,6 +310,7 @@ libpurple_la_LIBADD = \
 	$(GSTREAMER_LIBS) \
 	$(GSTINTERFACES_LIBS) \
 	$(IDN_LIBS) \
+	ciphers/libpurple-ciphers.la \
 	-lm
 
 AM_CPPFLAGS = \

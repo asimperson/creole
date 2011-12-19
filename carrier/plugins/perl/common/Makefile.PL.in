@@ -9,6 +9,7 @@ WriteMakefile(
       ('ABSTRACT_FROM' => '@srcdir@/Carrier.pm', # finds $ABSTRACT
        'AUTHOR'        => 'Carrier <http://funpidgin.sourceforge.net/>') :  ()),
     'DEFINE'        => '@DEBUG_CFLAGS@',
+    'dynamic_lib'       => { 'OTHERLDFLAGS' => '@LDFLAGS@' },
     'INC'           => '-I. -I@srcdir@ -I@top_srcdir@ -I@top_srcdir@/libpurple -I@top_srcdir@/carrier @GTK_CFLAGS@',
     'OBJECT'        => '$(O_FILES)', # link all the C files too
     'TYPEMAPS'      => ["@top_srcdir@/libpurple/plugins/perl/common/typemap"],

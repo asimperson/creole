@@ -265,12 +265,6 @@ msn_switchboard_add_user(MsnSwitchBoard *swboard, const char *user)
 		return;
 	}
 
-	/* Don't add ourselves either... */
-	if (g_str_equal(passport, purple_account_get_username(account))) {
-		g_free(passport);
-		return;
-	}
-	
 	if (!msnuser) {
 		purple_debug_info("msn","User %s is not on our list.\n", passport);
 		msnuser = msn_user_new(userlist, passport, NULL);
@@ -427,9 +421,10 @@ msg_resend_cb(gpointer data)
 
 	purple_debug_info("msn", "unqueuing unsent message to %s\n", swboard->im_user);
 
-	msn_switchboard_request(swboard);
-	msn_switchboard_request_add_user(swboard, swboard->im_user);
-	swboard->reconn_timeout_h = 0;
+	if (msn_switchboard_request(swboard)) {
+		msn_switchboard_request_add_user(swboard, swboard->im_user);
+		swboard->reconn_timeout_h = 0;
+	}
 	return FALSE;
 }
 
@@ -649,10 +644,8 @@ bye_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 static void
 iro_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 {
-	PurpleAccount *account;
 	MsnSwitchBoard *swboard;
 
-	account = cmdproc->session->account;
 	swboard = cmdproc->data;
 
 	swboard->total_users = atoi(cmd->params[2]);
@@ -664,14 +657,12 @@ static void
 joi_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 {
 	MsnSession *session;
-	PurpleAccount *account;
 	MsnSwitchBoard *swboard;
 	const char *passport;
 
 	passport = cmd->params[0];
 
 	session = cmdproc->session;
-	account = session->account;
 	swboard = cmdproc->data;
 
 	msn_switchboard_add_user(swboard, passport);
@@ -732,6 +723,7 @@ nak_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 	g_return_if_fail(msg != NULL);
 
 	msg_error_helper(cmdproc, msg, MSN_MSG_ERROR_NAK);
+	cmd->trans->data = NULL;
 }
 
 static void
@@ -749,6 +741,7 @@ ack_cmd(MsnCmdProc *cmdproc, MsnCommand *cmd)
 	if (swboard)
 		swboard->ack_list = g_list_remove(swboard->ack_list, msg);
 	msn_message_unref(msg);
+	cmd->trans->data = NULL;
 }
 
 static void
@@ -831,7 +824,7 @@ msn_switchboard_show_ink(MsnSwitchBoard *swboard, const char *passport,
 
 	data += sizeof("base64:") - 1;
 	image_data = purple_base64_decode(data, &image_len);
-	if (!image_data || !image_len) 
+	if (!image_data || !image_len)
 	{
 		purple_debug_error("msn", "Unable to decode Ink from Base64 format.\n");
 		return;
@@ -1086,13 +1079,13 @@ xfr_error(MsnCmdProc *cmdproc, MsnTransaction *trans, int error)
 	swboard_error_helper(swboard, reason, swboard->im_user);
 }
 
-void
+gboolean
 msn_switchboard_request(MsnSwitchBoard *swboard)
 {
 	MsnCmdProc *cmdproc;
 	MsnTransaction *trans;
 
-	g_return_if_fail(swboard != NULL);
+	g_return_val_if_fail(swboard != NULL, FALSE);
 
 	cmdproc = swboard->session->notification->cmdproc;
 
@@ -1102,7 +1095,7 @@ msn_switchboard_request(MsnSwitchBoard *swboard)
 	msn_transaction_set_data(trans, swboard);
 	msn_transaction_set_error_cb(trans, xfr_error);
 
-	msn_cmdproc_send_trans(cmdproc, trans);
+	return msn_cmdproc_send_trans(cmdproc, trans);
 }
 
 void

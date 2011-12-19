@@ -1305,15 +1305,19 @@ pidgin_status_box_list_position (PidginStatusBox *status_box, int *x, int *y, in
   *width = GTK_WIDGET(status_box)->allocation.width;
 
   hpolicy = vpolicy = GTK_POLICY_NEVER;
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (status_box->scrolled_window),
-				  hpolicy, vpolicy);
+	g_object_set(G_OBJECT(status_box->scrolled_window),
+		"hscrollbar-policy", hpolicy,
+		"vscrollbar-policy", vpolicy,
+		NULL);
   gtk_widget_size_request (status_box->popup_frame, &popup_req);
 
   if (popup_req.width > *width)
     {
       hpolicy = GTK_POLICY_ALWAYS;
-      gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (status_box->scrolled_window),
-				      hpolicy, vpolicy);
+			g_object_set(G_OBJECT(status_box->scrolled_window),
+				"hscrollbar-policy", hpolicy,
+				"vscrollbar-policy", vpolicy,
+				NULL);
       gtk_widget_size_request (status_box->popup_frame, &popup_req);
     }
 
@@ -1348,8 +1352,10 @@ pidgin_status_box_list_position (PidginStatusBox *status_box, int *x, int *y, in
     {
       vpolicy = GTK_POLICY_ALWAYS;
 
-      gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (status_box->scrolled_window),
-				      hpolicy, vpolicy);
+			g_object_set(G_OBJECT(status_box->scrolled_window),
+				"hscrollbar-policy", hpolicy,
+				"vscrollbar-policy", vpolicy,
+				NULL);
     }
 }
 
@@ -1795,19 +1801,6 @@ pidgin_status_box_init (PidginStatusBox *status_box)
 
 	gtk_widget_show (status_box->popup_frame);
 
-	status_box->scrolled_window = gtk_scrolled_window_new (NULL, NULL);
-
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (status_box->scrolled_window),
-			GTK_POLICY_NEVER,
-			GTK_POLICY_NEVER);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (status_box->scrolled_window),
-			GTK_SHADOW_NONE);
-
-	gtk_widget_show (status_box->scrolled_window);
-
-	gtk_container_add (GTK_CONTAINER (status_box->popup_frame),
-			status_box->scrolled_window);
-
 	status_box->tree_view = gtk_tree_view_new ();
 	sel = gtk_tree_view_get_selection (GTK_TREE_VIEW (status_box->tree_view));
 	gtk_tree_selection_set_mode (sel, GTK_SELECTION_BROWSE);
@@ -1826,7 +1819,11 @@ pidgin_status_box_init (PidginStatusBox *status_box)
 	gtk_tree_view_column_set_attributes(status_box->column, icon_rend, "stock-id", ICON_STOCK_COLUMN, NULL);
 	gtk_tree_view_column_set_attributes(status_box->column, text_rend, "markup", TEXT_COLUMN, NULL);
 	gtk_tree_view_column_set_attributes(status_box->column, emblem_rend, "stock-id", EMBLEM_COLUMN, "visible", EMBLEM_VISIBLE_COLUMN, NULL);
-	gtk_container_add(GTK_CONTAINER(status_box->scrolled_window), status_box->tree_view);
+
+	status_box->scrolled_window = pidgin_make_scrollable(status_box->tree_view, GTK_POLICY_NEVER, GTK_POLICY_NEVER, GTK_SHADOW_NONE, -1, -1);
+	gtk_container_add (GTK_CONTAINER (status_box->popup_frame),
+			status_box->scrolled_window);
+
 	gtk_widget_show(status_box->tree_view);
 	gtk_tree_view_set_search_column(GTK_TREE_VIEW(status_box->tree_view), TEXT_COLUMN);
 	gtk_tree_view_set_search_equal_func(GTK_TREE_VIEW(status_box->tree_view),
@@ -2228,22 +2225,45 @@ pidgin_status_box_redisplay_buddy_icon(PidginStatusBox *status_box)
 
 	if (status_box->buddy_icon_img != NULL)
 	{
-		GdkPixbuf *buf, *scale;
-		int scale_width, scale_height;
-		GdkPixbufLoader *loader = gdk_pixbuf_loader_new();
+		GdkPixbufLoader *loader;
+		GError *error = NULL;
+
+		loader = gdk_pixbuf_loader_new();
+
 		g_signal_connect(G_OBJECT(loader), "size-prepared", G_CALLBACK(pixbuf_size_prepared_cb), NULL);
-		gdk_pixbuf_loader_write(loader, purple_imgstore_get_data(status_box->buddy_icon_img),
-		                        purple_imgstore_get_size(status_box->buddy_icon_img), NULL);
-		gdk_pixbuf_loader_close(loader, NULL);
-		buf = gdk_pixbuf_loader_get_pixbuf(loader);
-		scale_width = gdk_pixbuf_get_width(buf);
-		scale_height = gdk_pixbuf_get_height(buf);
-		scale = gdk_pixbuf_new(GDK_COLORSPACE_RGB, TRUE, 8, scale_width, scale_height);
-		gdk_pixbuf_fill(scale, 0x00000000);
-		gdk_pixbuf_copy_area(buf, 0, 0, scale_width, scale_height, scale, 0, 0);
-		if (pidgin_gdk_pixbuf_is_opaque(scale))
-			pidgin_gdk_pixbuf_make_round(scale);
-		status_box->buddy_icon = scale;
+		if (!gdk_pixbuf_loader_write(loader,
+				purple_imgstore_get_data(status_box->buddy_icon_img),
+				purple_imgstore_get_size(status_box->buddy_icon_img),
+				&error) || error)
+		{
+			purple_debug_warning("gtkstatusbox", "gdk_pixbuf_loader_write() "
+					"failed with size=%zu: %s\n",
+					purple_imgstore_get_size(status_box->buddy_icon_img),
+					error ? error->message : "(no error message)");
+			if (error)
+				g_error_free(error);
+		} else if (!gdk_pixbuf_loader_close(loader, &error) || error) {
+			purple_debug_warning("gtkstatusbox", "gdk_pixbuf_loader_close() "
+					"failed for image of size %zu: %s\n",
+					purple_imgstore_get_size(status_box->buddy_icon_img),
+					error ? error->message : "(no error message)");
+			if (error)
+				g_error_free(error);
+		} else {
+			GdkPixbuf *buf, *scale;
+			int scale_width, scale_height;
+
+			buf = gdk_pixbuf_loader_get_pixbuf(loader);
+			scale_width = gdk_pixbuf_get_width(buf);
+			scale_height = gdk_pixbuf_get_height(buf);
+			scale = gdk_pixbuf_new(GDK_COLORSPACE_RGB, TRUE, 8, scale_width, scale_height);
+			gdk_pixbuf_fill(scale, 0x00000000);
+			gdk_pixbuf_copy_area(buf, 0, 0, scale_width, scale_height, scale, 0, 0);
+			if (pidgin_gdk_pixbuf_is_opaque(scale))
+				pidgin_gdk_pixbuf_make_round(scale);
+			status_box->buddy_icon = scale;
+		}
+
 		g_object_unref(loader);
 	}
 

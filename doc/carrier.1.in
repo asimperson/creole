@@ -49,6 +49,9 @@ Use \fIDIR\fR as the directory for config files instead of \fI~/.purple\fR.
 Print debugging messages to stdout.  These are the same debugging messages
 that are displayed in the \fBDebug Window\fR.
 .TP
+.B \-f, \-\-force-online
+Try to be online even if the network is reported (by Windows, or NetworkManager on Linux) to be unavailable.
+.TP
 .B \-h, \-\-help
 Print a summary of command line options and exit.
 .TP
@@ -517,8 +520,7 @@ with the checkbox beside the name and short description.  More information on
 the currently selected plugin is available by clicking the expander beside the
 text \fIPlugin Details\fR.  If the selected plugin has preferences or
 configuration options, the \fIConfigure Plugin\fR button will present the
-plugin's preferences dialog.
- 
+plugin's preferences dialog. 
 
 .SH PERL
 Carrier allows for plugins to be written in the perl scripting language.  See
@@ -560,20 +562,28 @@ about this interaction exists.
 .SH BUGS
 The bug tracker can be reached by visiting \fIhttp://developer.pidgin.im/query\fR
 
-.SH PATCHES
-If you fix a bug in Carrier (or otherwise enhance it), please submit a
-patch (using \fImtn diff > my.diff\fR against the latest version from the
-Monotone repository) at \fIhttp://developer.pidgin.im/simpleticket\fR
-
 Before sending a bug report, please verify that you have the latest
 version of Carrier.  Many bugs (major and minor) are fixed
 at each release, and if yours is out of date, the problem may already
 have been solved.
 
+.SH PATCHES
+If you fix a bug in Carrier (or otherwise enhance it), please submit a
+patch (using \fImtn diff > my.diff\fR against the latest version from the
+Monotone repository) at \fIhttp://developer.pidgin.im/simpleticket\fR
+
+You are also encouraged to drop by at \fB#pidgin\fR on \fIirc.freenode.net\fR
+to discuss development.
+
+
 .SH SEE ALSO
 \fIhttp://pidgin.im/\fR
 .br
 \fIhttp://developer.pidgin.im/\fR
+.br
+\fBpurple-remote\fR(1)
+.br
+\fBfinch\fR(1)
 
 .SH LICENSE
 This program is free software; you can redistribute it and/or modify
@@ -613,9 +623,13 @@ Pidgin's active developers are:
 .br
   Casey Harkins (developer)
 .br
+  Ivan Komarov
+.br
   Gary 'grim' Kramlich (developer)
 .br
   Richard 'rlaager' Laager (developer) <\fIrlaager@pidgin.im\fR>
+.br
+  Sulabh 'sulabh_m' Mahajan (developer)
 .br
   Richard 'wabz' Nelson (developer)
 .br

@@ -743,10 +743,14 @@ oscar_login(PurpleAccount *account)
 	gc->flags |= PURPLE_CONNECTION_HTML;
 	if (oscar_util_valid_name_icq((purple_account_get_username(account)))) {
 		od->icq = TRUE;
-		gc->flags |= PURPLE_CONNECTION_SUPPORT_MOODS;
 	} else {
 		gc->flags |= PURPLE_CONNECTION_AUTO_RESP;
 	}
+
+	/* Set this flag based on the protocol_id rather than the username,
+	   because that is what's tied to the get_moods prpl callback. */
+	if (g_str_equal(purple_account_get_protocol_id(account), "prpl-icq"))
+		gc->flags |= PURPLE_CONNECTION_SUPPORT_MOODS;
 
 	od->default_port = purple_account_get_int(account, "port", OSCAR_DEFAULT_LOGIN_PORT);
 
@@ -1026,7 +1030,7 @@ int oscar_connect_to_bos(PurpleConnection *gc, OscarData *od, const char *host, 
 	conn->cookie = g_memdup(cookie, cookielen);
 
 	/*
-	 * Use TLS only if the server provided us with a tls_certname. The server might not specify a tls_certname even if we requested to use TLS, 
+	 * Use TLS only if the server provided us with a tls_certname. The server might not specify a tls_certname even if we requested to use TLS,
 	 * and that is something we should be prepared to.
 	 */
 	if (tls_certname)
@@ -1293,7 +1297,7 @@ purple_handle_redirect(OscarData *od, FlapConnection *conn, FlapFrame *fr, ...)
 				PURPLE_CONNECTION_ERROR_NO_SSL_SUPPORT,
 				_("You required encryption in your account settings, but one of the servers doesn't support it."));
 			return 0;
-		} 
+		}
 	}
 
 	/*
@@ -1465,10 +1469,10 @@ static int purple_parse_oncoming(OscarData *od, FlapConnection *conn, FlapFrame 
 		} else if (previous_status != NULL && purple_status_is_available(previous_status)) {
 			itmsurl = g_strdup(purple_status_get_attr_string(previous_status, "itmsurl"));
 		}
-		purple_debug_info("oscar", "Activating status '%s' for buddy %s, message = '%s', itmsurl = '%s'\n", status_id, info->bn, message, itmsurl);
+		purple_debug_info("oscar", "Activating status '%s' for buddy %s, message = '%s', itmsurl = '%s'\n", status_id, info->bn, message ? message : "(null)", itmsurl ? itmsurl : "(null)");
 		purple_prpl_got_user_status(account, info->bn, status_id, "message", message, "itmsurl", itmsurl, NULL);
 	} else {
-		purple_debug_info("oscar", "Activating status '%s' for buddy %s, message = '%s'\n", status_id, info->bn, message);
+		purple_debug_info("oscar", "Activating status '%s' for buddy %s, message = '%s'\n", status_id, info->bn, message ? message : "(null)");
 		purple_prpl_got_user_status(account, info->bn, status_id, "message", message, NULL);
 	}
 
@@ -2828,6 +2832,52 @@ static int purple_parse_buddyrights(OscarData *od, FlapConnection *conn, FlapFra
 	return 1;
 }
 
+static void oscar_format_username(PurpleConnection *gc, const char *new_display_name)
+{
+	OscarData *od;
+	const char *old_display_name, *username;
+	char *tmp, *at_sign;
+
+	old_display_name = purple_connection_get_display_name(gc);
+	if (old_display_name && strchr(old_display_name, '@')) {
+		purple_debug_info("oscar", "Cowardly refusing to attempt to format "
+				"screen name because the current formatting according to "
+				"the server (%s) appears to be an email address\n",
+				old_display_name);
+		return;
+	}
+
+	username = purple_account_get_username(purple_connection_get_account(gc));
+	if (oscar_util_name_compare(username, new_display_name)) {
+		purple_notify_error(gc, NULL, _("The new formatting is invalid."),
+						  _("Username formatting can change only capitalization and whitespace."));
+		return;
+	}
+
+	tmp = g_strdup(new_display_name);
+
+	/*
+	 * If our local username is an email address then strip off the domain.
+	 * This allows formatting to work if the user entered their username as
+	 * 'something@aim.com' or possibly other AOL-owned domains.
+	 */
+	at_sign = strchr(tmp, '@');
+	if (at_sign)
+		at_sign[0] = '\0';
+
+	od = purple_connection_get_protocol_data(gc);
+	if (!flap_connection_getbytype(od, SNAC_FAMILY_ADMIN)) {
+		/* We don't have a connection to an "admin" server.  Make one. */
+		od->setnick = TRUE;
+		g_free(od->newformatting);
+		od->newformatting = tmp;
+		aim_srv_requestnew(od, SNAC_FAMILY_ADMIN);
+	} else {
+		aim_admin_setnick(od, flap_connection_getbytype(od, SNAC_FAMILY_ADMIN), tmp);
+		g_free(tmp);
+	}
+}
+
 static int purple_bosrights(OscarData *od, FlapConnection *conn, FlapFrame *fr, ...) {
 	PurpleConnection *gc;
 	PurpleAccount *account;
@@ -2860,12 +2910,13 @@ static int purple_bosrights(OscarData *od, FlapConnection *conn, FlapFrame *fr, 
 		serv_set_info(gc, purple_account_get_user_info(account));
 
 	username = purple_account_get_username(account);
-	if (!od->icq && strcmp(username, purple_connection_get_display_name(gc)) != 0)
+	if (!od->icq && strcmp(username, purple_connection_get_display_name(gc)) != 0) {
 		/*
 		 * Format the username for AIM accounts if it's different
 		 * than what's currently set.
 		 */
 		oscar_format_username(gc, username);
+	}
 
 	/* Set our available message based on the current status */
 	status = purple_account_get_active_status(account);
@@ -3093,12 +3144,12 @@ void
 oscar_keepalive(PurpleConnection *gc)
 {
 	OscarData *od;
-	FlapConnection *conn;
+	GSList *l;
 
 	od = purple_connection_get_protocol_data(gc);
-	conn = flap_connection_getbytype(od, SNAC_FAMILY_LOCATE);
-	if (conn != NULL)
-		flap_connection_send_keepalive(od, conn);
+	for (l = od->oscar_connections; l; l = l->next) {
+		flap_connection_send_keepalive(od, l->data);
+	}
 }
 
 unsigned int
@@ -3215,7 +3266,7 @@ purple_odc_send_im(PeerConnection *conn, const char *message, PurpleMessageFlags
 	g_string_free(data, TRUE);
 
 	purple_debug_info("oscar", "sending direct IM %s using charset %i", msg->str, charset);
-	
+
 	peer_odc_send_im(conn, msg->str, msg->len, charset,
 			imflags & PURPLE_MESSAGE_AUTO_RESP);
 	g_string_free(msg, TRUE);
@@ -3582,7 +3633,7 @@ oscar_set_info_and_status(PurpleAccount *account, gboolean setinfo, const char *
 		}
 
 		itmsurl = purple_status_get_attr_string(status, "itmsurl");
-		
+
 		aim_srv_setextrainfo(od, TRUE, oscar_get_extended_status(gc), TRUE, status_text, itmsurl);
 		g_free(status_text);
 	}
@@ -3613,7 +3664,9 @@ oscar_set_status(PurpleAccount *account, PurpleStatus *status)
 
 	purple_debug_info("oscar", "Set status to %s\n", purple_status_get_name(status));
 
-	if (!purple_status_is_active(status))
+	/* Either setting a new status active or setting a status inactive.
+	 * (Only possible for independent status (i.e. X-Status moods.) */
+	if (!purple_status_is_active(status) && !purple_status_is_independent(status))
 		return;
 
 	if (!purple_account_is_connected(account))
@@ -3638,7 +3691,8 @@ oscar_set_status(PurpleAccount *account, PurpleStatus *status)
 }
 
 void
-oscar_add_buddy(PurpleConnection *gc, PurpleBuddy *buddy, PurpleGroup *group) {
+oscar_add_buddy(PurpleConnection *gc, PurpleBuddy *buddy, PurpleGroup *group, const char *msg)
+{
 	OscarData *od;
 	PurpleAccount *account;
 	const char *bname, *gname;
@@ -3678,7 +3732,7 @@ oscar_add_buddy(PurpleConnection *gc, PurpleBuddy *buddy, PurpleGroup *group) {
 		                                  aim_ssi_itemlist_findparentname(od->ssi.local, bname),
 		                                  bname)) {
 			/* Not authorized -- Re-request authorization */
-			oscar_auth_sendrequest(gc, bname);
+			oscar_auth_sendrequest(gc, bname, msg);
 		}
 	}
 
@@ -3953,9 +4007,12 @@ static int purple_ssi_parselist(OscarData *od, FlapConnection *conn, FlapFrame *
 	/*** Begin code for adding from server list to local list ***/
 
 	for (curitem=od->ssi.local; curitem; curitem=curitem->next) {
-		if (curitem->name && !g_utf8_validate(curitem->name, -1, NULL))
+		if (curitem->name && !g_utf8_validate(curitem->name, -1, NULL)) {
 			/* Got node with invalid UTF-8 in the name.  Skip it. */
-			break;
+			purple_debug_warning("oscar", "ssi: server list contains item of "
+					"type 0x%04hhx with a non-utf8 name\n", curitem->type);
+			continue;
+		}
 
 		switch (curitem->type) {
 			case AIM_SSI_TYPE_BUDDY: { /* Buddy */
@@ -3999,22 +4056,16 @@ static int purple_ssi_parselist(OscarData *od, FlapConnection *conn, FlapFrame *
 					}
 
 					g_free(gname_utf8);
+					g_free(alias);
 					g_free(alias_utf8);
 				}
 			} break;
 
 			case AIM_SSI_TYPE_GROUP: { /* Group */
-				char *gname;
-				char *gname_utf8;
-
-				gname = curitem->name;
-				gname_utf8 = oscar_utf8_try_convert(account, od, gname);
-
-				if (gname_utf8 != NULL && purple_find_group(gname_utf8) == NULL) {
-					g = purple_group_new(gname_utf8);
+				if (curitem->name != NULL && purple_find_group(curitem->name) == NULL) {
+					g = purple_group_new(curitem->name);
 					purple_blist_add_group(g, NULL);
 				}
-				g_free(gname_utf8);
 			} break;
 
 			case AIM_SSI_TYPE_PERMIT: { /* Permit buddy (unless we're on ICQ) */
@@ -4132,7 +4183,7 @@ static int purple_ssi_parseack(OscarData *od, FlapConnection *conn, FlapFrame *f
 
 			case 0x000e: { /* buddy requires authorization */
 				if ((retval->action == SNAC_SUBTYPE_FEEDBAG_ADD) && (retval->name))
-					oscar_auth_sendrequest(gc, retval->name);
+					oscar_auth_sendrequest(gc, retval->name, NULL);
 			} break;
 
 			default: { /* La la la */
@@ -5017,16 +5068,22 @@ static void oscar_get_icqxstatusmsg(PurpleBlistNode *node, gpointer ignore)
 {
 	PurpleBuddy *buddy;
 	PurpleConnection *gc;
+	OscarData *od;
 	PurpleAccount *account;
+	const char *bname;
 
 	g_return_if_fail(PURPLE_BLIST_NODE_IS_BUDDY(node));
 
 	buddy = (PurpleBuddy *)node;
-	gc = purple_account_get_connection(buddy->account);
-	account = purple_connection_get_account(gc);
-	purple_debug_info("oscar", "Manual X-Status Get From %s to %s:\n", purple_buddy_get_name(buddy), account->username);
+	bname = purple_buddy_get_name(buddy);
 
-	icq_im_xstatus_request(gc->proto_data, purple_buddy_get_name(buddy));
+	account = purple_buddy_get_account(buddy);
+	gc = purple_account_get_connection(account);
+	od = purple_connection_get_protocol_data(gc);
+
+	purple_debug_info("oscar", "Manual X-Status Get From %s to %s:\n", bname, purple_account_get_username(account));
+
+	icq_im_xstatus_request(od, bname);
 }
 
 static void
@@ -5194,23 +5251,6 @@ oscar_show_icq_privacy_opts(PurplePluginAction *action)
 						_("Cancel"), NULL,
 						purple_connection_get_account(gc), NULL, NULL,
 						gc);
-}
-
-void oscar_format_username(PurpleConnection *gc, const char *nick) {
-	OscarData *od = purple_connection_get_protocol_data(gc);
-	if (!oscar_util_name_compare(purple_account_get_username(purple_connection_get_account(gc)), nick)) {
-		if (!flap_connection_getbytype(od, SNAC_FAMILY_ADMIN)) {
-			od->setnick = TRUE;
-			g_free(od->newformatting);
-			od->newformatting = g_strdup(nick);
-			aim_srv_requestnew(od, SNAC_FAMILY_ADMIN);
-		} else {
-			aim_admin_setnick(od, flap_connection_getbytype(od, SNAC_FAMILY_ADMIN), nick);
-		}
-	} else {
-		purple_notify_error(gc, NULL, _("The new formatting is invalid."),
-						  _("Username formatting can change only capitalization and whitespace."));
-	}
 }
 
 static void oscar_confirm_account(PurplePluginAction *action)
@@ -5611,7 +5651,10 @@ oscar_normalize(const PurpleAccount *account, const char *str)
 
 	tmp1 = g_utf8_strdown(buf, -1);
 	tmp2 = g_utf8_normalize(tmp1, -1, G_NORMALIZE_DEFAULT);
-	strcpy(buf, tmp2);
+	if (strlen(tmp2) > sizeof(buf) - 1) {
+		purple_debug_error("oscar", "normalized string exceeds buffer length!\n");
+	}
+	g_strlcpy(buf, tmp2, sizeof(buf));
 	g_free(tmp2);
 	g_free(tmp1);
 

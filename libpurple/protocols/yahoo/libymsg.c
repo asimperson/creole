@@ -842,14 +842,14 @@ static void yahoo_process_notify(PurpleConnection *gc, struct yahoo_packet *pkt,
 				break;
 		}
 
-		if (*stat == '1')
+		if (stat && *stat == '1')
 			serv_got_typing(gc, fed_from, 0, PURPLE_TYPING);
 		else
 			serv_got_typing_stopped(gc, fed_from);
 
 		if (fed_from != from)
 			g_free(fed_from);
-	
+
 	} else if (!g_ascii_strncasecmp(msg, "GAME", strlen("GAME"))) {
 		PurpleBuddy *bud = purple_find_buddy(account, from);
 
@@ -864,7 +864,7 @@ static void yahoo_process_notify(PurpleConnection *gc, struct yahoo_packet *pkt,
 
 		yahoo_friend_set_game(f, NULL);
 
-		if (*stat == '1') {
+		if (stat && *stat == '1') {
 			yahoo_friend_set_game(f, game);
 			if (bud)
 				yahoo_update_status(gc, from, f);
@@ -920,6 +920,11 @@ static void yahoo_process_sms_message(PurpleConnection *gc, struct yahoo_packet 
 		if (pair->key == 16)
 			server_msg = pair->value;
 		l = l->next;
+	}
+
+	if(!sms) {
+		purple_debug_info("yahoo", "Received a malformed SMS packet!\n");
+		return;
 	}
 
 	if( (pkt->status == -1) || (pkt->status == YAHOO_STATUS_DISCONNECTED) ) {
@@ -1012,7 +1017,7 @@ static void yahoo_process_message(PurpleConnection *gc, struct yahoo_packet *pkt
 						break;
 				}
 				purple_debug_info("yahoo", "Message from federated (%d) buddy %s.\n", im->fed, im->fed_from);
-					
+
 			}
 			/* peer session id */
 			if (im && (pair->key == 11)) {
@@ -1217,7 +1222,7 @@ yahoo_buddy_add_authorize_cb(gpointer data)
 						  13, 1,
 						  334, 0);
 	}
-		
+
 	yahoo_packet_send_and_free(pkt, yd);
 
 	g_free(add_req->id);
@@ -1314,7 +1319,7 @@ static void yahoo_buddy_auth_req_15(PurpleConnection *gc, struct yahoo_packet *p
 	PurpleAccount *account;
 	GSList *l = pkt->hash;
 	const char *msg = NULL;
-	
+
 	account = purple_connection_get_account(gc);
 
 	/* Buddy authorized/declined our addition */
@@ -1724,7 +1729,7 @@ static void yahoo_auth16_stage3(PurpleConnection *gc, const char *crypt)
 
 	purple_debug_info("yahoo", "yahoo status: %d\n", yd->current_status);
 	pkt = yahoo_packet_new(YAHOO_SERVICE_AUTHRESP, yd->current_status, yd->session_id);
-	
+
 	if(yd->cookie_b) { /* send B cookie if we have it */
 		yahoo_packet_hash(pkt, "ssssssssss",
 					1, name,
@@ -1795,7 +1800,7 @@ static void yahoo_auth16_stage2(PurpleUtilFetchUrlData *url_data, gpointer user_
 	purple_debug_info("yahoo","Authentication: In yahoo_auth16_stage2\n");
 
 	yd->url_datas = g_slist_remove(yd->url_datas, url_data);
-	
+
 	if (error_message != NULL) {
 		purple_debug_error("yahoo", "Login Failed, unable to retrieve stage 2 url: %s\n", error_message);
 		purple_connection_error_reason(gc, PURPLE_CONNECTION_ERROR_NETWORK_ERROR, error_message);
@@ -1809,7 +1814,7 @@ static void yahoo_auth16_stage2(PurpleUtilFetchUrlData *url_data, gpointer user_
 		int response_no = -1;
 		char *crumb = NULL;
 		char *crypt = NULL;
-		
+
 		if(g_strv_length(splits) > 1) {
 			yd->cookie_b = yahoo_auth16_get_cookie_b(splits[0]);
 			split_data = g_strsplit(splits[1], "\r\n", -1);
@@ -2673,13 +2678,14 @@ static void yahoo_p2p_server_listen_cb(int listenfd, gpointer data)
 	if(!(p2p_data = data))
 		return ;
 
+	yd = p2p_data->gc->proto_data;
+	yd->listen_data = NULL;
+
 	if(listenfd == -1) {
 		purple_debug_warning("yahoo","p2p: error starting p2p server\n");
 		yahoo_p2p_disconnect_destroy_data(data);
 		return;
 	}
-
-	yd = p2p_data->gc->proto_data;
 
 	/* Add an Input Read event to the file descriptor */
 	yd->yahoo_local_p2p_server_fd = listenfd;
@@ -2759,8 +2765,15 @@ void yahoo_send_p2p_pkt(PurpleConnection *gc, const char *who, int val_13)
 	p2p_data->connection_type = YAHOO_P2P_WE_ARE_SERVER;
 	p2p_data->source = -1;
 
-	/* FIXME: Shouldn't this deal with the PurpleNetworkListenData* */
-	purple_network_listen(YAHOO_PAGER_PORT_P2P, SOCK_STREAM, yahoo_p2p_server_listen_cb, p2p_data);
+	/* FIXME: If the port is already used, purple_network_listener returns NULL and old listener won't be canceled
+	 * in yahoo_close function. */
+	if (yd->listen_data)
+		purple_debug_warning("yahoo","p2p: Failed to create p2p server - server already exists\n");
+	else {
+		yd->listen_data = purple_network_listen(YAHOO_PAGER_PORT_P2P, SOCK_STREAM, yahoo_p2p_server_listen_cb, p2p_data);
+		if (yd->listen_data == NULL)
+			purple_debug_warning("yahoo","p2p: Failed to created p2p server\n");
+	}
 
 	g_free(base64_ip);
 }
@@ -3554,11 +3567,10 @@ static int get_yahoo_status_from_purple_status(PurpleStatus *status)
 	status_id = purple_status_get_id(status);
 	msg = purple_status_get_attr_string(status, "message");
 
-	if (!strcmp(status_id, YAHOO_STATUS_TYPE_AVAILABLE)) {
-		if ((msg != NULL) && (*msg != '\0'))
-			return YAHOO_STATUS_CUSTOM;
-		else
-			return YAHOO_STATUS_AVAILABLE;
+	if ((msg != NULL) && (*msg != '\0')) {
+		return YAHOO_STATUS_CUSTOM;
+	} else if (!strcmp(status_id, YAHOO_STATUS_TYPE_AVAILABLE)) {
+		return YAHOO_STATUS_AVAILABLE;
 	} else if (!strcmp(status_id, YAHOO_STATUS_TYPE_BRB)) {
 		return YAHOO_STATUS_BRB;
 	} else if (!strcmp(status_id, YAHOO_STATUS_TYPE_BUSY)) {
@@ -3784,6 +3796,8 @@ void yahoo_close(PurpleConnection *gc) {
 		yahoo_buddy_icon_upload_data_free(yd->picture_upload_todo);
 	if (yd->ycht)
 		ycht_connection_close(yd->ycht);
+	if (yd->listen_data != NULL)
+		purple_network_listen_cancel(yd->listen_data);
 
 	g_free(yd->pending_chat_room);
 	g_free(yd->pending_chat_id);
@@ -3975,7 +3989,6 @@ char *yahoo_status_text(PurpleBuddy *b)
 void yahoo_tooltip_text(PurpleBuddy *b, PurpleNotifyUserInfo *user_info, gboolean full)
 {
 	YahooFriend *f;
-	char *escaped;
 	char *status = NULL;
 	const char *presence = NULL;
 	PurpleAccount *account;
@@ -4014,14 +4027,12 @@ void yahoo_tooltip_text(PurpleBuddy *b, PurpleNotifyUserInfo *user_info, gboolea
 	}
 
 	if (status != NULL) {
-		escaped = g_markup_escape_text(status, strlen(status));
-		purple_notify_user_info_add_pair(user_info, _("Status"), escaped);
+		purple_notify_user_info_add_pair_plaintext(user_info, _("Status"), status);
 		g_free(status);
-		g_free(escaped);
 	}
 
 	if (presence != NULL)
-		purple_notify_user_info_add_pair(user_info, _("Presence"), presence);
+		purple_notify_user_info_add_pair_plaintext(user_info, _("Presence"), presence);
 
 	if (f && full) {
 		YahooPersonalDetails *ypd = &f->ypd;
@@ -4414,7 +4425,7 @@ static void yahoo_get_sms_carrier_cb(PurpleUtilFetchUrlData *url_data, gpointer 
 
 		purple_debug_info("yahoo", "SMS validate data: %s\n", webdata);
 
-		if (status && g_str_equal(status, "Valid") == 0) {
+		if (status && g_str_equal(status, "Valid")) {
 			g_hash_table_insert(yd->sms_carrier,
 					g_strdup_printf("+%s", mobile_no), g_strdup(carrier));
 			yahoo_send_im(sms_cb_data->gc, sms_cb_data->who,
@@ -4691,7 +4702,7 @@ unsigned int yahoo_send_typing(PurpleConnection *gc, const char *who, PurpleTypi
 			default:
 				break;
 		}
-		
+
 		yahoo_packet_hash(pkt, "ssssss", 49, "TYPING", 1, purple_connection_get_display_name(gc),
                   14, " ", 13, state == PURPLE_TYPING ? "1" : "0",
                   5, fed_who, 1002, "1");
@@ -4837,6 +4848,11 @@ void yahoo_set_idle(PurpleConnection *gc, int idle)
 
 	if (idle)
 		yahoo_packet_hash_str(pkt, 47, "2");
+	else if (yd->current_status == YAHOO_STATUS_CUSTOM &&
+			!purple_status_is_available(status))
+		/* We are still unavailable in this case.
+		 * Make sure Yahoo knows that */
+		yahoo_packet_hash_str(pkt, 47, "1");
 
 	yahoo_packet_send_and_free(pkt, yd);
 
@@ -4864,7 +4880,10 @@ GList *yahoo_status_types(PurpleAccount *account)
 	type = purple_status_type_new(PURPLE_STATUS_AWAY, YAHOO_STATUS_TYPE_BRB, _("Be Right Back"), TRUE);
 	types = g_list_append(types, type);
 
-	type = purple_status_type_new(PURPLE_STATUS_UNAVAILABLE, YAHOO_STATUS_TYPE_BUSY, _("Busy"), TRUE);
+	type = purple_status_type_new_with_attrs(PURPLE_STATUS_UNAVAILABLE, YAHOO_STATUS_TYPE_BUSY,
+	                                       _("Busy"), TRUE, TRUE, FALSE,
+	                                       "message", _("Message"),
+	                                       purple_value_new(PURPLE_TYPE_STRING), NULL);
 	types = g_list_append(types, type);
 
 	type = purple_status_type_new(PURPLE_STATUS_AWAY, YAHOO_STATUS_TYPE_NOTATHOME, _("Not at Home"), TRUE);
@@ -5096,7 +5115,7 @@ void yahoo_rem_deny(PurpleConnection *gc, const char *who) {
 		yahoo_packet_hash(pkt, "ssis", 1, purple_connection_get_display_name(gc), 7, who+4, 241, fed, 13, "2");
 	else
 		yahoo_packet_hash(pkt, "sss", 1, purple_connection_get_display_name(gc), 7, who, 13, "2");
-	
+
 	yahoo_packet_send_and_free(pkt, yd);
 }
 

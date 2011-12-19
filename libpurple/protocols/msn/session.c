@@ -46,7 +46,7 @@ msn_session_new(PurpleAccount *account)
 
 	session->user = msn_user_new(session->userlist,
 								 purple_account_get_username(account), NULL);
-	msn_userlist_add_user(session->userlist, msn_user_ref(session->user));
+	msn_userlist_add_user(session->userlist, session->user);
 	session->oim = msn_oim_new(session);
 
 	session->protocol_ver = 0;
@@ -263,8 +263,10 @@ msn_session_get_swboard(MsnSession *session, const char *username,
 	{
 		swboard = msn_switchboard_new(session);
 		swboard->im_user = g_strdup(username);
-		msn_switchboard_request(swboard);
-		msn_switchboard_request_add_user(swboard, username);
+		if (msn_switchboard_request(swboard))
+			msn_switchboard_request_add_user(swboard, username);
+		else
+			return NULL;
 	}
 
 	swboard->flag |= flag;
@@ -288,6 +290,8 @@ void
 msn_session_activate_login_timeout(MsnSession *session)
 {
 	if (!session->logged_in && session->connected) {
+		if (session->login_timeout)
+			purple_timeout_remove(session->login_timeout);
 		session->login_timeout =
 			purple_timeout_add_seconds(MSN_LOGIN_FQY_TIMEOUT,
 			                           msn_login_timeout_cb, session);

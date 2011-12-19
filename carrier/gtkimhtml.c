@@ -1268,7 +1268,7 @@ static void paste_clipboard_cb(GtkIMHtml *imhtml, gpointer blah)
 			GtkClipboard *clipboard = gtk_widget_get_clipboard(GTK_WIDGET(imhtml), GDK_SELECTION_CLIPBOARD);
 			gtk_clipboard_request_text(clipboard, paste_plaintext_received_cb, imhtml);
 		}
-	}
+ 	}
 #else
 	GtkClipboard *clipboard = gtk_widget_get_clipboard(GTK_WIDGET(imhtml), GDK_SELECTION_CLIPBOARD);
 	if (purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/funpidgin_disable_rich_text_paste")) {
@@ -3201,6 +3201,19 @@ void gtk_imhtml_insert_html_at_iter(GtkIMHtml        *imhtml,
 						    gtk_imhtml_toggle_underline(imhtml);
 						    font->underline = 1;
 						}
+
+						if (oldfont)
+						{
+						    font->strike = oldfont->strike;
+						}
+						if (textdec && font->strike != 1
+							&& g_ascii_strcasecmp(textdec, "line-through") == 0
+							&& (imhtml->format_functions & GTK_IMHTML_STRIKE)
+							&& !(options & GTK_IMHTML_NO_FORMATTING))
+						{
+						    gtk_imhtml_toggle_strike(imhtml);
+						    font->strike = 1;
+						}
 						g_free(textdec);
 
 						if (oldfont)
@@ -3253,6 +3266,8 @@ void gtk_imhtml_insert_html_at_iter(GtkIMHtml        *imhtml,
 							gtk_imhtml_font_set_size(imhtml, 3);
 							if (font->underline && !(options & GTK_IMHTML_NO_FORMATTING))
 							    gtk_imhtml_toggle_underline(imhtml);
+							if (font->strike && !(options & GTK_IMHTML_NO_FORMATTING))
+							    gtk_imhtml_toggle_strike(imhtml);
 							if (font->bold && !(options & GTK_IMHTML_NO_FORMATTING))
 								gtk_imhtml_toggle_bold(imhtml);
 							if (!(options & GTK_IMHTML_NO_FONTS))
@@ -3265,14 +3280,17 @@ void gtk_imhtml_insert_html_at_iter(GtkIMHtml        *imhtml,
 						else
 						{
 
-						    if ((font->size != oldfont->size) && !(options & GTK_IMHTML_NO_SIZES))
+							if ((font->size != oldfont->size) && !(options & GTK_IMHTML_NO_SIZES))
 							    gtk_imhtml_font_set_size(imhtml, oldfont->size);
 
 							if ((font->underline != oldfont->underline) && !(options & GTK_IMHTML_NO_FORMATTING))
 							    gtk_imhtml_toggle_underline(imhtml);
 
+							if ((font->strike != oldfont->strike) && !(options & GTK_IMHTML_NO_FORMATTING))
+							    gtk_imhtml_toggle_strike(imhtml);
+
 							if (((font->bold && !oldfont->bold) || (oldfont->bold && !font->bold)) && !(options & GTK_IMHTML_NO_FORMATTING))
-								gtk_imhtml_toggle_bold(imhtml);
+							    gtk_imhtml_toggle_bold(imhtml);
 
 							if (font->face && (!oldfont->face || strcmp(font->face, oldfont->face) != 0) && !(options & GTK_IMHTML_NO_FONTS))
 							    gtk_imhtml_toggle_fontface(imhtml, oldfont->face);
@@ -3281,7 +3299,7 @@ void gtk_imhtml_insert_html_at_iter(GtkIMHtml        *imhtml,
 							    gtk_imhtml_toggle_forecolor(imhtml, oldfont->fore);
 
 							if (font->back && (!oldfont->back || strcmp(font->back, oldfont->back) != 0) && !(options & GTK_IMHTML_NO_COLOURS))
-						      gtk_imhtml_toggle_backcolor(imhtml, oldfont->back);
+							    gtk_imhtml_toggle_backcolor(imhtml, oldfont->back);
 						}
 
 						g_free (font->face);
@@ -3839,7 +3857,7 @@ static void
 gtk_imhtml_custom_smiley_save(GtkWidget *w, GtkIMHtmlImageSave *save)
 {
 	GtkIMHtmlImage *image = (GtkIMHtmlImage *)save->image;
-	
+
 	/* Create an add dialog */
 	PidginSmiley *editor = pidgin_smiley_edit(NULL, NULL);
 	pidgin_smiley_editor_set_shortcut(editor, image->filename);
@@ -5037,16 +5055,8 @@ void gtk_imhtml_insert_image_at_iter(GtkIMHtml *imhtml, int id, GtkTextIter *ite
 
 		data = imhtml->funcs->image_get_data(image);
 		len = imhtml->funcs->image_get_size(image);
-
-		if (data && len) {
-			GdkPixbufLoader *loader = gdk_pixbuf_loader_new();
-			gdk_pixbuf_loader_write(loader, data, len, NULL);
-			gdk_pixbuf_loader_close(loader, NULL);
-			anim = gdk_pixbuf_loader_get_animation(loader);
-			if (anim)
-				g_object_ref(G_OBJECT(anim));
-			g_object_unref(G_OBJECT(loader));
-		}
+		if (data && len)
+			anim = pidgin_pixbuf_anim_from_data(data, len);
 
 	}
 
@@ -5679,18 +5689,19 @@ static void gtk_custom_smiley_closed(GdkPixbufLoader *loader, gpointer user_data
 static void
 gtk_custom_smiley_size_prepared(GdkPixbufLoader *loader, gint width, gint height, gpointer data)
 {
-#define CUSTOM_SMILEY_SIZE 96	/* XXX: Should this be a theme setting? */
-	if (width <= CUSTOM_SMILEY_SIZE && height <= CUSTOM_SMILEY_SIZE)
-		return;
+	if (purple_prefs_get_bool(PIDGIN_PREFS_ROOT "/conversations/resize_custom_smileys")) {
+		int custom_smileys_size = purple_prefs_get_int(PIDGIN_PREFS_ROOT "/conversations/custom_smileys_size");
+		if (width <= custom_smileys_size && height <= custom_smileys_size)
+			return;
 
-	if (width >= height) {
-		height = height * CUSTOM_SMILEY_SIZE / width;
-		width = CUSTOM_SMILEY_SIZE;
-	} else {
-		width = width * CUSTOM_SMILEY_SIZE / height;
-		height = CUSTOM_SMILEY_SIZE;
+		if (width >= height) {
+			height = height * custom_smileys_size / width;
+			width = custom_smileys_size;
+		} else {
+			width = width * custom_smileys_size / height;
+			height = custom_smileys_size;
+		}
 	}
-
 	gdk_pixbuf_loader_set_size(loader, width, height);
 }
 

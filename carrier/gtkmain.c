@@ -76,18 +76,6 @@
 
 #include <getopt.h>
 
-#ifdef HAVE_STARTUP_NOTIFICATION
-# define SN_API_NOT_YET_FROZEN
-# include <libsn/sn-launchee.h>
-# include <gdk/gdkx.h>
-#endif
-
-
-
-#ifdef HAVE_STARTUP_NOTIFICATION
-static SnLauncheeContext *sn_context = NULL;
-static SnDisplay *sn_display = NULL;
-#endif
 
 #ifdef HAVE_SIGNAL_H
 
@@ -282,7 +270,7 @@ ui_main(void)
 	/* use the nice PNG icon for all the windows */
 	for(i=0; i<G_N_ELEMENTS(icon_sizes); i++) {
 		icon_path = g_build_filename(DATADIR, "icons", "hicolor", icon_sizes[i].dir, "apps", icon_sizes[i].filename, NULL);
-		icon = gdk_pixbuf_new_from_file(icon_path, NULL);
+		icon = pidgin_pixbuf_new_from_file(icon_path);
 		g_free(icon_path);
 		if (icon) {
 			icons = g_list_append(icons,icon);
@@ -393,8 +381,10 @@ static GHashTable *pidgin_ui_get_info(void)
 		 * account "markdoliner."  Please don't use this key for other
 		 * applications.  You can either not specify a client key, in
 		 * which case the default "libpurple" key will be used, or you
-		 * can register for your own client key at
-		 * http://developer.aim.com/manageKeys.jsp
+		 * can try to register your own at the AIM or ICQ web sites
+		 * (although this functionality was removed at some point, it's
+		 * possible it has been re-added).  AOL's old key management
+		 * page is http://developer.aim.com/manageKeys.jsp
 		 */
 		g_hash_table_insert(ui_info, "prpl-aim-clientkey", "ma1cSASNCKFtrdv9");
 		g_hash_table_insert(ui_info, "prpl-icq-clientkey", "ma1cSASNCKFtrdv9");
@@ -471,42 +461,6 @@ show_usage(const char *name, gboolean terse)
 	purple_print_utf8_to_console(stdout, text);
 	g_free(text);
 }
-
-#ifdef HAVE_STARTUP_NOTIFICATION
-static void
-sn_error_trap_push(SnDisplay *display, Display *xdisplay)
-{
-	gdk_error_trap_push();
-}
-
-static void
-sn_error_trap_pop(SnDisplay *display, Display *xdisplay)
-{
-	gdk_error_trap_pop();
-}
-
-static void
-startup_notification_complete(void)
-{
-	Display *xdisplay;
-
-	xdisplay = GDK_DISPLAY();
-	sn_display = sn_display_new(xdisplay,
-								sn_error_trap_push,
-								sn_error_trap_pop);
-	sn_context =
-		sn_launchee_context_new_from_environment(sn_display,
-												 DefaultScreen(xdisplay));
-
-	if (sn_context != NULL)
-	{
-		sn_launchee_context_complete(sn_context);
-		sn_launchee_context_unref(sn_context);
-
-		sn_display_unref(sn_display);
-	}
-}
-#endif /* HAVE_STARTUP_NOTIFICATION */
 
 /* FUCKING GET ME A TOWEL! */
 #ifdef _WIN32
@@ -876,6 +830,7 @@ int main(int argc, char *argv[])
 		dbus_connection_send_with_reply_and_block(conn, message, -1, NULL);
 		dbus_message_unref(message);
 #endif
+		gdk_notify_startup_complete();
 		purple_core_quit();
 		g_printerr(_("Exiting because another libpurple client is already running.\n"));
 #ifdef HAVE_SIGNAL_H
@@ -967,9 +922,10 @@ int main(int argc, char *argv[])
 		g_list_free(active_accounts);
 	}
 
-#ifdef HAVE_STARTUP_NOTIFICATION
-	startup_notification_complete();
-#endif
+	/* GTK clears the notification for us when opening the first window,
+	 * but we may have launched with only a status icon, so clear the it
+	 * just in case. */
+	gdk_notify_startup_complete();
 
 #ifdef _WIN32
 	winpidgin_post_init();
