@@ -78,8 +78,6 @@ struct _MsnMessage
 
 	MsnMsgType type;
 
-	gboolean msnslp_message;
-	MsnSlpMessage *slpmsg;
 	MsnSlpMessagePart *part;
 
 	char *remote_user;
@@ -99,15 +97,12 @@ struct _MsnMessage
 								  been ref'ed for using it in a callback. */
 
 	MsnCommand *cmd;
-	MsnTransaction *trans;
 
 	MsnMsgCb ack_cb; /**< The callback to call when we receive an ACK of this
 					   message. */
 	MsnMsgCb nak_cb; /**< The callback to call when we receive a NAK of this
 					   message. */
 	void *ack_data; /**< The data used by callbacks. */
-
-	MsnMsgErrorType error; /**< The error of the message. */
 
 	guint32 retries;
 };
@@ -139,15 +134,6 @@ MsnMessage *msn_message_new_nudge(void);
  * @return A new plain message.
  */
 MsnMessage *msn_message_new_plain(const char *message);
-
-/**
- * Creates a MSNSLP ack message.
- *
- * @param acked_msg The message to acknowledge.
- *
- * @return A new MSNSLP ack message.
- */
-MsnMessage *msn_message_new_msnslp_ack(MsnMessage *acked_msg);
 
 /**
  * Creates a new message based off a command.

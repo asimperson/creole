@@ -1,5 +1,5 @@
 /**
- * @file contact.c 
+ * @file contact.c
  * 	get MSN contacts via SOAP request
  *	created by MaYuan<mayuan2006@gmail.com>
  *
@@ -339,7 +339,7 @@ msn_create_address_book(MsnSession *session)
 	g_return_if_fail(session != NULL);
 	g_return_if_fail(session->user != NULL);
 	g_return_if_fail(session->user->passport != NULL);
-	
+
 	purple_debug_info("msn", "Creating an Address Book.\n");
 
 	body = g_strdup_printf(MSN_ADD_ADDRESSBOOK_TEMPLATE,
@@ -363,10 +363,9 @@ msn_parse_each_member(MsnSession *session, xmlnode *member, const char *node,
 	char *type;
 	char *member_id;
 	MsnUser *user;
-	xmlnode *annotation, *display;
+	xmlnode *annotation;
 	guint nid = MSN_NETWORK_UNKNOWN;
 	char *invite = NULL;
-	char *display_text;
 
 	passport = xmlnode_get_data(xmlnode_get_child(member, node));
 	if (!msn_email_is_valid(passport)) {
@@ -376,13 +375,8 @@ msn_parse_each_member(MsnSession *session, xmlnode *member, const char *node,
 
 	type = xmlnode_get_data(xmlnode_get_child(member, "Type"));
 	member_id = xmlnode_get_data(xmlnode_get_child(member, "MembershipId"));
-	if ((display = xmlnode_get_child(member, "DisplayName"))) {
-		display_text = xmlnode_get_data(display);
-	} else {
-		display_text = NULL;
-	}
 
-	user = msn_userlist_find_add_user(session->userlist, passport, display_text);
+	user = msn_userlist_find_add_user(session->userlist, passport, NULL);
 
 	for (annotation = xmlnode_get_child(member, "Annotations/Annotation");
 	     annotation;
@@ -423,7 +417,6 @@ msn_parse_each_member(MsnSession *session, xmlnode *member, const char *node,
 	g_free(type);
 	g_free(member_id);
 	g_free(invite);
-	g_free(display_text);
 }
 
 static void
@@ -481,7 +474,7 @@ msn_parse_each_service(MsnSession *session, xmlnode *service)
 }
 
 /*parse contact list*/
-static void
+static gboolean
 msn_parse_contact_list(MsnSession *session, xmlnode *node)
 {
 	xmlnode *fault, *faultnode;
@@ -506,13 +499,14 @@ msn_parse_contact_list(MsnSession *session, xmlnode *node)
 			if (g_str_equal(errorcode, "ABDoesNotExist")) {
 				msn_create_address_book(session);
 				g_free(errorcode);
-				return;
+				return FALSE;
 			}
 
 			g_free(errorcode);
 		}
 
 		msn_get_contact_list(session, MSN_PS_INITIAL, NULL);
+		return FALSE;
 	} else {
 		xmlnode *service;
 
@@ -521,6 +515,7 @@ msn_parse_contact_list(MsnSession *session, xmlnode *node)
 			 service; service = xmlnode_get_next_twin(service)) {
 			msn_parse_each_service(session, service);
 		}
+		return TRUE;
 	}
 }
 
@@ -541,23 +536,24 @@ msn_get_contact_list_cb(MsnSoapMessage *req, MsnSoapMessage *resp,
 
 		purple_debug_misc("msn", "Got the contact list!\n");
 
-		msn_parse_contact_list(session, resp->xml);
+		if (msn_parse_contact_list(session, resp->xml)) {
 #ifdef MSN_PARTIAL_LISTS
-		abLastChange = purple_account_get_string(session->account,
-			"ablastChange", NULL);
-		dynamicItemLastChange = purple_account_get_string(session->account,
-			"DynamicItemLastChanged", NULL);
+			abLastChange = purple_account_get_string(session->account,
+				"ablastChange", NULL);
+			dynamicItemLastChange = purple_account_get_string(session->account,
+				"DynamicItemLastChanged", NULL);
 #endif
 
-		if (state->partner_scenario == MSN_PS_INITIAL) {
+			if (state->partner_scenario == MSN_PS_INITIAL) {
 #ifdef MSN_PARTIAL_LISTS
-			/* XXX: this should be enabled when we can correctly do partial
-			   syncs with the server. Currently we need to retrieve the whole
-			   list to detect sync issues */
-			msn_get_address_book(session, MSN_PS_INITIAL, abLastChange, dynamicItemLastChange);
+				/* XXX: this should be enabled when we can correctly do partial
+				   syncs with the server. Currently we need to retrieve the whole
+				   list to detect sync issues */
+				msn_get_address_book(session, MSN_PS_INITIAL, abLastChange, dynamicItemLastChange);
 #else
-			msn_get_address_book(session, MSN_PS_INITIAL, NULL, NULL);
+				msn_get_address_book(session, MSN_PS_INITIAL, NULL, NULL);
 #endif
+			}
 		}
 	}
 }
@@ -1674,7 +1670,7 @@ msn_del_contact_from_list(MsnSession *session, MsnCallbackState *state,
 	msn_callback_state_set_who(state, passport);
 
 	user = msn_userlist_find_user(session->userlist, passport);
-	
+
 	if (list == MSN_LIST_PL) {
 		partner_scenario = MSN_PS_CONTACT_API;
 		if (user->networkid != MSN_NETWORK_PASSPORT)
@@ -1878,7 +1874,7 @@ msn_group_read_cb(MsnSoapMessage *req, MsnSoapMessage *resp, gpointer data)
 			} else if (state->action & MSN_MOVE_BUDDY) {
 				/* This will be freed when the add contact callback fires */
 				MsnCallbackState *new_state = msn_callback_state_dup(state);
-				msn_add_contact_to_group(session, new_state, state->who, guid); 
+				msn_add_contact_to_group(session, new_state, state->who, guid);
 				g_free(guid);
 				return;
 			}

@@ -37,7 +37,7 @@ $(PIDGIN_DLL) $(PIDGIN_DLL).a:
 	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) pidgin.dll
 
 $(PIDGIN_EXE):
-	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) pidgin.exe
+	$(MAKE) -C $(PIDGIN_TOP) -f $(MINGW_MAKEFILE) carrier.exe
 
 # Installation Directories
 $(PIDGIN_INSTALL_DIR):

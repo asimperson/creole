@@ -162,6 +162,7 @@ struct _GtkIMHtmlClass {
 	GList *protocols; /* List of GtkIMHtmlProtocol's */
 };
 
+/** @deprecated as of 2.7.10 */
 struct _GtkIMHtmlFontDetail {
 	gushort size;
 	gchar *face;
@@ -170,6 +171,7 @@ struct _GtkIMHtmlFontDetail {
 	gchar *bg;
 	gchar *sml;
 	gboolean underline;
+	gboolean strike;
 	gshort bold;
 };
 

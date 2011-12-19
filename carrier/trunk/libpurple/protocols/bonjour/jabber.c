@@ -665,9 +665,13 @@ _server_socket_handler(gpointer data, int server_socket, PurpleInputCondition co
 
 	/* Look for the buddy that has opened the conversation and fill information */
 #ifdef HAVE_INET_NTOP
-	if (their_addr.ss_family == AF_INET6)
+	if (their_addr.ss_family == AF_INET6) {
 		address_text = inet_ntop(their_addr.ss_family, &((struct sockaddr_in6 *)&their_addr)->sin6_addr,
 			addrstr, sizeof(addrstr));
+
+		append_iface_if_linklocal(addrstr,
+			((struct sockaddr_in6 *)&their_addr)->sin6_scope_id);
+	}
 	else
 		address_text = inet_ntop(their_addr.ss_family, &((struct sockaddr_in *)&their_addr)->sin_addr,
 			addrstr, sizeof(addrstr));
@@ -831,11 +835,44 @@ _connected_to_buddy(gpointer data, gint source, const gchar *error)
 	if (source < 0) {
 		PurpleConversation *conv = NULL;
 		PurpleAccount *account = NULL;
+		GSList *tmp = bb->ips;
 
-		purple_debug_error("bonjour", "Error connecting to buddy %s at %s:%d error: %s\n",
-				   purple_buddy_get_name(pb), bb->conversation->ip, bb->port_p2pj, error ? error : "(null)");
+		purple_debug_error("bonjour", "Error connecting to buddy %s at %s:%d (%s); Trying next IP address\n",
+				   purple_buddy_get_name(pb), bb->conversation->ip, bb->port_p2pj, error);
+
+		/* There may be multiple entries for the same IP - one per
+		 * presence recieved (e.g. multiple interfaces).
+		 * We need to make sure that we find the previously used entry.
+		 */
+		while (tmp && bb->conversation->ip_link != tmp->data)
+			tmp = g_slist_next(tmp);
+		if (tmp)
+			tmp = g_slist_next(tmp);
 
 		account = purple_buddy_get_account(pb);
+
+		if (tmp != NULL) {
+			const gchar *ip;
+			PurpleProxyConnectData *connect_data;
+
+			bb->conversation->ip_link = ip = tmp->data;
+
+			purple_debug_info("bonjour", "Starting conversation with %s at %s:%d\n",
+					  purple_buddy_get_name(pb), ip, bb->port_p2pj);
+
+			connect_data = purple_proxy_connect(purple_account_get_connection(account),
+							    account, ip, bb->port_p2pj, _connected_to_buddy, pb);
+
+			if (connect_data != NULL) {
+				g_free(bb->conversation->ip);
+				bb->conversation->ip = g_strdup(ip);
+				bb->conversation->connect_data = connect_data;
+
+				return;
+			}
+		}
+
+		purple_debug_error("bonjour", "No more addresses for buddy %s. Aborting", purple_buddy_get_name(pb));
 
 		conv = purple_find_conversation_with_account(PURPLE_CONV_TYPE_IM, bb->name, account);
 		if (conv != NULL)
@@ -995,10 +1032,9 @@ _find_or_start_conversation(BonjourJabber *jdata, const gchar *to)
 	{
 		PurpleProxyConnectData *connect_data;
 		PurpleProxyInfo *proxy_info;
-		/* For better or worse, use the first IP*/
-		const char *ip = bb->ips->data;
+		const char *ip = bb->ips->data; /* Start with the first IP address. */
 
-		purple_debug_info("bonjour", "Starting conversation with %s\n", to);
+		purple_debug_info("bonjour", "Starting conversation with %s at %s:%d\n", to, ip, bb->port_p2pj);
 
 		/* Make sure that the account always has a proxy of "none".
 		 * This is kind of dirty, but proxy_connect_none() isn't exposed. */
@@ -1021,6 +1057,7 @@ _find_or_start_conversation(BonjourJabber *jdata, const gchar *to)
 
 		bb->conversation = bonjour_jabber_conv_new(pb, jdata->account, ip);
 		bb->conversation->connect_data = connect_data;
+		bb->conversation->ip_link = ip;
 		/* We don't want _send_data() to register the tx_handler;
 		 * that neeeds to wait until we're actually connected. */
 		bb->conversation->tx_handler = 0;
@@ -1408,4 +1445,20 @@ bonjour_jabber_get_local_ips(int fd)
 #endif
 
 	return ips;
+}
+
+void
+append_iface_if_linklocal(char *ip, uint32_t interface) {
+	struct in6_addr in6_addr;
+	int len_remain = INET6_ADDRSTRLEN - strlen(ip);
+
+	if (len_remain <= 1)
+		return;
+
+	if (inet_pton(AF_INET6, ip, &in6_addr) != 1 ||
+	    !IN6_IS_ADDR_LINKLOCAL(&in6_addr))
+		return;
+
+	snprintf(ip + strlen(ip), len_remain, "%%%d",
+		 interface);
 }

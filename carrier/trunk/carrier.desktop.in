@@ -1,9 +1,9 @@
 [Desktop Entry]
-_Name=Pidgin Internet Messenger
+_Name=Carrier Internet Messenger
 _GenericName=Internet Messenger
 _Comment=Chat over IM.  Supports AIM, Google Talk, Jabber/XMPP, MSN, Yahoo and more
-Exec=pidgin
-Icon=pidgin
+Exec=carrier
+Icon=carrier
 StartupNotify=true
 Terminal=false
 Type=Application

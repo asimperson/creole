@@ -113,7 +113,6 @@ SMILEYS = 	act-up.png \
     pray.png \
     present.png \
     pumpkin.png \
-    qq.png \
     question.png \
     quiet.png \
     rainbow.png \

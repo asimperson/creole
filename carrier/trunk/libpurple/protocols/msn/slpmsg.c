@@ -34,22 +34,23 @@
  **************************************************************************/
 
 MsnSlpMessage *
-msn_slpmsg_new(MsnSlpLink *slplink)
+msn_slpmsg_new(MsnSlpLink *slplink, MsnSlpCall *slpcall)
 {
 	MsnSlpMessage *slpmsg;
+	MsnP2PVersion p2p;
+
+	g_return_val_if_fail(slplink != NULL, NULL);
 
 	slpmsg = g_new0(MsnSlpMessage, 1);
 
 	if (purple_debug_is_verbose())
 		purple_debug_info("msn", "slpmsg new (%p)\n", slpmsg);
 
-	if (slplink) 
-		msn_slpmsg_set_slplink(slpmsg, slplink);
-	else
-		slpmsg->slplink = NULL;
+	msn_slpmsg_set_slplink(slpmsg, slplink);
+	slpmsg->slpcall = slpcall;
 
-	slpmsg->header = g_new0(MsnP2PHeader, 1);
-	slpmsg->footer = NULL;
+	p2p = msn_slplink_get_p2p_version(slplink);
+	slpmsg->p2p_info = msn_p2p_info_new(p2p);
 
 	return slpmsg;
 }
@@ -90,8 +91,7 @@ msn_slpmsg_destroy(MsnSlpMessage *slpmsg)
 
 	slplink->slp_msgs = g_list_remove(slplink->slp_msgs, slpmsg);
 
-	g_free(slpmsg->header);
-	g_free(slpmsg->footer);
+	msn_p2p_info_free(slpmsg->p2p_info);
 
 	g_free(slpmsg);
 }
@@ -105,7 +105,6 @@ msn_slpmsg_set_slplink(MsnSlpMessage *slpmsg, MsnSlpLink *slplink)
 
 	slplink->slp_msgs =
 		g_list_append(slplink->slp_msgs, slpmsg);
-
 }
 
 void
@@ -190,29 +189,24 @@ msn_slpmsg_sip_new(MsnSlpCall *slpcall, int cseq,
 		g_strlcat(body, content, body_len);
 	}
 
-	slpmsg = msn_slpmsg_new(slplink);
+	slpmsg = msn_slpmsg_new(slplink, slpcall);
 	msn_slpmsg_set_body(slpmsg, body, body_len);
-
-	slpmsg->sip = TRUE;
-	slpmsg->slpcall = slpcall;
 
 	g_free(body);
 
 	return slpmsg;
 }
 
-MsnSlpMessage *msn_slpmsg_ack_new(MsnP2PHeader *header)
+MsnSlpMessage *msn_slpmsg_ack_new(MsnSlpLink *slplink, MsnP2PInfo *ack_info)
 {
 	MsnSlpMessage *slpmsg;
+	MsnP2PInfo *new_info;
 
-	slpmsg = msn_slpmsg_new(NULL);
+	slpmsg = msn_slpmsg_new(slplink, NULL);
 
-	slpmsg->header->session_id = header->session_id;
-	slpmsg->size       = header->total_size;
-	slpmsg->header->flags      = P2P_ACK;
-	slpmsg->header->ack_id     = header->id;
-	slpmsg->header->ack_sub_id = header->ack_id;
-	slpmsg->header->ack_size   = header->total_size;
+	new_info = slpmsg->p2p_info;
+	msn_p2p_info_create_ack(ack_info, new_info);
+	slpmsg->size = msn_p2p_info_get_total_size(ack_info);
 	slpmsg->info = "SLP ACK";
 
 	return slpmsg;
@@ -222,9 +216,8 @@ MsnSlpMessage *msn_slpmsg_obj_new(MsnSlpCall *slpcall, PurpleStoredImage *img)
 {
 	MsnSlpMessage *slpmsg;
 
-	slpmsg = msn_slpmsg_new(NULL);
-	slpmsg->slpcall = slpcall;
-	slpmsg->header->flags = P2P_MSN_OBJ_DATA;
+	slpmsg = msn_slpmsg_new(slpcall->slplink, slpcall);
+	msn_p2p_info_set_flags(slpmsg->p2p_info, P2P_MSN_OBJ_DATA);
 	slpmsg->info = "SLP DATA";
 
 	msn_slpmsg_set_image(slpmsg, img);
@@ -236,10 +229,9 @@ MsnSlpMessage *msn_slpmsg_dataprep_new(MsnSlpCall *slpcall)
 {
 	MsnSlpMessage *slpmsg;
 
-	slpmsg = msn_slpmsg_new(NULL);
+	slpmsg = msn_slpmsg_new(slpcall->slplink, slpcall);
 
-	slpmsg->slpcall = slpcall;
-	slpmsg->header->session_id = slpcall->session_id;
+	msn_p2p_info_set_session_id(slpmsg->p2p_info, slpcall->session_id);
 	msn_slpmsg_set_body(slpmsg, NULL, 4);
 	slpmsg->info = "SLP DATA PREP";
 
@@ -251,10 +243,9 @@ MsnSlpMessage *msn_slpmsg_file_new(MsnSlpCall *slpcall, size_t size)
 {
 	MsnSlpMessage *slpmsg;
 
-	slpmsg = msn_slpmsg_new(NULL);
+	slpmsg = msn_slpmsg_new(slpcall->slplink, slpcall);
 
-	slpmsg->slpcall = slpcall;
-	slpmsg->header->flags = P2P_FILE_DATA;
+	msn_p2p_info_set_flags(slpmsg->p2p_info, P2P_FILE_DATA);
 	slpmsg->info = "SLP FILE";
 	slpmsg->size = size;
 
@@ -267,27 +258,25 @@ char *msn_slpmsg_serialize(MsnSlpMessage *slpmsg, size_t *ret_size)
 	char *footer;
 	char *base;
 	char *tmp;
-	size_t siz;
+	size_t header_size, footer_size;
 
-	base = g_malloc(P2P_PACKET_HEADER_SIZE + slpmsg->size + P2P_PACKET_FOOTER_SIZE);
+	header = msn_p2p_header_to_wire(slpmsg->p2p_info, &header_size);
+	footer = msn_p2p_footer_to_wire(slpmsg->p2p_info, &footer_size);
+
+	base = g_malloc(header_size + slpmsg->size + footer_size);
 	tmp = base;
 
-	header = msn_p2p_header_to_wire(slpmsg->header);
-	footer = msn_p2p_footer_to_wire(slpmsg->footer);
-
-	siz = P2P_PACKET_HEADER_SIZE;
 	/* Copy header */
-	memcpy(tmp, header, siz);
-	tmp += siz;
+	memcpy(tmp, header, header_size);
+	tmp += header_size;
 
 	/* Copy body */
 	memcpy(tmp, slpmsg->buffer, slpmsg->size);
 	tmp += slpmsg->size;
 
 	/* Copy footer */
-	siz = P2P_PACKET_FOOTER_SIZE;
-	memcpy(tmp, footer, siz);
-	tmp += siz;
+	memcpy(tmp, footer, footer_size);
+	tmp += footer_size;
 
 	*ret_size = tmp - base;
 
@@ -303,15 +292,7 @@ void msn_slpmsg_show_readable(MsnSlpMessage *slpmsg)
 
 	str = g_string_new(NULL);
 
-	g_string_append_printf(str, "Session ID: %u\r\n", slpmsg->header->session_id);
-	g_string_append_printf(str, "ID:         %u\r\n", slpmsg->header->id);
-	g_string_append_printf(str, "Offset:     %" G_GUINT64_FORMAT "\r\n", slpmsg->header->offset);
-	g_string_append_printf(str, "Total size: %" G_GUINT64_FORMAT "\r\n", slpmsg->header->total_size);
-	g_string_append_printf(str, "Length:     %u\r\n", slpmsg->header->length);
-	g_string_append_printf(str, "Flags:      0x%x\r\n", slpmsg->header->flags);
-	g_string_append_printf(str, "ACK ID:     %u\r\n", slpmsg->header->ack_id);
-	g_string_append_printf(str, "SUB ID:     %u\r\n", slpmsg->header->ack_sub_id);
-	g_string_append_printf(str, "ACK Size:   %" G_GUINT64_FORMAT "\r\n", slpmsg->header->ack_size);
+	msn_p2p_info_to_string(slpmsg->p2p_info, str);
 
 	if (purple_debug_is_verbose() && slpmsg->buffer != NULL) {
 		g_string_append_len(str, (gchar*)slpmsg->buffer, slpmsg->size);
@@ -323,8 +304,6 @@ void msn_slpmsg_show_readable(MsnSlpMessage *slpmsg)
 		g_string_append(str, "\r\n");
 
 	}
-
-	g_string_append_printf(str, "Footer:     %u\r\n", slpmsg->footer->value);
 
 	purple_debug_info("msn", "SlpMessage %s:\n{%s}\n", slpmsg->info, str->str);
 }
