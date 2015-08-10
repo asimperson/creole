@@ -125,3 +125,13 @@ libpurple/purple-client-bindings.c
 libpurple/purple-client-bindings.h
 libpurple/purple-client-example
 
+carrier.spec
+compile
+config.guess
+config.h.in
+config.sub
+depcomp
+install-sh
+ltmain.sh
+missing
+mkinstalldirs
